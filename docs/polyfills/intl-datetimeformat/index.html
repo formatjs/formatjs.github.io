@@ -78,6 +78,48 @@
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/polyfill.js&#x27;</span>
 </span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/add-golden-tz.js&#x27;</span>
 </span></code></pre>
+<h3 id="utc-offset-timezones" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">UTC Offset Timezones<a href="#utc-offset-timezones" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">This polyfill supports UTC offset timezone identifiers as specified in <a href="https://tc39.es/ecma402/" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ECMA-402</a> (ES2026). You can use offset-based timezone strings in addition to IANA timezone names.</p>
+<h4 id="supported-formats" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Supported Formats<a href="#supported-formats" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<p class="mb-4 leading-7 text-gray-300">The following UTC offset formats are supported:</p>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01:00&quot;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-05:00&quot;</code> (recommended format)</li>
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HHMM</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+0100&quot;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-0500&quot;</code></li>
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01&quot;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-05&quot;</code></li>
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM:SS</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01:30:45&quot;</code> (with seconds)</li>
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM:SS.sss</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01:30:45.123&quot;</code> (with fractional seconds)</li>
+</ul>
+<p class="mb-4 leading-7 text-gray-300">All offset formats are automatically canonicalized to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM</code> format (with seconds/fractional seconds preserved if non-zero).</p>
+<h4 id="usage-example" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Usage Example<a href="#usage-example" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/polyfill.js&#x27;</span>
+</span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/locale-data/en.js&#x27;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">// Using UTC offset timezone</span>
+</span><span class="code-line"><span class="token keyword">const</span> formatter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intl</span><span class="token punctuation">.</span><span class="token method function property-access"><span class="token maybe-class-name">DateTimeFormat</span></span><span class="token punctuation">(</span><span class="token string">&#x27;en-GB&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+</span><span class="code-line">  timeZone<span class="token operator">:</span> <span class="token string">&#x27;+01:00&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  year<span class="token operator">:</span> <span class="token string">&#x27;numeric&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  month<span class="token operator">:</span> <span class="token string">&#x27;numeric&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  day<span class="token operator">:</span> <span class="token string">&#x27;numeric&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  hour<span class="token operator">:</span> <span class="token string">&#x27;numeric&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  minute<span class="token operator">:</span> <span class="token string">&#x27;numeric&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token method function property-access">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">&#x27;2024-01-01T00:00:00Z&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">// Output: &quot;01/01/2024, 01:00&quot;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">// Works with @date-fns/tz and other libraries</span>
+</span><span class="code-line"><span class="token keyword">const</span> dtf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intl</span><span class="token punctuation">.</span><span class="token method function property-access"><span class="token maybe-class-name">DateTimeFormat</span></span><span class="token punctuation">(</span><span class="token string">&#x27;en-GB&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+</span><span class="code-line">  timeZone<span class="token operator">:</span> <span class="token string">&#x27;+01:00&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  hour<span class="token operator">:</span> <span class="token string">&#x27;numeric&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  timeZoneName<span class="token operator">:</span> <span class="token string">&#x27;longOffset&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
+<h4 id="compatibility" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Compatibility<a href="#compatibility" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300">UTC offset timezones work without loading any timezone data (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add-all-tz.js</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add-golden-tz.js</code>)</li>
+<li class="mb-2 text-gray-300">Compatible with libraries like <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@date-fns/tz</code> in React Native/Hermes environments</li>
+<li class="mb-2 text-gray-300">Follows the same behavior as Chrome and Node.js 22+ native implementations</li>
+</ul>
 <h3 id="default-timezone" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Default Timezone<a href="#default-timezone" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Since JS Engines do not expose default timezone, there&#x27;s currently no way for us to detect local timezone that a browser is in. Therefore, the default timezone in this polyfill is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">You can change this by either calling <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__setDefaultTimeZone</code> or always explicitly pass in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZone</code> option for accurate date time calculation.</p>
@@ -94,9 +136,9 @@
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/src\\/pages\\/docs\\/@path","routeParams":{"path":"polyfills\\/intl-datetimeformat"}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
-        <script src="/assets/entries/entry-client-routing.BpeD9rq8.js" type="module" async></script>
-        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.DqQQrXnS.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-D7mmUC5S.js" as="script" type="text/javascript">
+        <script src="/assets/entries/entry-client-routing.Ck_1Bosf.js" type="module" async></script>
+        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.CnVYfhgN.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-xtkYSOZP.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-B6b-fCh-.js" as="script" type="text/javascript">
       </body>
     </html>
