@@ -148,13 +148,21 @@
 <p class="mb-4 leading-7 text-gray-300">Callback that gets triggered whenever a <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">pragme</code> meta is encountered.</p>
 <h3 id="preservewhitespace" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><strong><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">preserveWhitespace</code></strong><a href="#preservewhitespace" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Whether to preserve whitespace and newlines.</p>
+<h3 id="flatten" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><strong><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">flatten</code></strong><a href="#flatten" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Whether to hoist selectors &amp; flatten sentences as much as possible. For example:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">I have {count, plural, one{a dog} other{many dogs}}
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">becomes</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">{count, plural, one{I have a dog} other{I have many dogs}}
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">The goal is to provide as many full sentences as possible since fragmented sentences are not translator-friendly. This transformation is applied before ID generation when using <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">overrideIdFn</code>, ensuring the ID is based on the flattened message format.</p>
 <p class="mb-4 leading-7 text-gray-300">Take a look at <a href="https://github.com/formatjs/formatjs/blob/main/packages/ts-transformer/examples/compile.ts" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compile.ts</code></a> for example in integration.</p></article></div></div></main></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/src\\/pages\\/docs\\/@path","routeParams":{"path":"tooling\\/ts-transformer"}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
-        <script src="/assets/entries/entry-client-routing.Dzh00lfn.js" type="module" async></script>
-        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.BoT_E__U.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Bvyvw6SD.js" as="script" type="text/javascript">
+        <script src="/assets/entries/entry-client-routing.DEf3Cxnf.js" type="module" async></script>
+        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.DVFJz-fW.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BjIF3H6r.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-B6b-fCh-.js" as="script" type="text/javascript">
       </body>
     </html>
