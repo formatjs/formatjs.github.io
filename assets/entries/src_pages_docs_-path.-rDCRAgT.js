@@ -6360,11 +6360,11 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `,(0,C.jsxs)(t.ol,{children:[`
 `,(0,C.jsx)(t.li,{children:`More concise message.`}),`
 `,(0,C.jsx)(t.li,{children:`Ensures that the count are correctly formatted as numbers.`}),`
-`]})]})}function dg(e={}){let{wrapper:t}={...S(),...e.components};return t?(0,C.jsx)(t,{...e,children:(0,C.jsx)(ug,{...e})}):ug(e)}function fg(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var pg=t({default:()=>hg},1);function mg(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,li:`li`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`overview`,children:[`Overview`,(0,C.jsx)(t.a,{className:`header-link`,href:`#overview`,children:`#`})]}),`
+`]})]})}function dg(e={}){let{wrapper:t}={...S(),...e.components};return t?(0,C.jsx)(t,{...e,children:(0,C.jsx)(ug,{...e})}):ug(e)}function fg(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var pg=t({default:()=>hg},1);function mg(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,li:`li`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`overview`,children:[`Overview`,(0,C.jsx)(t.a,{className:`header-link`,href:`#overview`,children:`#`})]}),`
 `,(0,C.jsx)(t.p,{children:`A high-performance Rust implementation of the ICU MessageFormat parser, providing native parsing capabilities for Rust applications.`}),`
 `,(0,C.jsxs)(t.h2,{id:`features`,children:[`Features`,(0,C.jsx)(t.a,{className:`header-link`,href:`#features`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🚀 High Performance`}),`: Native Rust implementation optimized for speed`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🚀 High Performance`}),`: 2.6-3.7x faster than JavaScript parser (optimized build)`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🌐 Full ICU MessageFormat Support`}),`: Complete syntax support including plurals, selects, and formatting`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🔒 Type Safe`}),`: Strongly-typed AST with comprehensive error handling`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🎯 Zero-Copy Parsing`}),`: Efficient parsing with minimal allocations where possible`]}),`
@@ -6496,22 +6496,31 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
 `,(0,C.jsxs)(t.h2,{id:`performance`,children:[`Performance`,(0,C.jsx)(t.a,{className:`header-link`,href:`#performance`,children:`#`})]}),`
-`,(0,C.jsx)(t.p,{children:`The Rust parser provides significant performance improvements over JavaScript implementations:`}),`
+`,(0,C.jsx)(t.p,{children:`The Rust parser (optimized build) provides significant performance improvements over JavaScript implementations:`}),`
+`,(0,C.jsxs)(t.h3,{id:`benchmark-results`,children:[`Benchmark Results`,(0,C.jsx)(t.a,{className:`header-link`,href:`#benchmark-results`,children:`#`})]}),`
+`,(0,C.jsxs)(t.p,{children:[`Run with: `,(0,C.jsx)(t.code,{children:`bazel run -c opt //crates/icu_messageformat_parser:comparison_bench`})]}),`
+`,(0,C.jsxs)(t.table,{children:[(0,C.jsx)(t.thead,{children:(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.th,{children:`Message Type`}),(0,C.jsx)(t.th,{children:`Rust Parser`}),(0,C.jsx)(t.th,{children:`JavaScript`}),(0,C.jsx)(t.th,{children:`Speedup`}),(0,C.jsx)(t.th,{children:`SWC Parser`}),(0,C.jsx)(t.th,{children:`vs SWC`})]})}),(0,C.jsxs)(t.tbody,{children:[(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:`complex_msg`}),(0,C.jsx)(t.td,{children:`9.22 µs`}),(0,C.jsx)(t.td,{children:`23.85 µs`}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.strong,{children:`2.59x faster`})}),(0,C.jsx)(t.td,{children:`10.3 µs`}),(0,C.jsx)(t.td,{children:`1.11x faster`})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:`normal_msg`}),(0,C.jsx)(t.td,{children:`1.14 µs`}),(0,C.jsx)(t.td,{children:`3.27 µs`}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.strong,{children:`2.87x faster`})}),(0,C.jsx)(t.td,{children:`1.25 µs`}),(0,C.jsx)(t.td,{children:`1.10x faster`})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:`simple_msg`}),(0,C.jsx)(t.td,{children:`163 ns`}),(0,C.jsx)(t.td,{children:`600 ns`}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.strong,{children:`3.68x faster`})}),(0,C.jsx)(t.td,{children:`184 ns`}),(0,C.jsx)(t.td,{children:`1.13x faster`})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:`string_msg`}),(0,C.jsx)(t.td,{children:`118 ns`}),(0,C.jsx)(t.td,{children:`320 ns`}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.strong,{children:`2.71x faster`})}),(0,C.jsx)(t.td,{children:`126 ns`}),(0,C.jsx)(t.td,{children:`1.07x faster`})]})]})]}),`
+`,(0,C.jsxs)(t.h3,{id:`key-performance-characteristics`,children:[`Key Performance Characteristics`,(0,C.jsx)(t.a,{className:`header-link`,href:`#key-performance-characteristics`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Parsing Speed`}),`: 10-20x faster than JS implementations`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Parsing Speed`}),`: 2.6-3.7x faster than JavaScript parser`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Memory Usage`}),`: Lower memory footprint due to efficient allocation`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Optimizations`}),`: Branch prediction hints, pre-allocated vectors, zero-copy parsing`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Note`}),`: Always use `,(0,C.jsx)(t.code,{children:`-c opt`}),` for release builds to enable optimizations`]}),`
 `]}),`
 `,(0,C.jsxs)(t.h2,{id:`building-from-source`,children:[`Building from Source`,(0,C.jsx)(t.a,{className:`header-link`,href:`#building-from-source`,children:`#`})]}),`
 `,(0,C.jsx)(t.pre,{className:`language-bash`,children:(0,C.jsxs)(t.code,{className:`language-bash code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Run tests`}),`
-`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`cargo`}),` `,(0,C.jsx)(t.span,{className:`token builtin class-name`,children:`test`}),` `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`--package`}),` formatjs_icu_messageformat_parser
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`bazel `,(0,C.jsx)(t.span,{className:`token builtin class-name`,children:`test`}),` //crates/icu_messageformat_parser:icu_messageformat_parser_test
 `]}),(0,C.jsx)(t.span,{className:`code-line`,children:`
-`}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Run benchmarks`}),`
-`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`cargo`}),` bench `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`--package`}),` formatjs_icu_messageformat_parser
+`}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Run benchmarks (always use -c opt for accurate results)`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`bazel run `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-c`}),` opt //crates/icu_messageformat_parser:parser_bench
+`]}),(0,C.jsx)(t.span,{className:`code-line`,children:`
+`}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Run comparison benchmark vs other parsers`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`bazel run `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-c`}),` opt //crates/icu_messageformat_parser:comparison_bench
 `]})]})}),`
 `,(0,C.jsxs)(t.h2,{id:`documentation`,children:[`Documentation`,(0,C.jsx)(t.a,{className:`header-link`,href:`#documentation`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
 `,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://docs.rs/formatjs_icu_messageformat_parser`,children:`Rust API Docs`})}),`
-`,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/rust/icu_messageformat_parser`,children:`Source Code`})}),`
+`,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/crates/icu_messageformat_parser`,children:`Source Code`})}),`
 `,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://unicode-org.github.io/icu/userguide/format_parse/messages/`,children:`ICU MessageFormat Syntax`})}),`
 `]}),`
 `,(0,C.jsxs)(t.h2,{id:`related-packages`,children:[`Related Packages`,(0,C.jsx)(t.a,{className:`header-link`,href:`#related-packages`,children:`#`})]}),`
@@ -6783,7 +6792,7 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `,(0,C.jsxs)(t.h2,{id:`documentation`,children:[`Documentation`,(0,C.jsx)(t.a,{className:`header-link`,href:`#documentation`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
 `,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://docs.rs/formatjs_icu_skeleton_parser`,children:`Rust API Docs`})}),`
-`,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/rust/icu_skeleton_parser`,children:`Source Code`})}),`
+`,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/crates/icu_skeleton_parser`,children:`Source Code`})}),`
 `,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html`,children:`ICU Number Skeletons`})}),`
 `,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.a,{href:`https://unicode-org.github.io/icu/userguide/format_parse/datetime/`,children:`ICU Date/Time Patterns`})}),`
 `]}),`
