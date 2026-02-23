@@ -674,6 +674,29 @@ Default complexity limit is 20 (using <a href="https://help.smartling.com/hc/en-
 </span></code></pre>
 <h4 id="why-16" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-16" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">Consistent coding style in JSX and less syntax clutter.</p>
+<h3 id="prefer-full-sentence" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prefer-full-sentence</code><a href="#prefer-full-sentence" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Messages should be self-contained, full sentences. Leading or trailing whitespace in a message suggests it is a fragment being concatenated with other strings, which is an anti-pattern for localization.</p>
+<h4 id="why-17" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-17" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300">String concatenation breaks translation because different languages have different word orders, grammar rules, and sentence structures.</li>
+<li class="mb-2 text-gray-300">Translators need the full sentence to produce an accurate translation.</li>
+<li class="mb-2 text-gray-300">Leading/trailing whitespace is a code smell indicating the message is a fragment.</li>
+</ul>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">const</span> messages <span class="token operator">=</span> <span class="token function">defineMessages</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token comment">// WORKS</span>
+</span><span class="code-line">  foo<span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;Hello {name}, welcome back!&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token comment">// FAILS — leading whitespace</span>
+</span><span class="code-line">  bar<span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&#x27; items in your cart&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token comment">// FAILS — trailing whitespace</span>
+</span><span class="code-line">  baz<span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;You have &#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
 <h3 id="prefer-pound-in-plural" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prefer-pound-in-plural</code><a href="#prefer-pound-in-plural" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">#</code> in the plural argument to reference the count instead of repeating the argument.</p>
 <p class="mb-4 leading-7 text-gray-300"><strong>Bad:</strong></p>
@@ -734,7 +757,7 @@ Default complexity limit is 20 (using <a href="https://help.smartling.com/hc/en-
 </span></span></span></span><span class="code-line"><span class="token argument"><span class="token content"><span class="token plural-style">    <span class="token selector"><span class="token keyword">other</span></span> <span class="token nested-message"><span class="token message-delimiter punctuation">{</span><span class="token message">#th</span><span class="token message-delimiter punctuation">}</span></span></span>
 </span></span></span><span class="code-line"><span class="token argument"><span class="token content"></span><span class="token argument-delimiter operator">}</span></span> place.
 </span></code></pre>
-<h4 id="why-17" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-17" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-18" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-18" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <ol class="pl-6 mb-4 list-decimal marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300">More concise message.</li>
 <li class="mb-2 text-gray-300">Ensures that the count are correctly formatted as numbers.</li>
@@ -742,8 +765,8 @@ Default complexity limit is 20 (using <a href="https://help.smartling.com/hc/en-
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/src\\/pages\\/docs\\/@path","routeParams":{"path":"tooling\\/linter"}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
-        <script src="/assets/entries/entry-client-routing.CGUUpnoS.js" type="module" async></script>
-        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.DoVubTpd.js" as="script" type="text/javascript">
+        <script src="/assets/entries/entry-client-routing.BolmW-qF.js" type="module" async></script>
+        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.BY4FI8UZ.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-Bion_s63.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-Ck09OOcZ.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-SAmD9nuY.js" as="script" type="text/javascript">

@@ -7411,6 +7411,29 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `]})]})}),`
 `,(0,C.jsxs)(t.h4,{id:`why-16`,children:[`Why`,(0,C.jsx)(t.a,{className:`header-link`,href:`#why-16`,children:`#`})]}),`
 `,(0,C.jsx)(t.p,{children:`Consistent coding style in JSX and less syntax clutter.`}),`
+`,(0,C.jsxs)(t.h3,{id:`prefer-full-sentence`,children:[(0,C.jsx)(t.code,{children:`prefer-full-sentence`}),(0,C.jsx)(t.a,{className:`header-link`,href:`#prefer-full-sentence`,children:`#`})]}),`
+`,(0,C.jsx)(t.p,{children:`Messages should be self-contained, full sentences. Leading or trailing whitespace in a message suggests it is a fragment being concatenated with other strings, which is an anti-pattern for localization.`}),`
+`,(0,C.jsxs)(t.h4,{id:`why-17`,children:[`Why`,(0,C.jsx)(t.a,{className:`header-link`,href:`#why-17`,children:`#`})]}),`
+`,(0,C.jsxs)(t.ul,{children:[`
+`,(0,C.jsx)(t.li,{children:`String concatenation breaks translation because different languages have different word orders, grammar rules, and sentence structures.`}),`
+`,(0,C.jsx)(t.li,{children:`Translators need the full sentence to produce an accurate translation.`}),`
+`,(0,C.jsx)(t.li,{children:`Leading/trailing whitespace is a code smell indicating the message is a fragment.`}),`
+`]}),`
+`,(0,C.jsx)(t.pre,{className:`language-tsx`,children:(0,C.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token keyword`,children:`const`}),` messages `,(0,C.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,C.jsx)(t.span,{className:`token function`,children:`defineMessages`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token comment`,children:`// WORKS`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  foo`,(0,C.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,C.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,C.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,C.jsx)(t.span,{className:`token string`,children:`'Hello {name}, welcome back!'`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token comment`,children:`// FAILS — leading whitespace`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  bar`,(0,C.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,C.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,C.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,C.jsx)(t.span,{className:`token string`,children:`' items in your cart'`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token comment`,children:`// FAILS — trailing whitespace`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  baz`,(0,C.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,C.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,C.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,C.jsx)(t.span,{className:`token string`,children:`'You have '`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]})]})}),`
 `,(0,C.jsxs)(t.h3,{id:`prefer-pound-in-plural`,children:[(0,C.jsx)(t.code,{children:`prefer-pound-in-plural`}),(0,C.jsx)(t.a,{className:`header-link`,href:`#prefer-pound-in-plural`,children:`#`})]}),`
 `,(0,C.jsxs)(t.p,{children:[`Use `,(0,C.jsx)(t.code,{children:`#`}),` in the plural argument to reference the count instead of repeating the argument.`]}),`
 `,(0,C.jsx)(t.p,{children:(0,C.jsx)(t.strong,{children:`Bad:`})}),`
@@ -7471,7 +7494,7 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `]})})})}),(0,C.jsx)(t.span,{className:`code-line`,children:(0,C.jsx)(t.span,{className:`token argument`,children:(0,C.jsxs)(t.span,{className:`token content`,children:[(0,C.jsxs)(t.span,{className:`token plural-style`,children:[`    `,(0,C.jsx)(t.span,{className:`token selector`,children:(0,C.jsx)(t.span,{className:`token keyword`,children:`other`})}),` `,(0,C.jsxs)(t.span,{className:`token nested-message`,children:[(0,C.jsx)(t.span,{className:`token message-delimiter punctuation`,children:`{`}),(0,C.jsx)(t.span,{className:`token message`,children:`#th`}),(0,C.jsx)(t.span,{className:`token message-delimiter punctuation`,children:`}`})]})]}),`
 `]})})}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsxs)(t.span,{className:`token argument`,children:[(0,C.jsx)(t.span,{className:`token content`}),(0,C.jsx)(t.span,{className:`token argument-delimiter operator`,children:`}`})]}),` place.
 `]})]})}),`
-`,(0,C.jsxs)(t.h4,{id:`why-17`,children:[`Why`,(0,C.jsx)(t.a,{className:`header-link`,href:`#why-17`,children:`#`})]}),`
+`,(0,C.jsxs)(t.h4,{id:`why-18`,children:[`Why`,(0,C.jsx)(t.a,{className:`header-link`,href:`#why-18`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ol,{children:[`
 `,(0,C.jsx)(t.li,{children:`More concise message.`}),`
 `,(0,C.jsx)(t.li,{children:`Ensures that the count are correctly formatted as numbers.`}),`
