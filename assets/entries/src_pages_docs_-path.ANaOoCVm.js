@@ -1,4 +1,4 @@
-import{a as e,r as t,t as n}from"../chunks/chunk-DhKNYI7n.js";import{$ as r,A as i,B as a,C as o,D as s,E as c,F as l,G as u,H as d,I as f,J as p,K as m,L as h,M as g,N as _,O as ee,P as te,R as ne,S as re,T as v,U as ie,V as ae,W as oe,X as y,Y as se,Z as ce,_ as le,a as ue,b as de,c as fe,d as pe,et as b,f as me,g as he,h as ge,i as _e,it as ve,j as ye,k as be,l as xe,m as Se,n as Ce,nt as we,o as Te,p as Ee,q as De,r as Oe,rt as ke,s as Ae,t as je,tt as Me,u as Ne,v as Pe,w as Fe,x as Ie,z as Le}from"../chunks/chunk-CjRzZcup.js";var Re=r(`circle-alert`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`line`,{x1:`12`,x2:`12`,y1:`8`,y2:`12`,key:`1pkeuh`}],[`line`,{x1:`12`,x2:`12.01`,y1:`16`,y2:`16`,key:`4dfq90`}]]),ze=r(`info`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`path`,{d:`M12 16v-4`,key:`1dtifu`}],[`path`,{d:`M12 8h.01`,key:`e9boi3`}]]),Be=r(`lightbulb`,[[`path`,{d:`M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5`,key:`1gvzjb`}],[`path`,{d:`M9 18h6`,key:`x1upvd`}],[`path`,{d:`M10 22h4`,key:`ceow96`}]]),Ve=r(`triangle-alert`,[[`path`,{d:`m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3`,key:`wmoenq`}],[`path`,{d:`M12 9v4`,key:`juzpu7`}],[`path`,{d:`M12 17h.01`,key:`p32p05`}]]),x=e(ve(),1),He={},Ue=x.createContext(He);function S(e){let t=x.useContext(Ue);return x.useMemo(function(){return typeof e==`function`?e(t):{...t,...e}},[t,e])}function We(e){let t;return t=e.disableParentContext?typeof e.components==`function`?e.components(He):e.components||He:S(e.components),x.createElement(Ue.Provider,{value:t},e.children)}var Ge=t({default:()=>qe}),C=b();function Ke(e){let t={a:`a`,code:`code`,h2:`h2`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`what-is-internationalization-and-why-does-it-matter`,children:[`What Is Internationalization and Why Does It Matter?`,(0,C.jsx)(t.a,{className:`header-link`,href:`#what-is-internationalization-and-why-does-it-matter`,children:`#`})]}),`
+import{a as e,r as t,t as n}from"../chunks/chunk-DhKNYI7n.js";import{$ as r,A as i,B as a,C as o,D as s,E as c,F as l,G as u,H as d,I as f,J as p,K as m,L as h,M as g,N as _,O as ee,P as te,R as ne,S as re,T as v,U as ie,V as ae,W as oe,X as y,Y as se,Z as ce,_ as le,a as ue,b as de,c as fe,d as pe,et as b,f as me,g as he,h as ge,i as _e,it as ve,j as ye,k as be,l as xe,m as Se,n as Ce,nt as we,o as Te,p as Ee,q as De,r as Oe,rt as ke,s as Ae,t as je,tt as Me,u as Ne,v as Pe,w as Fe,x as Ie,z as Le}from"../chunks/chunk-DK-o9u3d.js";var Re=r(`circle-alert`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`line`,{x1:`12`,x2:`12`,y1:`8`,y2:`12`,key:`1pkeuh`}],[`line`,{x1:`12`,x2:`12.01`,y1:`16`,y2:`16`,key:`4dfq90`}]]),ze=r(`info`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`path`,{d:`M12 16v-4`,key:`1dtifu`}],[`path`,{d:`M12 8h.01`,key:`e9boi3`}]]),Be=r(`lightbulb`,[[`path`,{d:`M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5`,key:`1gvzjb`}],[`path`,{d:`M9 18h6`,key:`x1upvd`}],[`path`,{d:`M10 22h4`,key:`ceow96`}]]),Ve=r(`triangle-alert`,[[`path`,{d:`m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3`,key:`wmoenq`}],[`path`,{d:`M12 9v4`,key:`juzpu7`}],[`path`,{d:`M12 17h.01`,key:`p32p05`}]]),x=e(ve(),1),He={},Ue=x.createContext(He);function S(e){let t=x.useContext(Ue);return x.useMemo(function(){return typeof e==`function`?e(t):{...t,...e}},[t,e])}function We(e){let t;return t=e.disableParentContext?typeof e.components==`function`?e.components(He):e.components||He:S(e.components),x.createElement(Ue.Provider,{value:t},e.children)}var Ge=t({default:()=>qe}),C=b();function Ke(e){let t={a:`a`,code:`code`,h2:`h2`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`what-is-internationalization-and-why-does-it-matter`,children:[`What Is Internationalization and Why Does It Matter?`,(0,C.jsx)(t.a,{className:`header-link`,href:`#what-is-internationalization-and-why-does-it-matter`,children:`#`})]}),`
 `,(0,C.jsx)(t.p,{children:`Internationalized software supports the languages and cultural customs of people throughout the world. The Web reaches all parts of the world. Internationalized web apps provide a great user experience for people everywhere.`}),`
 `,(0,C.jsx)(t.p,{children:`Localized software adapts to a specific language and culture by translating text into the user's language and formatting data in accordance with the user's expectations. An app is typically localized for a small set of locales.`}),`
 `,(0,C.jsxs)(t.p,{children:[`The `,(0,C.jsx)(t.a,{href:`https://github.com/tc39/ecma402`,children:`ECMA-402 JavaScript internationalization specification`}),` has an excellent overview.`]}),`
@@ -6880,9 +6880,9 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `})]})}),`
 `,(0,C.jsxs)(t.h3,{id:`compile-messages`,children:[`Compile Messages`,(0,C.jsx)(t.a,{className:`header-link`,href:`#compile-messages`,children:`#`})]}),`
 `,(0,C.jsx)(t.p,{children:`Compile extracted messages for optimized runtime:`}),`
-`,(0,C.jsx)(t.pre,{children:(0,C.jsxs)(t.code,{className:`language-starlark code-highlight`,children:[(0,C.jsx)(t.span,{className:`code-line`,children:`load("@rules_formatjs//formatjs:defs.bzl", "formatjs_compile")
+`,(0,C.jsx)(t.pre,{children:(0,C.jsxs)(t.code,{className:`language-starlark code-highlight`,children:[(0,C.jsx)(t.span,{className:`code-line`,children:`load("@rules_formatjs//formatjs:defs.bzl", "formatjs_library")
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`
-`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_compile(
+`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_library(
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    name = "messages_compiled",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    src = ":messages_extracted",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    out = "en-compiled.json",
@@ -6923,7 +6923,7 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`--output_groups`}),(0,C.jsx)(t.span,{className:`token operator`,children:`=`}),`aggregated_messages
 `]})]})}),`
 `,(0,C.jsxs)(t.h3,{id:`complete-example`,children:[`Complete Example`,(0,C.jsx)(t.a,{className:`header-link`,href:`#complete-example`,children:`#`})]}),`
-`,(0,C.jsx)(t.pre,{children:(0,C.jsxs)(t.code,{className:`language-starlark code-highlight`,children:[(0,C.jsx)(t.span,{className:`code-line`,children:`load("@rules_formatjs//formatjs:defs.bzl", "formatjs_extract", "formatjs_compile", "formatjs_verify")
+`,(0,C.jsx)(t.pre,{children:(0,C.jsxs)(t.code,{className:`language-starlark code-highlight`,children:[(0,C.jsx)(t.span,{className:`code-line`,children:`load("@rules_formatjs//formatjs:defs.bzl", "formatjs_extract", "formatjs_library", "formatjs_verify")
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`# Extract messages from source files
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_extract(
@@ -6938,7 +6938,7 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`)
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`# Compile for production
-`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_compile(
+`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_library(
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    name = "compile_en",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    src = ":extract_en",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    out = "lang/en-compiled.json",
@@ -6946,7 +6946,7 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`)
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`# Compile translations
-`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_compile(
+`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_library(
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    name = "compile_es",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    src = "translations/es.json",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    out = "lang/es-compiled.json",
@@ -6986,12 +6986,12 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    additional_function_names = ["t", "$formatMessage"],
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`)
 `})]})}),`
-`,(0,C.jsxs)(t.h3,{id:`formatjs_compile`,children:[`formatjs_compile`,(0,C.jsx)(t.a,{className:`header-link`,href:`#formatjs_compile`,children:`#`})]}),`
+`,(0,C.jsxs)(t.h3,{id:`formatjs_library`,children:[`formatjs_library`,(0,C.jsx)(t.a,{className:`header-link`,href:`#formatjs_library`,children:`#`})]}),`
 `,(0,C.jsx)(t.p,{children:`Compile extracted messages for optimized runtime.`}),`
 `,(0,C.jsx)(t.p,{children:(0,C.jsx)(t.strong,{children:`Attributes:`})}),`
 `,(0,C.jsxs)(t.table,{children:[(0,C.jsx)(t.thead,{children:(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.th,{children:`Attribute`}),(0,C.jsx)(t.th,{children:`Type`}),(0,C.jsx)(t.th,{children:`Required`}),(0,C.jsx)(t.th,{children:`Description`})]})}),(0,C.jsxs)(t.tbody,{children:[(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`name`})}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`string`})}),(0,C.jsx)(t.td,{children:`Yes`}),(0,C.jsx)(t.td,{children:`Target name`})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`src`})}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`label`})}),(0,C.jsx)(t.td,{children:`Yes`}),(0,C.jsx)(t.td,{children:`Source JSON file with extracted messages`})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`out`})}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`string`})}),(0,C.jsx)(t.td,{children:`No`}),(0,C.jsxs)(t.td,{children:[`Output compiled JSON file (defaults to `,(0,C.jsx)(t.code,{children:`name + ".json"`}),`)`]})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`ast`})}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`bool`})}),(0,C.jsx)(t.td,{children:`No`}),(0,C.jsx)(t.td,{children:`Compile to AST format for better runtime performance (recommended)`})]}),(0,C.jsxs)(t.tr,{children:[(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`format`})}),(0,C.jsx)(t.td,{children:(0,C.jsx)(t.code,{children:`string`})}),(0,C.jsx)(t.td,{children:`No`}),(0,C.jsxs)(t.td,{children:[`Input format: `,(0,C.jsx)(t.code,{children:`simple`}),`, `,(0,C.jsx)(t.code,{children:`crowdin`}),`, `,(0,C.jsx)(t.code,{children:`smartling`}),`, or `,(0,C.jsx)(t.code,{children:`transifex`})]})]})]})]}),`
 `,(0,C.jsx)(t.p,{children:(0,C.jsx)(t.strong,{children:`Example:`})}),`
-`,(0,C.jsx)(t.pre,{children:(0,C.jsxs)(t.code,{className:`language-starlark code-highlight`,children:[(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_compile(
+`,(0,C.jsx)(t.pre,{children:(0,C.jsxs)(t.code,{className:`language-starlark code-highlight`,children:[(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_library(
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    name = "compile_messages",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    src = ":extract_en",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    out = "en-compiled.json",
@@ -7163,7 +7163,7 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    id_interpolation_pattern = "[sha512:contenthash:base64:6]",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`)
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`
-`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_compile(
+`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_library(
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    name = "compile_dev",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    src = ":extract_dev",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    ast = True,
@@ -7194,7 +7194,7 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`)
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`# Compile with AST
-`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_compile(
+`}),(0,C.jsx)(t.span,{className:`code-line`,children:`formatjs_library(
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    name = "compile_prod",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    src = ":all_app_messages",
 `}),(0,C.jsx)(t.span,{className:`code-line`,children:`    out = "app-messages.json",
