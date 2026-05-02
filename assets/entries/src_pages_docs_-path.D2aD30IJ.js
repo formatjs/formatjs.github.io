@@ -1,4 +1,4 @@
-import{a as e,r as t,t as n}from"../chunks/chunk-CPtKw--A.js";import{$ as r,A as i,B as a,C as o,D as s,E as c,F as l,G as u,H as d,I as f,J as p,K as m,L as h,M as g,N as _,O as ee,P as te,R as ne,S as re,T as v,U as ie,V as ae,W as oe,X as y,Y as se,Z as ce,_ as le,a as ue,b as de,c as fe,d as pe,et as b,f as me,g as he,h as ge,i as _e,it as ve,j as ye,k as be,l as xe,m as Se,n as Ce,nt as we,o as Te,p as Ee,q as De,r as Oe,rt as ke,s as Ae,t as je,tt as Me,u as Ne,v as Pe,w as Fe,x as Ie,z as Le}from"../chunks/chunk-D86155a-.js";var Re=r(`circle-alert`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`line`,{x1:`12`,x2:`12`,y1:`8`,y2:`12`,key:`1pkeuh`}],[`line`,{x1:`12`,x2:`12.01`,y1:`16`,y2:`16`,key:`4dfq90`}]]),ze=r(`info`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`path`,{d:`M12 16v-4`,key:`1dtifu`}],[`path`,{d:`M12 8h.01`,key:`e9boi3`}]]),Be=r(`lightbulb`,[[`path`,{d:`M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5`,key:`1gvzjb`}],[`path`,{d:`M9 18h6`,key:`x1upvd`}],[`path`,{d:`M10 22h4`,key:`ceow96`}]]),Ve=r(`triangle-alert`,[[`path`,{d:`m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3`,key:`wmoenq`}],[`path`,{d:`M12 9v4`,key:`juzpu7`}],[`path`,{d:`M12 17h.01`,key:`p32p05`}]]),x=e(ve(),1),He={},Ue=x.createContext(He);function S(e){let t=x.useContext(Ue);return x.useMemo(function(){return typeof e==`function`?e(t):{...t,...e}},[t,e])}function We(e){let t;return t=e.disableParentContext?typeof e.components==`function`?e.components(He):e.components||He:S(e.components),x.createElement(Ue.Provider,{value:t},e.children)}var Ge=t({default:()=>qe}),C=b();function Ke(e){let t={a:`a`,code:`code`,h2:`h2`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`what-is-internationalization-and-why-does-it-matter`,children:[`What Is Internationalization and Why Does It Matter?`,(0,C.jsx)(t.a,{className:`header-link`,href:`#what-is-internationalization-and-why-does-it-matter`,children:`#`})]}),`
+import{a as e,r as t,t as n}from"../chunks/chunk-CPtKw--A.js";import{$ as r,A as i,B as a,C as o,D as s,E as c,F as l,G as u,H as d,I as f,J as p,K as m,L as h,M as g,N as _,O as ee,P as te,R as ne,S as re,T as v,U as ie,V as ae,W as oe,X as y,Y as se,Z as ce,_ as le,a as ue,b as de,c as fe,d as pe,et as b,f as me,g as he,h as ge,i as _e,it as ve,j as ye,k as be,l as xe,m as Se,n as Ce,nt as we,o as Te,p as Ee,q as De,r as Oe,rt as ke,s as Ae,t as je,tt as Me,u as Ne,v as Pe,w as Fe,x as Ie,z as Le}from"../chunks/chunk-DbIIqQjm.js";var Re=r(`circle-alert`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`line`,{x1:`12`,x2:`12`,y1:`8`,y2:`12`,key:`1pkeuh`}],[`line`,{x1:`12`,x2:`12.01`,y1:`16`,y2:`16`,key:`4dfq90`}]]),ze=r(`info`,[[`circle`,{cx:`12`,cy:`12`,r:`10`,key:`1mglay`}],[`path`,{d:`M12 16v-4`,key:`1dtifu`}],[`path`,{d:`M12 8h.01`,key:`e9boi3`}]]),Be=r(`lightbulb`,[[`path`,{d:`M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5`,key:`1gvzjb`}],[`path`,{d:`M9 18h6`,key:`x1upvd`}],[`path`,{d:`M10 22h4`,key:`ceow96`}]]),Ve=r(`triangle-alert`,[[`path`,{d:`m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3`,key:`wmoenq`}],[`path`,{d:`M12 9v4`,key:`juzpu7`}],[`path`,{d:`M12 17h.01`,key:`p32p05`}]]),x=e(ve(),1),He={},Ue=x.createContext(He);function S(e){let t=x.useContext(Ue);return x.useMemo(function(){return typeof e==`function`?e(t):{...t,...e}},[t,e])}function We(e){let t;return t=e.disableParentContext?typeof e.components==`function`?e.components(He):e.components||He:S(e.components),x.createElement(Ue.Provider,{value:t},e.children)}var Ge=t({default:()=>qe}),C=b();function Ke(e){let t={a:`a`,code:`code`,h2:`h2`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`what-is-internationalization-and-why-does-it-matter`,children:[`What Is Internationalization and Why Does It Matter?`,(0,C.jsx)(t.a,{className:`header-link`,href:`#what-is-internationalization-and-why-does-it-matter`,children:`#`})]}),`
 `,(0,C.jsx)(t.p,{children:`Internationalized software supports the languages and cultural customs of people throughout the world. The Web reaches all parts of the world. Internationalized web apps provide a great user experience for people everywhere.`}),`
 `,(0,C.jsx)(t.p,{children:`Localized software adapts to a specific language and culture by translating text into the user's language and formatting data in accordance with the user's expectations. An app is typically localized for a small set of locales.`}),`
 `,(0,C.jsxs)(t.p,{children:[`The `,(0,C.jsx)(t.a,{href:`https://github.com/tc39/ecma402`,children:`ECMA-402 JavaScript internationalization specification`}),` has an excellent overview.`]}),`
@@ -7143,11 +7143,16 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `,(0,C.jsx)(t.p,{children:`The native Rust CLI is significantly faster than the Node.js-based tools:`}),`
 `,(0,C.jsxs)(t.ul,{children:[`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`4-17x faster`}),` message extraction`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Zero dependencies`}),` - no Node.js or npm required`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`No Node.js runtime required`}),` for supported extraction, compilation, and verification workflows`]}),`
 `,(0,C.jsx)(t.li,{children:(0,C.jsx)(t.strong,{children:`Minimal memory footprint`})}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Instant startup`}),` - no JavaScript runtime initialization`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Perfect for CI/CD`}),` - fast builds in continuous integration`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`CI/CD friendly`}),` - fast builds in continuous integration`]}),`
 `]}),`
+`,(0,C.jsxs)(t.p,{children:[`The Rust CLI used by these rules covers the native toolchain's supported
+FormatJS workflows. Node.js-only behavior from `,(0,C.jsx)(t.code,{children:`@formatjs/cli`}),`, such as custom
+JavaScript formatter files and framework template extraction for Vue, Svelte,
+Handlebars, Glimmer, GTS, and GJS, is not available in the standalone native
+binary.`]}),`
 `,(0,C.jsxs)(t.h2,{id:`common-workflows`,children:[`Common Workflows`,(0,C.jsx)(t.a,{className:`header-link`,href:`#common-workflows`,children:`#`})]}),`
 `,(0,C.jsxs)(t.h3,{id:`development-workflow`,children:[`Development Workflow`,(0,C.jsx)(t.a,{className:`header-link`,href:`#development-workflow`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ol,{children:[`
@@ -7286,21 +7291,31 @@ sanitized to avoid XSS vulnerabilities.`]})}),`
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
 `,(0,C.jsxs)(t.h2,{id:`native-cli-rust`,children:[`Native CLI (Rust)`,(0,C.jsx)(t.a,{className:`header-link`,href:`#native-cli-rust`,children:`#`})]}),`
-`,(0,C.jsxs)(n,{type:`tip`,title:`4x Faster Performance`,children:[(0,C.jsxs)(t.p,{children:[`We provide a high-performance native Rust CLI that's `,(0,C.jsx)(t.strong,{children:`4-17x faster`}),` than the Node.js version with zero dependencies. Perfect for CI/CD pipelines and large codebases.`]}),(0,C.jsxs)(t.p,{children:[(0,C.jsx)(t.strong,{children:`Download:`}),` `,(0,C.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/releases/tag/formatjs_cli_v0.1.6`,children:`GitHub Releases`})]})]}),`
-`,(0,C.jsx)(n,{type:`caution`,children:(0,C.jsxs)(t.p,{children:[`The native CLI currently only supports `,(0,C.jsx)(t.strong,{children:`JavaScript/TypeScript with JSX/TSX`}),`.
-Vue and Glimmer are not supported due to lack of Rust parsers for these
-frameworks. If you need Vue or Glimmer support, use the Node.js CLI above.`]})}),`
+`,(0,C.jsxs)(n,{type:`tip`,title:`4x Faster Performance`,children:[(0,C.jsxs)(t.p,{children:[`We provide a high-performance native Rust CLI that's `,(0,C.jsx)(t.strong,{children:`4-17x faster`}),` than the Node.js version for supported workflows. It is useful for CI/CD pipelines and large JavaScript/TypeScript codebases that do not need Node.js-specific CLI features.`]}),(0,C.jsxs)(t.p,{children:[`Install it from Cargo with `,(0,C.jsx)(t.code,{children:`cargo install formatjs_cli`}),`, or download a pre-built binary from `,(0,C.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/releases`,children:`GitHub Releases`}),`.`]})]}),`
+`,(0,C.jsx)(n,{type:`caution`,children:(0,C.jsxs)(t.p,{children:[`The native CLI is not a full drop-in replacement for every `,(0,C.jsx)(t.code,{children:`@formatjs/cli`}),`
+feature. It currently focuses on `,(0,C.jsx)(t.strong,{children:`JavaScript/TypeScript with JSX/TSX`}),`,
+supports built-in formatters only, and does not load custom JavaScript
+formatter files. If you need Vue, Svelte, Glimmer, Handlebars, GTS/GJS, or
+custom formatter support, use the Node.js CLI above.`]})}),`
 `,(0,C.jsxs)(t.h3,{id:`installation-1`,children:[`Installation`,(0,C.jsx)(t.a,{className:`header-link`,href:`#installation-1`,children:`#`})]}),`
-`,(0,C.jsx)(t.p,{children:`Download pre-built binaries for your platform:`}),`
+`,(0,C.jsx)(t.p,{children:`Install from Cargo:`}),`
+`,(0,C.jsx)(t.pre,{className:`language-sh`,children:(0,C.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`cargo`}),` `,(0,C.jsx)(t.span,{className:`token function`,children:`install`}),` formatjs_cli
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`formatjs `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`--version`}),`
+`]})]})}),`
+`,(0,C.jsxs)(t.p,{children:[`Cargo installs the `,(0,C.jsx)(t.code,{children:`formatjs`}),` command into `,(0,C.jsx)(t.code,{children:`~/.cargo/bin`}),`. If your shell cannot
+find it, add Cargo's bin directory to your `,(0,C.jsx)(t.code,{children:`PATH`}),`:`]}),`
+`,(0,C.jsx)(t.pre,{className:`language-sh`,children:(0,C.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token builtin class-name`,children:`export`}),` `,(0,C.jsx)(t.span,{className:`token assign-left variable`,children:(0,C.jsx)(t.span,{className:`token environment constant`,children:`PATH`})}),(0,C.jsx)(t.span,{className:`token operator`,children:`=`}),(0,C.jsxs)(t.span,{className:`token string`,children:[`"`,(0,C.jsx)(t.span,{className:`token environment constant`,children:`$HOME`}),`/.cargo/bin:`,(0,C.jsx)(t.span,{className:`token environment constant`,children:`$PATH`}),`"`]}),`
+`]})})}),`
+`,(0,C.jsx)(t.p,{children:`You can also download pre-built binaries for your platform:`}),`
 `,(0,C.jsxs)(i,{groupId:`platform`,defaultValue:`macos`,values:[{label:`macOS (Apple Silicon)`,value:`macos`},{label:`Linux x64`,value:`linux`}],children:[(0,C.jsx)(r,{value:`macos`,children:(0,C.jsx)(t.pre,{className:`language-sh`,children:(0,C.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Download and install`}),`
-`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`curl`}),` `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-L`}),` https://github.com/formatjs/formatjs/releases/download/formatjs_cli_v0.1.6/formatjs-darwin-arm64 `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-o`}),` formatjs
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`curl`}),` `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-L`}),` https://github.com/formatjs/formatjs/releases/download/`,(0,C.jsx)(t.span,{className:`token operator`,children:`<`}),`version`,(0,C.jsx)(t.span,{className:`token operator`,children:`>`}),`/formatjs_cli-darwin-arm64 `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-o`}),` formatjs
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`chmod`}),` +x formatjs
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`sudo`}),` `,(0,C.jsx)(t.span,{className:`token function`,children:`mv`}),` formatjs /usr/local/bin/
 `]}),(0,C.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Verify`}),`
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`formatjs `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`--version`}),`
 `]})]})})}),(0,C.jsx)(r,{value:`linux`,children:(0,C.jsx)(t.pre,{className:`language-sh`,children:(0,C.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Download and install`}),`
-`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`curl`}),` `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-L`}),` https://github.com/formatjs/formatjs/releases/download/formatjs_cli_v0.1.6/formatjs-linux-x86_64 `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-o`}),` formatjs
+`]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`curl`}),` `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-L`}),` https://github.com/formatjs/formatjs/releases/download/`,(0,C.jsx)(t.span,{className:`token operator`,children:`<`}),`version`,(0,C.jsx)(t.span,{className:`token operator`,children:`>`}),`/formatjs_cli-linux-x64 `,(0,C.jsx)(t.span,{className:`token parameter variable`,children:`-o`}),` formatjs
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`chmod`}),` +x formatjs
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`sudo`}),` `,(0,C.jsx)(t.span,{className:`token function`,children:`mv`}),` formatjs /usr/local/bin/
 `]}),(0,C.jsx)(t.span,{className:`code-line`,children:`
@@ -7309,14 +7324,14 @@ frameworks. If you need Vue or Glimmer support, use the Node.js CLI above.`]})})
 `]})]})})})]}),`
 `,(0,C.jsxs)(t.h3,{id:`benefits`,children:[`Benefits`,(0,C.jsx)(t.a,{className:`header-link`,href:`#benefits`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🚀 4-17x Faster`}),`: Dramatically faster extraction and compilation`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`📦 Zero Dependencies`}),`: Single binary, no Node.js or npm required`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`💾 Low Memory`}),`: Minimal memory footprint`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`⚡ Instant Startup`}),`: No Node.js initialization overhead`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`🔧 CI/CD Friendly`}),`: Perfect for build pipelines and automation`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`4-17x Faster`}),`: Dramatically faster extraction and compilation for supported workflows`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`No Node.js Runtime for Supported Features`}),`: Single binary, no Node.js runtime required`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Low Memory`}),`: Minimal memory footprint`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`Instant Startup`}),`: No Node.js initialization overhead`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.strong,{children:`CI/CD Friendly`}),`: Useful for build pipelines and automation`]}),`
 `]}),`
 `,(0,C.jsxs)(t.h3,{id:`usage`,children:[`Usage`,(0,C.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
-`,(0,C.jsx)(t.p,{children:`The native CLI is a drop-in replacement with identical command-line interface:`}),`
+`,(0,C.jsxs)(t.p,{children:[`The native CLI uses the same `,(0,C.jsx)(t.code,{children:`formatjs`}),` command name for supported workflows:`]}),`
 `,(0,C.jsx)(t.pre,{className:`language-sh`,children:(0,C.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Extract messages`}),`
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`formatjs extract `,(0,C.jsx)(t.span,{className:`token string`,children:`"src/**/*.{ts,tsx}"`}),` --out-file messages.json
 `]}),(0,C.jsx)(t.span,{className:`code-line`,children:`
@@ -7326,7 +7341,13 @@ frameworks. If you need Vue or Glimmer support, use the Node.js CLI above.`]})})
 `}),(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token comment`,children:`# Verify translations`}),`
 `]}),(0,C.jsxs)(t.span,{className:`code-line`,children:[`formatjs verify `,(0,C.jsx)(t.span,{className:`token string`,children:`"lang/*.json"`}),` --source-locale en --missing-keys
 `]})]})}),`
-`,(0,C.jsx)(t.p,{children:`All the same options and formatters work with the native CLI. See the sections below for detailed documentation.`}),`
+`,(0,C.jsx)(t.p,{children:`Most common extraction, compilation, and verification options work with the native CLI. Notable differences from the Node.js CLI:`}),`
+`,(0,C.jsxs)(t.ul,{children:[`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.code,{children:`--format`}),` accepts built-in formatter names only: `,(0,C.jsx)(t.code,{children:`default`}),`, `,(0,C.jsx)(t.code,{children:`simple`}),`, `,(0,C.jsx)(t.code,{children:`transifex`}),`, `,(0,C.jsx)(t.code,{children:`smartling`}),`, `,(0,C.jsx)(t.code,{children:`lokalise`}),`, or `,(0,C.jsx)(t.code,{children:`crowdin`}),`.`]}),`
+`,(0,C.jsx)(t.li,{children:`Custom JavaScript formatter files are only supported by the Node.js CLI.`}),`
+`,(0,C.jsx)(t.li,{children:`Framework template extraction for Vue, Svelte, Handlebars, Glimmer, GTS, and GJS is only supported by the Node.js CLI.`}),`
+`,(0,C.jsx)(t.li,{children:`Pseudo-locale options are accepted by the Rust CLI for CLI compatibility, but pseudo-locale AST transformations are not yet implemented there.`}),`
+`]}),`
 `,(0,C.jsx)(t.hr,{}),`
 `,(0,C.jsxs)(t.p,{children:[`We've built this `,(0,C.jsx)(t.a,{href:`https://www.npmjs.com/package/@formatjs/cli`,children:`CLI`}),` that helps you extract messages from a list of files. It uses `,(0,C.jsx)(t.a,{href:`ts-transformer`,children:(0,C.jsx)(t.code,{children:`@formatjs/ts-transformer`})}),` under the hood and should be able to extract messages if you're declaring using 1 of the mechanisms below:`]}),`
 `,(0,C.jsx)(t.pre,{className:`language-tsx`,children:(0,C.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,C.jsxs)(t.span,{className:`code-line`,children:[(0,C.jsx)(t.span,{className:`token function`,children:`defineMessages`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,C.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
@@ -8532,7 +8553,7 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `]}),`
 `,(0,C.jsxs)(t.h2,{id:`related-packages`,children:[`Related Packages`,(0,C.jsx)(t.a,{className:`header-link`,href:`#related-packages`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`/docs/tooling/rust-cli`,children:(0,C.jsx)(t.code,{children:`formatjs_cli`})}),` - Native Rust CLI for message extraction`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`/docs/tooling/cli#native-cli-rust`,children:(0,C.jsx)(t.code,{children:`formatjs_cli`})}),` - Native Rust CLI for supported extraction, compilation, and verification workflows`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`/docs/tooling/rust-icu-skeleton-parser`,children:(0,C.jsx)(t.code,{children:`formatjs_icu_skeleton_parser`})}),` - Number and date skeleton parser`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`https://www.npmjs.com/package/@formatjs/icu-messageformat-parser`,children:(0,C.jsx)(t.code,{children:`@formatjs/icu-messageformat-parser`})}),` - JavaScript implementation`]}),`
 `]})]})}function wi(e={}){let{wrapper:t}={...S(),...e.components};return t?(0,C.jsx)(t,{...e,children:(0,C.jsx)(Ci,{...e})}):Ci(e)}var Ti=t({default:()=>Di});function Ei(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,h4:`h4`,li:`li`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,ul:`ul`,...S(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsxs)(t.h2,{id:`overview`,children:[`Overview`,(0,C.jsx)(t.a,{className:`header-link`,href:`#overview`,children:`#`})]}),`
@@ -8806,7 +8827,7 @@ Default complexity limit is 20 (using `,(0,C.jsx)(t.a,{href:`https://help.smartl
 `,(0,C.jsxs)(t.h2,{id:`related-packages`,children:[`Related Packages`,(0,C.jsx)(t.a,{className:`header-link`,href:`#related-packages`,children:`#`})]}),`
 `,(0,C.jsxs)(t.ul,{children:[`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`/docs/tooling/rust-icu-messageformat-parser`,children:(0,C.jsx)(t.code,{children:`formatjs_icu_messageformat_parser`})}),` - ICU MessageFormat parser`]}),`
-`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`/docs/tooling/rust-cli`,children:(0,C.jsx)(t.code,{children:`formatjs_cli`})}),` - Native Rust CLI for message extraction`]}),`
+`,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`/docs/tooling/cli#native-cli-rust`,children:(0,C.jsx)(t.code,{children:`formatjs_cli`})}),` - Native Rust CLI for supported extraction, compilation, and verification workflows`]}),`
 `,(0,C.jsxs)(t.li,{children:[(0,C.jsx)(t.a,{href:`https://www.npmjs.com/package/@formatjs/icu-skeleton-parser`,children:(0,C.jsx)(t.code,{children:`@formatjs/icu-skeleton-parser`})}),` - JavaScript implementation`]}),`
 `]})]})}function Di(e={}){let{wrapper:t}={...S(),...e.components};return t?(0,C.jsx)(t,{...e,children:(0,C.jsx)(Ei,{...e})}):Ei(e)}var Oi=t({default:()=>Ai});function ki(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,ul:`ul`,...S(),...e.components},{Admonition:n,TabItem:r,Tabs:i}=t;return n||ji(`Admonition`,!0),r||ji(`TabItem`,!0),i||ji(`Tabs`,!0),(0,C.jsxs)(C.Fragment,{children:[(0,C.jsx)(t.p,{children:`Process string messages for translation from modules that use react-intl, specifically:`}),`
 `,(0,C.jsxs)(t.ul,{children:[`
