@@ -322,12 +322,15 @@
 <h3 id="performance-benefits" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Performance Benefits<a href="#performance-benefits" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">The native Rust CLI is significantly faster than the Node.js-based tools:</p>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
-<li class="mb-2 text-gray-300"><strong>4-17x faster</strong> message extraction</li>
+<li class="mb-2 text-gray-300"><strong>20.90x faster</strong> message extraction in the checked-in Rust vs TypeScript CLI benchmark</li>
 <li class="mb-2 text-gray-300"><strong>No Node.js runtime required</strong> for supported extraction, compilation, and verification workflows</li>
 <li class="mb-2 text-gray-300"><strong>Minimal memory footprint</strong></li>
 <li class="mb-2 text-gray-300"><strong>Instant startup</strong> - no JavaScript runtime initialization</li>
 <li class="mb-2 text-gray-300"><strong>CI/CD friendly</strong> - fast builds in continuous integration</li>
 </ul>
+<p class="mb-4 leading-7 text-gray-300">The native CLI parallelizes per-file work with Rayon. By default, Rayon uses the
+available logical CPU count. Set <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RAYON_NUM_THREADS</code> to cap worker threads when
+running under constrained CI executors.</p>
 <p class="mb-4 leading-7 text-gray-300">The Rust CLI used by these rules covers the native toolchain&#x27;s supported
 FormatJS workflows. Node.js-only behavior from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/cli</code>, such as
 framework template extraction for Vue, Svelte, Handlebars, Glimmer, GTS, and
@@ -462,10 +465,10 @@ supported by the standalone native binary.</p>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/src\\/pages\\/docs\\/@path","routeParams":{"path":"tooling\\/bazel"}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
-        <script src="/assets/entries/entry-client-routing.BUDz7O8V.js" type="module" async></script>
-        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.BqhYcHb7.js" as="script" type="text/javascript">
+        <script src="/assets/entries/entry-client-routing.C05zr7eU.js" type="module" async></script>
+        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.DWFTx8h1.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-CPtKw--A.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BYOwI2Wm.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CmjHj8pN.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DQoeq87E.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DSvqUL8a.js" as="script" type="text/javascript">
       </body>
     </html>
