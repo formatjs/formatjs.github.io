@@ -102,6 +102,27 @@ native FormatJS CLI recognizes the same macro and emits the same ID:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">formatjs extract <span class="token string">&quot;src/**/*.rs&quot;</span> --out-file messages.json
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">id: &quot;greeting&quot;</code> when a stable semantic ID is preferred.</p>
+<h2 id="inline-formatting" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Inline formatting<a href="#inline-formatting" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message!</code> creates an extractable descriptor and formats it in one
+expression. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values</code> is optional:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">formatjs_intl<span class="token punctuation">::</span></span>format_message<span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">let</span> title <span class="token operator">=</span> <span class="token macro property">format_message!</span><span class="token punctuation">(</span>
+</span><span class="code-line">    <span class="token operator">&amp;</span>intl<span class="token punctuation">,</span>
+</span><span class="code-line">    default_message<span class="token punctuation">:</span> <span class="token string">&quot;Approve to continue&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line">    description<span class="token punctuation">:</span> <span class="token string">&quot;Approval card title&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token macro property">format_message!</span><span class="token punctuation">(</span>
+</span><span class="code-line">    <span class="token operator">&amp;</span>intl<span class="token punctuation">,</span>
+</span><span class="code-line">    default_message<span class="token punctuation">:</span> <span class="token string">&quot;Hello, {name}!&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line">    description<span class="token punctuation">:</span> <span class="token string">&quot;Greeting shown after sign-in&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line">    values<span class="token punctuation">:</span> <span class="token operator">&amp;</span>values<span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">The macro returns <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String</code>. It uses normal catalog and default-message fallback.
+If cache infrastructure prevents formatting, it reports the error through
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">with_on_error</code> and returns <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">default_message</code> verbatim. Use
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message_to_string</code> when explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Result</code> handling is required.</p>
 <h2 id="shared-cache" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Shared cache<a href="#shared-cache" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">IntlCache</code> stores parsed messages by source string. Share one <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Arc&lt;IntlCache&gt;</code>
 across request-scoped <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl</code> values to avoid reparsing translations and default
@@ -124,9 +145,9 @@ parsing and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 f
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\/src\/pages\/docs\/@path","routeParams":{"path":"rust\/intl"}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
-        <script src="/assets/entries/entry-client-routing.HG1bhHrx.js" type="module" async></script>
-        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.BWLnozxN.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-o-RigPoH.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-D5RsJyzK.js" as="script" type="text/javascript">
+        <script src="/assets/entries/entry-client-routing.C3HcC7QK.js" type="module" async></script>
+        <link rel="modulepreload" href="/assets/entries/src_pages_docs_-path.BQ--baHL.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BA09bgxD.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DndoplHA.js" as="script" type="text/javascript">
       </body>
     </html>
