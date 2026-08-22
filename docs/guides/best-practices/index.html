@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BG8zE_ms.js"></script>
+    <script type="module" crossorigin src="/assets/index-Gvova6bf.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -153,6 +153,29 @@ never block review or count as translation errors.</li>
 <li class="mb-2 text-gray-300">lists: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatList</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;FormattedList&gt;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.ListFormat</code></li>
 <li class="mb-2 text-gray-300">relative time: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatRelativeTime</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;FormattedRelativeTime&gt;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.RelativeTimeFormat</code></li>
 </ul>
+<p class="mb-4 leading-7 text-gray-300">Never build date or time ranges from separately formatted placeholders plus fixed punctuation. Range separators, field elision, and ordering are locale-specific.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token comment">// Avoid: fixed dash bypasses locale range rules.</span>
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token method function property-access">formatMessage</span><span class="token punctuation">(</span>
+</span><span class="code-line">  <span class="token punctuation">{</span>defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;Vesting {startDate} – {endDate}&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">{</span>
+</span><span class="code-line">    startDate<span class="token operator">:</span> intl<span class="token punctuation">.</span><span class="token method function property-access">formatDate</span><span class="token punctuation">(</span>startDate<span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">    endDate<span class="token operator">:</span> intl<span class="token punctuation">.</span><span class="token method function property-access">formatDate</span><span class="token punctuation">(</span>endDate<span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">)</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">// Prefer: translatable label plus native range output.</span>
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dl</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text">  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dt</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text">    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FormattedMessage</span></span>
+</span></span><span class="code-line"><span class="token tag">      <span class="token attr-name">defaultMessage</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Vesting<span class="token punctuation">&quot;</span></span>
+</span></span><span class="code-line"><span class="token tag">      <span class="token attr-name">description</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Label for a vesting date range<span class="token punctuation">&quot;</span></span>
+</span></span><span class="code-line"><span class="token tag">    <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text">  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dt</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text">  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dd</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text">    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FormattedDateTimeRange</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>startDate<span class="token punctuation">}</span></span> <span class="token attr-name">to</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>endDate<span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text">  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dd</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+</span></span><span class="code-line"><span class="token plain-text"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dl</span><span class="token punctuation">&gt;</span></span>
+</span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">Do not recreate relative time with plural branches. Native formatter owns locale grammar.</p>
 <p class="mb-4 leading-7 text-gray-300">Pass raw typed values when sentence grammar needs them. Never preformat or translate fragment into string before ICU plural, select, number, date, time logic.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token comment">// Avoid: ICU receives string, loses plural choice.</span>
