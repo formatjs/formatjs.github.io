@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Gvova6bf.js"></script>
+    <script type="module" crossorigin src="/assets/index-D08qAmTr.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -117,11 +117,28 @@ quality standards.</p>
 </span><span class="code-line">      formatjs<span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-</span><span class="code-line">      <span class="token string-property property">&#x27;formatjs/blocklist-elements&#x27;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&#x27;selectordinal&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line">      <span class="token string-property property">&#x27;formatjs/blocklist-elements&#x27;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+</span><span class="code-line">        <span class="token number">2</span><span class="token punctuation">,</span>
+</span><span class="code-line">        <span class="token punctuation">[</span>
+</span><span class="code-line">          <span class="token string">&#x27;selectordinal&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">          <span class="token punctuation">{</span>
+</span><span class="code-line">            <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&#x27;select&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">            <span class="token literal-property property">allow</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">              <span class="token literal-property property">variable</span><span class="token operator">:</span> <span class="token string">&#x27;gender&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">              <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#x27;male&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;female&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;other&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line">            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line">      <span class="token punctuation">]</span><span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line"><span class="token punctuation">]</span>
 </span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">String entries block every element of that type. Object entries allow an
+exception for the named variable. When <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">options</code> is present, selector options
+must match that list exactly. Both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">recommended</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">strict</code> block
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">selectordinal</code> and allow <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">select</code> only for <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">gender</code> with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">male</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">female</code>, and
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">other</code> options.</p>
 <h3 id="enforce-description" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">enforce-description</code><a href="#enforce-description" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This enforces <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">description</code> in the message descriptor.</p>
 <h4 id="why-1" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-1" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
