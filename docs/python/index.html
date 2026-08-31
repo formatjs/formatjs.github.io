@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-KjGWx5wR.js"></script>
+    <script type="module" crossorigin src="/assets/index-Pd290QVk.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -22,8 +22,11 @@ newer for the same platform.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">python <span class="token parameter variable">-m</span> pip <span class="token function">install</span> py_intl
 </span></code></pre>
 <h2 id="format-messages" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Format messages<a href="#format-messages" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">from</span> intl <span class="token keyword">import</span> Intl
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">from</span> datetime <span class="token keyword">import</span> date
 </span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">from</span> intl <span class="token keyword">import</span> Intl<span class="token punctuation">,</span> IntlError
+</span><span class="code-line">
+</span><span class="code-line">errors<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span>IntlError<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 </span><span class="code-line">intl <span class="token operator">=</span> Intl<span class="token punctuation">(</span>
 </span><span class="code-line">    <span class="token punctuation">[</span><span class="token string">&quot;fr-CA&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;fr&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token string">&quot;en&quot;</span><span class="token punctuation">,</span>
@@ -31,11 +34,40 @@ newer for the same platform.</p>
 </span><span class="code-line">        <span class="token string">&quot;en&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line">        <span class="token string">&quot;fr&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&quot;tasks&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;{count, plural, one {# tâche} other {# tâches}}&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">    on_error<span class="token operator">=</span>errors<span class="token punctuation">.</span>append<span class="token punctuation">,</span>
 </span><span class="code-line"><span class="token punctuation">)</span>
 </span><span class="code-line">
 </span><span class="code-line"><span class="token keyword">assert</span> intl<span class="token punctuation">.</span>locale <span class="token operator">==</span> <span class="token string">&quot;fr&quot;</span>
 </span><span class="code-line"><span class="token keyword">assert</span> intl<span class="token punctuation">.</span>format_message<span class="token punctuation">(</span><span class="token string">&quot;tasks&quot;</span><span class="token punctuation">,</span> values<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;2 tâches&quot;</span>
 </span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Create or select an <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl</code> instance for each request locale. Generated message
+IDs depend only on the normalized default message and description, so catalogs
+use the same IDs across locales.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs extract &quot;src/**/*.py&quot;</code> extracts literal <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">define_message(...)</code>
+declarations and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message(...)</code> calls. Inline calls accept dynamic
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values</code>. IDs are optional; missing IDs use the same 10-character generated ID
+as Rust.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">title <span class="token operator">=</span> intl<span class="token punctuation">.</span>format_message<span class="token punctuation">(</span>
+</span><span class="code-line">    default_message<span class="token operator">=</span><span class="token string">&quot;Welcome, {name}!&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line">    values<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> user<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">)</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Reusable descriptors match the backend authoring shape used by Bazel consumers:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">from</span> intl <span class="token keyword">import</span> define_message
+</span><span class="code-line">
+</span><span class="code-line">TITLE <span class="token operator">=</span> define_message<span class="token punctuation">(</span>default_message<span class="token operator">=</span><span class="token string">&quot;Welcome, {name}!&quot;</span><span class="token punctuation">)</span>
+</span><span class="code-line">title <span class="token operator">=</span> intl<span class="token punctuation">.</span>format_message<span class="token punctuation">(</span>TITLE<span class="token punctuation">,</span> values<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> user<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Python <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">date</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">datetime</code> values work with ICU date and time arguments:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">created <span class="token operator">=</span> intl<span class="token punctuation">.</span>format_message<span class="token punctuation">(</span>
+</span><span class="code-line">    default_message<span class="token operator">=</span><span class="token string">&quot;Created {value, date, medium}&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line">    values<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;value&quot;</span><span class="token punctuation">:</span> date<span class="token punctuation">(</span><span class="token number">2024</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">)</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Datetime fields are formatted as supplied. Convert timezone-aware values to the
+desired presentation timezone before formatting.</p>
+<p class="mb-4 leading-7 text-gray-300">Like <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>, formatting returns the formatted value directly.
+Recovered missing translations and formatting failures are sent to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">on_error</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">icu_messageformat</code> when catalog lookup happens elsewhere:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">from</span> icu_messageformat <span class="token keyword">import</span> IcuMessageFormat
 </span><span class="code-line">
