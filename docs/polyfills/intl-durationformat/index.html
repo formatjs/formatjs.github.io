@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DmqA60FR.js"></script>
+    <script type="module" crossorigin src="/assets/index-B51-Uxk9.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -143,6 +143,12 @@ For TypeScript projects, we recommend using ES module imports instead.</p><p cla
 </span></code></pre>
 <h2 id="numbering-system-validation" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Numbering system validation<a href="#numbering-system-validation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">A well-formed but unsupported <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">numberingSystem</code> option falls back to the locale&#x27;s
-supported numbering system. Only malformed Unicode type identifiers throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p></article></div></div></main></div></div></div>
+supported numbering system. Only malformed Unicode type identifiers throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p>
+<h2 id="duration-record-validation" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Duration record validation<a href="#duration-record-validation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Each duration field is read once in the ECMA-402 order. Fields must convert to
+finite integers of a common sign. Invalid numeric fields throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>;
+an empty record throws <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>. Absolute years, months, and weeks must be
+less than <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">2 ** 32</code>; absolute normalized seconds must be less than <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">2 ** 53</code>.
+Subsecond contributions participate in the bound comparison exactly.</p></article></div></div></main></div></div></div>
   </body>
 </html>

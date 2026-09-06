@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DmqA60FR.js"></script>
+    <script type="module" crossorigin src="/assets/index-B51-Uxk9.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -160,6 +160,12 @@ For TypeScript projects, we recommend using ES module imports instead.</p><p cla
 </span><span class="code-line">    <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-segmenter/polyfill-force.js&#x27;</span><span class="token punctuation">)</span>
 </span><span class="code-line">  <span class="token punctuation">}</span>
 </span><span class="code-line"><span class="token punctuation">}</span>
-</span></code></pre></article></div></div></main></div></div></div>
+</span></code></pre>
+<h2 id="iteration-and-default-locale" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Iteration and default locale<a href="#iteration-and-default-locale" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">segment()</code> returns a reusable iterable with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">containing()</code>. Each call to its
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Symbol.iterator</code> creates an independent iterator. An iterator returns itself
+from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Symbol.iterator</code> and resumes from its current position. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">next()</code> belongs
+to the iterator, not the iterable returned by <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">segment()</code>.
+The fallback locale is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en</code>, backed by the root segmentation rules.</p></article></div></div></main></div></div></div>
   </body>
 </html>

@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DmqA60FR.js"></script>
+    <script type="module" crossorigin src="/assets/index-B51-Uxk9.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -39,6 +39,12 @@
 </span><span class="code-line"><span class="token punctuation">}</span>
 </span></code></pre>
 <h2 id="tests" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Tests<a href="#tests" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
-<p class="mb-4 leading-7 text-gray-300">This library is <a href="https://github.com/tc39/test262/tree/master/test/intl402/Intl/getCanonicalLocales" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">test262</a>-compliant.</p></article></div></div></main></div></div></div>
+<p class="mb-4 leading-7 text-gray-300">This library is <a href="https://github.com/tc39/test262/tree/master/test/intl402/Intl/getCanonicalLocales" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">test262</a>-compliant.</p>
+<h2 id="locale-list-coercion" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Locale-list coercion<a href="#locale-list-coercion" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">getCanonicalLocales</code> rejects <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">null</code>, coerces array-like lengths once with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ToLength</code>, and accepts string-coercible object entries. Native Locale values
+and values from the installed Locale polyfill use their intrinsic locale tag,
+ignoring overridden instance properties. Objects that merely expose <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">language</code>
+and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">baseName</code> are treated as ordinary array-like inputs.</p></article></div></div></main></div></div></div>
   </body>
 </html>
