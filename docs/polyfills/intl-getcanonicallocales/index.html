@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DBdh3btL.js"></script>
+    <script type="module" crossorigin src="/assets/index-DD4N_wjk.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -45,6 +45,16 @@
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ToLength</code>, and accepts string-coercible object entries. Native Locale values
 and values from the installed Locale polyfill use their intrinsic locale tag,
 ignoring overridden instance properties. Objects that merely expose <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">language</code>
-and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">baseName</code> are treated as ordinary array-like inputs.</p></article></div></div></main></div></div></div>
+and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">baseName</code> are treated as ordinary array-like inputs.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale identifier casing is normalized before CLDR alias lookup, including
+language, script, region, and variant subtags.</p>
+<p class="mb-4 leading-7 text-gray-300">Unicode and transformed extensions use CLDR BCP 47 aliases. Transformed
+extensions accept a language, fields, or both, and retain <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">true</code> field values.</p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">rg</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sd</code> Unicode keys resolve CLDR subdivision aliases. Territory
+replacements receive the required <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zzzz</code> suffix; multiple replacements use the first.</p>
+<p class="mb-4 leading-7 text-gray-300">CLDR compound aliases remove matched subtags, preserve unrelated fields, and
+apply the most specific rule first, including language-independent variants.</p>
+<p class="mb-4 leading-7 text-gray-300">Canonicalization creates list elements directly without calling an overridden
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Array.prototype.push</code>, including while parsing and emitting extensions.</p></article></div></div></main></div></div></div>
   </body>
 </html>

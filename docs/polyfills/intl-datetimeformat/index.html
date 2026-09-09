@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DBdh3btL.js"></script>
+    <script type="module" crossorigin src="/assets/index-DD4N_wjk.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -199,6 +199,23 @@ The same rule applies to both range endpoints.</p>
 <h2 id="built-in-methods" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Built-in methods<a href="#built-in-methods" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">DateTimeFormat methods cannot be constructed with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new</code> and have no own
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prototype</code> property. The constructor&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">length</code> is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">0</code>; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">supportedLocalesOf.length</code>
-is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">1</code>, matching their required argument counts.</p></article></div></div></main></div></div></div>
+is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">1</code>, matching their required argument counts.</p>
+<p class="mb-4 leading-7 text-gray-300">Dates outside the exact ±8,640,000,000,000,000 millisecond TimeClip bounds
+throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>, including values one millisecond beyond either endpoint.
+Year calculations use Gregorian arithmetic so valid endpoints also format
+when their local timezone offsets cross the native Date range.</p>
+<p class="mb-4 leading-7 text-gray-300">DateTimeFormat methods require an initialized receiver before coercing date
+arguments. Inheriting its prototype does not create a DateTimeFormat instance.</p>
+<p class="mb-4 leading-7 text-gray-300">Resolved options follow specification property order: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hour12</code> follows
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hourCycle</code>, and style properties follow component properties.</p>
+<p class="mb-4 leading-7 text-gray-300">Gregorian astronomical year zero formats as year 1 BC. Year 1 begins the AD era.</p>
+<p class="mb-4 leading-7 text-gray-300">Zero UTC offsets normalize to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">+00:00</code>. Named timezone matching ignores ASCII
+letter case only; non-ASCII lookalikes are rejected.</p>
+<p class="mb-4 leading-7 text-gray-300">Constructor options are read once in specification order. Default date fields
+are applied to internal records without writing to caller options.</p>
+<p class="mb-4 leading-7 text-gray-300">Every locale supports explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h11</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h12</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h23</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h24</code> hour cycles through
+options and Unicode extensions. Locale preferences still select the default.</p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hour12</code> option selects the locale’s separate 12-hour or 24-hour preference.
+For example, English uses <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h12</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h23</code>; Japanese uses <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h11</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h23</code>.</p></article></div></div></main></div></div></div>
   </body>
 </html>
