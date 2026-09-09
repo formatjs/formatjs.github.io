@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CL6M05LL.js"></script>
+    <script type="module" crossorigin src="/assets/index-BfkjKGIl.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -126,6 +126,10 @@ ISO weekday numbers (Monday = 1, Sunday = 7) and a fresh weekend array per call.
 <strong>Breaking change:</strong> the earlier proposal&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minimalDays</code> property is removed.
 Consumers that calculate local week numbers must obtain that value separately.
 Week data honors available <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">rg</code> region overrides, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sd</code> subdivision preferences
-when no region is explicit, and recognized <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">fw</code> first-day overrides.</p></article></div></div></main></div></div></div>
+when no region is explicit, and recognized <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">fw</code> first-day overrides.</p>
+<h3 id="receiver-validation" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Receiver validation<a href="#receiver-validation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Locale getters and methods require a genuine initialized Locale instance.
+Objects inheriting from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Locale.prototype</code> and proxies around Locale instances
+throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>. Failed calls do not give the receiver a Locale brand.</p></article></div></div></main></div></div></div>
   </body>
 </html>

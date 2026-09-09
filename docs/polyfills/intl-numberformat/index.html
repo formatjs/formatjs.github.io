@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CL6M05LL.js"></script>
+    <script type="module" crossorigin src="/assets/index-BfkjKGIl.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -295,6 +295,26 @@ failures. Both modes report passing and failing execution counts separately.</p>
 endpoints. Missing or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">undefined</code> endpoints throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code> before either value
 is converted. NaN endpoints throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Formatting methods throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code> for Symbol values, including objects that
-convert to a Symbol. Invalid numeric strings still format as NaN.</p></article></div></div></main></div></div></div>
+convert to a Symbol. Invalid numeric strings still format as NaN.</p>
+<h3 id="option-validation" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Option validation<a href="#option-validation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Unit identifiers are case-sensitive: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">mile</code> is valid, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MILE</code> throws <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>,
+even when the selected style does not display units. Unsupported rounding
+increments also throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">microsecond</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">nanosecond</code> are supported units, including in compound units
+and the <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.supportedValuesOf(&quot;unit&quot;)</code> list.</p>
+<p class="mb-4 leading-7 text-gray-300">Loading <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und</code> locale data preserves existing English data. Root patterns remain
+separate from language-specific patterns, regardless of registration order.</p>
+<h3 id="built-in-methods" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Built-in methods<a href="#built-in-methods" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">NumberFormat methods are callable but cannot be constructed with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new</code>.
+They have no own <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prototype</code> property.</p>
+<h3 id="rounding-priority" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Rounding priority<a href="#rounding-priority" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">roundingPriority</code> compares rounding precision before trailing-zero removal.
+With <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minimumSignificantDigits: 2</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minimumFractionDigits: 2</code>, formatting <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">1</code>
+yields <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;1.0&quot;</code> for <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;morePrecision&quot;</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;1.00&quot;</code> for <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;lessPrecision&quot;</code>.</p>
+<h3 id="receiver-validation" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Receiver validation<a href="#receiver-validation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Formatting methods require an initialized NumberFormat receiver. Plain objects,
+objects inheriting NumberFormat.prototype, and proxies around instances throw
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code> before argument conversion. Changing a real instance&#x27;s prototype does
+not remove its internal brand.</p></article></div></div></main></div></div></div>
   </body>
 </html>
