@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BfkjKGIl.js"></script>
+    <script type="module" crossorigin src="/assets/index-Dylv7NXg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -130,6 +130,15 @@ when no region is explicit, and recognized <code class="px-2 py-1 rounded-md bg-
 <h3 id="receiver-validation" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Receiver validation<a href="#receiver-validation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Locale getters and methods require a genuine initialized Locale instance.
 Objects inheriting from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Locale.prototype</code> and proxies around Locale instances
-throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>. Failed calls do not give the receiver a Locale brand.</p></article></div></div></main></div></div></div>
+throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>. Failed calls do not give the receiver a Locale brand.</p>
+<p class="mb-4 leading-7 text-gray-300">Object locale tags use standard string coercion, including <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Symbol.toPrimitive</code>
+with the string hint and the ordinary <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">valueOf</code> fallback. Callable objects are
+accepted; primitive values other than strings are rejected.</p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">variants</code> constructor option replaces existing variant subtags while
+preserving extensions. Empty, malformed, and duplicate variants throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale tags are canonicalized before constructor overrides are applied, so
+alias resolution uses the original language and script context.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minimize()</code> tests reductions of the maximized locale, preserving variants and
+extensions. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und-Thai</code> minimizes to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">th</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zh-Hant</code> to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zh-TW</code>.</p></article></div></div></main></div></div></div>
   </body>
 </html>

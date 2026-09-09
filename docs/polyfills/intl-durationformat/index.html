@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BfkjKGIl.js"></script>
+    <script type="module" crossorigin src="/assets/index-Dylv7NXg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -149,6 +149,23 @@ supported numbering system. Only malformed Unicode type identifiers throw <code 
 finite integers of a common sign. Invalid numeric fields throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>;
 an empty record throws <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>. Absolute years, months, and weeks must be
 less than <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">2 ** 32</code>; absolute normalized seconds must be less than <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">2 ** 53</code>.
-Subsecond contributions participate in the bound comparison exactly.</p></article></div></div></main></div></div></div>
+Subsecond contributions participate in the bound comparison exactly.</p>
+<h2 id="built-in-metadata" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Built-in metadata<a href="#built-in-metadata" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">DurationFormat.length</code> is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">0</code>; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">DurationFormat.supportedLocalesOf.length</code> is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">1</code>.
+Instances identify as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">[object Intl.DurationFormat]</code> through <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Symbol.toStringTag</code>.
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions()</code> returns properties in spec order and omits <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">fractionalDigits</code>
+when no explicit value was set.</p>
+<h2 id="negative-durations" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Negative durations<a href="#negative-durations" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">A negative duration has one minus sign, on its first displayed unit. This includes
+a leading zero: digital formatting of <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{seconds: -1}</code> produces <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-0:00:01&quot;</code> in English.
+Later units omit their signs in both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format()</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatToParts()</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Numeric duration fields omit grouping separators, even for large values.
+Textual styles retain locale grouping. Fractional arithmetic preserves each
+input Number&#x27;s exact integer value, including values beyond the safe-integer range.</p>
+<p class="mb-4 leading-7 text-gray-300">A numeric time style propagates through smaller units. Minutes and seconds
+remain displayed by default; smaller fractional units use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">auto</code>. Fractional
+units cannot request <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">always</code> display or be followed by a textual unit style.</p>
+<p class="mb-4 leading-7 text-gray-300">Zero minutes remain between displayed numeric hours and seconds, even with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minutesDisplay: &quot;auto&quot;</code>. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{hours: 1, seconds: 1}</code> formats as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;1:00:01&quot;</code>.</p></article></div></div></main></div></div></div>
   </body>
 </html>
