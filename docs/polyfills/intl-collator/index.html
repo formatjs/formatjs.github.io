@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Dylv7NXg.js"></script>
+    <script type="module" crossorigin src="/assets/index-DBdh3btL.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -65,6 +65,15 @@ left-to-right order and rejects Symbols with <code class="px-2 py-1 rounded-md b
 <h3 id="built-in-descriptors" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Built-in descriptors<a href="#built-in-descriptors" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">supportedLocalesOf</code> are writable, configurable methods,
 but cannot be constructed with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new</code>. The constructor&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prototype</code> property
-is non-writable; the compare getter and bound function expose the standard names.</p></article></div></div></main></div></div></div>
+is non-writable; the compare getter and bound function expose the standard names.</p>
+<p class="mb-4 leading-7 text-gray-300">The default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignorePunctuation</code> value follows the locale’s CLDR collation
+settings. Thai defaults to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">true</code>; an explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">false</code> preserves punctuation.</p>
+<p class="mb-4 leading-7 text-gray-300">CLDR <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">root</code> data remains available for collation inheritance, but is excluded
+from available locale identifiers used during negotiation.</p>
+<p class="mb-4 leading-7 text-gray-300">Collation metadata and tailoring keys use canonical BCP 47 types from CLDR,
+such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">phonebk</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">trad</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">dict</code>, rather than legacy LDML names.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">usage: &quot;search&quot;</code> selects CLDR search tailoring independently of sort collation
+keywords. Its resolved collation is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">default</code>; search comparisons are intended
+for matching, not a stable sort order.</p></article></div></div></main></div></div></div>
   </body>
 </html>

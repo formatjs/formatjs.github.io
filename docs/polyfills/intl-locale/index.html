@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Dylv7NXg.js"></script>
+    <script type="module" crossorigin src="/assets/index-DBdh3btL.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -139,6 +139,13 @@ preserving extensions. Empty, malformed, and duplicate variants throw <code clas
 <p class="mb-4 leading-7 text-gray-300">Locale tags are canonicalized before constructor overrides are applied, so
 alias resolution uses the original language and script context.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minimize()</code> tests reductions of the maximized locale, preserving variants and
-extensions. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und-Thai</code> minimizes to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">th</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zh-Hant</code> to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zh-TW</code>.</p></article></div></div></main></div></div></div>
+extensions. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und-Thai</code> minimizes to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">th</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zh-Hant</code> to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">zh-TW</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Calendar and hour-cycle preferences honor available <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">rg</code> override data, then the
+explicit region, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sd</code> subdivision, likely region, and world fallback. An override
+without data falls back to the ordinary preferred region.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale option getters expose canonical Unicode values, consistent with the
+serialized tag. For example, calendar option <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">islamicc</code> resolves to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">islamic-civil</code>.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">maximize()</code> preserves supplied components and leaves unmatched tags unchanged.
+It only searches likely-subtag candidates for the requested language.</p></article></div></div></main></div></div></div>
   </body>
 </html>

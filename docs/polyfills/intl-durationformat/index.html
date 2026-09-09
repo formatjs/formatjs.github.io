@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Dylv7NXg.js"></script>
+    <script type="module" crossorigin src="/assets/index-DBdh3btL.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -166,6 +166,18 @@ input Number&#x27;s exact integer value, including values beyond the safe-intege
 remain displayed by default; smaller fractional units use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">auto</code>. Fractional
 units cannot request <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">always</code> display or be followed by a textual unit style.</p>
 <p class="mb-4 leading-7 text-gray-300">Zero minutes remain between displayed numeric hours and seconds, even with
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minutesDisplay: &quot;auto&quot;</code>. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{hours: 1, seconds: 1}</code> formats as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;1:00:01&quot;</code>.</p></article></div></div></main></div></div></div>
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minutesDisplay: &quot;auto&quot;</code>. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{hours: 1, seconds: 1}</code> formats as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;1:00:01&quot;</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Numbering-system resolution includes systems supported by the active
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code> dependency, keeping the locale default first. Support is
+checked lazily and refreshed when that constructor is replaced. Time-separator
+data includes every numbering-system symbol record supplied by CLDR.</p>
+<h3 id="temporal-integration" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Temporal integration<a href="#temporal-integration" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">When a Temporal implementation is available before this package is loaded,
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatToParts</code> accept ISO duration strings through <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.Duration.from</code>.
+Temporal durations are read with captured intrinsic getters, so later changes to
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.Duration.prototype</code> do not affect formatting. Ordinary duration-like
+objects keep the ECMA-402 property-read order.</p>
+<p class="mb-4 leading-7 text-gray-300">Without Temporal, duration-like objects remain supported; duration strings throw
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>. This integration follows the Temporal proposal&#x27;s Intl changes.</p></article></div></div></main></div></div></div>
   </body>
 </html>
