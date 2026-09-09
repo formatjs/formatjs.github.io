@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Bb2QLgn_.js"></script>
+    <script type="module" crossorigin src="/assets/index-Co9Wbhx2.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -282,6 +282,13 @@ supported numbering system. Only malformed Unicode type identifiers throw <code 
 reads those properties without calling the function.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">assign</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>maximumFractionDigits<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </span><span class="code-line"><span class="token keyword">new</span> <span class="token class-name">Intl</span><span class="token punctuation">.</span><span class="token method function property-access"><span class="token maybe-class-name">NumberFormat</span></span><span class="token punctuation">(</span><span class="token string">&#x27;en&#x27;</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">format</span><span class="token punctuation">(</span><span class="token number">1.234</span><span class="token punctuation">)</span> <span class="token comment">// &#x27;1.23&#x27;</span>
-</span></code></pre></article></div></div></main></div></div></div>
+</span></code></pre>
+<h2 id="conformance-testing" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Conformance testing<a href="#conformance-testing" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The repository&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:test262</code> target executes upstream tests and checks an explicit
+known-failure baseline. A green baseline check does not mean every test passed.
+Run <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">bazel test //packages/intl-numberformat:test262-strict</code> to require zero
+failures. Both modes report passing and failing execution counts separately.</p>
+<p class="mb-4 leading-7 text-gray-300">With <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">signDisplay: &quot;exceptZero&quot;</code>, NaN has no sign (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;NaN&quot;</code> in English).
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">signDisplay: &quot;always&quot;</code> still includes the plus sign (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+NaN&quot;</code>).</p></article></div></div></main></div></div></div>
   </body>
 </html>
