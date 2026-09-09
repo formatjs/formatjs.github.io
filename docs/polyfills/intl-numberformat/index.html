@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DD4N_wjk.js"></script>
+    <script type="module" crossorigin src="/assets/index-uHiMp_yj.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -317,6 +317,10 @@ objects inheriting NumberFormat.prototype, and proxies around instances throw
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code> before argument conversion. Changing a real instance&#x27;s prototype does
 not remove its internal brand.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions()</code> returns properties in specification order, including
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">roundingPriority</code> before <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">trailingZeroDisplay</code>.</p></article></div></div></main></div></div></div>
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">roundingPriority</code> before <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">trailingZeroDisplay</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Internal plural selection uses options with a null prototype, preventing inherited
+option getters from affecting NumberFormat or its RelativeTimeFormat consumers.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">useGrouping: &quot;auto&quot;</code> respects CLDR minimum grouping digits. Polish four-digit
+numbers remain ungrouped; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;always&quot;</code> still requests grouping.</p></article></div></div></main></div></div></div>
   </body>
 </html>

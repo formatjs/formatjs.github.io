@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DD4N_wjk.js"></script>
+    <script type="module" crossorigin src="/assets/index-uHiMp_yj.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -37,6 +37,20 @@ ECMAScript Number conversion and reject BigInt inputs. NumberFormat and
 PluralRules formatting values support BigInt through their separate
 mathematical-value conversion.</p>
 <h1 id="polyfill-fastlyio-integration" class="text-4xl font-bold mt-8 mb-6 text-white bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent hover:[&amp;_.header-link]:visible">polyfill-fastly.io Integration<a href="#polyfill-fastlyio-integration" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h1>
-<p class="mb-4 leading-7 text-gray-300">For basic use cases, we recommend using <a href="https://polyfill-fastly.io/" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">polyfill-fastly.io</a> or <a href="https://github.com/Financial-Times/polyfill-library" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">polyfill-library</a> to generate polyfill bundle since it automatically resolves the dependencies above for you.</p></article></div></div></main></div></div></div>
+<p class="mb-4 leading-7 text-gray-300">For basic use cases, we recommend using <a href="https://polyfill-fastly.io/" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">polyfill-fastly.io</a> or <a href="https://github.com/Financial-Times/polyfill-library" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">polyfill-library</a> to generate polyfill bundle since it automatically resolves the dependencies above for you.</p>
+<h2 id="conformance-testing" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Conformance testing<a href="#conformance-testing" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The repository runs Test262 both with each polyfill installed individually and
+with all twelve installed together. Combined tests cover interactions that an
+isolated test can otherwise delegate to native Intl implementations.</p>
+<p class="mb-4 leading-7 text-gray-300">Run <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">bazel test //tools/test262:combined</code> for the combined regression gates.
+A reviewed failure baseline is not full conformance; use a package&#x27;s
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">test262-strict</code> target or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">//tools/test262:combined-&lt;polyfill&gt;-strict</code> for a
+zero-failure check. Counts and remaining failures are tracked in
+<a href="https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">knowledge-base/014-test262-conformance.md</code></a>.</p>
+<p class="mb-4 leading-7 text-gray-300">Combined suites use four harness workers with matching CPU reservations. This
+keeps full-suite execution within CI time limits while preserving per-test
+process isolation and the complete test selection.</p>
+<p class="mb-4 leading-7 text-gray-300">Test262 preludes load shared locale fixtures for the upstream locale metadata,
+including dependencies used when all polyfills are installed together.</p></article></div></div></main></div></div></div>
   </body>
 </html>
