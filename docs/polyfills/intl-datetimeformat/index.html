@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-gZRwGBPq.js"></script>
+    <script type="module" crossorigin src="/assets/index-BCk0TnAI.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -220,6 +220,14 @@ For example, English uses <code class="px-2 py-1 rounded-md bg-purple-900/30 tex
 <p class="mb-4 leading-7 text-gray-300">DateTimeFormat reuses pattern fields parsed during locale registration, preserving
 legacy RegExp statics during constructor format matching.</p>
 <p class="mb-4 leading-7 text-gray-300">Hour-cycle preferences affect matching only when an hour is requested.
-Minute/second-only formats keep their requested fields.</p></article></div></div></main></div></div></div>
+Minute/second-only formats keep their requested fields.</p>
+<p class="mb-4 leading-7 text-gray-300">Range formatting compares endpoints at the displayed precision and keeps shared
+locale fallback patterns unchanged across formatter instances.</p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">dayPeriod</code> option uses localized CLDR day periods, including noon and
+variable periods such as “in the evening”. Names follow the requested width.</p>
+<p class="mb-4 leading-7 text-gray-300">AM/PM spacing follows the locale&#x27;s default CLDR patterns, including narrow
+non-breaking spaces where specified.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale data registers CLDR default-content variants, such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-US</code> for English.
+Loading regional data preserves explicitly loaded language data.</p></article></div></div></main></div></div></div>
   </body>
 </html>
