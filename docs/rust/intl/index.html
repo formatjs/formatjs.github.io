@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BVqCmV8E.js"></script>
+    <script type="module" crossorigin src="/assets/index-Chy3dtcg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -116,33 +116,53 @@ If cache infrastructure prevents formatting, it reports the error through
 <p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatted_message!</code> when an interface should accept formatted text rather
 than arbitrary strings. It returns <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl::FormattedMessage</code> and uses
 the same extraction, IDs, locale negotiation, fallback, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">with_on_error</code>
-reporting as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message!</code>.</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">formatjs_intl<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">Intl</span><span class="token punctuation">,</span> <span class="token class-name">FormattedMessage</span><span class="token punctuation">,</span> formatted_message<span class="token punctuation">}</span><span class="token punctuation">;</span>
+reporting as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message!</code>. There is no raw-string constructor.</p>
+<p class="mb-4 leading-7 text-gray-300">Untranslated content must come from an application-owned type implementing
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">VerbatimSource</code>. Implement that trait beside the domain type&#x27;s controlled
+constructors, not on a generic string wrapper or diagnostic error.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">formatjs_intl<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">Intl</span><span class="token punctuation">,</span> <span class="token class-name">FormattedMessage</span><span class="token punctuation">,</span> <span class="token class-name">Verbatim</span><span class="token punctuation">,</span> <span class="token class-name">VerbatimSource</span><span class="token punctuation">,</span> formatted_message<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span><span class="code-line">
-</span><span class="code-line"><span class="token keyword">fn</span> <span class="token function-definition function">render</span><span class="token punctuation">(</span>intl<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token class-name">Intl</span><span class="token punctuation">,</span> path<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token class-name">FormattedMessage</span> <span class="token punctuation">{</span>
+</span><span class="code-line"><span class="token keyword">struct</span> <span class="token type-definition class-name">SelectedFile</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    name<span class="token punctuation">:</span> <span class="token class-name">String</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">impl</span> <span class="token class-name">VerbatimSource</span> <span class="token keyword">for</span> <span class="token class-name">SelectedFile</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token keyword">fn</span> <span class="token function-definition function">as_verbatim</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token operator">&amp;</span><span class="token keyword">str</span> <span class="token punctuation">{</span>
+</span><span class="code-line">        <span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">.</span>name
+</span><span class="code-line">    <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">fn</span> <span class="token function-definition function">render</span><span class="token punctuation">(</span>intl<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token class-name">Intl</span><span class="token punctuation">,</span> file<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token class-name">SelectedFile</span><span class="token punctuation">)</span> <span class="token punctuation">-&gt;</span> <span class="token class-name">FormattedMessage</span> <span class="token punctuation">{</span>
 </span><span class="code-line">    <span class="token macro property">formatted_message!</span><span class="token punctuation">(</span>
 </span><span class="code-line">        intl<span class="token punctuation">,</span>
 </span><span class="code-line">        default_message<span class="token punctuation">:</span> <span class="token string">&quot;Open {path}?&quot;</span><span class="token punctuation">,</span>
 </span><span class="code-line">        description<span class="token punctuation">:</span> <span class="token string">&quot;Confirmation before opening a selected file&quot;</span><span class="token punctuation">,</span>
-</span><span class="code-line">        values<span class="token punctuation">:</span> <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token class-name">FormattedMessage</span><span class="token punctuation">::</span><span class="token function">verbatim</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">        values<span class="token punctuation">:</span> <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token class-name">Verbatim</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token punctuation">)</span>
 </span><span class="code-line"><span class="token punctuation">}</span>
 </span></code></pre>
-<p class="mb-4 leading-7 text-gray-300">Replacements accept <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code> (including borrowed messages), numbers,
-booleans, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat::DateTimeValue</code>. Raw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String</code>/<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&amp;str</code>
-values do not compile. Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage::verbatim(...)</code> to explicitly
-accept content that should not be translated, such as a filename. Applications
-remain responsible for which content may be displayed.</p>
-<p class="mb-4 leading-7 text-gray-300">For reusable replacement maps, use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValues</code> and pass <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values: &amp;values</code>.
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Verbatim</code> is interpolation-only: it cannot convert directly to
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code>. Strings, paths, and arbitrary <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Display</code> values do not
+implement <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">VerbatimSource</code>, so <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Verbatim::new(&amp;error.to_string())</code> does not
+compile. Applications remain responsible for reviewing their domain types and
+trait implementations; this is a type-level guard, not a security sandbox.</p>
+<p class="mb-4 leading-7 text-gray-300">Other replacements accept nested <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code> values (including borrowed
+messages), numbers, booleans, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat::DateTimeValue</code>.
+For reusable replacement maps, use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValues</code> and pass <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values: &amp;values</code>.
 For static descriptors, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl::format_message_typed</code> returns
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Result&lt;FormattedMessage&gt;</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message_typed_or_default</code> also recovers
 infrastructure failures with the descriptor default. Read the result with
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">as_str()</code> or consume it with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">into_string()</code> at the final presentation step.</p>
-<p class="mb-4 leading-7 text-gray-300">The type records an explicit formatting/verbatim path; it does not guarantee
-translation coverage, successful interpolation, HTML escaping, or sanitized
-content. It is separate from the existing low-level
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat::FormattedMessage&lt;T&gt;</code> rich-text result. Existing
-string and rich-text formatting interfaces remain unchanged.</p>
+<p class="mb-4 leading-7 text-gray-300">Migration: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage::verbatim(...)</code> has been removed. Move permitted
+untranslated sources behind domain-owned <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">VerbatimSource</code> implementations and
+interpolate them with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Verbatim::new(&amp;source)</code> in an authored message. Do not
+replace the old constructor with a catch-all string wrapper or a <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;{detail}&quot;</code>
+message that forwards diagnostics.</p>
+<p class="mb-4 leading-7 text-gray-300">The type records a formatting path; it does not guarantee translation coverage,
+successful interpolation, HTML escaping, or sanitized content. It is separate
+from the existing low-level <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat::FormattedMessage&lt;T&gt;</code>
+rich-text result. Existing string and rich-text formatting interfaces remain
+unchanged.</p>
 <h2 id="shared-cache" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Shared cache<a href="#shared-cache" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">IntlCache</code> stores parsed messages by source string. Share one <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Arc&lt;IntlCache&gt;</code>
 across request-scoped <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl</code> values to avoid reparsing translations and default
