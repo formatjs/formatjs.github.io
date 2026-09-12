@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Chy3dtcg.js"></script>
+    <script type="module" crossorigin src="/assets/index-GVUboITR.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -74,6 +74,16 @@ retain Node 24.14.0. Combined-polyfill installation coverage remains separate wo
 Baseline tests invoke the generated harness binary and validate its JSON and
 exit code within the same test. Reports are test outputs; use
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--nocache_test_results</code> to rerun harness execution. Realm preludes remain
-generated inputs.</p></article></div></div></main></div></div></div>
+generated inputs.</p>
+<h2 id="npm-release-recovery" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">npm release recovery<a href="#npm-release-recovery" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Release Please reconciles every current public package version against npm after
+it runs. Missing versions from earlier failed releases are included even when the
+latest commit did not change them. Recovery revalidates registry metadata; absent versions are retried, while
+registry errors stop recovery.</p>
+<p class="mb-4 leading-7 text-gray-300">The release workflow builds only selected package artifacts, publishes workspace
+dependencies first, and verifies their
+versions on npm before publishing dependents. Existing versions are skipped, so
+maintainers can retry <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">release.yml</code> with the affected <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">npm_paths</code> after resolving a
+publication failure.</p></article></div></div></main></div></div></div>
   </body>
 </html>

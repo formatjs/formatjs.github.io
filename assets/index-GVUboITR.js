@@ -1614,7 +1614,17 @@ retain Node 24.14.0. Combined-polyfill installation coverage remains separate wo
 Baseline tests invoke the generated harness binary and validate its JSON and
 exit code within the same test. Reports are test outputs; use
 `,(0,D.jsx)(t.code,{children:`--nocache_test_results`}),` to rerun harness execution. Realm preludes remain
-generated inputs.`]})]})}function Ge(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(We,{...e})}):We(e)}function Ke(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var qe=c({default:()=>Ye});function Je(e){let t={a:`a`,code:`code`,h2:`h2`,img:`img`,li:`li`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...A(),...e.components},{Admonition:n,TabItem:r,Tabs:i}=t;return n||Xe(`Admonition`,!0),r||Xe(`TabItem`,!0),i||Xe(`Tabs`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`In larger scale applications/monorepos, not all components/libraries live within the same repo/project and they might get distributed differently. While there are multiple ways to solve this problem, this guide aims to provide a guidance that we've seen working quite well with large engineering orgs.`}),`
+generated inputs.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`npm-release-recovery`,children:[`npm release recovery`,(0,D.jsx)(t.a,{className:`header-link`,href:`#npm-release-recovery`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Release Please reconciles every current public package version against npm after
+it runs. Missing versions from earlier failed releases are included even when the
+latest commit did not change them. Recovery revalidates registry metadata; absent versions are retried, while
+registry errors stop recovery.`}),`
+`,(0,D.jsxs)(t.p,{children:[`The release workflow builds only selected package artifacts, publishes workspace
+dependencies first, and verifies their
+versions on npm before publishing dependents. Existing versions are skipped, so
+maintainers can retry `,(0,D.jsx)(t.code,{children:`release.yml`}),` with the affected `,(0,D.jsx)(t.code,{children:`npm_paths`}),` after resolving a
+publication failure.`]})]})}function Ge(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(We,{...e})}):We(e)}function Ke(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var qe=c({default:()=>Ye});function Je(e){let t={a:`a`,code:`code`,h2:`h2`,img:`img`,li:`li`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...A(),...e.components},{Admonition:n,TabItem:r,Tabs:i}=t;return n||Xe(`Admonition`,!0),r||Xe(`TabItem`,!0),i||Xe(`Tabs`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`In larger scale applications/monorepos, not all components/libraries live within the same repo/project and they might get distributed differently. While there are multiple ways to solve this problem, this guide aims to provide a guidance that we've seen working quite well with large engineering orgs.`}),`
 `,(0,D.jsxs)(t.h2,{id:`high-level-concept`,children:[`High level concept`,(0,D.jsx)(t.a,{className:`header-link`,href:`#high-level-concept`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Translated strings are basically assets, just like CSS, static configuration or images. The high level structure typically contains several layers:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
