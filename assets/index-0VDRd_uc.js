@@ -10158,6 +10158,7 @@ Choose one rule per file to avoid duplicate diagnostics.`]}),`
 `,(0,D.jsxs)(t.li,{children:[`one is a category for any number that behaves like 1. So in some languages, for example Ukrainian, Russian and Serbian, one → numbers that end in 1 (like 1, 21, 151) but that don’t end in 11 (like 11, 111, 10311). `,(0,D.jsx)(t.a,{href:`https://formatjs.github.io/docs/core-concepts/icu-syntax/#plural-format`,children:`More info`})]}),`
 `]}),`
 `,(0,D.jsxs)(t.h3,{id:`no-emoji`,children:[(0,D.jsx)(t.code,{children:`no-emoji`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-emoji`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Emoji detection supports the ESM data files shipped by `,(0,D.jsx)(t.code,{children:`@unicode/unicode-17.0.0`}),` 2.x.`]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents usage of emojis (or above a certain Unicode version) in message`}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword module`,children:`export`}),` `,(0,D.jsx)(t.span,{className:`token keyword module`,children:`default`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
