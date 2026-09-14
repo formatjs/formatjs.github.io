@@ -4245,6 +4245,8 @@ before the calendar can be selected. This provider API is a FormatJS extension.`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`adding-iana-timezone-database`,children:[`Adding IANA Timezone Database`,(0,D.jsx)(t.a,{className:`header-link`,href:`#adding-iana-timezone-database`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Timezone data uses IANA tzdb 2026d, including permanent UTC-06 for
+`,(0,D.jsx)(t.code,{children:`America/Inuvik`}),` from November 1, 2026.`]}),`
 `,(0,D.jsx)(t.p,{children:`We provide 2 pre-processed IANA Timezone:`}),`
 `,(0,D.jsxs)(t.h4,{id:`full-contains-all-timezone-from-iana-database`,children:[`Full: contains ALL Timezone from IANA database`,(0,D.jsx)(t.a,{className:`header-link`,href:`#full-contains-all-timezone-from-iana-database`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/polyfill.js'`}),`
