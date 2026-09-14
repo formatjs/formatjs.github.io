@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CJWYnJQv.js"></script>
+    <script type="module" crossorigin src="/assets/index-CHmwiY5p.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -39,6 +39,74 @@ without call-site generics. Runtime formatting and error handling are unchanged.
 it uses the type supplied to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">createIntl&lt;T&gt;()</code> (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">string</code> by default); untyped
 rich calls use that base type rather than inferring a narrower output type.</p>
 <p class="mb-4 leading-7 text-gray-300">See <a href="/docs/react-intl/api#typed-message-arguments" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">React Intl argument types</a>
-and <a href="/docs/intl#typed-message-arguments" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">core Intl argument types</a> for examples.</p></article></div></div></main></div></div></div>
+and <a href="/docs/intl#typed-message-arguments" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">core Intl argument types</a> for examples.</p>
+<h3 id="readonly-message-helpers" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Readonly message helpers<a href="#readonly-message-helpers" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage</code> returns a readonly descriptor. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages</code> returns a readonly
+catalog of readonly descriptors, including calls without typed options. Construct
+a new descriptor or catalog instead of mutating a helper result. This is a
+TypeScript breaking change; helpers preserve object identity and do not freeze
+objects or recursively transform rich values.</p>
+<h3 id="typed-helper-metadata" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Typed helper metadata<a href="#typed-helper-metadata" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Typed helpers retain required <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">id</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> fields for common
+descriptor shapes. Catalog inference retains fields shared by every entry.
+For literal IDs, custom metadata, or heterogeneous catalogs, supply a second
+descriptor generic: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage&lt;Values, typeof descriptor&gt;(descriptor, {typed: true})</code>
+or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages&lt;Contracts, typeof catalog&gt;(catalog, {typed: true})</code>.
+TypeScript cannot partially infer that second generic after an explicit first one.
+ESLint refreshes the ICU generic while preserving the metadata generic.</p>
+<p class="mb-4 leading-7 text-gray-300">The two-generic typed catalog overload reserves <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages&lt;Contracts, Descriptors&gt;</code>.
+Legacy instantiation expressions using <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages&lt;Key, Descriptor&gt;</code> should
+supply their existing third generic explicitly:
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages&lt;Key, Descriptor, Record&lt;Key, Descriptor&gt;&gt;</code>.
+Calls without explicit generics are unaffected.</p>
+<h3 id="typed-formattedmessage" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Typed FormattedMessage<a href="#typed-formattedmessage" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Spreading a typed descriptor into <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code> now checks its <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values</code>:
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;FormattedMessage {...messages.count} values={{count: 2}} /&gt;</code>.
+Required ICU arguments require the values prop, and rich tags require callbacks
+returning React nodes. Argument-free descriptors can omit values. Ordinary
+untyped JSX remains permissive. Keep the descriptor&#x27;s phantom contract when
+passing it through wrappers; widening to MessageDescriptor erases the check.
+Runtime rendering, memoization, and children callbacks are unchanged.</p>
+<h2 id="registered-message-arguments" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Registered message arguments<a href="#registered-message-arguments" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Applications can opt into ID-only checks by extending
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormatjsIntl.MessageArguments</code>. Both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$t</code> use the map
+in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code> and React Intl:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">declare</span> global <span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token keyword">namespace</span> <span class="token maybe-class-name">FormatjsIntl</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token keyword">interface</span> <span class="token class-name">MessageArguments</span> <span class="token punctuation">{</span>
+</span><span class="code-line">      <span class="token string-property property">&#x27;cart.total&#x27;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span>
+</span><span class="code-line">      <span class="token string-property property">&#x27;cart.empty&#x27;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</span><span class="code-line">    <span class="token punctuation">}</span>
+</span><span class="code-line">  <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span><span class="code-line">
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token method function property-access">$t</span><span class="token punctuation">(</span><span class="token punctuation">{</span>id<span class="token operator">:</span> <span class="token string">&#x27;cart.total&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token method function property-access">$t</span><span class="token punctuation">(</span><span class="token punctuation">{</span>id<span class="token operator">:</span> <span class="token string">&#x27;cart.empty&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">// Type error: count is required.</span>
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token method function property-access">$t</span><span class="token punctuation">(</span><span class="token punctuation">{</span>id<span class="token operator">:</span> <span class="token string">&#x27;cart.total&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Known literal IDs check required arguments, empty contracts, and rich callbacks.
+Union IDs require values valid for every possible registered message.
+Dynamic strings and unregistered IDs retain legacy behavior; this map does not
+replace the separate <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormatjsIntl.Message.ids</code> restriction.
+Explicit argument generics and typed descriptors keep their own contracts.
+No ICU parsing, registration, or freezing happens at runtime.</p>
+<p class="mb-4 leading-7 text-gray-300">For catalogs already carrying generated contracts, use
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageArgumentsFromCatalog&lt;typeof messages&gt;</code> from either package:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span>MessageArgumentsFromCatalog<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react-intl&#x27;</span>
+</span><span class="code-line"><span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span>messages<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;./messages&#x27;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">type</span> <span class="token class-name">AppMessageArguments</span> <span class="token operator">=</span> MessageArgumentsFromCatalog<span class="token operator">&lt;</span><span class="token keyword">typeof</span> messages<span class="token operator">&gt;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">declare</span> global <span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token keyword">namespace</span> FormatjsIntl <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token keyword">interface</span> <span class="token class-name">MessageArguments</span> <span class="token keyword">extends</span> <span class="token class-name">AppMessageArguments</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</span><span class="code-line">  <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Catalog entries must retain literal IDs. Use the helpers&#x27; explicit descriptor
+metadata generic when needed; widened <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">string</code> IDs are omitted. Keep IDs unique:
+duplicate catalog IDs combine their contracts. This API consumes existing typed
+catalogs or application declarations; it does not add a CLI declaration generator.</p></article></div></div></main></div></div></div>
   </body>
 </html>
