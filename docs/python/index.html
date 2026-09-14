@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DTanUIsT.js"></script>
+    <script type="module" crossorigin src="/assets/index-Cg87VpOI.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -88,6 +88,43 @@ Recovered missing translations and formatting failures are sent to <code class="
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">Python APIs use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">snake_case</code>. The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">py_intl</code> distribution imports as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">intl</code>;
 other distribution and import package names match. Hermetic cross-compiled
-wheels target macOS and manylinux 2.28 on arm64 and x86_64.</p></article></div></div></main></div></div></div>
+wheels target macOS and manylinux 2.28 on arm64 and x86_64.</p>
+<h2 id="generated-message-contracts" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Generated message contracts<a href="#generated-message-contracts" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Generate typed Python wrappers from a FormatJS source catalog:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token property">&quot;cart.total&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">&quot;defaultMessage&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{count, plural, other {# items}}&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token property">&quot;cart.empty&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">&quot;defaultMessage&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Your cart is empty&quot;</span><span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span></code></pre>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">python <span class="token parameter variable">-m</span> intl.codegen en.json <span class="token parameter variable">--out</span> messages.py
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Keep both generated files: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">messages.py</code> supplies runtime wrappers;
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">messages.pyi</code> supplies message-specific <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedDict</code> contracts. The stub uses
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">typing_extensions.ReadOnly</code> for Python 3.12 compatibility. The wrappers add
+no runtime dependency on typing_extensions.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">from</span> messages <span class="token keyword">import</span> cart_total<span class="token punctuation">,</span> cart_empty
+</span><span class="code-line">
+</span><span class="code-line">cart_total<span class="token punctuation">(</span>intl<span class="token punctuation">,</span> values<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="code-line">cart_empty<span class="token punctuation">(</span>intl<span class="token punctuation">)</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment"># Type errors:</span>
+</span><span class="code-line">cart_total<span class="token punctuation">(</span>intl<span class="token punctuation">)</span>
+</span><span class="code-line">cart_total<span class="token punctuation">(</span>intl<span class="token punctuation">,</span> values<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;count&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;two&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Names derive from catalog IDs by replacing punctuation with underscores;
+leading digits and Python keywords receive a <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">message_</code> prefix. Collisions
+are rejected. String catalogs and descriptors with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> and an
+optional string <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">description</code> are supported.</p>
+<p class="mb-4 leading-7 text-gray-300">Contracts come from the Rust ICU parser, including apostrophe escapes and every
+nested branch. Numbers/plurals require <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">int | float</code>; dates/times accept
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">date | datetime | int | float</code>. Repeated arguments must satisfy every role.
+All contract fields are required and readonly to the type checker. Empty messages
+allow omitted values. Runtime dictionaries are not frozen.</p>
+<p class="mb-4 leading-7 text-gray-300">Python&#x27;s type system treats <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">bool</code> as an <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">int</code>, so static numeric checks cannot
+exclude booleans. Runtime formatting still checks values and translated messages.
+Rich tags are rejected during generation because Python Intl has no rich callback
+API. Raw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.format_message</code> calls keep their existing dynamic interface;
+use the generated wrappers for per-message checks. Generate from source catalogs,
+not independently from each translation.</p></article></div></div></main></div></div></div>
   </body>
 </html>

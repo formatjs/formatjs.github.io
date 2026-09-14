@@ -5927,7 +5927,44 @@ Recovered missing translations and formatting failures are sent to `,(0,D.jsx)(t
 `]})]})}),`
 `,(0,D.jsxs)(t.p,{children:[`Python APIs use `,(0,D.jsx)(t.code,{children:`snake_case`}),`. The `,(0,D.jsx)(t.code,{children:`py_intl`}),` distribution imports as `,(0,D.jsx)(t.code,{children:`intl`}),`;
 other distribution and import package names match. Hermetic cross-compiled
-wheels target macOS and manylinux 2.28 on arm64 and x86_64.`]})]})}function Un(e={}){let{wrapper:t}={...k(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Hn,{...e})}):Hn(e)}var Wn=c({default:()=>Kn});function Gn(e){let t={a:`a`,code:`code`,em:`em`,h2:`h2`,h3:`h3`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,ul:`ul`,...k(),...e.components},{Admonition:n}=t;return n||qn(`Admonition`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.p,{children:[`There are a few API layers that React Intl provides and is built on. When using React Intl you'll be interacting with its API (documented here) and its React `,(0,D.jsx)(t.a,{href:`/docs/react-intl/components`,children:`components`}),`.`]}),`
+wheels target macOS and manylinux 2.28 on arm64 and x86_64.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`generated-message-contracts`,children:[`Generated message contracts`,(0,D.jsx)(t.a,{className:`header-link`,href:`#generated-message-contracts`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Generate typed Python wrappers from a FormatJS source catalog:`}),`
+`,(0,D.jsx)(t.pre,{className:`language-json`,children:(0,D.jsxs)(t.code,{className:`language-json code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token property`,children:`"cart.total"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token property`,children:`"defaultMessage"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`"{count, plural, other {# items}}"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token property`,children:`"cart.empty"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token property`,children:`"defaultMessage"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`"Your cart is empty"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
+`]})]})}),`
+`,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[`python `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-m`}),` intl.codegen en.json `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`--out`}),` messages.py
+`]})})}),`
+`,(0,D.jsxs)(t.p,{children:[`Keep both generated files: `,(0,D.jsx)(t.code,{children:`messages.py`}),` supplies runtime wrappers;
+`,(0,D.jsx)(t.code,{children:`messages.pyi`}),` supplies message-specific `,(0,D.jsx)(t.code,{children:`TypedDict`}),` contracts. The stub uses
+`,(0,D.jsx)(t.code,{children:`typing_extensions.ReadOnly`}),` for Python 3.12 compatibility. The wrappers add
+no runtime dependency on typing_extensions.`]}),`
+`,(0,D.jsx)(t.pre,{className:`language-python`,children:(0,D.jsxs)(t.code,{className:`language-python code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`from`}),` messages `,(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` cart_total`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` cart_empty
+`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
+`}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`cart_total`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`intl`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` values`,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token string`,children:`"count"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token number`,children:`2`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`cart_empty`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`intl`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
+`}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`# Type errors:`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`cart_total`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`intl`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`cart_total`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`intl`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` values`,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token string`,children:`"count"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`"two"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`Names derive from catalog IDs by replacing punctuation with underscores;
+leading digits and Python keywords receive a `,(0,D.jsx)(t.code,{children:`message_`}),` prefix. Collisions
+are rejected. String catalogs and descriptors with `,(0,D.jsx)(t.code,{children:`defaultMessage`}),` and an
+optional string `,(0,D.jsx)(t.code,{children:`description`}),` are supported.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Contracts come from the Rust ICU parser, including apostrophe escapes and every
+nested branch. Numbers/plurals require `,(0,D.jsx)(t.code,{children:`int | float`}),`; dates/times accept
+`,(0,D.jsx)(t.code,{children:`date | datetime | int | float`}),`. Repeated arguments must satisfy every role.
+All contract fields are required and readonly to the type checker. Empty messages
+allow omitted values. Runtime dictionaries are not frozen.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Python's type system treats `,(0,D.jsx)(t.code,{children:`bool`}),` as an `,(0,D.jsx)(t.code,{children:`int`}),`, so static numeric checks cannot
+exclude booleans. Runtime formatting still checks values and translated messages.
+Rich tags are rejected during generation because Python Intl has no rich callback
+API. Raw `,(0,D.jsx)(t.code,{children:`Intl.format_message`}),` calls keep their existing dynamic interface;
+use the generated wrappers for per-message checks. Generate from source catalogs,
+not independently from each translation.`]})]})}function Un(e={}){let{wrapper:t}={...k(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Hn,{...e})}):Hn(e)}var Wn=c({default:()=>Kn});function Gn(e){let t={a:`a`,code:`code`,em:`em`,h2:`h2`,h3:`h3`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,ul:`ul`,...k(),...e.components},{Admonition:n}=t;return n||qn(`Admonition`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.p,{children:[`There are a few API layers that React Intl provides and is built on. When using React Intl you'll be interacting with its API (documented here) and its React `,(0,D.jsx)(t.a,{href:`/docs/react-intl/components`,children:`components`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`why-imperative-api`,children:[`Why Imperative API?`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-imperative-api`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`While our `,(0,D.jsx)(t.a,{href:`/docs/react-intl/components`,children:`components`}),` provide a seamless integration with React, the imperative API are recommended (sometimes required) in several use cases:`]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
