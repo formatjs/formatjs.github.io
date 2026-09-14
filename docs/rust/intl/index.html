@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-D7NZdS5X.js"></script>
+    <script type="module" crossorigin src="/assets/index-DTanUIsT.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -181,6 +181,20 @@ messages.</p>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">These messages are ready to format when inserted and bypass both runtime
 parsing and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">IntlCache</code>.</p>
-<p class="mb-4 leading-7 text-gray-300">See the complete <a href="https://docs.rs/formatjs_intl" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl</code> API</a>.</p></article></div></div></main></div></div></div>
+<p class="mb-4 leading-7 text-gray-300">See the complete <a href="https://docs.rs/formatjs_intl" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl</code> API</a>.</p>
+<h2 id="icu-argument-types" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">ICU argument types<a href="#icu-argument-types" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Inline <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message!</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatted_message!</code> values are checked against
+every ICU occurrence before conversion to runtime values. Number/plural arguments
+require numbers; date/time arguments accept timestamps or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">DateTimeValue</code>;
+select arguments require selector-compatible values. Parsing handles quoting,
+rich tags, and nested branches.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">format_message!</code> accepts rich tags as callbacks returning runtime parts:
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values: {b: |parts| Ok(parts)}</code>. The localized-output <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatted_message!</code>
+interface retains its restriction against rich callbacks and unchecked strings.</p>
+<p class="mb-4 leading-7 text-gray-300">This is a breaking change for inline values already erased to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Value</code>, including
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Value::tag(...)</code>. Pass the original scalar or callback instead. Explicit
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values: &amp;values</code> maps retain runtime validation. Reusable descriptors and ID-only
+calls do not yet carry argument contracts. Value ranges and translated catalog
+compatibility still require runtime checks.</p></article></div></div></main></div></div></div>
   </body>
 </html>
