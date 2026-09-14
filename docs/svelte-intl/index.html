@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-0VDRd_uc.js"></script>
+    <script type="module" crossorigin src="/assets/index-DDdJvyOK.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -155,6 +155,26 @@ sanitized to avoid XSS vulnerabilities.</p></div></div>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;script&gt;</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;script module&gt;</code> blocks</li>
 <li class="mb-2 text-gray-300">Template expressions: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{intl.formatMessage(...)}</code>, attribute bindings, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{#if}</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{#each}</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{@const}</code>, etc.</li>
-</ul></article></div></div></main></div></div></div>
+</ul>
+<h2 id="typed-messages-and-migration" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Typed messages and migration<a href="#typed-messages-and-migration" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Version 2 requires TypeScript 5.4 or newer. Message helpers now share the
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code> contracts. Returned descriptors and catalog entries are readonly;
+construct a new descriptor instead of mutating one.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token punctuation">{</span>defineMessage<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@formatjs/svelte-intl&#x27;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessage</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>
+</span><span class="code-line">  <span class="token punctuation">{</span>id<span class="token operator">:</span> <span class="token string">&#x27;items&#x27;</span><span class="token punctuation">,</span> defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, number} items&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">{</span>typed<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token comment">// intl.formatMessage(message, {count: 3})</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages&lt;Contracts&gt;(catalog, {typed: true})</code> attaches a separate values
+contract to each catalog entry. Helpers return the original objects at runtime.
+The generic declares the contract; it does not parse ICU literals.</p>
+<p class="mb-4 leading-7 text-gray-300">For <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$t</code>, the first generic is the values contract and the
+second is the rich output type. Move an existing output generic to the second
+position. Without generics, typed descriptors retain their checks; ordinary
+unregistered descriptors remain permissive. Vue uses its configured VNode output;
+Svelte uses strings.</p></article></div></div></main></div></div></div>
   </body>
 </html>
