@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BVC7mX46.js"></script>
+    <script type="module" crossorigin src="/assets/index-9_ijtkvo.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -850,6 +850,16 @@ use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono
 Autofix adds normal <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">import type</code> declarations for these names, reusing existing
 imports and aliases when possible.
 Incompatible uses of one argument produce a diagnostic without a fix.</p>
+<p class="mb-4 leading-7 text-gray-300">Catalogs may use computed identifier or enum-member keys and reference existing
+messages. Referenced contracts use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValuesOf&lt;typeof message&gt;</code> rather than
+copying another message&#x27;s ICU arguments. Local <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">const</code> descriptors are analyzed
+when their references are limited to message helpers and formatter calls; mutable
+or escaping descriptors still require an explicit contract.</p>
+<p class="mb-4 leading-7 text-gray-300">Autofix also replaces broad catalog annotations, including local type aliases and
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Record</code> values that allow <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">undefined</code>, with per-message descriptor types. It
+removes local type aliases and type imports only when the replaced annotations or
+generics contained their last references. Exported aliases and types used
+elsewhere remain unchanged.</p>
 <p class="mb-4 leading-7 text-gray-300">Inline calls receive the ICU contract as their first generic:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">intl<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">formatMessage</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
 </span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint

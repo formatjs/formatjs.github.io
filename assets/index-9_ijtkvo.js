@@ -10709,6 +10709,16 @@ use `,(0,D.jsx)(t.code,{children:`string`}),` because `,(0,D.jsx)(t.code,{childr
 Autofix adds normal `,(0,D.jsx)(t.code,{children:`import type`}),` declarations for these names, reusing existing
 imports and aliases when possible.
 Incompatible uses of one argument produce a diagnostic without a fix.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Catalogs may use computed identifier or enum-member keys and reference existing
+messages. Referenced contracts use `,(0,D.jsx)(t.code,{children:`MessageValuesOf<typeof message>`}),` rather than
+copying another message's ICU arguments. Local `,(0,D.jsx)(t.code,{children:`const`}),` descriptors are analyzed
+when their references are limited to message helpers and formatter calls; mutable
+or escaping descriptors still require an explicit contract.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Autofix also replaces broad catalog annotations, including local type aliases and
+`,(0,D.jsx)(t.code,{children:`Record`}),` values that allow `,(0,D.jsx)(t.code,{children:`undefined`}),`, with per-message descriptor types. It
+removes local type aliases and type imports only when the replaced annotations or
+generics contained their last references. Exported aliases and types used
+elsewhere remain unchanged.`]}),`
 `,(0,D.jsx)(t.p,{children:`Inline calls receive the ICU contract as their first generic:`}),`
 `,(0,D.jsx)(t.pre,{className:`language-ts`,children:(0,D.jsxs)(t.code,{className:`language-ts code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[`intl`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsxs)(t.span,{className:`token generic-function`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`formatMessage`}),(0,D.jsxs)(t.span,{className:`token generic class-name`,children:[(0,D.jsx)(t.span,{className:`token operator`,children:`<`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
 `]})]})]}),(0,D.jsx)(t.span,{className:`code-line`,children:(0,D.jsx)(t.span,{className:`token generic-function`,children:(0,D.jsxs)(t.span,{className:`token generic class-name`,children:[`  `,(0,D.jsx)(t.span,{className:`token keyword`,children:`readonly`}),` count`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token builtin`,children:`number`}),` `,(0,D.jsx)(t.span,{className:`token operator`,children:`|`}),` bigint
