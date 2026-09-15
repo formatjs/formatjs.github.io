@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-D8zHzYBm.js"></script>
+    <script type="module" crossorigin src="/assets/index-fpLgpVxJ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -520,6 +520,26 @@ No ICU parsing, registration, or freezing happens at runtime.</p>
 <p class="mb-4 leading-7 text-gray-300">Catalog entries must retain literal IDs. Use the helpers&#x27; explicit descriptor
 metadata generic when needed; widened <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">string</code> IDs are omitted. Keep IDs unique:
 duplicate catalog IDs combine their contracts. This API consumes existing typed
-catalogs or application declarations; it does not add a CLI declaration generator.</p></article></div></div></main></div></div></div>
+catalogs or application declarations; it does not add a CLI declaration generator.</p>
+<h3 id="sharing-text-only-formatters" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Sharing text-only formatters<a href="#sharing-text-only-formatters" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TextMessageFormatter</code> for helpers that accept either a core or React
+formatter and produce text, such as page titles and metadata. It is exported
+from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl/server</code>.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span>TextMessageFormatter<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@formatjs/intl&#x27;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">function</span> <span class="token function">pageTitle</span><span class="token punctuation">(</span>format<span class="token operator">:</span> TextMessageFormatter<span class="token punctuation">,</span> count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token keyword">return</span> <span class="token generic-function"><span class="token function">format</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>
+</span><span class="code-line">    <span class="token punctuation">{</span>id<span class="token operator">:</span> <span class="token string">&#x27;page.items&#x27;</span><span class="token punctuation">,</span> defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, number} items&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token punctuation">{</span>count<span class="token punctuation">}</span>
+</span><span class="code-line">  <span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token function">pageTitle</span><span class="token punctuation">(</span>coreIntl<span class="token punctuation">.</span>formatMessage<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token function">pageTitle</span><span class="token punctuation">(</span>reactIntl<span class="token punctuation">.</span>$t<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">This type preserves explicit argument contracts, typed descriptors, and registered
+message IDs. Rich-text callbacks receive <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">string[]</code> and must return strings;
+React elements are not accepted. It adds no runtime wrapper and does not change
+the full formatter types used for rendering rich content.</p></article></div></div></main></div></div></div>
   </body>
 </html>
