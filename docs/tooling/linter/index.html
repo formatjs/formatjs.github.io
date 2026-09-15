@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-9_ijtkvo.js"></script>
+    <script type="module" crossorigin src="/assets/index-DO-XsY84.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -920,7 +920,12 @@ still matches the ICU source. Catalog translations still need structural
 validation. Explicitly widening a typed descriptor to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> erases
 its checks, as does using <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">any</code>. Generated helper results retain the standard
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> shape rather than the original descriptor&#x27;s literal ID type.</p>
-<h3 id="explicit-catalog-annotations" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Explicit catalog annotations<a href="#explicit-catalog-annotations" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<h3 id="explicit-descriptor-and-catalog-annotations" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Explicit descriptor and catalog annotations<a href="#explicit-descriptor-and-catalog-annotations" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">For an annotated <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage</code> variable, autofix replaces <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code>
+(or a local alias or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Readonly</code> wrapper) with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedMessageDescriptor&lt;Values&gt;</code>.
+This preserves the generated ICU contract across exports and allows referenced
+catalog entries to use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValuesOf&lt;typeof message&gt;</code>. Existing typed
+annotations are refreshed when the message changes.</p>
 <p class="mb-4 leading-7 text-gray-300">For an annotated <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages</code> variable, autofix replaces the original
 annotation with per-message <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedMessageDescriptor</code> contracts:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token punctuation">{</span>defineMessages<span class="token punctuation">,</span> <span class="token keyword">type</span> <span class="token class-name">TypedMessageDescriptor</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react-intl&#x27;</span>

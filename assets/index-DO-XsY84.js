@@ -10779,7 +10779,12 @@ still matches the ICU source. Catalog translations still need structural
 validation. Explicitly widening a typed descriptor to `,(0,D.jsx)(t.code,{children:`MessageDescriptor`}),` erases
 its checks, as does using `,(0,D.jsx)(t.code,{children:`any`}),`. Generated helper results retain the standard
 `,(0,D.jsx)(t.code,{children:`MessageDescriptor`}),` shape rather than the original descriptor's literal ID type.`]}),`
-`,(0,D.jsxs)(t.h3,{id:`explicit-catalog-annotations`,children:[`Explicit catalog annotations`,(0,D.jsx)(t.a,{className:`header-link`,href:`#explicit-catalog-annotations`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h3,{id:`explicit-descriptor-and-catalog-annotations`,children:[`Explicit descriptor and catalog annotations`,(0,D.jsx)(t.a,{className:`header-link`,href:`#explicit-descriptor-and-catalog-annotations`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`For an annotated `,(0,D.jsx)(t.code,{children:`defineMessage`}),` variable, autofix replaces `,(0,D.jsx)(t.code,{children:`MessageDescriptor`}),`
+(or a local alias or `,(0,D.jsx)(t.code,{children:`Readonly`}),` wrapper) with `,(0,D.jsx)(t.code,{children:`TypedMessageDescriptor<Values>`}),`.
+This preserves the generated ICU contract across exports and allows referenced
+catalog entries to use `,(0,D.jsx)(t.code,{children:`MessageValuesOf<typeof message>`}),`. Existing typed
+annotations are refreshed when the message changes.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`For an annotated `,(0,D.jsx)(t.code,{children:`defineMessages`}),` variable, autofix replaces the original
 annotation with per-message `,(0,D.jsx)(t.code,{children:`TypedMessageDescriptor`}),` contracts:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`defineMessages`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`type`}),` `,(0,D.jsx)(t.span,{className:`token class-name`,children:`TypedMessageDescriptor`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`from`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'react-intl'`}),`
