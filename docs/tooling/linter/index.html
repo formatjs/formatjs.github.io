@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-fpLgpVxJ.js"></script>
+    <script type="module" crossorigin src="/assets/index-BVC7mX46.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -833,13 +833,10 @@ JavaScript files receive inline-value checks but no generated types. Dynamic
 message strings cannot supply a contract.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessage</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
 </span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name"><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>
-</span><span class="code-line">  <span class="token punctuation">{</span>
-</span><span class="code-line">    id<span class="token operator">:</span> <span class="token string">&#x27;items&#x27;</span><span class="token punctuation">,</span>
-</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, plural, one {# item} other {# items}}&#x27;</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token punctuation">{</span>typed<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span>
-</span><span class="code-line"><span class="token punctuation">)</span>
+</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name"><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  id<span class="token operator">:</span> <span class="token string">&#x27;items&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, plural, one {# item} other {# items}}&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </span><span class="code-line">
 </span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// OK</span>
 </span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token string">&#x27;two&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// TypeScript error</span>
@@ -892,13 +889,18 @@ marker comment; the ICU source is the authority for the first generic.</p>
 Dynamic strings, parsed AST inputs, and dynamic parser options are not generated.
 The argument contracts and tag/value types live in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">intl-messageformat</code>;
 framework packages re-export them.</p>
+<p class="mb-4 leading-7 text-gray-300">For inline formatter calls with no ICU arguments and no values argument, autofix
+omits the empty generic and removes an existing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;{}&gt;</code>. A second output generic
+is preserved. Empty contracts on reusable helpers and calls supplying values
+remain useful for checking later calls or rejecting extra values.</p>
 <p class="mb-4 leading-7 text-gray-300">Autofix refreshes the first generic from the message even when it was handwritten,
 and preserves a formatter&#x27;s second rich-output generic. Legacy marker comments
 are removed when fixing. Typed declarations with unsupported or dynamic source
 expressions receive a diagnostic instead of a guessed contract. Spreads and
 computed properties are not generated.</p>
-<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{typed: true}</code> overload attaches only type-level metadata. Existing helper
-calls and untyped formatting behavior stay unchanged. Both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage</code> and
+<p class="mb-4 leading-7 text-gray-300">Helper generics describe ICU arguments and attach only type-level metadata;
+no options flag is required. Calls without generics retain inferred descriptor
+metadata and permissive formatting. Existing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{typed: true}</code> calls remain valid. Both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage</code> and
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$t</code> enforce contracts. React Intl also supports rich-text callbacks returning
 React nodes. This does not add typed JSX <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code> props or infer
 contracts from ID-only calls. A dynamically selected typed descriptor requires
@@ -915,10 +917,9 @@ annotation with per-message <code class="px-2 py-1 rounded-md bg-purple-900/30 t
 </span><span class="code-line">
 </span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">const</span> messages<span class="token operator">:</span> <span class="token punctuation">{</span>
 </span><span class="code-line">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token maybe-class-name">TypedMessageDescriptor</span><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> n<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span><span class="token operator">&gt;</span>
-</span><span class="code-line"><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessages</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token keyword">readonly</span> n<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>
-</span><span class="code-line">  <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token punctuation">{</span>defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{n, number}&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token punctuation">{</span>typed<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span>
-</span><span class="code-line"><span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessages</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token keyword">readonly</span> n<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  count<span class="token operator">:</span> <span class="token punctuation">{</span>defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{n, number}&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">This explicit type works with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">isolatedDeclarations</code>. Subsequent fixes refresh
 both the call generic and the annotation when messages change. Keys come from the actual catalog. All generated catalog and argument properties
