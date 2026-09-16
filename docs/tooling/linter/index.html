@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BbZdbyzE.js"></script>
+    <script type="module" crossorigin src="/assets/index-B9zvK3TK.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CCGXwv_c.css">
   </head>
   <body>
@@ -808,150 +808,80 @@ Default complexity limit is 20 (using <a href="https://help.smartling.com/hc/en-
 <li class="mb-2 text-gray-300">Ensures that the count are correctly formatted as numbers.</li>
 </ol>
 <h2 id="enforce-message-types" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">enforce-message-types<a href="#enforce-message-types" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
-<p class="mb-4 leading-7 text-gray-300">Checks missing and unused inline values in JavaScript, JSX, Vue templates, and
-untyped TypeScript calls, using the same checks as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">enforce-placeholders</code>.
-For typed TypeScript calls, the generated contract lets TypeScript check values
-instead, including variables and value types. Type generation remains opt-in.</p>
-<p class="mb-4 leading-7 text-gray-300">Both rules accept <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignoreList: [&#x27;name&#x27;]</code>. Inline checks ignore those names.
-Generated contracts make listed names optional and allow listed extra keys;
-present numeric/date values and tag callbacks retain their types. This supports
-values supplied by application wrappers, but does not provide runtime values.</p>
-<p class="mb-4 leading-7 text-gray-300">Generate ICU argument contracts for TypeScript <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages</code>
-calls imported from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl</code>, or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl/server</code>, plus
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new IntlMessageFormat</code> imported from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">intl-messageformat</code>. Inline
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage({...}, values)</code> calls and the existing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$t</code> / <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$formatMessage</code>
-names are supported too.
-This rule is not enabled in the recommended or strict presets.</p>
+<p class="mb-4 leading-7 text-gray-300">Checks message values and keeps TypeScript argument types in sync with ICU
+messages. In JavaScript and untyped calls, it checks inline values like
+<a href="#enforce-placeholders" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">enforce-placeholders</code></a>. Typed calls also let TypeScript
+check variables, missing arguments, and incorrect value types.</p>
+<h3 id="setup" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Setup<a href="#setup" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Use a TypeScript-capable ESLint parser, enable the rule, and run <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">eslint --fix</code>:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token punctuation">{</span>
 </span><span class="code-line">  <span class="token string-property property">&#x27;formatjs/enforce-message-types&#x27;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#x27;error&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">generateTypes</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
 </span><span class="code-line"><span class="token punctuation">}</span>
 </span></code></pre>
-<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">generateTypes</code> defaults to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">false</code>. Enable it to annotate previously untyped
-static declarations with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">eslint --fix</code>. Even when false, the rule checks and
-refreshes existing formatter/constructor generics and typed helper contracts. Use a TypeScript-capable ESLint parser.
-JavaScript files receive inline-value checks but no generated types. Dynamic
-message strings cannot supply a contract.</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessage</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name"><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-</span><span class="code-line">  id<span class="token operator">:</span> <span class="token string">&#x27;items&#x27;</span><span class="token punctuation">,</span>
-</span><span class="code-line">  defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, plural, one {# item} other {# items}}&#x27;</span><span class="token punctuation">,</span>
+<p class="mb-4 leading-7 text-gray-300">The rule is not included in the recommended or strict presets. Keep it enabled:
+TypeScript checks the generated types, but only the linter checks that they still
+match your message text.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token comment">// Before</span>
+</span><span class="code-line"><span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token function">defineMessage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, number} items&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token comment">// After autofix</span>
+</span><span class="code-line"><span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessage</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, number} items&#x27;</span><span class="token punctuation">,</span>
 </span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </span><span class="code-line">
-</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// OK</span>
-</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token string">&#x27;two&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// TypeScript error</span>
-</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token comment">// TypeScript error: missing count</span>
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>items<span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// OK</span>
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>items<span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token string">&#x27;two&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// Type error</span>
+</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token function">formatMessage</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span> <span class="token comment">// Type error: count is required</span>
 </span></code></pre>
-<p class="mb-4 leading-7 text-gray-300">The existing ICU parser handles apostrophe escaping, tags, skeletons, offsets,
-and nested branches. Contracts include arguments from every branch. Numbers and
-plurals use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">number | bigint</code>; dates and times use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">number | Date</code>; selectors
-use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">string</code> because <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">other</code> accepts arbitrary selectors. Plain arguments use
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValue</code>, and tags use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageTag</code>, resolved to callbacks by the formatter.
-Autofix adds normal <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">import type</code> declarations for these names, reusing existing
-imports and aliases when possible.
-Incompatible uses of one argument produce a diagnostic without a fix.</p>
-<p class="mb-4 leading-7 text-gray-300">Catalogs may use computed identifier or enum-member keys and reference existing
-messages. Referenced contracts use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValuesOf&lt;typeof message&gt;</code> rather than
-copying another message&#x27;s ICU arguments. Local <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">const</code> descriptors are analyzed
-when their references are limited to message helpers and formatter calls; mutable
-or escaping descriptors still require an explicit contract.</p>
-<p class="mb-4 leading-7 text-gray-300">Autofix also replaces broad catalog annotations, including local type aliases and
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Record</code> values that allow <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">undefined</code>, with per-message descriptor types. It
-removes local type aliases and type imports only when the replaced annotations or
-generics contained their last references. Exported aliases and types used
-elsewhere remain unchanged.</p>
-<p class="mb-4 leading-7 text-gray-300">Inline calls receive the ICU contract as their first generic:</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">intl<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">formatMessage</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name"><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{count, number}&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-</span></code></pre>
-<p class="mb-4 leading-7 text-gray-300">The formatter signature validates the descriptor and values. No assertion or
-runtime wrapper is needed. Autofix replaces the first generic, including a
-handwritten contract,
-preserving an optional second rich-output generic such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">React.ReactNode</code>.</p>
-<p class="mb-4 leading-7 text-gray-300">For inline calls, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">moduleSource</code> can be <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl</code>, or
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl/server</code>. By default the first matching import in the file supplies
-the module, with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code> as fallback. Set <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">moduleSource: &#x27;react-intl&#x27;</code>
-when an application wrapper supplies the formatter without a direct FormatJS
-import. The selected package must be available to the TypeScript project.
-Descriptor assertions are left unchanged. ID-only descriptors cannot supply
-an argument contract.</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span>MessageTag<span class="token punctuation">,</span> MessageValue<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@formatjs/intl&#x27;</span>
-</span><span class="code-line">
-</span><span class="code-line">intl<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">$t</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span>
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> b<span class="token operator">?</span><span class="token operator">:</span> MessageTag
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> count<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name">  <span class="token keyword">readonly</span> extra<span class="token operator">?</span><span class="token operator">:</span> MessageValue
-</span></span></span><span class="code-line"><span class="token generic-function"><span class="token generic class-name"><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-</span><span class="code-line">  defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;&lt;b&gt;{count, number}&lt;/b&gt;&#x27;</span><span class="token punctuation">,</span>
-</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
-</span></code></pre>
-<p class="mb-4 leading-7 text-gray-300">This example uses <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignoreList: [&#x27;b&#x27;, &#x27;count&#x27;, &#x27;extra&#x27;]</code>. Generated types need no
-marker comment; the ICU source is the authority for the first generic.</p>
-<p class="mb-4 leading-7 text-gray-300">Direct formatter construction receives the generic without an extra runtime option:</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntlMessageFormat<span class="token operator">&lt;</span><span class="token punctuation">{</span>
-</span></span><span class="code-line"><span class="token class-name">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint
-</span></span><span class="code-line"><span class="token class-name"><span class="token punctuation">}</span><span class="token operator">&gt;</span></span><span class="token punctuation">(</span><span class="token string">&#x27;{count, number}&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;en&#x27;</span><span class="token punctuation">)</span>
-</span><span class="code-line">
-</span><span class="code-line">message<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token punctuation">{</span>count<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-</span></code></pre>
-<p class="mb-4 leading-7 text-gray-300">Constructor fixes respect a static <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignoreTag</code> option in the fourth argument.
-Dynamic strings, parsed AST inputs, and dynamic parser options are not generated.
-The argument contracts and tag/value types live in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">intl-messageformat</code>;
-framework packages re-export them.</p>
-<p class="mb-4 leading-7 text-gray-300">For inline formatter calls with no ICU arguments and no values argument, autofix
-omits the empty generic and removes an existing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;{}&gt;</code>. A second output generic
-is preserved. Reusable helpers also omit empty contracts: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage</code> and
-each entry in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages</code> default to no ICU arguments, so later calls still
-reject extra values. Generated <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedMessageDescriptor</code> annotations omit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;{}&gt;</code>
-as well. Explicit second metadata generics retain the first contract argument.
-Inline calls supplying values keep their explicit empty contract.</p>
-<p class="mb-4 leading-7 text-gray-300">Autofix refreshes the first generic from the message even when it was handwritten,
-and preserves a formatter&#x27;s second rich-output generic. Legacy marker comments
-are removed when fixing. Typed declarations with unsupported or dynamic source
-expressions receive a diagnostic instead of a guessed contract. Spreads and
-computed properties are not generated.</p>
-<p class="mb-4 leading-7 text-gray-300">Helper generics describe ICU arguments and attach only type-level metadata;
-no options flag is required. Calls without generics retain inferred descriptor
-metadata and carry an empty ICU contract. Messages with arguments require an
-explicit contract, which <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">generateTypes</code> supplies. Existing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{typed: true}</code> calls remain valid. Both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage</code> and
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$t</code> enforce contracts. React Intl also supports rich-text callbacks returning
-React nodes. This does not add typed JSX <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code> props or infer
-contracts from ID-only calls. A dynamically selected typed descriptor requires
-values for every possible message.</p>
-<p class="mb-4 leading-7 text-gray-300">Keep this rule in CI: TypeScript checks the generated contract, not whether it
-still matches the ICU source. Catalog translations still need structural
-validation. Explicitly widening a typed descriptor to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> erases
-its checks, as does using <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">any</code>. Generated helper results retain the standard
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> shape rather than the original descriptor&#x27;s literal ID type.</p>
-<h3 id="explicit-descriptor-and-catalog-annotations" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Explicit descriptor and catalog annotations<a href="#explicit-descriptor-and-catalog-annotations" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
-<p class="mb-4 leading-7 text-gray-300">For an annotated <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage</code> variable, autofix replaces <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code>
-(or a local alias or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Readonly</code> wrapper) with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedMessageDescriptor&lt;Values&gt;</code>.
-This preserves the generated ICU contract across exports and allows referenced
-catalog entries to use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValuesOf&lt;typeof message&gt;</code>. Existing typed
-annotations are refreshed when the message changes.</p>
-<p class="mb-4 leading-7 text-gray-300">For an annotated <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages</code> variable, autofix replaces the original
-annotation with per-message <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedMessageDescriptor</code> contracts:</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token punctuation">{</span>defineMessages<span class="token punctuation">,</span> <span class="token keyword">type</span> <span class="token class-name">TypedMessageDescriptor</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react-intl&#x27;</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">const</span> messages<span class="token operator">:</span> <span class="token punctuation">{</span>
-</span><span class="code-line">  <span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token maybe-class-name">TypedMessageDescriptor</span><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> n<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span><span class="token operator">&gt;</span>
-</span><span class="code-line"><span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">defineMessages</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token punctuation">{</span><span class="token keyword">readonly</span> count<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token keyword">readonly</span> n<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> bigint<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-</span><span class="code-line">  count<span class="token operator">:</span> <span class="token punctuation">{</span>defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;{n, number}&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
-</span></code></pre>
-<p class="mb-4 leading-7 text-gray-300">This explicit type works with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">isolatedDeclarations</code>. Subsequent fixes refresh
-both the call generic and the annotation when messages change. Keys come from the actual catalog. All generated catalog and argument properties
-are readonly, including optional ignored arguments. Autofix refreshes existing
-writable contracts. This affects TypeScript checking only; objects are not frozen.</p>
-<p class="mb-4 leading-7 text-gray-300">Supported annotations are <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Record&lt;K, MessageDescriptor&gt;</code>, explicit property
-maps, and their <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Readonly&lt;...&gt;</code> wrappers. Imported descriptor aliases work too.
-Other annotations produce a diagnostic instead of an unsafe rewrite. Keep
-contracts when passing these catalogs through other application types.</p>
-<p class="mb-4 leading-7 text-gray-300"><strong>Breaking change:</strong> generated annotations no longer retain broad index signatures,
-optional entries, or separately declared key sets. Every message present becomes
-a required property; unknown keys and arbitrary string indexing fail TypeScript.
-Narrow dynamic keys to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">keyof typeof messages</code>. Widening a selected message later
-to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> still erases its contract.</p></article></div></div></main></div></div></div>
+<h3 id="what-autofix-supports" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">What autofix supports<a href="#what-autofix-supports" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessage</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defineMessages</code> from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl</code>, or
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl/server</code>.</li>
+<li class="mb-2 text-gray-300">Inline <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatMessage</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$t</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">$formatMessage</code> calls.</li>
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new IntlMessageFormat</code> from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">intl-messageformat</code>.</li>
+<li class="mb-2 text-gray-300">Catalog entries that reference existing messages, including identifier and
+enum-member keys. References use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValuesOf&lt;typeof message&gt;</code>.</li>
+<li class="mb-2 text-gray-300">Local <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">const</code> descriptors used only by message helpers and formatter calls.</li>
+</ul>
+<p class="mb-4 leading-7 text-gray-300">Autofix updates the first generic, including handwritten types, and preserves
+an optional second generic. It adds type imports as needed. Helpers default to
+no arguments, so empty messages need no <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;{}&gt;</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{typed: true}</code> option.
+Inline calls keep an explicit empty type when needed to check supplied values.</p>
+<h3 id="generated-argument-types" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Generated argument types<a href="#generated-argument-types" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<div class="my-6 overflow-x-auto rounded-lg border border-purple-500/20 shadow-xl"><table class="min-w-full border-collapse"><thead class="bg-gradient-to-r from-purple-900/40 to-indigo-900/40 backdrop-blur-sm"><tr class="border-b border-purple-500/10 hover:bg-purple-900/10 transition-colors"><th class="px-4 py-3 text-left font-bold text-purple-300 border-r border-purple-500/10 last:border-r-0">ICU argument</th><th class="px-4 py-3 text-left font-bold text-purple-300 border-r border-purple-500/10 last:border-r-0">Type</th></tr></thead><tbody class="bg-gray-950/50"><tr class="border-b border-purple-500/10 hover:bg-purple-900/10 transition-colors"><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0">Number or plural</td><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">number | bigint</code></td></tr><tr class="border-b border-purple-500/10 hover:bg-purple-900/10 transition-colors"><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0">Date or time</td><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">number | Date</code></td></tr><tr class="border-b border-purple-500/10 hover:bg-purple-900/10 transition-colors"><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0">Select</td><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">string</code></td></tr><tr class="border-b border-purple-500/10 hover:bg-purple-900/10 transition-colors"><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0">Plain placeholder</td><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageValue</code></td></tr><tr class="border-b border-purple-500/10 hover:bg-purple-900/10 transition-colors"><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0">Rich-text tag</td><td class="px-4 py-3 text-gray-300 border-r border-purple-500/10 last:border-r-0"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageTag</code> (a callback when formatting)</td></tr></tbody></table></div>
+<p class="mb-4 leading-7 text-gray-300">Types include arguments from every ICU branch. Incompatible uses of the same
+argument produce a diagnostic instead of a fix. Generated properties are readonly;
+this does not freeze objects at runtime.</p>
+<h3 id="options-5" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Options<a href="#options-5" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300"><strong><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">generateTypes</code></strong> (default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">false</code>): add types to untyped TypeScript messages.
+Existing typed messages are checked and refreshed even when this is off.</li>
+<li class="mb-2 text-gray-300"><strong><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignoreList</code></strong>: argument names supplied by your wrapper. Inline checks ignore
+them; generated types make them optional and allow listed extra keys. Values
+still need the right types when supplied. This option does not provide values
+at runtime.</li>
+<li class="mb-2 text-gray-300"><strong><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">moduleSource</code></strong>: package to import types from for inline formatter calls.
+Choose <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl</code>, or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">react-intl/server</code>. By default, the
+rule uses the first matching import, falling back to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl</code>. Set this
+explicitly when your formatter comes from an application wrapper.</li>
+</ul>
+<h3 id="explicit-annotations-and-dynamic-keys" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Explicit annotations and dynamic keys<a href="#explicit-annotations-and-dynamic-keys" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Autofix replaces broad <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> annotations with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypedMessageDescriptor</code> types, including per-message types for catalogs. It
+supports local aliases, imported descriptor aliases, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Record</code> types, property
+maps, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Readonly</code> wrappers. These annotations work with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">isolatedDeclarations</code>.</p>
+<p class="mb-4 leading-7 text-gray-300"><strong>Catalog keys become exact:</strong> broad index signatures and optional entries are
+replaced with the messages actually present. Narrow dynamic keys to
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">keyof typeof messages</code> before indexing. A selected message needs values valid
+for every message it could refer to.</p>
+<h3 id="limits" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Limits<a href="#limits" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Type generation needs static message text. It cannot derive types from ID-only
+messages, dynamic strings, spreads, or arbitrary computed properties. Constructor
+fixes support a static <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignoreTag</code> option, but not parsed AST input or dynamic
+parser options. Unsupported typed declarations produce diagnostics rather than
+guessed types; descriptor assertions are left unchanged.</p>
+<p class="mb-4 leading-7 text-gray-300">Keep generated types when passing messages through wrappers. Widening to
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">any</code> loses the checks. This rule generates no JavaScript
+types and does not validate translated catalogs.</p></article></div></div></main></div></div></div>
   </body>
 </html>
