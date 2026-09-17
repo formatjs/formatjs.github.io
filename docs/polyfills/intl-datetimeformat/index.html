@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BlUU1qpX.js"></script>
+    <script type="module" crossorigin src="/assets/index-DCavP5gY.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-ClatPn8-.css">
   </head>
   <body>
@@ -132,8 +132,8 @@ and patterns. Load them before constructing a formatter:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword control-flow">await</span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-datetimeformat/polyfill-force.js&#x27;</span><span class="token punctuation">)</span>
 </span><span class="code-line"><span class="token keyword control-flow">await</span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
 </span><span class="code-line">  <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-datetimeformat/locale-data/en.js&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-datetimeformat/calendar-data/hebrew.js&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-</span><span class="code-line">  <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-datetimeformat/calendar-data/hebrew/en.js&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-datetimeformat-calendar-hebrew&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-datetimeformat-calendar-hebrew/locale-data/en.js&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 </span><span class="code-line"><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </span><span class="code-line">
 </span><span class="code-line"><span class="token keyword">new</span> <span class="token class-name">Intl<span class="token punctuation">.</span>DateTimeFormat</span><span class="token punctuation">(</span><span class="token string">&#x27;en&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">calendar</span><span class="token operator">:</span> <span class="token string">&#x27;hebrew&#x27;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -143,11 +143,18 @@ installation. Arithmetic and locale patterns can arrive in either order.
 Only calendars with both loaded participate in calendar negotiation; unloaded
 calendar requests fall back to a loaded calendar. Existing formatters retain
 the calendar selected when they were constructed.</p>
-<p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">calendar-data/&lt;calendar&gt;.js</code> and
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">calendar-data/&lt;calendar&gt;/&lt;locale&gt;.js</code> for each calendar and locale you need.
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add-all-calendars.js</code> explicitly loads all calendar arithmetic and tables;
-localized calendar patterns still load separately. None of these optional
-modules installs <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">globalThis.Temporal</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Install <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl-datetimeformat-calendar-&lt;calendar&gt;</code> for each calendar you
+need. Import the package and its <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">locale-data/&lt;locale&gt;.js</code> entry, as above.
+Requires <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl-datetimeformat</code> 7.7.0 or newer.</p>
+<p class="mb-4 leading-7 text-gray-300">When upgrading from 7.7.x, replace these imports:</p>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl-datetimeformat/calendar-data/&lt;calendar&gt;.js</code> with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl-datetimeformat-calendar-&lt;calendar&gt;</code>.</li>
+<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl-datetimeformat/calendar-data/&lt;calendar&gt;/&lt;locale&gt;.js</code> with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/intl-datetimeformat-calendar-&lt;calendar&gt;/locale-data/&lt;locale&gt;.js</code>.</li>
+</ul>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add-all-calendars.js</code> is removed; import each calendar package you need.
+These packages do not install <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">globalThis.Temporal</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Custom providers can use the same registration APIs. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__addCalendarData</code> accepts
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{calendar, dateFromTime}</code>; the callback receives timezone-adjusted milliseconds
 and returns <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{era, year, month, day}</code> (zero-based month, one-based day, year within
@@ -156,7 +163,7 @@ with that calendar&#x27;s CLDR-style names and patterns. Both records must be lo
 before the calendar can be selected. This provider API is a FormatJS extension.</p>
 <p class="mb-4 leading-7 text-gray-300">The arithmetic modules also export their registration record for ponyfill use:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span><span class="token maybe-class-name">DateTimeFormat</span><span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat&#x27;</span>
-</span><span class="code-line"><span class="token keyword module">import</span> <span class="token imports">hebrew</span> <span class="token keyword module">from</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/calendar-data/hebrew.js&#x27;</span>
+</span><span class="code-line"><span class="token keyword module">import</span> <span class="token imports">hebrew</span> <span class="token keyword module">from</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat-calendar-hebrew&#x27;</span>
 </span><span class="code-line">
 </span><span class="code-line"><span class="token maybe-class-name">DateTimeFormat</span><span class="token punctuation">.</span><span class="token method function property-access">__addCalendarData</span><span class="token punctuation">(</span>hebrew<span class="token punctuation">)</span>
 </span><span class="code-line"><span class="token comment">// Register base locale data with __addLocaleData and calendar-specific</span>
