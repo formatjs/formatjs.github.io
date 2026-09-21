@@ -10109,6 +10109,21 @@ must match that list exactly. Both `,(0,D.jsx)(t.code,{children:`recommended`}),
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.p,{children:[`Setting `,(0,D.jsx)(t.code,{children:`literal`}),` forces `,(0,D.jsx)(t.code,{children:`defaultMessage`}),` to always be a string literal instead of function calls or variables. This is helpful for extraction tools that expects `,(0,D.jsx)(t.code,{children:`defaultMessage`}),` to always be a literal`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Use `,(0,D.jsx)(t.code,{children:`anything`}),` to require `,(0,D.jsx)(t.code,{children:`defaultMessage`}),` while allowing variables and function calls:`]}),`
+`,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword module`,children:`export`}),` `,(0,D.jsx)(t.span,{className:`token keyword module`,children:`default`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  formatjs`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token property-access`,children:`configs`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token property-access`,children:`recommended`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token literal-property property`,children:`rules`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`      `,(0,D.jsx)(t.span,{className:`token string-property property`,children:`'formatjs/enforce-default-message'`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token string`,children:`'error'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'anything'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),`
+`]})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`Without an option, the rule only checks that `,(0,D.jsx)(t.code,{children:`defaultMessage`}),` is present.
+Both `,(0,D.jsx)(t.code,{children:`recommended`}),` and `,(0,D.jsx)(t.code,{children:`strict`}),` set `,(0,D.jsx)(t.code,{children:`literal`}),`. ESLint preserves inherited options
+when an override only changes severity, so `,(0,D.jsx)(t.code,{children:`'error'`}),` or `,(0,D.jsx)(t.code,{children:`['error']`}),` will not
+clear `,(0,D.jsx)(t.code,{children:`literal`}),`. Set `,(0,D.jsx)(t.code,{children:`anything`}),` after the preset to override it. Setting `,(0,D.jsx)(t.code,{children:`off`}),`
+disables the entire rule, including the presence check.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`enforce-placeholders`,children:[(0,D.jsx)(t.code,{children:`enforce-placeholders`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#enforce-placeholders`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Keep this rule for JavaScript or projects that only need inline placeholder
 checks. It shares missing/unused-value checks, `,(0,D.jsx)(t.code,{children:`ignoreList`}),`, and parser settings

@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-C0T9M8WI.js"></script>
+    <script type="module" crossorigin src="/assets/index-C3QqhcVN.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-ClatPn8-.css">
   </head>
   <body>
@@ -230,6 +230,21 @@ must match that list exactly. Both <code class="px-2 py-1 rounded-md bg-purple-9
 </span><span class="code-line"><span class="token punctuation">]</span>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">Setting <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">literal</code> forces <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> to always be a string literal instead of function calls or variables. This is helpful for extraction tools that expects <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> to always be a literal</p>
+<p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">anything</code> to require <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> while allowing variables and function calls:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">[</span>
+</span><span class="code-line">  formatjs<span class="token punctuation">.</span><span class="token property-access">configs</span><span class="token punctuation">.</span><span class="token property-access">recommended</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">{</span>
+</span><span class="code-line">    <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">      <span class="token string-property property">&#x27;formatjs/enforce-default-message&#x27;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#x27;error&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;anything&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">]</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Without an option, the rule only checks that <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> is present.
+Both <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">recommended</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">strict</code> set <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">literal</code>. ESLint preserves inherited options
+when an override only changes severity, so <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&#x27;error&#x27;</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">[&#x27;error&#x27;]</code> will not
+clear <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">literal</code>. Set <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">anything</code> after the preset to override it. Setting <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">off</code>
+disables the entire rule, including the presence check.</p>
 <h3 id="enforce-placeholders" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">enforce-placeholders</code><a href="#enforce-placeholders" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Keep this rule for JavaScript or projects that only need inline placeholder
 checks. It shares missing/unused-value checks, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignoreList</code>, and parser settings
