@@ -10608,6 +10608,9 @@ Default complexity limit is 20 (using `,(0,D.jsx)(t.a,{href:`https://help.smartl
 `]})]})}),`
 `,(0,D.jsxs)(t.h4,{id:`why-16`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-16`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Consistent coding style in JSX and less syntax clutter.`}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`--fix`}),` converts direct JSX children from `,(0,D.jsx)(t.code,{children:`useIntl()`}),` bindings and manages
+`,(0,D.jsx)(t.code,{children:`FormattedMessage`}),` imports. Only plain inline descriptors are fixed; unsafe
+cases remain report-only. Hook calls are retained.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`prefer-full-sentence`,children:[(0,D.jsx)(t.code,{children:`prefer-full-sentence`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#prefer-full-sentence`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Messages should be self-contained, full sentences. Leading or trailing whitespace in a message suggests it is a fragment being concatenated with other strings, which is an anti-pattern for localization. Placeholders joined directly to words, such as `,(0,D.jsx)(t.code,{children:`{count}day`}),`, also fail because units and spacing vary by locale.`]}),`
 `,(0,D.jsxs)(t.h4,{id:`why-17`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-17`,children:`#`})]}),`
