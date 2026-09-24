@@ -9714,6 +9714,12 @@ The formatter file must export a function called `,(0,D.jsx)(t.code,{children:`f
 `,(0,D.jsxs)(t.p,{children:[`List of glob paths to `,(0,D.jsx)(t.strong,{children:`not`}),` extract translations from.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`--throws`,children:[(0,D.jsx)(t.code,{children:`--throws`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#--throws`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Whether to throw an exception when we fail to resolve, traverse, or process any file in the batch.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Both CLIs always fail on input read errors, including `,(0,D.jsx)(t.code,{children:`EMFILE`}),`, and leave
+an existing output catalog unchanged. `,(0,D.jsx)(t.code,{children:`--throws`}),` also makes message-processing
+errors fatal. Without it, valid messages from readable files are retained.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Node.js extraction bounds concurrent file reads to the available CPU count,
+matching Rayon's default. Set `,(0,D.jsx)(t.code,{children:`RAYON_NUM_THREADS`}),` to a positive integer to
+override this limit; zero or invalid values use the default.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`--pragma-pragma`,children:[(0,D.jsx)(t.code,{children:`--pragma [pragma]`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#--pragma-pragma`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Parse specific additional custom pragma. This allows you to tag certain file with metadata such as `,(0,D.jsx)(t.code,{children:`project`}),`. For example with this file:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`// @intl-meta project:my-custom-project`}),`
