@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BhUTvnUF.js"></script>
+    <script type="module" crossorigin src="/assets/index-K4MkHq4H.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-ClatPn8-.css">
   </head>
   <body>
@@ -65,6 +65,32 @@ multi-request server.</p>
 Use it when application-specific number or date/time behavior is required.
 ICU4X currently does not provide full ECMA-402 parity for currency, unit, and
 time-zone formatting.</p>
-<p class="mb-4 leading-7 text-gray-300">See the complete <a href="https://docs.rs/formatjs_icu_messageformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat</code> API</a>.</p></article></div></div></main></div></div></div>
+<p class="mb-4 leading-7 text-gray-300">See the complete <a href="https://docs.rs/formatjs_icu_messageformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat</code> API</a>.</p>
+<h2 id="external-icu-data" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">External ICU data<a href="#external-icu-data" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code> feature preserves the existing constructors. Disable
+it to supply ICU4X data yourself:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span>
+</span><span class="code-line"><span class="token key property">formatjs_icu_messageformat</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;0.1&quot;</span><span class="token punctuation">,</span> <span class="token key property">default-features</span> <span class="token punctuation">=</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token key property">icu_provider_blob</span> <span class="token punctuation">=</span> <span class="token string">&quot;2.1&quot;</span>
+</span></code></pre>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">formatjs_icu_messageformat<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">IcuMessageFormat</span><span class="token punctuation">,</span> <span class="token class-name">Options</span><span class="token punctuation">,</span> <span class="token class-name">ProviderFormatters</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">icu_provider_blob<span class="token punctuation">::</span></span><span class="token class-name">BlobDataProvider</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>sync<span class="token punctuation">::</span></span><span class="token class-name">Arc</span><span class="token punctuation">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">let</span> provider <span class="token operator">=</span> <span class="token class-name">BlobDataProvider</span><span class="token punctuation">::</span><span class="token function">try_new_from_blob</span><span class="token punctuation">(</span>bytes<span class="token punctuation">.</span><span class="token function">into_boxed_slice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token class-name">Options</span><span class="token punctuation">::</span><span class="token function">with_formatters</span><span class="token punctuation">(</span><span class="token class-name">Arc</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token class-name">ProviderFormatters</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>provider<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token class-name">IcuMessageFormat</span><span class="token punctuation">::</span><span class="token function">try_new_with_options</span><span class="token punctuation">(</span><span class="token string">&quot;{count, number}&quot;</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Use the same options with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">from_ast_with_options</code> for precompiled messages.
+Generate a compatible blob with ICU4X <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">icu4x-datagen</code>, including the locales and
+markers needed for numbers, cardinal/ordinal plurals, calendars, dates, and times.
+The provider must support the requested locales or implement locale fallback
+(for example, through ICU4X&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">LocaleFallbackProvider</code>). Missing data returns a
+formatter error; it does not silently use compiled data. Deserialization support
+must match the buffer format; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">icu_provider_blob</code> enables Postcard support.</p>
+<p class="mb-4 leading-7 text-gray-300">Without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">DefaultFormatters</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Options::default()</code>, and the
+constructors that use default options are unavailable. Explicit-options APIs
+remain available. Other dependencies can re-enable ICU compiled data through
+Cargo feature unification; check the final application&#x27;s dependency graph.</p></article></div></div></main></div></div></div>
   </body>
 </html>
