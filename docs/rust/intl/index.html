@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DAt6iINv.js"></script>
+    <script type="module" crossorigin src="/assets/index-BAi4A8bg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-ClatPn8-.css">
   </head>
   <body>
@@ -208,11 +208,16 @@ locale data, disable default features and create one shared context:</p>
 stay unchanged; reuse the context across requests to share cached messages.</p>
 <h3 id="add-french-to-an-english-app" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Add French to an English app<a href="#add-french-to-an-english-app" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Generate English and French data with a matching
-<a href="https://icu4x.unicode.org/2_1/tutorials/data-management/" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ICU4X datagen version</a>:</p>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">icu4x-datagen <span class="token parameter variable">--markers</span> all <span class="token parameter variable">--locales</span> en fr <span class="token parameter variable">--format</span> blob <span class="token parameter variable">--out</span> locale-data.postcard <span class="token parameter variable">--overwrite</span>
+<a href="https://icu4x.unicode.org/2_3/tutorials/data-management/" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ICU4X datagen version</a>,
+keeping only the markers your release binary uses:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token function">cargo</span> build <span class="token parameter variable">--release</span>
+</span><span class="code-line">icu4x-datagen --markers-for-bin target/release/my-app <span class="token parameter variable">--locales</span> en fr <span class="token parameter variable">--format</span> blob <span class="token parameter variable">--out</span> locale-data.postcard <span class="token parameter variable">--overwrite</span>
 </span></code></pre>
-<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--markers all</code> includes every formatter and fallback data; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--markers-for-bin</code>
-can produce a smaller blob. Load it once, then add application translations:</p>
+<p class="mb-4 leading-7 text-gray-300">Replace <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">my-app</code> with your binary. If it embeds the blob with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">include_bytes!</code>,
+build once against a placeholder blob, generate, then rebuild. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--markers all</code>
+is the alternative when there is no binary yet: it needs datagen&#x27;s default
+features (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">use_wasm</code>, or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">use_icu4c</code>) and produces a far larger blob. Load it
+once, then add application translations:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">formatjs_intl<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">Intl</span><span class="token punctuation">,</span> <span class="token class-name">IntlContext</span><span class="token punctuation">,</span> <span class="token class-name">MessageCatalog</span><span class="token punctuation">,</span> format_message<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">icu_provider_blob<span class="token punctuation">::</span></span><span class="token class-name">BlobDataProvider</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token namespace">collections<span class="token punctuation">::</span></span><span class="token class-name">HashMap</span><span class="token punctuation">,</span> <span class="token namespace">sync<span class="token punctuation">::</span></span><span class="token class-name">Arc</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -231,6 +236,7 @@ can produce a smaller blob. Load it once, then add application translations:</p>
 </span><span class="code-line">            <span class="token string">&quot;{count, plural, one {# tâche} other {# tâches}}&quot;</span><span class="token punctuation">.</span><span class="token function">to_owned</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 </span><span class="code-line">        <span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 </span><span class="code-line">    <span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
+</span><span class="code-line">    context<span class="token punctuation">.</span><span class="token function">check_catalog</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>catalog<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
 </span><span class="code-line">
 </span><span class="code-line">    <span class="token keyword">let</span> intl <span class="token operator">=</span> <span class="token class-name">Intl</span><span class="token punctuation">::</span><span class="token function">try_new_with_context</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;fr&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;en&quot;</span><span class="token punctuation">,</span> <span class="token class-name">Arc</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span>catalog<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>context<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
 </span><span class="code-line">    <span class="token keyword">let</span> label <span class="token operator">=</span> <span class="token macro property">format_message!</span><span class="token punctuation">(</span>
@@ -245,10 +251,19 @@ can produce a smaller blob. Load it once, then add application translations:</p>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">All formatters now have French data. For another locale, regenerate the blob
 including existing locales, add translations, and recreate the context.
-Missing provider data follows normal error handling; compiled data is never
-used as a fallback.</p>
-<p class="mb-4 leading-7 text-gray-300">Without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code>, use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl::try_new_with_context</code>; default caches and
-standalone <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">negotiate_locale</code> are unavailable. Disable defaults on direct
+Missing provider data follows normal error handling, with one exception: a
+catalog locale the blob lacks entirely falls back to root (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und</code>) data and
+formats without any error. Compiled data is never used as a fallback.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">IntlContext::check_catalog</code> validates every formatter at startup, naming the
+locale and formatter when language-specific data resolves to root. This also
+catches partially missing date/time or plural data. Regional fallback, region
+defaults, global data, and explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und</code> remain valid. Runtime fallback is
+unchanged. Generate blobs with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--deduplication none</code> or
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">retain-base-languages</code>; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">maximal</code> removes root-identical locale data that this
+check requires.</p>
+<p class="mb-4 leading-7 text-gray-300">Without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code>, use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl::try_new_with_context</code>, and
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">IntlContext::negotiate_locale</code> in place of the standalone <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">negotiate_locale</code>;
+default caches are unavailable. Disable defaults on direct
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat</code> dependencies too: Cargo unifies dependency features.</p></article></div></div></main></div></div></div>
   </body>
 </html>

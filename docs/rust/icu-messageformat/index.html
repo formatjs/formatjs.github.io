@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DAt6iINv.js"></script>
+    <script type="module" crossorigin src="/assets/index-BAi4A8bg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-ClatPn8-.css">
   </head>
   <body>
@@ -70,8 +70,8 @@ time-zone formatting.</p>
 <p class="mb-4 leading-7 text-gray-300">The default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code> feature preserves the existing constructors. Disable
 it to supply ICU4X data yourself:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span>
-</span><span class="code-line"><span class="token key property">formatjs_icu_messageformat</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;0.1&quot;</span><span class="token punctuation">,</span> <span class="token key property">default-features</span> <span class="token punctuation">=</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
-</span><span class="code-line"><span class="token key property">icu_provider_blob</span> <span class="token punctuation">=</span> <span class="token string">&quot;2.1&quot;</span>
+</span><span class="code-line"><span class="token key property">formatjs_icu_messageformat</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;0.2&quot;</span><span class="token punctuation">,</span> <span class="token key property">default-features</span> <span class="token punctuation">=</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+</span><span class="code-line"><span class="token key property">icu_provider_blob</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;2.1&quot;</span><span class="token punctuation">,</span> <span class="token key property">features</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;alloc&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
 </span></code></pre>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">formatjs_icu_messageformat<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">IcuMessageFormat</span><span class="token punctuation">,</span> <span class="token class-name">Options</span><span class="token punctuation">,</span> <span class="token class-name">ProviderFormatters</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token keyword">use</span> <span class="token namespace">icu_provider_blob<span class="token punctuation">::</span></span><span class="token class-name">BlobDataProvider</span><span class="token punctuation">;</span>
@@ -82,12 +82,20 @@ it to supply ICU4X data yourself:</p>
 </span><span class="code-line"><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token class-name">IcuMessageFormat</span><span class="token punctuation">::</span><span class="token function">try_new_with_options</span><span class="token punctuation">(</span><span class="token string">&quot;{count, number}&quot;</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">;</span>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">Use the same options with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">from_ast_with_options</code> for precompiled messages.
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Options::default_parser_options()</code> returns the parser settings these options
+use, for parsing or precompiling messages without building formatters.
 Generate a compatible blob with ICU4X <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">icu4x-datagen</code>, including the locales and
 markers needed for numbers, cardinal/ordinal plurals, calendars, dates, and times.
 The provider must support the requested locales or implement locale fallback
 (for example, through ICU4X&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">LocaleFallbackProvider</code>). Missing data returns a
 formatter error; it does not silently use compiled data. Deserialization support
 must match the buffer format; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">icu_provider_blob</code> enables Postcard support.</p>
+<p class="mb-4 leading-7 text-gray-300">Data errors name the formatter and locale and keep the ICU4X error as
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">source()</code>. Call <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Formatters::check_locale</code> at startup for each locale you
+format with; it builds every formatter and returns the first such error. Behind
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">LocaleFallbackProvider</code>, a locale missing from the provider resolves to root
+(<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">und</code>) data and passes this check; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl</code>&#x27;s
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">IntlContext::check_catalog</code> also rejects that case.</p>
 <p class="mb-4 leading-7 text-gray-300">Without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">DefaultFormatters</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Options::default()</code>, and the
 constructors that use default options are unavailable. Explicit-options APIs
 remain available. Other dependencies can re-enable ICU compiled data through
