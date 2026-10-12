@@ -1634,7 +1634,21 @@ registry errors stop recovery.`}),`
 dependencies first, and verifies their
 versions on npm before publishing dependents. Existing versions are skipped, so
 maintainers can retry `,(0,D.jsx)(t.code,{children:`release.yml`}),` with the affected `,(0,D.jsx)(t.code,{children:`npm_paths`}),` after resolving a
-publication failure.`]})]})}function We(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Ue,{...e})}):Ue(e)}function Ge(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var Ke=c({default:()=>Je});function qe(e){let t={a:`a`,code:`code`,h2:`h2`,img:`img`,li:`li`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...A(),...e.components},{Admonition:n,TabItem:r,Tabs:i}=t;return n||Ye(`Admonition`,!0),r||Ye(`TabItem`,!0),i||Ye(`Tabs`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`In larger scale applications/monorepos, not all components/libraries live within the same repo/project and they might get distributed differently. While there are multiple ways to solve this problem, this guide aims to provide a guidance that we've seen working quite well with large engineering orgs.`}),`
+publication failure.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`rust-build-maintenance`,children:[`Rust BUILD maintenance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-build-maintenance`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`After changing Rust modules or imports, regenerate BUILD files with:`}),`
+`,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[`bazel run //:gazelle -- `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-strict`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`bazel run //:gazelle -- `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-strict`}),` `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-mode`}),(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),`diff
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`bazel `,(0,D.jsx)(t.span,{className:`token builtin class-name`,children:`test`}),` //crates/`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`..`}),`. //packages/icu-messageformat-parser/integration-tests:integration_tests
+`]})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`Keep Rust crate roots (`,(0,D.jsx)(t.code,{children:`lib.rs`}),`, `,(0,D.jsx)(t.code,{children:`main.rs`}),`) beside BUILD files. Put tests in
+standalone `,(0,D.jsx)(t.code,{children:`*.test.rs`}),` files and import the public library API. Gazelle discovers
+those files; the test macro generates one aggregate main per target. Keep test
+helpers in sibling test modules, without adding test-only public APIs.`]}),`
+`,(0,D.jsx)(t.p,{children:`Internal imports resolve by crate name. Root Cargo dependency declarations and
+the lockfile select external shorthand aliases. Keep feature flags, native linker
+settings, release targets, and test data in BUILD files. Cargo manifests still
+describe published crates; Bazel owns repository builds and tests.`})]})}function We(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Ue,{...e})}):Ue(e)}function Ge(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var Ke=c({default:()=>Je});function qe(e){let t={a:`a`,code:`code`,h2:`h2`,img:`img`,li:`li`,p:`p`,pre:`pre`,span:`span`,ul:`ul`,...A(),...e.components},{Admonition:n,TabItem:r,Tabs:i}=t;return n||Ye(`Admonition`,!0),r||Ye(`TabItem`,!0),i||Ye(`Tabs`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`In larger scale applications/monorepos, not all components/libraries live within the same repo/project and they might get distributed differently. While there are multiple ways to solve this problem, this guide aims to provide a guidance that we've seen working quite well with large engineering orgs.`}),`
 `,(0,D.jsxs)(t.h2,{id:`high-level-concept`,children:[`High level concept`,(0,D.jsx)(t.a,{className:`header-link`,href:`#high-level-concept`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Translated strings are basically assets, just like CSS, static configuration or images. The high level structure typically contains several layers:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
