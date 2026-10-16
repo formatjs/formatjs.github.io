@@ -5446,6 +5446,8 @@ remain separate.`})]})}function vn(e={}){let{wrapper:t}={...A(),...e.components}
 `,(0,D.jsx)(t.li,{children:`Handles complex plural rules (e.g., Arabic has 6 forms, Chinese has 1)`}),`
 `]}),`
 `,(0,D.jsxs)(t.p,{children:[`Locale data modules are generated from CLDR supplemental plural-rule data. If a locale is available in other CLDR datasets but absent from the supplemental plural rules, this package does not publish a `,(0,D.jsx)(t.code,{children:`locale-data`}),` module for it.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Plural selection uses the rounded value and visible fraction digits, including
+zeros required by `,(0,D.jsx)(t.code,{children:`minimumFractionDigits`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`example-usage`,children:[`Example Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#example-usage`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`global-import`,children:[`Global import`,(0,D.jsx)(t.a,{className:`header-link`,href:`#global-import`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword module`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-pluralrules/polyfill.js'`}),`
