@@ -8160,6 +8160,10 @@ Use it when application-specific number or date/time behavior is required.
 ICU4X currently does not provide full ECMA-402 parity for currency, unit, and
 time-zone formatting.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`See the complete `,(0,D.jsxs)(t.a,{href:`https://docs.rs/formatjs_icu_messageformat`,children:[(0,D.jsx)(t.code,{children:`formatjs_icu_messageformat`}),` API`]}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Weekday-only skeletons (`,(0,D.jsx)(t.code,{children:`EEE`}),`, `,(0,D.jsx)(t.code,{children:`EEEE`}),`, `,(0,D.jsx)(t.code,{children:`EEEEE`}),`) render stand-alone abbreviated,
+wide, and narrow names without adding date fields. Python bindings share this
+behavior. Mixed date/time skeleton matching remains limited to the existing
+ICU4X fieldsets.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`external-icu-data`,children:[`External ICU data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#external-icu-data`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The default `,(0,D.jsx)(t.code,{children:`compiled_data`}),` feature preserves the existing constructors. Disable
 it to supply ICU4X data yourself:`]}),`

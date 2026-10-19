@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BeUq2Ny4.js"></script>
+    <script type="module" crossorigin src="/assets/index-DsBZug-c.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CoO5aK51.css">
   </head>
   <body>
@@ -66,6 +66,10 @@ Use it when application-specific number or date/time behavior is required.
 ICU4X currently does not provide full ECMA-402 parity for currency, unit, and
 time-zone formatting.</p>
 <p class="mb-4 leading-7 text-gray-300">See the complete <a href="https://docs.rs/formatjs_icu_messageformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_icu_messageformat</code> API</a>.</p>
+<p class="mb-4 leading-7 text-gray-300">Weekday-only skeletons (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">EEE</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">EEEE</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">EEEEE</code>) render stand-alone abbreviated,
+wide, and narrow names without adding date fields. Python bindings share this
+behavior. Mixed date/time skeleton matching remains limited to the existing
+ICU4X fieldsets.</p>
 <h2 id="external-icu-data" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">External ICU data<a href="#external-icu-data" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">The default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compiled_data</code> feature preserves the existing constructors. Disable
 it to supply ICU4X data yourself:</p>
