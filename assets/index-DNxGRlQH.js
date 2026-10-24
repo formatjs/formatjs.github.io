@@ -1576,6 +1576,11 @@ not end-user.`]})}),`
 `]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
 `,(0,E.jsxs)(t.p,{children:[`Head over to `,(0,E.jsx)(t.a,{href:`/docs/tooling/linter`,children:`eslint-plugin-formatjs`}),` for more details on our rules.`]}),`
+`,(0,E.jsxs)(t.h2,{id:`source-maps`,children:[`Source maps`,(0,E.jsx)(t.a,{className:`header-link`,href:`#source-maps`,children:`#`})]}),`
+`,(0,E.jsxs)(t.p,{children:[`Published JavaScript bundles include source maps with embedded source content.
+Paths under `,(0,E.jsx)(t.code,{children:`sources/`}),` identify original workspace and dependency files; separate
+TypeScript source files are not required. Bundlers can chain these maps without
+resolving paths outside the installed package.`]}),`
 `,(0,E.jsxs)(t.h2,{id:`error-codes`,children:[`Error Codes`,(0,E.jsx)(t.a,{className:`header-link`,href:`#error-codes`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[(0,E.jsx)(t.code,{children:`react-intl`}),` is designed to fail fast when there's a configuration issue but fall back to `,(0,E.jsx)(t.code,{children:`defaultLocale`}),` when there's a translation issues. Below are the list of errors that we emit out that can be caught during testing:`]}),`
 `,(0,E.jsxs)(t.h3,{id:`format_error`,children:[(0,E.jsx)(t.code,{children:`FORMAT_ERROR`}),(0,E.jsx)(t.a,{className:`header-link`,href:`#format_error`,children:`#`})]}),`
