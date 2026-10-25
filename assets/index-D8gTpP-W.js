@@ -11878,6 +11878,21 @@ these wrappers.`]}),`
 end-user.`]})}),`
 `,(0,E.jsxs)(t.h2,{id:`migrating-from-babel-plugin-formatjs`,children:[`Migrating from babel-plugin-formatjs`,(0,E.jsx)(t.a,{className:`header-link`,href:`#migrating-from-babel-plugin-formatjs`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[`Replace your Babel plugin configuration with the appropriate bundler import from `,(0,E.jsx)(t.code,{children:`@formatjs/unplugin`}),`. The options are the same.`]}),`
+`,(0,E.jsxs)(t.h2,{id:`static-message-values`,children:[`Static message values`,(0,E.jsx)(t.a,{className:`header-link`,href:`#static-message-values`,children:`#`})]}),`
+`,(0,E.jsxs)(t.p,{children:[`Message fields can reference local `,(0,E.jsx)(t.code,{children:`const`}),` strings, including aliases, templates,
+string concatenations, and constant conditionals. OXC performs native scope analysis and static evaluation through
+`,(0,E.jsx)(t.code,{children:`@formatjs/cli-lib`}),`. Constants must be initialized before the reference. Lexical scope
+and shadowing are respected for JSX and message descriptors.`]}),`
+`,(0,E.jsx)(t.pre,{className:`language-tsx`,children:(0,E.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsx)(t.span,{className:`token keyword`,children:`function`}),` `,(0,E.jsx)(t.span,{className:`token function`,children:`Greeting`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`)`}),` `,(0,E.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,E.jsx)(t.span,{className:`token keyword`,children:`const`}),` greeting `,(0,E.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,E.jsx)(t.span,{className:`token string`,children:`'Hello'`}),`
+`]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,E.jsx)(t.span,{className:`token keyword`,children:`return`}),` `,(0,E.jsxs)(t.span,{className:`token tag`,children:[(0,E.jsxs)(t.span,{className:`token tag`,children:[(0,E.jsx)(t.span,{className:`token punctuation`,children:`<`}),(0,E.jsx)(t.span,{className:`token class-name`,children:`FormattedMessage`})]}),` `,(0,E.jsx)(t.span,{className:`token attr-name`,children:`defaultMessage`}),(0,E.jsxs)(t.span,{className:`token script language-javascript`,children:[(0,E.jsx)(t.span,{className:`token script-punctuation punctuation`,children:`=`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`{`}),`greeting`,(0,E.jsx)(t.span,{className:`token punctuation`,children:`}`})]}),` `,(0,E.jsx)(t.span,{className:`token punctuation`,children:`/>`})]}),`
+`]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
+`]})]})}),`
+`,(0,E.jsx)(t.p,{children:`Imported values, mutable bindings, destructured bindings, and runtime expressions
+remain unresolved. Keep those message fields inline when they need generated IDs
+or precompiled ASTs.`}),`
+`,(0,E.jsx)(t.p,{children:`Native expression evaluation supports macOS arm64, Linux x64/arm64 (glibc and
+musl), and Windows x64.`}),`
 `,(0,E.jsxs)(t.h2,{id:`options`,children:[`Options`,(0,E.jsx)(t.a,{className:`header-link`,href:`#options`,children:`#`})]}),`
 `,(0,E.jsxs)(t.h3,{id:`overrideidfn`,children:[(0,E.jsx)(t.strong,{children:(0,E.jsx)(t.code,{children:`overrideIdFn`})}),(0,E.jsx)(t.a,{className:`header-link`,href:`#overrideidfn`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[`A function with the signature `,(0,E.jsx)(t.code,{children:`(id: string, defaultMessage: string, description: string, filePath: string) => string`}),` which allows you to override the ID both in the extracted javascript and messages.`]}),`

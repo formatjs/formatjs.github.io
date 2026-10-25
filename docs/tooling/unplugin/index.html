@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BtqD6z3W.js"></script>
+    <script type="module" crossorigin src="/assets/index-D8gTpP-W.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -136,6 +136,21 @@ these wrappers.</p>
 end-user.</p></div></div>
 <h2 id="migrating-from-babel-plugin-formatjs" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Migrating from babel-plugin-formatjs<a href="#migrating-from-babel-plugin-formatjs" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">Replace your Babel plugin configuration with the appropriate bundler import from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/unplugin</code>. The options are the same.</p>
+<h2 id="static-message-values" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Static message values<a href="#static-message-values" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Message fields can reference local <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">const</code> strings, including aliases, templates,
+string concatenations, and constant conditionals. OXC performs native scope analysis and static evaluation through
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/cli-lib</code>. Constants must be initialized before the reference. Lexical scope
+and shadowing are respected for JSX and message descriptors.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">function</span> <span class="token function">Greeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token keyword">const</span> greeting <span class="token operator">=</span> <span class="token string">&#x27;Hello&#x27;</span>
+</span><span class="code-line">  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FormattedMessage</span></span> <span class="token attr-name">defaultMessage</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>greeting<span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Imported values, mutable bindings, destructured bindings, and runtime expressions
+remain unresolved. Keep those message fields inline when they need generated IDs
+or precompiled ASTs.</p>
+<p class="mb-4 leading-7 text-gray-300">Native expression evaluation supports macOS arm64, Linux x64/arm64 (glibc and
+musl), and Windows x64.</p>
 <h2 id="options" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Options<a href="#options" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <h3 id="overrideidfn" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><strong><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">overrideIdFn</code></strong><a href="#overrideidfn" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">A function with the signature <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">(id: string, defaultMessage: string, description: string, filePath: string) =&gt; string</code> which allows you to override the ID both in the extracted javascript and messages.</p>
