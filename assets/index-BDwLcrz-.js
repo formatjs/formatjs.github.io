@@ -5969,8 +5969,37 @@ Regional locales retain their language's tailoring, including sentence suppressi
 `]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,E.jsx)(t.span,{className:`token keyword`,children:`await`}),` `,(0,E.jsx)(t.span,{className:`token keyword`,children:`import`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,E.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-supportedvaluesof/polyfill-force.js'`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
+`,(0,E.jsxs)(t.h2,{id:`native-hermes-sdk`,children:[`Native Hermes SDK`,(0,E.jsx)(t.a,{className:`header-link`,href:`#native-hermes-sdk`,children:`#`})]}),`
+`,(0,E.jsxs)(t.p,{children:[`The `,(0,E.jsx)(t.a,{href:`intl-getcanonicallocales#native-hermes-sdk`,children:`shared Hermes SDK`}),` also provides
+`,(0,E.jsx)(t.code,{children:`Intl.supportedValuesOf`}),`. Build and extract it on Linux, then link
+`,(0,E.jsx)(t.code,{children:`@formatjs_intl_getcanonicallocales_hermes//:supported_values`}),` in the consumer.
+It contains a prebuilt Rust archive; consumers need Hermes and a C++ toolchain,
+not a Rust compiler. Linux x86_64 GNU and macOS arm64 are supported.`]}),`
+`,(0,E.jsxs)(t.p,{children:[`Install trusted `,(0,E.jsx)(t.code,{children:`Intl.DateTimeFormat`}),`, `,(0,E.jsx)(t.code,{children:`Intl.NumberFormat`}),` and `,(0,E.jsx)(t.code,{children:`Intl.Collator`}),`
+implementations first. Rust filters CLDR/IANA candidates against those
+formatters' actual capabilities. Missing formatters produce empty categories;
+the installer does not supply the formatters themselves.`]}),`
+`,(0,E.jsx)(t.pre,{className:`language-cpp`,children:(0,E.jsxs)(t.code,{className:`language-cpp code-highlight`,children:[(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsxs)(t.span,{className:`token macro property`,children:[(0,E.jsx)(t.span,{className:`token directive-hash`,children:`#`}),(0,E.jsx)(t.span,{className:`token directive keyword`,children:`include`}),` `,(0,E.jsx)(t.span,{className:`token string`,children:`<formatjs/hermes/supported_values.h>`})]}),`
+`]}),(0,E.jsx)(t.span,{className:`code-line`,children:`
+`}),(0,E.jsxs)(t.span,{className:`code-line`,children:[`formatjs`,(0,E.jsx)(t.span,{className:`token double-colon punctuation`,children:`::`}),(0,E.jsx)(t.span,{className:`token function`,children:`installSupportedValuesOf`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,E.jsx)(t.span,{className:`token operator`,children:`*`}),`runtime`,(0,E.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
+`]})]})}),`
+`,(0,E.jsxs)(t.p,{children:[`For bytecode-only extension startup, compile the SDK's `,(0,E.jsx)(t.code,{children:`js/extensions.js`}),` with
+the matching `,(0,E.jsx)(t.code,{children:`hermesc`}),`, evaluate it to obtain `,(0,E.jsx)(t.code,{children:`extensions`}),`, then call:`]}),`
+`,(0,E.jsx)(t.pre,{className:`language-cpp`,children:(0,E.jsx)(t.code,{className:`language-cpp code-highlight`,children:(0,E.jsxs)(t.span,{className:`code-line`,children:[`formatjs`,(0,E.jsx)(t.span,{className:`token double-colon punctuation`,children:`::`}),(0,E.jsx)(t.span,{className:`token function`,children:`installSupportedValuesOf`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,E.jsx)(t.span,{className:`token operator`,children:`*`}),`runtime`,(0,E.jsx)(t.span,{className:`token punctuation`,children:`,`}),` extensions`,(0,E.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
+`]})})}),`
+`,(0,E.jsxs)(t.p,{children:[`For Hermes core/contrib registration, add `,(0,E.jsx)(t.code,{children:`js/31-IntlSupportedValuesOf.js`}),` to
+the extension source list and call the same two-argument installer from its
+C++ dispatcher. See the `,(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/native/hermes/package/README.md`,children:`SDK instructions`}),`
+and `,(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/examples/hermes-intl`,children:`standalone consumer`}),`.`]}),`
 `,(0,E.jsxs)(t.h2,{id:`tests`,children:[`Tests`,(0,E.jsx)(t.a,{className:`header-link`,href:`#tests`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[`The Bazel `,(0,E.jsx)(t.code,{children:`:test262`}),` target runs the upstream suite against a reviewed failure baseline. A green baseline check does not mean every test passed. See the `,(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),`; run `,(0,E.jsx)(t.code,{children:`bazel test //packages/intl-supportedvaluesof:test262-strict`}),` to require zero failures.`]}),`
+`,(0,E.jsxs)(t.p,{children:[(0,E.jsx)(t.code,{children:`//packages/intl-supportedvaluesof:rust_conformance_test`}),` compares every Rust
+output list with TypeScript using real host formatter observations.
+`,(0,E.jsx)(t.code,{children:`//native/hermes/tests:supported_values_conformance_test`}),` repeats the comparison
+inside Hermes with real TS formatters and checks coercion, exception identity,
+function descriptors and fresh result arrays. Linux BuildBuddy builds/tests
+the SDK and cross-compiles the standalone consumer; macOS only runs its
+downloaded executable and bytecode.`]}),`
 `,(0,E.jsxs)(t.h2,{id:`key-coercion`,children:[`Key coercion`,(0,E.jsx)(t.a,{className:`header-link`,href:`#key-coercion`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[(0,E.jsx)(t.code,{children:`Intl.supportedValuesOf`}),` converts its key to a string before validating the
 category. String wrapper objects are accepted; Symbols throw `,(0,E.jsx)(t.code,{children:`TypeError`}),`.`]}),`

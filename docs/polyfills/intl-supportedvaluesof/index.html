@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CDj_Lu7F.js"></script>
+    <script type="module" crossorigin src="/assets/index-BDwLcrz-.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -39,8 +39,37 @@
 </span><span class="code-line">  <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-supportedvaluesof/polyfill-force.js&#x27;</span><span class="token punctuation">)</span>
 </span><span class="code-line"><span class="token punctuation">}</span>
 </span></code></pre>
+<h2 id="native-hermes-sdk" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Native Hermes SDK<a href="#native-hermes-sdk" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The <a href="intl-getcanonicallocales#native-hermes-sdk" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">shared Hermes SDK</a> also provides
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.supportedValuesOf</code>. Build and extract it on Linux, then link
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs_intl_getcanonicallocales_hermes//:supported_values</code> in the consumer.
+It contains a prebuilt Rust archive; consumers need Hermes and a C++ toolchain,
+not a Rust compiler. Linux x86_64 GNU and macOS arm64 are supported.</p>
+<p class="mb-4 leading-7 text-gray-300">Install trusted <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.DateTimeFormat</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Collator</code>
+implementations first. Rust filters CLDR/IANA candidates against those
+formatters&#x27; actual capabilities. Missing formatters produce empty categories;
+the installer does not supply the formatters themselves.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;formatjs/hermes/supported_values.h&gt;</span></span>
+</span><span class="code-line">
+</span><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installSupportedValuesOf</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">For bytecode-only extension startup, compile the SDK&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/extensions.js</code> with
+the matching <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hermesc</code>, evaluate it to obtain <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">extensions</code>, then call:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installSupportedValuesOf</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">,</span> extensions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">For Hermes core/contrib registration, add <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/31-IntlSupportedValuesOf.js</code> to
+the extension source list and call the same two-argument installer from its
+C++ dispatcher. See the <a href="https://github.com/formatjs/formatjs/blob/main/native/hermes/package/README.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">SDK instructions</a>
+and <a href="https://github.com/formatjs/formatjs/tree/main/examples/hermes-intl" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">standalone consumer</a>.</p>
 <h2 id="tests" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Tests<a href="#tests" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">The Bazel <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:test262</code> target runs the upstream suite against a reviewed failure baseline. A green baseline check does not mean every test passed. See the <a href="https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">conformance report</a>; run <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">bazel test //packages/intl-supportedvaluesof:test262-strict</code> to require zero failures.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">//packages/intl-supportedvaluesof:rust_conformance_test</code> compares every Rust
+output list with TypeScript using real host formatter observations.
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">//native/hermes/tests:supported_values_conformance_test</code> repeats the comparison
+inside Hermes with real TS formatters and checks coercion, exception identity,
+function descriptors and fresh result arrays. Linux BuildBuddy builds/tests
+the SDK and cross-compiles the standalone consumer; macOS only runs its
+downloaded executable and bytecode.</p>
 <h2 id="key-coercion" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Key coercion<a href="#key-coercion" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.supportedValuesOf</code> converts its key to a string before validating the
 category. String wrapper objects are accepted; Symbols throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>.</p>
