@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BDwLcrz-.js"></script>
+    <script type="module" crossorigin src="/assets/index-DoZ2JnEP.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -149,6 +149,39 @@ serialized tag. For example, calendar option <code class="px-2 py-1 rounded-md b
 It only searches likely-subtag candidates for the requested language.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">getCollations()</code> filters global candidates through the requested locale. An
 explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">co</code> extension returns that value; an unmatched locale returns
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">emoji</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">eor</code>.</p></article></div></div></main></div></div></div>
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">emoji</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">eor</code>.</p>
+<h2 id="locale-information-changes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Locale information changes<a href="#locale-information-changes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">getTextInfo()</code> follows script metadata. Unicode extensions do not change
+direction; unknown or unoriented scripts return <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{direction: undefined}</code>.
+Consumers must handle this possibility.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">getNumberingSystems()</code> returns one default system for the matched
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code> locale, unless an explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">nu</code> extension restricts it.
+Without a matching formatter locale it returns <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">[&#x27;latn&#x27;]</code>.</p>
+<h2 id="rust-hermes-extension" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust Hermes extension<a href="#rust-hermes-extension" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The Hermes SDK includes a Rust <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Locale</code> implementation. Build the archive
+on Linux, extract it, and link its Bazel <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:locale</code> target alongside the Hermes
+runtime. See <a href="https://github.com/formatjs/formatjs/blob/main/native/hermes/package/README.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">SDK installation</a>
+and the <a href="https://github.com/formatjs/formatjs/tree/main/examples/hermes-intl" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">standalone example</a>.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;formatjs/hermes/canonical_locales.h&gt;</span></span>
+</span><span class="code-line"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;formatjs/hermes/supported_values.h&gt;</span></span>
+</span><span class="code-line"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;formatjs/hermes/intl_locale.h&gt;</span></span>
+</span><span class="code-line">
+</span><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installCanonicalLocales</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token comment">// Install any trusted formatter backends here.</span>
+</span><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installSupportedValuesOf</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installLocale</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installCanonicalLocales</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Capture the new Locale brand.</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">For bytecode-only startup, compile the SDK&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/extensions.js</code> and pass its
+evaluated setup object as the second argument to each installer. Core/contrib
+integration uses <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/32-IntlLocale.js</code> and explicit C++ registration.</p>
+<p class="mb-4 leading-7 text-gray-300">Rust owns Locale records until their JS instances are collected. Preference
+metadata is static; numbering-system and collation capabilities are queried at
+method-call time. Existing instances see formatter locale data loaded later.
+Without formatter support, numbering systems fall back to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">latn</code> and collations
+to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">emoji</code>/<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">eor</code>; explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">nu</code>/<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">co</code> restrictions still apply.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">getTimeZones()</code> returns unique canonical timezone identifiers. Deprecated
+territory aliases use likely-language fallback: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hye-Latn-SU</code> canonicalizes to
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hy-Latn-AM</code> even without a <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hy-Latn</code> likely-subtag entry.</p></article></div></div></main></div></div></div>
   </body>
 </html>
