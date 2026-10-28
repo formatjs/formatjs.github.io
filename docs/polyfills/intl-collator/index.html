@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
+    <script type="module" crossorigin src="/assets/index-CveouUTw.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -85,6 +85,27 @@ for matching, not a stable sort order.</p>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">The benchmark compares Latin, accent, numeric, normalization, Swedish tailoring,
 and CJK cases with native <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Collator</code>. Each timed task performs 32 comparisons;
-formatter construction and module initialization are excluded.</p></article></div></div></main></div></div></div>
+formatter construction and module initialization are excluded.</p>
+<h2 id="comparison-consistency" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Comparison consistency<a href="#comparison-consistency" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">numeric: true</code> keeps unmatched digit runs significant (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">x &lt; x1 &lt; x2</code>).
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">caseFirst</code> affects case-sensitive comparisons; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">base</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">accent</code> still ignore
+case. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignorePunctuation</code> preserves letters and digits. Canonically equivalent
+strings share case-order keys, including precomposed
+and decomposed accented letters. Sensitivity selects UCA levels after locale
+tailoring, preserving primary letters such as Swedish ä.</p>
+<h2 id="rust-hermes-extension" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust Hermes extension<a href="#rust-hermes-extension" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">crates/intl_collator</code> ports the CLDR sort/search comparison profile to Rust.
+ICU4X supplies normalization and locale-sensitive casing. Generated data stays
+static, matching this package. The comparison profile retains compact implicit
+weights and CLDR variable-element filtering; it does not claim full ICU Collator
+ordering parity.</p>
+<p class="mb-4 leading-7 text-gray-300">Follow the <a href="/docs/guides/react-native-hermes#rust-collator" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">native SDK guide</a>: link
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:collator</code>, install after canonicalization, or register <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/37-IntlCollator.js</code>
+and call the precompiled installer. The SDK ships public headers, C++ adapter
+source, Linux/macOS Rust archives and a typed independent consumer smoke example.
+Android/iOS artifacts and React Native package installation are not included.</p>
+<p class="mb-4 leading-7 text-gray-300">Tests cover all advertised locales/collations, the existing native/TS corpus,
+option combinations, comparator consistency, UTF-16 inputs and Hermes source/
+optimized-bytecode integration.</p></article></div></div></main></div></div></div>
   </body>
 </html>

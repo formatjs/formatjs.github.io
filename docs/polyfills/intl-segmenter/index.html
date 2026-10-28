@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
+    <script type="module" crossorigin src="/assets/index-CveouUTw.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -171,6 +171,21 @@ The fallback locale is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-p
 BigInt values throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>, including boxed BigInts and objects that
 coerce to BigInt. Errors thrown during coercion propagate unchanged.</p>
 <p class="mb-4 leading-7 text-gray-300">Locales without dedicated CLDR tailoring use root Unicode segmentation rules.
-Regional locales retain their language&#x27;s tailoring, including sentence suppressions.</p></article></div></div></main></div></div></div>
+Regional locales retain their language&#x27;s tailoring, including sentence suppressions.</p>
+<h2 id="rust-hermes-extension" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust Hermes extension<a href="#rust-hermes-extension" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The experimental Rust port uses ICU4X grapheme, word and sentence models. Install
+SDK target <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:segmenter</code> after canonicalization, following the
+<a href="/docs/guides/react-native-hermes#rust-segmenter" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">native SDK guide</a>. Register
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/36-IntlSegmenter.js</code> for precompiled Hermes extension setup. The SDK includes
+public headers, adapter source, compiled ICU data, and a typed consumer example.
+Android/iOS artifacts and React Native package installation are not included.</p>
+<p class="mb-4 leading-7 text-gray-300">ICU dictionary/LSTM models recognize complex-script words. Original UTF-16 input
+and indices remain exact; cursors advance independently. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">containing</code> truncates
+before bounds checks, so <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">-0.5</code> selects index zero; BigInt throws <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Word/sentence boundaries and word-like status are implementation-dependent.
+Compared with TS, ICU groups dictionary words, applies different abbreviation
+profiles, and excludes isolated marks/emoji from word-like segments. Tests assert
+both implementations explicitly, plus the complete Unicode 17 grapheme corpus.
+Segmenter keeps static data, matching the existing package&#x27;s loading model.</p></article></div></div></main></div></div></div>
   </body>
 </html>

@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
+    <script type="module" crossorigin src="/assets/index-CveouUTw.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -335,6 +335,30 @@ Loading regional data preserves explicitly loaded language data.</p>
 <p class="mb-4 leading-7 text-gray-300">Ranges whose endpoints format identically use a locale-aware approximately sign,
 for example <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">~$3</code> in English. Its position follows the locale&#x27;s sign pattern.</p>
 <p class="mb-4 leading-7 text-gray-300">Matching signs can share a currency or unit affix across a range; mixed signs
-remain separate.</p></article></div></div></main></div></div></div>
+remain separate.</p>
+<h2 id="rust-hermes-extension" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust Hermes extension<a href="#rust-hermes-extension" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The experimental <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl_numberformat</code> crate implements formatting,
+parts, ranges and resolved options with the same generated CLDR data as the
+TypeScript polyfill. It supports decimal, percent, currency and unit styles,
+including compact, scientific and engineering notation.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale data loads on demand: build <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">//crates/intl_numberformat:locale_data</code> and
+register only the required JSON packs with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Registry::add_locale_data</code>.
+The registry starts empty; matching considers loaded locales. Existing
+formatters retain their locale records when a replacement pack is registered.
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add_unit_data</code> explicitly updates shared unit patterns.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Registry::create</code> accepts locale tags and typed options. Formatting methods
+accept the host&#x27;s normalized ToIntlMathematicalValue strings, preserving exact
+BigInt integers. The Hermes facade handles observable JavaScript coercion and option getter order.
+The owned C ABI captures locale resolution separately from later formatting
+options, preserving existing instances across registry replacement or destruction.
+Link SDK target <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:numberformat</code> and call <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs::installNumberFormat</code> after
+canonicalization. For precompiled setup use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/38-IntlNumberFormat.js</code> and the
+installer overload taking the setup object. Register selected SDK packs with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat.__addLocaleData(jsonText)</code>; their owned plural rules require no
+JS PluralRules installation. The SDK includes Linux/macOS archives, public
+headers, adapter source, and a typed independent consumer smoke.
+See the <a href="/docs/guides/react-native-hermes#rust-numberformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Hermes SDK guide</a>.</p>
+<p class="mb-4 leading-7 text-gray-300">Scientific exponents use localized digits, independently of mantissa rounding
+increments. Missing currency-name translations fall back to the currency code.</p></article></div></div></main></div></div></div>
   </body>
 </html>

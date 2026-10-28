@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
+    <script type="module" crossorigin src="/assets/index-CveouUTw.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -186,6 +186,23 @@ separate from language-specific patterns, regardless of registration order.</p>
 <p class="mb-4 leading-7 text-gray-300">Internal number and plural formatters use the resolved locale. Internal number
 options have no prototype, so unrelated inherited options cannot affect them.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale data registers CLDR default-content variants, such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-US</code> for English.
-Loading regional data preserves explicitly loaded language data.</p></article></div></div></main></div></div></div>
+Loading regional data preserves explicitly loaded language data.</p>
+<h2 id="rust-and-hermes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust and Hermes<a href="#rust-and-hermes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The experimental <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl_relativetimeformat</code> crate supports every relative
+time unit, long/short/narrow styles, numeric always/auto, and formatted parts.
+Its registry starts empty: build <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">//crates/intl_relativetimeformat:locale_data</code>
+and register selected JSON packs. Each pack includes relative patterns plus owned
+number and plural data. No host ICU or global JS formatter is required.</p>
+<p class="mb-4 leading-7 text-gray-300">Rust callers create an instance with requested locale tags and typed options,
+then format normalized Number text and a unit. Existing instances retain their
+data across later registrations. An owned C ABI separates locale resolution from
+final creation and preserves UTF-16 unit validation.</p>
+<p class="mb-4 leading-7 text-gray-300">Hermes applications link <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">//native/hermes:relativetimeformat</code>, install
+canonicalization, then call <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs::installRelativeTimeFormat(runtime)</code>.
+Register selected JSON strings with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.RelativeTimeFormat.__addLocaleData</code>.
+The standalone SDK includes <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:relativetimeformat</code>, headers, adapter sources,
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/39-IntlRelativeTimeFormat.js</code> for precompiled installation, locale packs and
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">examples/relativetimeformat-smoke.ts</code>. See the
+<a href="https://github.com/formatjs/formatjs/blob/main/native/hermes/package/README.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">SDK guide</a>.</p></article></div></div></main></div></div></div>
   </body>
 </html>
