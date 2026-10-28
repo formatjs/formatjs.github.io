@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DoZ2JnEP.js"></script>
+    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -111,6 +111,25 @@ plural categories in the order <code class="px-2 py-1 rounded-md bg-purple-900/3
 <p class="mb-4 leading-7 text-gray-300">Compact plural selection uses generated CLDR exponent tables for locales whose
 rules use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">c</code>/<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">e</code>. It does not require NumberFormat locale data to be installed.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale data registers CLDR default-content variants, such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-US</code> for English.
-Loading regional data preserves explicitly loaded language data.</p></article></div></div></main></div></div></div>
+Loading regional data preserves explicitly loaded language data.</p>
+<h2 id="rust-on-hermes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust on Hermes<a href="#rust-on-hermes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The <a href="../guides/react-native-hermes" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Hermes SDK guide</a> covers the Rust extension.
+Link the SDK&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:pluralrules</code> target and call
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs::installPluralRules(*runtime)</code> after installing canonicalization.
+The precompiled installer also accepts the SDK extension setup object.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale packs stay independent. Ship selected
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">locale-data/pluralrules/&lt;locale&gt;.json</code> files from the SDK, then pass their UTF-8
+text to the installed constructor:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">type</span> <span class="token class-name">NativePluralRules</span> <span class="token operator">=</span> <span class="token keyword">typeof</span> Intl<span class="token punctuation">.</span>PluralRules <span class="token operator">&amp;</span> <span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token function">__addLocaleData</span><span class="token punctuation">(</span><span class="token operator">...</span>packs<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">const</span> PluralRules <span class="token operator">=</span> Intl<span class="token punctuation">.</span>PluralRules <span class="token keyword">as</span> NativePluralRules
+</span><span class="code-line">PluralRules<span class="token punctuation">.</span><span class="token function">__addLocaleData</span><span class="token punctuation">(</span>frenchJsonText<span class="token punctuation">)</span>
+</span><span class="code-line"><span class="token keyword">new</span> <span class="token class-name">PluralRules</span><span class="token punctuation">(</span><span class="token string">&#x27;fr&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// &#x27;one&#x27;</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">The extension starts without plural locale data. Load additional packs when
+needed; existing instances keep their selected data. Rust handles locale
+matching, exact numeric rounding and ICU4X rule selection.</p></article></div></div></main></div></div></div>
   </body>
 </html>

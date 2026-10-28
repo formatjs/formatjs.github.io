@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DoZ2JnEP.js"></script>
+    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -128,6 +128,14 @@ non-string elements throw <code class="px-2 py-1 rounded-md bg-purple-900/30 tex
 separate from language-specific patterns, regardless of registration order.</p>
 <p class="mb-4 leading-7 text-gray-300">Loading a locale also registers its CLDR default-content variants. For example,
 English data supports <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-US</code>. Explicitly loaded regional data remains distinct
-from its language&#x27;s data, regardless of load order.</p></article></div></div></main></div></div></div>
+from its language&#x27;s data, regardless of load order.</p>
+<h2 id="rust-on-hermes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust on Hermes<a href="#rust-on-hermes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The experimental <a href="../guides/react-native-hermes" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Hermes SDK</a> includes a Rust
+ListFormat engine, C++ JSI adapter and source/precompiled installers. Link
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:listformat</code>, install after canonicalization, then load selected JSON text from
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">locale-data/listformat/&lt;locale&gt;.json</code> with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.ListFormat.__addLocaleData(jsonText)</code>. Locale packs load independently;
+existing instances retain their data. The SDK is built from this repository;
+Android/iOS binaries and package publication are separate work.</p></article></div></div></main></div></div></div>
   </body>
 </html>

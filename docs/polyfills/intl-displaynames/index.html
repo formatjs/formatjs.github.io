@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DoZ2JnEP.js"></script>
+    <script type="module" crossorigin src="/assets/index-BIYvp7mt.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -169,6 +169,13 @@ five to eight ASCII letters, with optional script, region, and variant subtags.<
 <p class="mb-4 leading-7 text-gray-300">Calendar display-name data uses BCP 47 identifiers, including <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">gregory</code> and
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ethioaa</code>, rather than CLDR legacy keys.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale data registers CLDR default-content variants, such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-US</code> for English.
-Loading regional data preserves explicitly loaded language data.</p></article></div></div></main></div></div></div>
+Loading regional data preserves explicitly loaded language data.</p>
+<h2 id="rust-on-hermes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust on Hermes<a href="#rust-on-hermes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">The experimental <a href="../guides/react-native-hermes" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Hermes SDK</a> includes a Rust
+DisplayNames engine, C++ JSI adapter and source/precompiled installers. Link
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:displaynames</code>, install after canonicalization, then register selected JSON text
+from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">locale-data/displaynames/&lt;locale&gt;.json</code> with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.DisplayNames.__addLocaleData(jsonText)</code>. The SDK is built from this
+repository; package publication and Android/iOS artifacts are separate work.</p></article></div></div></main></div></div></div>
   </body>
 </html>
