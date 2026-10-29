@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CveouUTw.js"></script>
+    <script type="module" crossorigin src="/assets/index-DT5oUHL6.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -40,6 +40,18 @@ extensions even when matching falls back to a parent locale.</p>
 setters on <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Object.prototype</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale matching extracts only the Unicode <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">u</code> extension. Private-use subtags
 remain intact, including text resembling <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">u-co-phonebk</code>; trailing extensions
-are preserved separately from Unicode keywords.</p></article></div></div></main></div></div></div>
+are preserved separately from Unicode keywords.</p>
+<h3 id="best-fit-matching" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Best-fit matching<a href="#best-fit-matching" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Best fit follows ICU4C/J defaults using generated CLDR language distances.
+It respects requested-locale priority, directional language fallbacks, regional
+clusters, and likely-subtag ties. Unacceptable matches return <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultLocale</code>.
+Lookup matching remains available with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{algorithm: &#x27;lookup&#x27;}</code>.</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token function">match</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&#x27;br&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&#x27;de&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;fr&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&#x27;de&#x27;</span><span class="token punctuation">)</span> <span class="token comment">// &#x27;fr&#x27;: Breton can fall back to French</span>
+</span><span class="code-line"><span class="token function">match</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&#x27;fr&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&#x27;de&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;br&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&#x27;de&#x27;</span><span class="token punctuation">)</span> <span class="token comment">// &#x27;de&#x27;: reverse fallback is not allowed</span>
+</span><span class="code-line"><span class="token function">match</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&#x27;en-GB&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;sv&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&#x27;en&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;sv&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&#x27;en&#x27;</span><span class="token punctuation">)</span> <span class="token comment">// &#x27;en&#x27;: earlier regional match wins</span>
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Matching caches supported lists and repeated requests. Reuse supported arrays
+when possible; array and Set content changes invalidate the relevant caches.
+The host or polyfilled <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Locale</code> supplies canonicalization and likely subtags.</p></article></div></div></main></div></div></div>
   </body>
 </html>
