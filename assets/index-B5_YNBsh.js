@@ -1774,16 +1774,20 @@ before application JavaScript. Consumers do not need Rust.`}),`
 `,(0,E.jsxs)(t.h2,{id:`choose-a-package`,children:[`Choose a package`,(0,E.jsx)(t.a,{className:`header-link`,href:`#choose-a-package`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/releases?q=formatjs-hermes-intl`,children:`SDK releases`}),`
 use tags `,(0,E.jsx)(t.code,{children:`formatjs-hermes-intl_v<version>`}),` and include checksums.`]}),`
-`,(0,E.jsxs)(t.table,{children:[(0,E.jsx)(t.thead,{children:(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.th,{children:`Archive`}),(0,E.jsx)(t.th,{children:`Targets`})]})}),(0,E.jsxs)(t.tbody,{children:[(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-desktop.tar.gz`})}),(0,E.jsx)(t.td,{children:`Linux x86_64 GNU, macOS arm64`})]}),(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-android.tar.gz`})}),(0,E.jsx)(t.td,{children:`Android arm64-v8a, x86_64`})]})]})]}),`
+`,(0,E.jsxs)(t.table,{children:[(0,E.jsx)(t.thead,{children:(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.th,{children:`Archive`}),(0,E.jsx)(t.th,{children:`Targets`})]})}),(0,E.jsxs)(t.tbody,{children:[(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-desktop.tar.gz`})}),(0,E.jsx)(t.td,{children:`Linux x86_64 GNU, macOS arm64/x86_64`})]}),(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-android.tar.gz`})}),(0,E.jsx)(t.td,{children:`Android arm64-v8a, x86_64`})]}),(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-apple.tar.gz`})}),(0,E.jsx)(t.td,{children:`iOS arm64, simulator arm64/x86_64, macOS arm64/x86_64`})]})]})]}),`
 `,(0,E.jsxs)(t.p,{children:[`Until the first SDK release is published, use the
 `,(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/native/hermes/package#build-from-source`,children:`source build instructions`}),`.
-iOS and Windows SDKs are not included.`]}),`
+Windows SDKs are not included.`]}),`
 `,(0,E.jsxs)(t.h2,{id:`install`,children:[`Install`,(0,E.jsx)(t.a,{className:`header-link`,href:`#install`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[`Extract your archive and export `,(0,E.jsx)(t.code,{children:`FORMATJS_HERMES_SDK`}),` as its absolute directory.
 For an existing CMake target that already uses your runtime's JSI headers:`]}),`
 `,(0,E.jsx)(t.pre,{className:`language-cmake`,children:(0,E.jsxs)(t.code,{className:`language-cmake code-highlight`,children:[(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsx)(t.span,{className:`token keyword`,children:`include`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,E.jsx)(t.span,{className:`token string`,children:`"$ENV{FORMATJS_HERMES_SDK}/cmake/FormatJSIntl.cmake"`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsx)(t.span,{className:`token function`,children:`formatjs_intl`}),(0,E.jsx)(t.span,{className:`token punctuation`,children:`(`}),`appmodules`,(0,E.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]})]})}),`
+`,(0,E.jsxs)(t.p,{children:[`For iOS, use the Apple archive and configure CMake with
+`,(0,E.jsx)(t.code,{children:`-DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphoneos -DCMAKE_OSX_ARCHITECTURES=arm64`}),`.
+Use `,(0,E.jsx)(t.code,{children:`iphonesimulator`}),` for the simulator (`,(0,E.jsx)(t.code,{children:`arm64`}),` or `,(0,E.jsx)(t.code,{children:`x86_64`}),`). macOS supports
+`,(0,E.jsx)(t.code,{children:`arm64`}),` and `,(0,E.jsx)(t.code,{children:`x86_64`}),`. Select one architecture per build. iOS requires 15.1+.`]}),`
 `,(0,E.jsx)(t.p,{children:`Call this on the JavaScript thread, before loading your app:`}),`
 `,(0,E.jsx)(t.pre,{className:`language-cpp`,children:(0,E.jsxs)(t.code,{className:`language-cpp code-highlight`,children:[(0,E.jsxs)(t.span,{className:`code-line`,children:[(0,E.jsxs)(t.span,{className:`token macro property`,children:[(0,E.jsx)(t.span,{className:`token directive-hash`,children:`#`}),(0,E.jsx)(t.span,{className:`token directive keyword`,children:`include`}),` `,(0,E.jsx)(t.span,{className:`token string`,children:`<formatjs/hermes/intl.h>`})]}),`
 `]}),(0,E.jsx)(t.span,{className:`code-line`,children:`
