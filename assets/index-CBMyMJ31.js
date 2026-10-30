@@ -6114,6 +6114,11 @@ The standalone SDK includes `,(0,E.jsx)(t.code,{children:`:relativetimeformat`})
 `,(0,E.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-segmenter`,alt:`size`})]}),`
 `,(0,E.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,E.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[`This package implements `,(0,E.jsx)(t.code,{children:`Intl.Segmenter`}),`. See the `,(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,E.jsxs)(t.p,{children:[`Rust and TypeScript implementations share an independent ICU4C/ICU4J test
+matrix for UTF-16 boundaries and word classification. Hermes runs both
+implementations in source and bytecode modes, including `,(0,E.jsx)(t.code,{children:`containing()`}),` and
+record property checks. Dictionary segmentation and sentence abbreviation
+suppression can differ between the implementations.`]}),`
 `,(0,E.jsxs)(t.h3,{id:`specification-details`,children:[`Specification Details`,(0,E.jsx)(t.a,{className:`header-link`,href:`#specification-details`,children:`#`})]}),`
 `,(0,E.jsxs)(t.ul,{children:[`
 `,(0,E.jsxs)(t.li,{children:[(0,E.jsx)(t.strong,{children:`TC39 Proposal`}),`: `,(0,E.jsx)(t.a,{href:`https://github.com/tc39/proposal-intl-segmenter`,children:`Intl.Segmenter`})]}),`
@@ -6153,7 +6158,7 @@ The standalone SDK includes `,(0,E.jsx)(t.code,{children:`:relativetimeformat`})
 `,(0,E.jsxs)(t.p,{children:[`The `,(0,E.jsx)(t.code,{children:`Segments`}),` object returned by `,(0,E.jsx)(t.code,{children:`segment()`}),` is:`]}),`
 `,(0,E.jsxs)(t.ul,{children:[`
 `,(0,E.jsxs)(t.li,{children:[(0,E.jsx)(t.strong,{children:`Iterable`}),` - Can be used with `,(0,E.jsx)(t.code,{children:`for...of`}),` loops`]}),`
-`,(0,E.jsxs)(t.li,{children:[(0,E.jsx)(t.strong,{children:`Array-like`}),` - Supports indexed access and `,(0,E.jsx)(t.code,{children:`containing(index)`}),` method`]}),`
+`,(0,E.jsxs)(t.li,{children:[(0,E.jsx)(t.strong,{children:(0,E.jsx)(t.code,{children:`containing(index)`})}),` - Finds the segment containing a UTF-16 code-unit index`]}),`
 `]}),`
 `,(0,E.jsxs)(t.h4,{id:`segment-object-properties`,children:[`Segment Object Properties`,(0,E.jsx)(t.a,{className:`header-link`,href:`#segment-object-properties`,children:`#`})]}),`
 `,(0,E.jsx)(t.p,{children:`Each segment has:`}),`
