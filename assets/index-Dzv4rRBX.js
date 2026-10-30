@@ -1775,7 +1775,7 @@ before application JavaScript. Consumers do not need Rust.`}),`
 `,(0,E.jsxs)(t.p,{children:[(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/releases?q=formatjs-hermes-intl`,children:`SDK releases`}),`
 use tags `,(0,E.jsx)(t.code,{children:`formatjs-hermes-intl_v<version>`}),` and include checksums.`]}),`
 `,(0,E.jsxs)(t.table,{children:[(0,E.jsx)(t.thead,{children:(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.th,{children:`Archive`}),(0,E.jsx)(t.th,{children:`Targets`})]})}),(0,E.jsxs)(t.tbody,{children:[(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-desktop.tar.gz`})}),(0,E.jsx)(t.td,{children:`Linux x86_64 GNU, macOS arm64/x86_64`})]}),(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-android.tar.gz`})}),(0,E.jsx)(t.td,{children:`Android arm64-v8a, x86_64`})]}),(0,E.jsxs)(t.tr,{children:[(0,E.jsx)(t.td,{children:(0,E.jsx)(t.code,{children:`formatjs-hermes-intl-apple.tar.gz`})}),(0,E.jsx)(t.td,{children:`iOS arm64, simulator arm64/x86_64, macOS arm64/x86_64`})]})]})]}),`
-`,(0,E.jsxs)(t.p,{children:[`Until the first SDK release is published, use the
+`,(0,E.jsxs)(t.p,{children:[`If release archives are not available yet, use the
 `,(0,E.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/native/hermes/package#build-from-source`,children:`source build instructions`}),`.
 Windows SDKs are not included.`]}),`
 `,(0,E.jsxs)(t.h2,{id:`install`,children:[`Install`,(0,E.jsx)(t.a,{className:`header-link`,href:`#install`,children:`#`})]}),`
