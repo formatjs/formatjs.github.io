@@ -5601,6 +5601,10 @@ Loading regional data preserves explicitly loaded language data.`]}),`
 for example `,(0,E.jsx)(t.code,{children:`~$3`}),` in English. Its position follows the locale's sign pattern.`]}),`
 `,(0,E.jsx)(t.p,{children:`Matching signs can share a currency or unit affix across a range; mixed signs
 remain separate.`}),`
+`,(0,E.jsxs)(t.h2,{id:`locale-pattern-preprocessing`,children:[`Locale pattern preprocessing`,(0,E.jsx)(t.a,{className:`header-link`,href:`#locale-pattern-preprocessing`,children:`#`})]}),`
+`,(0,E.jsxs)(t.p,{children:[`Generated locale bundles include prepared number patterns shared with the Rust SDK.
+Existing locale payloads without prepared patterns remain supported by
+`,(0,E.jsx)(t.code,{children:`NumberFormat.__addLocaleData()`}),`. Per-locale imports remain tree-shakeable.`]}),`
 `,(0,E.jsxs)(t.h2,{id:`rust-hermes-extension`,children:[`Rust Hermes extension`,(0,E.jsx)(t.a,{className:`header-link`,href:`#rust-hermes-extension`,children:`#`})]}),`
 `,(0,E.jsxs)(t.p,{children:[`The experimental `,(0,E.jsx)(t.code,{children:`formatjs_intl_numberformat`}),` crate implements formatting,
 parts, ranges and resolved options with the same generated CLDR data as the
