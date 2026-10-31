@@ -1834,6 +1834,11 @@ into Rust. No locale imports or startup JSON loading needed.`}),`
 `,(0,E.jsx)(t.pre,{className:`language-sh`,children:(0,E.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,E.jsxs)(t.span,{className:`code-line`,children:[`bazel build `,(0,E.jsx)(t.span,{className:`token parameter variable`,children:`-c`}),` opt `,(0,E.jsx)(t.span,{className:`token parameter variable`,children:`--extra_toolchains`}),(0,E.jsx)(t.span,{className:`token operator`,children:`=`}),`@androidndk//:all `,(0,E.jsx)(t.span,{className:`token parameter variable`,children:`--spawn_strategy`}),(0,E.jsx)(t.span,{className:`token operator`,children:`=`}),`local `,(0,E.jsx)(t.span,{className:`token punctuation`,children:`\\`}),`
 `]}),(0,E.jsxs)(t.span,{className:`code-line`,children:[`  --//crates/intl_data:locales`,(0,E.jsx)(t.span,{className:`token operator`,children:`=`}),`en,fr //native/hermes/package:android_sdk
 `]})]})}),`
+`,(0,E.jsx)(t.p,{children:`Apple Rust archives can also be cross-compiled on Linux through BuildBuddy:`}),`
+`,(0,E.jsx)(t.pre,{className:`language-sh`,children:(0,E.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,E.jsxs)(t.span,{className:`code-line`,children:[`bazel build `,(0,E.jsx)(t.span,{className:`token parameter variable`,children:`--config`}),(0,E.jsx)(t.span,{className:`token operator`,children:`=`}),`bb-cross-build `,(0,E.jsx)(t.span,{className:`token parameter variable`,children:`--remote_download_toplevel`}),` //native/hermes/package:apple_sdk
+`]})})}),`
+`,(0,E.jsx)(t.p,{children:`Xcode is needed for final iOS/macOS consumer linking, not Rust archive production.
+CI links all five prebuilt slices on macOS and runs the host-macOS smoke executable.`}),`
 `,(0,E.jsxs)(t.p,{children:[`Use `,(0,E.jsx)(t.code,{children:`--//crates/intl_data:locales=\\*`}),` for every CLDR locale. Adding locales requires
 rebuilding the SDK, then rebuilding your app. End users downloading the app do
 not compile anything. Segmenter models and Collator/Locale data remain static.`]}),`

@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-VBXhuUcv.js"></script>
+    <script type="module" crossorigin src="/assets/index-Czia4wwh.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -79,6 +79,11 @@ into Rust. No locale imports or startup JSON loading needed.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">bazel build <span class="token parameter variable">-c</span> opt <span class="token parameter variable">--extra_toolchains</span><span class="token operator">=</span>@androidndk//:all <span class="token parameter variable">--spawn_strategy</span><span class="token operator">=</span>local <span class="token punctuation">\</span>
 </span><span class="code-line">  --//crates/intl_data:locales<span class="token operator">=</span>en,fr //native/hermes/package:android_sdk
 </span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Apple Rust archives can also be cross-compiled on Linux through BuildBuddy:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">bazel build <span class="token parameter variable">--config</span><span class="token operator">=</span>bb-cross-build <span class="token parameter variable">--remote_download_toplevel</span> //native/hermes/package:apple_sdk
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Xcode is needed for final iOS/macOS consumer linking, not Rust archive production.
+CI links all five prebuilt slices on macOS and runs the host-macOS smoke executable.</p>
 <p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--//crates/intl_data:locales=\*</code> for every CLDR locale. Adding locales requires
 rebuilding the SDK, then rebuilding your app. End users downloading the app do
 not compile anything. Segmenter models and Collator/Locale data remain static.</p>
