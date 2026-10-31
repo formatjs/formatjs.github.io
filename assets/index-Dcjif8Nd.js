@@ -4266,6 +4266,10 @@ calendar.`})}),`
 dataset size`})}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`TypeScript and Rust also run independent ICU4J 79.1 snapshot comparisons in
+Bazel CI: 12,399 cases covering 17 locales, calendars, numbering systems, DST,
+styles, fractional seconds, and range parts. Snapshots pin existing differences;
+they do not imply full ICU parity. See `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/crates/intl_datetimeformat/tests`,children:`snapshot coverage`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`implemented-features`,children:[`Implemented Features`,(0,D.jsx)(t.a,{className:`header-link`,href:`#implemented-features`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`-core-methods`,children:[`✅ Core Methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-core-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
