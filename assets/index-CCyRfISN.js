@@ -4282,9 +4282,14 @@ dataset size`})}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`TypeScript and Rust also run independent ICU4J 79.1 snapshot comparisons in
-Bazel CI: 12,399 cases covering 17 locales, calendars, numbering systems, DST,
-styles, fractional seconds, and range parts. Snapshots pin existing differences;
-they do not imply full ICU parity. See `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/crates/intl_datetimeformat/tests`,children:`snapshot coverage`}),`.`]}),`
+Bazel CI: 12,808 cases covering 17 locales, calendars, numbering systems, DST,
+styles, fractional seconds, and range parts. Snapshots retain raw ICU4J and ICU4C evidence, including differences required
+by ECMA-402; they do not imply full ICU parity. See `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/crates/intl_datetimeformat/tests`,children:`snapshot coverage`}),`.
+ICU4C 79 independently checks 145 day-period boundary range strings against
+ICU4J, including 12/24-hour clocks and explicit flexible day periods. The full
+audit also captures ICU4C strings and parts for 5,678 ranges. Unclassified
+differences fail the audit; endpoint field evidence checks spec corrections. Generated
+range templates expand before matching; package-size tests guard locale-data growth.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`implemented-features`,children:[`Implemented Features`,(0,D.jsx)(t.a,{className:`header-link`,href:`#implemented-features`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`-core-methods`,children:[`✅ Core Methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-core-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
@@ -4294,6 +4299,8 @@ they do not imply full ICU parity. See `,(0,D.jsx)(t.a,{href:`https://github.com
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`formatRangeToParts(startDate, endDate)`})}),` - Format a date range and return parts array with source attribution`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`resolvedOptions()`})}),` - Return resolved formatting options`]}),`
 `]}),`
+`,(0,D.jsx)(t.p,{children:`Range patterns can use different field widths from single-date patterns.
+Collapsed ranges reuse single-date output. Shared fields use the start endpoint.`}),`
 `,(0,D.jsxs)(t.h4,{id:`temporal-inputs`,children:[`Temporal inputs`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-inputs`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`When `,(0,D.jsx)(t.code,{children:`globalThis.Temporal`}),` is available before importing this polyfill, all four
 formatting methods accept `,(0,D.jsx)(t.code,{children:`Temporal.PlainDate`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`,
@@ -4391,6 +4398,8 @@ requested numbering system.`]}),`
 including the standard date and time defaults when only `,(0,D.jsx)(t.code,{children:`timeZone`}),` is set.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`optional-calendars`,children:[`Optional calendars`,(0,D.jsx)(t.a,{className:`header-link`,href:`#optional-calendars`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The base polyfill and `,(0,D.jsx)(t.code,{children:`locale-data/<locale>.js`}),` include Gregorian and ISO 8601.
+ISO 8601 uses its own CLDR patterns, including year-first numeric dates such as
+`,(0,D.jsx)(t.code,{children:`2024-01-15`}),`; Gregorian formatting follows the locale's date order.
 Other calendars require both their arithmetic module and their localized names
 and patterns. Load them before constructing a formatter:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword control-flow`,children:`await`}),` `,(0,D.jsx)(t.span,{className:`token keyword module`,children:`import`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/polyfill-force.js'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
@@ -4566,6 +4575,13 @@ that endpoint. Shared month names retain the complete date pattern for
 grammatical context.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`An explicit `,(0,D.jsx)(t.code,{children:`hourCycle: "h24"`}),` formats midnight as `,(0,D.jsx)(t.code,{children:`24`}),` for both single dates
 and ranges. Use `,(0,D.jsx)(t.code,{children:`h23`}),` for midnight `,(0,D.jsx)(t.code,{children:`00`}),`; `,(0,D.jsx)(t.code,{children:`hour12: false`}),` selects `,(0,D.jsx)(t.code,{children:`h23`}),`.`]}),`
+`,(0,D.jsx)(t.p,{children:`Range formatting ignores hidden AM/PM and flexible day-period boundaries.
+Hidden evening/night changes no longer force same-day 24-hour ranges to repeat
+the date.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Range field widths follow the selected locale interval pattern. For example,
+12-hour intervals may use unpadded hours while `,(0,D.jsx)(t.code,{children:`format()`}),` and `,(0,D.jsx)(t.code,{children:`resolvedOptions()`}),`
+retain `,(0,D.jsx)(t.code,{children:`hour: '2-digit'`}),`. Combined date/time styles share the date for same-day
+time intervals when locale data provides a matching pattern.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`benchmarks`,children:[`Benchmarks`,(0,D.jsx)(t.a,{className:`header-link`,href:`#benchmarks`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Run `,(0,D.jsx)(t.code,{children:`bazel run //packages/intl-datetimeformat:benchmark`}),` from the repository.
 The benchmark uses fixed UTC inputs and native controls for `,(0,D.jsx)(t.code,{children:`format`}),`,
