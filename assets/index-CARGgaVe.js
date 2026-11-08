@@ -3408,6 +3408,9 @@ preserving source spelling.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Capture is disabled by default to keep runtime ASTs compact. The Babel plugin,
 TypeScript transformer, unplugin, and Rust CLI enable it when flattening messages.
 Rust callers use `,(0,D.jsx)(t.code,{children:`ParserOptions { capture_escapes: true, ..Default::default() }`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Selector hoisting preserves plural `,(0,D.jsx)(t.code,{children:`#`}),` scope and offsets. When moving an
+offset-adjusted `,(0,D.jsx)(t.code,{children:`#`}),` would change its meaning, flattening keeps that part of the
+message in its original plural scope.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`example`,children:[`Example`,(0,D.jsx)(t.a,{className:`header-link`,href:`#example`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{live:!0,children:(0,D.jsx)(t.code,{className:`language-tsx`,children:`<pre>
   {JSON.stringify(
@@ -9727,6 +9730,8 @@ and `,(0,D.jsx)(t.code,{children:`removeDefaultMessage: true`}),` removes the pr
 extraction. Skipped descriptors are left unchanged.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`flatten`,children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`flatten`})}),(0,D.jsx)(t.a,{className:`header-link`,href:`#flatten`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Whether to hoist selectors & flatten sentences as much as possible. For example:`}),`
+`,(0,D.jsxs)(t.p,{children:[`Plural `,(0,D.jsx)(t.code,{children:`#`}),` scope and offsets are preserved. Some selectors stay nested when
+hoisting them would change the number printed by `,(0,D.jsx)(t.code,{children:`#`}),`.`]}),`
 `,(0,D.jsx)(t.pre,{children:(0,D.jsx)(t.code,{className:`code-highlight`,children:(0,D.jsx)(t.span,{className:`code-line`,children:`I have {count, plural, one{a dog} other{many dogs}}
 `})})}),`
 `,(0,D.jsx)(t.p,{children:`becomes`}),`
@@ -10412,6 +10417,8 @@ override this limit; zero or invalid values use the default.`]}),`
 `,(0,D.jsx)(t.p,{children:`Whether to preserve whitespace and newlines in output. We typically remove consecutive whitespaces and newlines since those often gets abused for styling purposes.`}),`
 `,(0,D.jsxs)(t.h3,{id:`--flatten`,children:[(0,D.jsx)(t.code,{children:`--flatten`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#--flatten`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Whether to hoist selectors & flatten sentences as much as possible. E.g:`}),`
+`,(0,D.jsxs)(t.p,{children:[`Plural `,(0,D.jsx)(t.code,{children:`#`}),` scope and offsets are preserved. Some selectors stay nested when
+hoisting them would change the number printed by `,(0,D.jsx)(t.code,{children:`#`}),`.`]}),`
 `,(0,D.jsx)(t.pre,{children:(0,D.jsx)(t.code,{className:`code-highlight`,children:(0,D.jsx)(t.span,{className:`code-line`,children:`I have {count, plural, one{a dog} other{many dogs}}
 `})})}),`
 `,(0,D.jsx)(t.p,{children:`becomes`}),`
