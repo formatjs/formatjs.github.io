@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CARGgaVe.js"></script>
+    <script type="module" crossorigin src="/assets/index-BPsvuKvL.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D66ZQH5P.css">
   </head>
   <body>
@@ -38,6 +38,9 @@ provide 657 locale-data files. Compared with CLDR 48.2, five locales were added
 and 114 removed upstream; imports for removed locales such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">locale-data/aa</code>
 are no longer available. Check available locale-data files when upgrading.
 Localized names and formatting patterns may also change with CLDR releases.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale scripts register data immediately when the polyfill is installed, or queue
+it until installation. Each script includes its payload once and keeps temporary
+variables scoped, so multiple locale scripts can load together.</p>
 <h1 id="numeric-inputs" class="text-4xl font-bold mt-8 mb-6 text-white bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent hover:[&amp;_.header-link]:visible">Numeric inputs<a href="#numeric-inputs" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h1>
 <p class="mb-4 leading-7 text-gray-300">DateTimeFormat, RelativeTimeFormat, duration fields, and numeric options use
 ECMAScript Number conversion and reject BigInt inputs. NumberFormat and

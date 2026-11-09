@@ -6449,6 +6449,9 @@ provide 657 locale-data files. Compared with CLDR 48.2, five locales were added
 and 114 removed upstream; imports for removed locales such as `,(0,D.jsx)(t.code,{children:`locale-data/aa`}),`
 are no longer available. Check available locale-data files when upgrading.
 Localized names and formatting patterns may also change with CLDR releases.`]}),`
+`,(0,D.jsx)(t.p,{children:`Locale scripts register data immediately when the polyfill is installed, or queue
+it until installation. Each script includes its payload once and keeps temporary
+variables scoped, so multiple locale scripts can load together.`}),`
 `,(0,D.jsxs)(t.h1,{id:`numeric-inputs`,children:[`Numeric inputs`,(0,D.jsx)(t.a,{className:`header-link`,href:`#numeric-inputs`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`DateTimeFormat, RelativeTimeFormat, duration fields, and numeric options use
 ECMAScript Number conversion and reject BigInt inputs. NumberFormat and
