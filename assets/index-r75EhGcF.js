@@ -10464,7 +10464,7 @@ date fields are not inferred.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Input stays JSON with string leaves, optionally nested. This mode does not read
 Android XML: decode resource XML, skip `,(0,D.jsx)(t.code,{children:`formatted="false"`}),`, and emit each plural
 or array item as an independently formatted message before verification.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Apple mode accepts only Xcode `,(0,D.jsx)(t.code,{children:`.xcstrings`}),` catalogs:`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Apple mode accepts Xcode `,(0,D.jsx)(t.code,{children:`.xcstrings`}),` catalogs and native `,(0,D.jsx)(t.code,{children:`.strings`}),` / `,(0,D.jsx)(t.code,{children:`.stringsdict`}),` resources:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[`formatjs verify `,(0,D.jsx)(t.span,{className:`token string`,children:`"Resources/**/*.xcstrings"`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`\\`}),`
 `]}),(0,D.jsx)(t.span,{className:`code-line`,children:`  --message-syntax apple-printf --structural-equality --missing-keys
 `})]})}),`
@@ -10491,10 +10491,25 @@ literal. A percent followed by a space alone does not establish formatting inten
 This inference cannot distinguish every literal from a format string.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Versions `,(0,D.jsx)(t.code,{children:`1.0`}),` and `,(0,D.jsx)(t.code,{children:`1.1`}),` are accepted. Ambiguous root plural selectors with multiple
 numeric arguments, nested named substitutions, unknown variation axes, `,(0,D.jsx)(t.code,{children:`%n`}),` and
-logging privacy syntax are rejected for formatted messages. Legacy `,(0,D.jsx)(t.code,{children:`.strings`}),`,
-`,(0,D.jsx)(t.code,{children:`.stringsdict`}),` and flat JSON are unsupported in Apple mode. Verification reads
-catalogs without changing metadata or translation state.
-See `,(0,D.jsx)(t.a,{href:`/docs/tooling/rust-apple-printf-parser`,children:`Apple printf parser`}),`.`]}),`
+logging privacy syntax are rejected for formatted messages. Flat JSON is unsupported
+in Apple mode. Verification reads catalogs without changing metadata or translation state.
+For native resource files:`]}),`
+`,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[`formatjs verify `,(0,D.jsx)(t.span,{className:`token string`,children:`'Resources/**/*.strings*'`}),` --source-locale en `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`\\`}),`
+`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`  --message-syntax apple-printf --structural-equality --missing-keys --extra-keys
+`})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`Native files use `,(0,D.jsx)(t.code,{children:`<locale>.lproj`}),` directories and require `,(0,D.jsx)(t.code,{children:`--source-locale`}),`.
+Keys are scoped by resource directory and table name; `,(0,D.jsx)(t.code,{children:`.strings`}),` and `,(0,D.jsx)(t.code,{children:`.stringsdict`}),`
+for one table are verified together. Plural entries override matching plain fallbacks,
+as in Foundation. Duplicate keys within a file are errors.
+Missing/extra keys are checked against that table's source locale, including empty
+locale files. Other tables' locales do not create missing-key requirements.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Text resources support UTF-8 with optional BOM and BOM-marked UTF-16, quoted and
+bare strings, comments, Unicode/octal escapes, and XML plist dictionaries.
+The parser preserves descriptions and rejects duplicate fields and malformed input.
+Plural rules require `,(0,D.jsx)(t.code,{children:`NSStringPluralRuleType`}),`, an argument type, named format
+references, and `,(0,D.jsx)(t.code,{children:`other`}),`. Argument ownership is checked with the existing Apple
+printf verifier. Binary plists and non-plural stringsdict rules are unsupported.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`See `,(0,D.jsx)(t.a,{href:`/docs/tooling/rust-apple-printf-parser`,children:`Apple printf parser`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`--extra-keys`,children:[(0,D.jsx)(t.code,{children:`--extra-keys`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#--extra-keys`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Whether to check for keys that exist in the target locale but not in the source locale. This ensures that translation files do not contain obsolete or unused keys.`}),`
 `,(0,D.jsxs)(t.h2,{id:`compilation`,children:[`Compilation`,(0,D.jsx)(t.a,{className:`header-link`,href:`#compilation`,children:`#`})]}),`
