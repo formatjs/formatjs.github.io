@@ -4575,6 +4575,11 @@ arguments. Inheriting its prototype does not create a DateTimeFormat instance.`}
 `,(0,D.jsx)(t.p,{children:`Gregorian astronomical year zero formats as year 1 BC. Year 1 begins the AD era.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Zero UTC offsets normalize to `,(0,D.jsx)(t.code,{children:`+00:00`}),`. Named timezone matching ignores ASCII
 letter case only; non-ASCII lookalikes are rejected.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Following Stage 4 Temporal timezone behavior, `,(0,D.jsx)(t.code,{children:`resolvedOptions().timeZone`}),`
+preserves named identifiers with IANA casing: `,(0,D.jsx)(t.code,{children:`asia/calcutta`}),` becomes
+`,(0,D.jsx)(t.code,{children:`Asia/Calcutta`}),`, and `,(0,D.jsx)(t.code,{children:`Etc/GMT`}),` stays `,(0,D.jsx)(t.code,{children:`Etc/GMT`}),`. Formatting uses the linked zone's
+transition data and localized names. `,(0,D.jsx)(t.code,{children:`__setDefaultTimeZone`}),` preserves names too.
+`,(0,D.jsx)(t.code,{children:`shouldPolyfill()`}),` detects native implementations that replace these identifiers.`]}),`
 `,(0,D.jsx)(t.p,{children:`Constructor options are read once in specification order. Default date fields
 are applied to internal records without writing to caller options.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Every locale supports explicit `,(0,D.jsx)(t.code,{children:`h11`}),`, `,(0,D.jsx)(t.code,{children:`h12`}),`, `,(0,D.jsx)(t.code,{children:`h23`}),`, and `,(0,D.jsx)(t.code,{children:`h24`}),` hour cycles through

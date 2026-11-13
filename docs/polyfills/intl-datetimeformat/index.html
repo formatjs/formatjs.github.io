@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-r75EhGcF.js"></script>
+    <script type="module" crossorigin src="/assets/index-DiBTSH4P.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-C1xBHAr4.css">
   </head>
   <body>
@@ -291,6 +291,11 @@ arguments. Inheriting its prototype does not create a DateTimeFormat instance.</
 <p class="mb-4 leading-7 text-gray-300">Gregorian astronomical year zero formats as year 1 BC. Year 1 begins the AD era.</p>
 <p class="mb-4 leading-7 text-gray-300">Zero UTC offsets normalize to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">+00:00</code>. Named timezone matching ignores ASCII
 letter case only; non-ASCII lookalikes are rejected.</p>
+<p class="mb-4 leading-7 text-gray-300">Following Stage 4 Temporal timezone behavior, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions().timeZone</code>
+preserves named identifiers with IANA casing: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">asia/calcutta</code> becomes
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Asia/Calcutta</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/GMT</code> stays <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/GMT</code>. Formatting uses the linked zone&#x27;s
+transition data and localized names. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__setDefaultTimeZone</code> preserves names too.
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shouldPolyfill()</code> detects native implementations that replace these identifiers.</p>
 <p class="mb-4 leading-7 text-gray-300">Constructor options are read once in specification order. Default date fields
 are applied to internal records without writing to caller options.</p>
 <p class="mb-4 leading-7 text-gray-300">Every locale supports explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h11</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h12</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h23</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h24</code> hour cycles through
