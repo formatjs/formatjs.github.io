@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DiBTSH4P.js"></script>
+    <script type="module" crossorigin src="/assets/index-DZPSCNTH.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-C1xBHAr4.css">
   </head>
   <body>
@@ -29,8 +29,13 @@
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-getcanonicallocales/polyfill.js&#x27;</span>
 </span></code></pre>
 <h3 id="dynamic-import--capability-detection" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Dynamic import + capability detection<a href="#dynamic-import--capability-detection" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
-<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">polyfill</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line">  <span class="token comment">// This platform already supports Intl.getCanonicalLocales</span>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shouldPolyfill()</code> detects missing implementations and known canonicalization
+bugs. Normal installation replaces implementations that strip <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">yes</code> from
+unrelated keys (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-u-aa-yes</code>) or fail to canonicalize boolean aliases
+(<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-u-kn-yes</code> to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-u-kn</code>).</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token imports"><span class="token punctuation">{</span>shouldPolyfill<span class="token punctuation">}</span></span> <span class="token keyword">from</span> <span class="token string">&#x27;@formatjs/intl-getcanonicallocales/should-polyfill.js&#x27;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">polyfill</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line">  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">shouldPolyfill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line">    <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-getcanonicallocales/polyfill.js&#x27;</span><span class="token punctuation">)</span>
 </span><span class="code-line">  <span class="token punctuation">}</span>
@@ -63,6 +68,9 @@ apply the most specific rule first, including language-independent variants.</p>
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Array.prototype.push</code>, including while parsing and emitting extensions.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale parsing checks ASCII subtags directly and preserves legacy RegExp statics.
 Extension singleton matching is case-insensitive, including duplicate detection.</p>
+<p class="mb-4 leading-7 text-gray-300">Private-use sequences stay last when other extensions are sorted. For example,
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-z-foo-u-kn-x-private</code> becomes <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-u-kn-z-foo-x-private</code>; private-use
+payloads remain unchanged apart from casing.</p>
 <h2 id="measured-performance" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Measured performance<a href="#measured-performance" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <h3 id="typescript-and-native-javascript" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">TypeScript and native JavaScript<a href="#typescript-and-native-javascript" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Measured 2026-10-31 on Apple M4 Max, macOS arm64, Node 24.14.0 / ICU 78.2; source <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">56d15e997</code>. Median of seven warmed rounds.</p>
