@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DZPSCNTH.js"></script>
+    <script type="module" crossorigin src="/assets/index-Clg7K4AQ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-C1xBHAr4.css">
   </head>
   <body>
@@ -116,6 +116,12 @@ For TypeScript projects, we recommend using ES module imports instead.</p><p cla
 </span></code></pre>
 <h2 id="tests" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Tests<a href="#tests" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">The Bazel <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:test262</code> target runs the upstream suite against a reviewed failure baseline. A green baseline check does not mean every test passed. See the <a href="https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">conformance report</a>; run <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">bazel test //packages/intl-locale:test262-strict</code> to require zero failures.</p>
+<p class="mb-4 leading-7 text-gray-300">Locale Info coverage includes collation ordering, formatter defaults, script
+direction metadata, and Unicode extension aliases. The isolated suite retains
+native prerequisites, including <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.getCanonicalLocales</code>.
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">bazel test //tools/test262:combined-locale</code> installs all FormatJS polyfills to
+check their behavior together. If native canonicalization mishandles <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">yes</code>
+values, load the <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.getCanonicalLocales</code> polyfill before <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Locale</code>.</p>
 <h2 id="weekday-and-numeric-options" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Weekday and numeric options<a href="#weekday-and-numeric-options" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">firstDayOfWeek</code> accepts Unicode type identifiers such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">mon</code>. Numeric strings
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">0</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">7</code> both become <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sun</code>; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">1</code> through <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">6</code> become <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">mon</code> through <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sat</code>.

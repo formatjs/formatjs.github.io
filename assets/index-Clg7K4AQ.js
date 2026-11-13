@@ -5323,6 +5323,12 @@ For TypeScript projects, we recommend using ES module imports instead.`}),(0,D.j
 `]})]})}),`
 `,(0,D.jsxs)(t.h2,{id:`tests`,children:[`Tests`,(0,D.jsx)(t.a,{className:`header-link`,href:`#tests`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The Bazel `,(0,D.jsx)(t.code,{children:`:test262`}),` target runs the upstream suite against a reviewed failure baseline. A green baseline check does not mean every test passed. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),`; run `,(0,D.jsx)(t.code,{children:`bazel test //packages/intl-locale:test262-strict`}),` to require zero failures.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Locale Info coverage includes collation ordering, formatter defaults, script
+direction metadata, and Unicode extension aliases. The isolated suite retains
+native prerequisites, including `,(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`}),`.
+`,(0,D.jsx)(t.code,{children:`bazel test //tools/test262:combined-locale`}),` installs all FormatJS polyfills to
+check their behavior together. If native canonicalization mishandles `,(0,D.jsx)(t.code,{children:`yes`}),`
+values, load the `,(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`}),` polyfill before `,(0,D.jsx)(t.code,{children:`Intl.Locale`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`weekday-and-numeric-options`,children:[`Weekday and numeric options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#weekday-and-numeric-options`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`firstDayOfWeek`}),` accepts Unicode type identifiers such as `,(0,D.jsx)(t.code,{children:`mon`}),`. Numeric strings
 `,(0,D.jsx)(t.code,{children:`0`}),` and `,(0,D.jsx)(t.code,{children:`7`}),` both become `,(0,D.jsx)(t.code,{children:`sun`}),`; `,(0,D.jsx)(t.code,{children:`1`}),` through `,(0,D.jsx)(t.code,{children:`6`}),` become `,(0,D.jsx)(t.code,{children:`mon`}),` through `,(0,D.jsx)(t.code,{children:`sat`}),`.
