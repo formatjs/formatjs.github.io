@@ -5480,6 +5480,13 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`formatRangeToParts(start, end)`})}),` - Format a number range and return parts array with source attribution`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`resolvedOptions()`})}),` - Return resolved formatting options`]}),`
 `]}),`
+`,(0,D.jsxs)(t.h4,{id:`legacy-constructor-calls`,children:[`Legacy constructor calls`,(0,D.jsx)(t.a,{className:`header-link`,href:`#legacy-constructor-calls`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Calling `,(0,D.jsx)(t.code,{children:`NumberFormat.call(receiver, locales, options)`}),` with a receiver inheriting
+from `,(0,D.jsx)(t.code,{children:`NumberFormat.prototype`}),` returns that receiver with a hidden formatter.
+Its `,(0,D.jsx)(t.code,{children:`format`}),` and `,(0,D.jsx)(t.code,{children:`resolvedOptions`}),` methods use the hidden formatter.
+`,(0,D.jsx)(t.code,{children:`formatToParts`}),`, `,(0,D.jsx)(t.code,{children:`formatRange`}),`, and `,(0,D.jsx)(t.code,{children:`formatRangeToParts`}),` require an initialized
+formatter and throw on these wrappers. Repeated legacy initialization throws.
+Calling an already initialized formatter preserves its original options.`]}),`
 `,(0,D.jsxs)(t.h4,{id:`formatting-styles`,children:[`Formatting Styles`,(0,D.jsx)(t.a,{className:`header-link`,href:`#formatting-styles`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`'decimal'`})}),` - Plain number format (default)`]}),`
@@ -5663,9 +5670,18 @@ For TypeScript projects, we recommend using ES module imports instead.`}),(0,D.j
 `,(0,D.jsxs)(t.h2,{id:`requirements`,children:[`Requirements`,(0,D.jsx)(t.a,{className:`header-link`,href:`#requirements`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This package requires the following capabilities:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
-`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales`,children:(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`})}),` or `,(0,D.jsx)(t.a,{href:`intl-getcanonicallocales`,children:`polyfill`})]}),`
-`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale`,children:(0,D.jsx)(t.code,{children:`Intl.Locale`})}),` or `,(0,D.jsx)(t.a,{href:`intl-locale`,children:`polyfill`}),`.`]}),`
-`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/PluralRules`,children:(0,D.jsx)(t.code,{children:`Intl.PluralRules`})}),` or `,(0,D.jsx)(t.a,{href:`intl-pluralrules`,children:`polyfill`}),`.`]}),`
+`,(0,D.jsxs)(t.li,{children:[`
+`,(0,D.jsxs)(t.p,{children:[`Native `,(0,D.jsx)(t.code,{children:`Proxy`}),` support for constructor behavior.`]}),`
+`]}),`
+`,(0,D.jsxs)(t.li,{children:[`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales`,children:(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`})}),` or `,(0,D.jsx)(t.a,{href:`intl-getcanonicallocales`,children:`polyfill`})]}),`
+`]}),`
+`,(0,D.jsxs)(t.li,{children:[`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale`,children:(0,D.jsx)(t.code,{children:`Intl.Locale`})}),` or `,(0,D.jsx)(t.a,{href:`intl-locale`,children:`polyfill`}),`.`]}),`
+`]}),`
+`,(0,D.jsxs)(t.li,{children:[`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/PluralRules`,children:(0,D.jsx)(t.code,{children:`Intl.PluralRules`})}),` or `,(0,D.jsx)(t.a,{href:`intl-pluralrules`,children:`polyfill`}),`.`]}),`
+`]}),`
 `]}),`
 `,(0,D.jsxs)(t.h2,{id:`features`,children:[`Features`,(0,D.jsx)(t.a,{className:`header-link`,href:`#features`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Everything in the ES2020 Internationalization API spec (`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402`,children:`https://tc39.es/ecma402`}),`).`]}),`
