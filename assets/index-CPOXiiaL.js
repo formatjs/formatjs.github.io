@@ -5564,6 +5564,9 @@ The normal polyfill entry point replaces native implementations missing this beh
 `]}),`
 `]}),`
 `]}),`
+`,(0,D.jsxs)(t.p,{children:[`Compact notation keeps percent signs and currency/accounting formatting.
+`,(0,D.jsx)(t.code,{children:`useGrouping`}),` still applies. Percent parts stay `,(0,D.jsx)(t.code,{children:`percentSign`}),`. Some native ICU layouts differ
+from ECMA-402's current model; see `,(0,D.jsx)(t.a,{href:`https://github.com/tc39/ecma402/pull/1117`,children:`spec PR #1117`}),`.`]}),`
 `,(0,D.jsxs)(t.h4,{id:`currency-options`,children:[`Currency Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#currency-options`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:`currencyDisplay`}),`: `,(0,D.jsx)(t.code,{children:`'symbol'`}),`, `,(0,D.jsx)(t.code,{children:`'narrowSymbol'`}),`, `,(0,D.jsx)(t.code,{children:`'code'`}),`, `,(0,D.jsx)(t.code,{children:`'name'`})]}),`
