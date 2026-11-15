@@ -4301,8 +4301,9 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(n,{type:`caution`,children:(0,D.jsx)(t.p,{children:`Gregorian and ISO 8601 are built in. Other calendars require optional modules
 and locale patterns; unloaded calendar requests fall back to a loaded
 calendar.`})}),`
-`,(0,D.jsx)(n,{type:`caution`,children:(0,D.jsx)(t.p,{children:`Right now this polyfill supports daylight transition until 2100 to reduce the
-dataset size`})}),`
+`,(0,D.jsx)(t.p,{children:`Timezone packs retain historical transitions and recurring future rules from
+IANA TZif files. DST continues beyond 2100 using the pinned release's rules;
+later legal changes require updated timezone data.`}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`TypeScript and Rust also run independent ICU4J 79.1 snapshot comparisons in
