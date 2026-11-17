@@ -4370,6 +4370,8 @@ For TypeScript projects, we recommend using ES module imports instead.`}),(0,D.j
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`// "January 1, 2024 at 12:00 PM"`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h4,{id:`-extended-timezonename-options`,children:[`✅ Extended timeZoneName Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-extended-timezonename-options`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Historical timezone formatting preserves direct CLDR names before 1970 and
+includes offset seconds when falling back to localized GMT names.`}),`
 `,(0,D.jsxs)(t.p,{children:[`All 6 `,(0,D.jsx)(t.code,{children:`timeZoneName`}),` values are supported:`]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`'short'`})}),` - Short standard format (e.g., "EST", "PST")`]}),`
@@ -4428,6 +4430,15 @@ requested numbering system.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`The polyfill also replaces `,(0,D.jsx)(t.code,{children:`Date.prototype.toLocaleString`}),`,
 `,(0,D.jsx)(t.code,{children:`toLocaleDateString`}),`, and `,(0,D.jsx)(t.code,{children:`toLocaleTimeString`}),` with their ECMA-402 behavior,
 including the standard date and time defaults when only `,(0,D.jsx)(t.code,{children:`timeZone`}),` is set.`]}),`
+`,(0,D.jsxs)(t.h3,{id:`temporal-namespaces`,children:[`Temporal namespaces`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-namespaces`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`DateTimeFormat recognizes Temporal intrinsic brands, including separately bundled
+namespaces. When loading an isolated namespace, register it once before formatting:`}),`
+`,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsx)(t.code,{className:`language-js code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token maybe-class-name`,children:`DateTimeFormat`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token method function property-access`,children:`__addTemporalNamespace`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token maybe-class-name`,children:`Temporal`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]})})}),`
+`,(0,D.jsx)(t.p,{children:`The FormatJS Temporal installer performs this registration automatically. Readers
+are captured during registration; shadowing instance fields does not change the
+formatted value. Temporal locale methods reuse the formatter's loaded locale,
+calendar and timezone data.`}),`
 `,(0,D.jsxs)(t.h3,{id:`optional-calendars`,children:[`Optional calendars`,(0,D.jsx)(t.a,{className:`header-link`,href:`#optional-calendars`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The base polyfill and `,(0,D.jsx)(t.code,{children:`locale-data/<locale>.js`}),` include Gregorian and ISO 8601.
 ISO 8601 uses its own CLDR patterns, including year-first numeric dates such as
@@ -4829,6 +4840,16 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-durationformat`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DurationFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsx)(t.p,{children:`Temporal may be loaded before or after DurationFormat. After loading a compatible
+Temporal implementation, register its namespace to format branded durations and
+ISO duration strings:`}),`
+`,(0,D.jsx)(t.pre,{className:`language-ts`,children:(0,D.jsxs)(t.code,{className:`language-ts code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`DurationFormat`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`from`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-durationformat'`}),`
+`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
+`}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`DurationFormat`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`__addTemporalNamespace`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`Temporal`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`new`}),` `,(0,D.jsx)(t.span,{className:`token class-name`,children:`DurationFormat`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'en'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`style`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'digital'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`format`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'PT1H2M3S'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),` `,(0,D.jsx)(t.span,{className:`token comment`,children:`// '1:02:03'`}),`
+`]})]})}),`
+`,(0,D.jsx)(t.p,{children:`FormatJS's Temporal installer registers automatically. Register before changing
+Temporal's public methods or getters; formatting uses the captured intrinsics.`}),`
 `,(0,D.jsxs)(t.h3,{id:`specification-details`,children:[`Specification Details`,(0,D.jsx)(t.a,{className:`header-link`,href:`#specification-details`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:`TC39 Proposal`}),`: `,(0,D.jsx)(t.a,{href:`https://tc39.es/proposal-intl-duration-format/`,children:`Intl.DurationFormat`})]}),`
@@ -6437,6 +6458,10 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat`,children:(0,D.jsx)(t.code,{children:`Intl.NumberFormat`})}),` or `,(0,D.jsx)(t.a,{href:`intl-numberformat`,children:`polyfill`}),`.`]}),`
 `]}),`
 `,(0,D.jsxs)(t.h2,{id:`usage`,children:[`Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Timezone enumeration uses pinned IANA/CLDR primary IDs, including country-specific
+IDs such as `,(0,D.jsx)(t.code,{children:`Africa/Accra`}),`. It omits aliases such as `,(0,D.jsx)(t.code,{children:`America/Yellowknife`}),`.
+The installed DateTimeFormat must accept each returned ID; its resolved spelling
+may differ on older hosts.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`simple`,children:[`Simple`,(0,D.jsx)(t.a,{className:`header-link`,href:`#simple`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsx)(t.code,{className:`language-tsx code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-supportedvaluesof/polyfill.js'`}),`
 `]})})}),`
