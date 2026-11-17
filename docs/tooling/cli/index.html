@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-Cy_22Q9Y.js"></script>
+    <script type="module" crossorigin src="/assets/index-gU6GuSCM.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -483,8 +483,8 @@ are separate catalogs, without Android overlay resolution.</p>
 backslash escapes and whitespace handling. Quoted apostrophes, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">\&#x27;</code>, U+2019 and
 numeric non-breaking spaces are accepted. Undeclared entities, malformed XML,
 unescaped apostrophes and invalid Unicode escapes fail. External entities are
-never fetched. Verification does not rewrite XML or enforce typography, brand
-spelling, CDATA spelling or exact entity-reference spelling.</p>
+never fetched. Verification never rewrites XML or enforces typography, brand spelling or CDATA
+spelling. Structural equality also preserves custom entity references.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--structural-equality</code> uses Java printf argument compatibility on decoded item
 text, checks array lengths and formatting-mode changes, and validates source and
 target printf syntax. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatted=&quot;false&quot;</code> skips printf checks; item attributes
@@ -493,6 +493,25 @@ override their resource. Plurals require distinct supported quantities and
 Locale-specific category equality is not required. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">translatable=&quot;false&quot;</code>
 resources are excluded, and unrelated Android resource types are ignored.</p>
 <p class="mb-4 leading-7 text-gray-300">This is a string-resource verifier, not a replacement for AAPT2 resource linking.
-See <a href="https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Android string resource rules</a>.</p></article></div></div></main></div></div></div>
+See <a href="https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Android string resource rules</a>.</p>
+<h4 id="preserve-custom-entity-references" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Preserve custom entity references<a href="#preserve-custom-entity-references" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<p class="mb-4 leading-7 text-gray-300">In Android mode, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--structural-equality</code> compares custom XML entity names and
+occurrence counts in each corresponding string, array item or plural item:</p>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">formatjs verify <span class="token string">&#x27;app/src/main/res/**/*.xml&#x27;</span> <span class="token punctuation">\</span>
+</span><span class="code-line">  --message-syntax android --source-locale en <span class="token punctuation">\</span>
+</span><span class="code-line">  --structural-equality --missing-keys
+</span></code></pre>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&amp;brand;</code> cannot become literal text or another entity, and repeated references
+cannot be dropped or duplicated. Reordering within an item is allowed; moving
+references between array/plural items fails. Target-only plural categories use
+the source <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">other</code> item. Checks include inline attributes and apply even with
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatted=&quot;false&quot;</code>, which only skips printf checks. Missing resources still
+require <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--missing-keys</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Predefined XML entities (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">amp</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">lt</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">gt</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">apos</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">quot</code>), numeric references,
+comments, processing instructions and CDATA contents are excluded. For example,
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&amp;amp;brand;</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;![CDATA[&amp;brand;]]&gt;</code> are literal text, not references to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">brand</code>.
+Entity definitions remain validated XML, but their replacement values are not
+compared. Basic XML verification without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--structural-equality</code> still accepts
+equivalent expanded text.</p></article></div></div></main></div></div></div>
   </body>
 </html>
