@@ -10965,7 +10965,35 @@ not require the native binding.`]})}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token keyword`,children:`return`}),` results
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
-`]})]})})]})}function yi(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(vi,{...e})}):vi(e)}function bi(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var xi=c({default:()=>Ci});function Si(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,h4:`h4`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...A(),...e.components},{TabItem:n,Tabs:r}=t;return n||wi(`TabItem`,!0),r||wi(`Tabs`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`This eslint plugin allows you to enforce certain rules in your ICU message.`}),`
+`]})]})}),`
+`,(0,D.jsxs)(t.h3,{id:`android-resource-verification`,children:[`Android resource verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#android-resource-verification`,children:`#`})]}),`
+`,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[`formatjs verify `,(0,D.jsx)(t.span,{className:`token string`,children:`'app/src/main/res/**/*.xml'`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`\\`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  --message-syntax android --source-locale en `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`\\`}),`
+`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`  --structural-equality --missing-keys --extra-keys
+`})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`Both Rust and npm CLIs use the same Rust Android resource parser. It reads UTF-8
+`,(0,D.jsx)(t.code,{children:`<resources>`}),` XML containing strings, string arrays and plurals. Resources are
+grouped by their `,(0,D.jsx)(t.code,{children:`res`}),` directory, regardless of XML filename. `,(0,D.jsx)(t.code,{children:`values`}),` supplies
+`,(0,D.jsx)(t.code,{children:`--source-locale`}),`; localized folders support `,(0,D.jsx)(t.code,{children:`values-fr`}),`, `,(0,D.jsx)(t.code,{children:`values-pt-rBR`}),` and
+`,(0,D.jsx)(t.code,{children:`values-b+sr+Latn`}),`. Legacy `,(0,D.jsx)(t.code,{children:`iw`}),`, `,(0,D.jsx)(t.code,{children:`in`}),` and `,(0,D.jsx)(t.code,{children:`ji`}),` normalize to `,(0,D.jsx)(t.code,{children:`he`}),`, `,(0,D.jsx)(t.code,{children:`id`}),` and `,(0,D.jsx)(t.code,{children:`yi`}),`.
+Additional configuration qualifiers such as `,(0,D.jsx)(t.code,{children:`values-fr-night`}),` are rejected;
+verify separate configurations independently. Files from separate source sets
+are separate catalogs, without Android overlay resolution.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`XML entities (including declared internal entities) decode before Android quotes,
+backslash escapes and whitespace handling. Quoted apostrophes, `,(0,D.jsx)(t.code,{children:`\\'`}),`, U+2019 and
+numeric non-breaking spaces are accepted. Undeclared entities, malformed XML,
+unescaped apostrophes and invalid Unicode escapes fail. External entities are
+never fetched. Verification does not rewrite XML or enforce typography, brand
+spelling, CDATA spelling or exact entity-reference spelling.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`--structural-equality`}),` uses Java printf argument compatibility on decoded item
+text, checks array lengths and formatting-mode changes, and validates source and
+target printf syntax. `,(0,D.jsx)(t.code,{children:`formatted="false"`}),` skips printf checks; item attributes
+override their resource. Plurals require distinct supported quantities and
+`,(0,D.jsx)(t.code,{children:`other`}),`; target-only quantities compare against the source `,(0,D.jsx)(t.code,{children:`other`}),` item.
+Locale-specific category equality is not required. `,(0,D.jsx)(t.code,{children:`translatable="false"`}),`
+resources are excluded, and unrelated Android resource types are ignored.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`This is a string-resource verifier, not a replacement for AAPT2 resource linking.
+See `,(0,D.jsx)(t.a,{href:`https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling`,children:`Android string resource rules`}),`.`]})]})}function yi(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(vi,{...e})}):vi(e)}function bi(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var xi=c({default:()=>Ci});function Si(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,h4:`h4`,li:`li`,ol:`ol`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...A(),...e.components},{TabItem:n,Tabs:r}=t;return n||wi(`TabItem`,!0),r||wi(`Tabs`,!0),(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`This eslint plugin allows you to enforce certain rules in your ICU message.`}),`
 `,(0,D.jsxs)(t.h2,{id:`usage`,children:[`Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
 `,(0,D.jsxs)(r,{groupId:`npm`,defaultValue:`npm`,values:[{label:`npm`,value:`npm`},{label:`yarn`,value:`yarn`},{label:`pnpm`,value:`pnpm`}],children:[(0,D.jsx)(n,{value:`npm`,children:(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`npm`}),` i `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-D`}),` eslint-plugin-formatjs
 `]})})})}),(0,D.jsx)(n,{value:`yarn`,children:(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`yarn`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`add`}),` `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-D`}),` eslint-plugin-formatjs
