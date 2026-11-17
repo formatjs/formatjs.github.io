@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-gU6GuSCM.js"></script>
+    <script type="module" crossorigin src="/assets/index-CmK7YNEk.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -512,6 +512,21 @@ comments, processing instructions and CDATA contents are excluded. For example,
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&amp;amp;brand;</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;![CDATA[&amp;brand;]]&gt;</code> are literal text, not references to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">brand</code>.
 Entity definitions remain validated XML, but their replacement values are not
 compared. Basic XML verification without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--structural-equality</code> still accepts
-equivalent expanded text.</p></article></div></div></main></div></div></div>
+equivalent expanded text.</p>
+<h4 id="preserve-native-markup-and-resource-references" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Preserve native markup and resource references<a href="#preserve-native-markup-and-resource-references" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<p class="mb-4 leading-7 text-gray-300">Android <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--structural-equality</code> also compares inline element names, attributes,
+counts and nesting in each corresponding item. Sibling reordering is allowed;
+XLIFF wrappers are metadata and do not affect this comparison. XML namespace
+prefix spelling and attribute order do not matter. Escaped HTML and CDATA remain
+text; their HTML contents are not parsed. Text-to-span positions are not compared.</p>
+<p class="mb-4 leading-7 text-gray-300">Whole-value resource references such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@string/name</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@android:string/ok</code> and
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">?attr/name</code> must keep their targets. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@null</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@empty</code> are also preserved.
+Theme shorthand <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">?name</code> is equivalent to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">?attr/name</code>; package prefixes resolve
+through Android resource namespace declarations. Detection uses XML-decoded
+text before Android unescaping: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">\@string/name</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;@string/name&quot;</code> are literal
+text, so neither can replace an actual reference. Native styled spans also force
+text interpretation, as in AAPT2. Resource lookup and linking remain AAPT2&#x27;s job.</p>
+<p class="mb-4 leading-7 text-gray-300">These checks apply to strings, array items and plural items, including
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatted=&quot;false&quot;</code>. Target-only plural quantities compare against source <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">other</code>.</p></article></div></div></main></div></div></div>
   </body>
 </html>
