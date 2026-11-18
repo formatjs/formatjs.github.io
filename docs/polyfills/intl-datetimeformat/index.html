@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CmK7YNEk.js"></script>
+    <script type="module" crossorigin src="/assets/index-B8Stndrg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -49,7 +49,10 @@ Collapsed ranges reuse single-date output. Shared fields use the start endpoint.
 formatting methods accept <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.PlainDate</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">PlainDateTime</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">PlainTime</code>,
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">PlainYearMonth</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">PlainMonthDay</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Instant</code> values. Plain values use their
 wall-clock fields; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Instant</code> uses the formatter&#x27;s timezone. Range endpoints must
-have the same Temporal type. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ZonedDateTime</code> is rejected, as required by the spec.</p>
+have the same Temporal type. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ZonedDateTime</code> is rejected, as required by the
+<a href="https://tc39.es/proposal-temporal/#sec-temporal-handledatetimevalue" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Temporal Intl integration</a>.
+Formatting reads captured Temporal intrinsics, ignoring instance overrides,
+and converts input fields without changing legacy <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RegExp</code> state.</p>
 <p class="mb-4 leading-7 text-gray-300">For runtimes without native Temporal, install
 <a href="/docs/polyfills/temporal" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@formatjs/temporal</code></a> and load it first:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword module">import</span> <span class="token string">&#x27;@formatjs/temporal/polyfill.js&#x27;</span>
