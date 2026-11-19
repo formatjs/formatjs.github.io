@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CrNl4wlu.js"></script>
+    <script type="module" crossorigin src="/assets/index-DjdiLomX.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -17,8 +17,8 @@
 <p class="mb-4 leading-7 text-gray-300">An allocation-free <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no_std</code> Temporal core for Rust, with calendar arithmetic and IANA time zones.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_temporal</code> supplies eight typed date/time values, calendar/timezone
 providers, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Now</code>.
-The <a href="/docs/polyfills/temporal" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">TypeScript package</a> supplies the JavaScript API and
-optional WASM integration.</p>
+The <a href="/docs/polyfills/temporal" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">TypeScript package</a> supplies the JavaScript API;
+the native Hermes SDK binds the Rust engine.</p>
 <h2 id="installation" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Installation<a href="#installation" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span>
 </span><span class="code-line"><span class="token key property">formatjs_temporal</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token key property">features</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;compiled_data&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
@@ -69,7 +69,7 @@ I/O. Compiled time-zone rules continue beyond 2100; update data when laws change
 uses its numeric calendar core without pulling in the DateTimeFormat formatter,
 locale data, or the application-level <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatjs_intl</code> runtime. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">serde_json</code> is
 optional and used by <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ffi</code>.</p>
-<h2 id="javascript-wasm-and-hermes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">JavaScript, WASM, and Hermes<a href="#javascript-wasm-and-hermes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<h2 id="javascript-and-hermes" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">JavaScript and Hermes<a href="#javascript-and-hermes" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">Rust owns typed values and normalized date/time operations. The JavaScript facade
 owns ECMAScript coercion, property access order, object allocation, and brands.
 Use <a href="/docs/polyfills/temporal" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">the TypeScript guide</a> for the public Temporal API
@@ -78,8 +78,8 @@ or the <a href="/docs/guides/hermes-intl#temporal" class="text-purple-400 hover:
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Now</code> takes a clock and timezone provider from the embedding application.</p>
 <h2 id="verification" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Verification<a href="#verification" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">Rust tests compare calendar math, parsing, rounding, offsets, transitions, and
-relative arithmetic with independent ICU controls. WASM and Hermes adapters also
-run the pinned Temporal-feature Test262 corpus through the JavaScript facade.
+relative arithmetic with independent ICU controls. TypeScript and Hermes bindings
+run the pinned Temporal-feature Test262 corpus through their JavaScript APIs.
 Documented IANA/CLDR exclusions and calendar authority ranges are recorded in the
 <a href="https://github.com/formatjs/formatjs/blob/main/knowledge-base/015a-temporal-completion-audit.md" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">completion audit</a>.</p>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">

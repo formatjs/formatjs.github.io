@@ -6566,8 +6566,8 @@ Rust strings/UTF-16. Data and API-boundary differences prevent direct speedup
 claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/benchmarks/polyfills#rust-core-suite`,children:`Workload details and raw results`}),`.`]})]})}function Ln(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(In,{...e})}):In(e)}function Rn(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var zn=c({default:()=>Vn});function Bn(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.h1,{id:`temporal`,children:[`Temporal`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`@formatjs/temporal`}),` brings Temporal dates, times, calendars, and time zones to TypeScript, Node.js, and Hermes.`]}),`
-`,(0,D.jsx)(t.p,{children:`Use all eight Temporal value types and all 16 calendars, with an optional Rust
-backend.`}),`
+`,(0,D.jsx)(t.p,{children:`Use all eight Temporal value types and all 16 calendars. TypeScript runs in
+JavaScript hosts; native Rust powers the Hermes SDK.`}),`
 `,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`/docs/rust/temporal`,children:`Rust crate`}),` provides the same date/time primitives for
 native applications.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`installation`,children:[`Installation`,(0,D.jsx)(t.a,{className:`header-link`,href:`#installation`,children:`#`})]}),`
@@ -6593,7 +6593,7 @@ native applications.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`This preserves an existing Temporal implementation. Use
 `,(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`}),` to replace it unconditionally.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`choose-an-entry-point`,children:[`Choose an entry point`,(0,D.jsx)(t.a,{className:`header-link`,href:`#choose-an-entry-point`,children:`#`})]}),`
-`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Entry`}),(0,D.jsx)(t.th,{children:`Use it for`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal`})}),(0,D.jsx)(t.td,{children:`An isolated namespace using installed Intl data`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill.js`})}),(0,D.jsx)(t.td,{children:`Conditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`})}),(0,D.jsx)(t.td,{children:`Unconditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/standalone.js`})}),(0,D.jsx)(t.td,{children:`An isolated namespace with bundled calendar and IANA data`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/wasm-native.js`})}),(0,D.jsx)(t.td,{children:`An isolated namespace backed by the optional Rust WASM module`})]})]})]}),`
+`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Entry`}),(0,D.jsx)(t.th,{children:`Use it for`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal`})}),(0,D.jsx)(t.td,{children:`An isolated namespace using installed Intl data`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill.js`})}),(0,D.jsx)(t.td,{children:`Conditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`})}),(0,D.jsx)(t.td,{children:`Unconditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/standalone.js`})}),(0,D.jsx)(t.td,{children:`An isolated namespace with bundled calendar and IANA data`})]})]})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The namespace exports `,(0,D.jsx)(t.code,{children:`Instant`}),`, `,(0,D.jsx)(t.code,{children:`Duration`}),`, `,(0,D.jsx)(t.code,{children:`PlainDate`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),`,
 `,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth`}),`, `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),`, and `,(0,D.jsx)(t.code,{children:`Now`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`calendars-and-time-zone-data`,children:[`Calendars and time-zone data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#calendars-and-time-zone-data`,children:`#`})]}),`
@@ -6639,20 +6639,11 @@ for calendar and named-timezone operations without host Intl data.`}),`
 `,(0,D.jsxs)(t.p,{children:[`For Rust-backed Temporal, use the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`native Hermes SDK`}),`.
 Native integration requires rebuilding your app. The tested Hermes runtime has
 no WebAssembly runtime, so use TypeScript or the native SDK there.`]}),`
-`,(0,D.jsxs)(t.h2,{id:`optional-wasm-backend`,children:[`Optional WASM backend`,(0,D.jsx)(t.a,{className:`header-link`,href:`#optional-wasm-backend`,children:`#`})]}),`
-`,(0,D.jsx)(t.pre,{className:`language-ts`,children:(0,D.jsxs)(t.code,{className:`language-ts code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`configureTemporalWasm`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`from`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/temporal/wasm-native.js'`}),`
-`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
-`}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`instance`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),` `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`await`}),` WebAssembly`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`instantiateStreaming`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`
-`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token function`,children:`fetch`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'/temporal-backend.wasm'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
-`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
-`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` Temporal `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`configureTemporalWasm`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`instance`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
-`]})]})}),`
-`,(0,D.jsxs)(t.p,{children:[`Serve the package's `,(0,D.jsx)(t.code,{children:`temporal-backend.wasm`}),` asset as `,(0,D.jsx)(t.code,{children:`application/wasm`}),`.
-This entry includes Rust calendar/time-zone data without duplicate TypeScript
-tables. Keep its namespace separate from the default entry. WASM is optional;
-TypeScript remains the default. See the
-`,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/benchmarks/temporal`,children:`versioned benchmarks`}),`
-for size and performance comparisons.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`rust`,children:[`Rust`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_temporal`,children:`Rust crate`}),` provides typed Temporal
+values, calendar providers, IANA timezone registries and optional compiled data.
+The native Hermes SDK binds that Rust engine. Temporal WASM entry points and
+assets have been removed; use TypeScript in JavaScript hosts or native Rust.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`conformance-and-verification`,children:[`Conformance and verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#conformance-and-verification`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`The pinned Temporal-feature Test262 corpus passes on Node.js and Hermes
 source/bytecode, including Intl integration. Exclusions cover documented
@@ -9264,8 +9255,8 @@ default caches are unavailable. Disable defaults on direct
 `,(0,D.jsxs)(t.p,{children:[`An allocation-free `,(0,D.jsx)(t.code,{children:`no_std`}),` Temporal core for Rust, with calendar arithmetic and IANA time zones.`]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`formatjs_temporal`}),` supplies eight typed date/time values, calendar/timezone
 providers, and `,(0,D.jsx)(t.code,{children:`Now`}),`.
-The `,(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`TypeScript package`}),` supplies the JavaScript API and
-optional WASM integration.`]}),`
+The `,(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`TypeScript package`}),` supplies the JavaScript API;
+the native Hermes SDK binds the Rust engine.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`installation`,children:[`Installation`,(0,D.jsx)(t.a,{className:`header-link`,href:`#installation`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-toml`,children:(0,D.jsxs)(t.code,{className:`language-toml code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token table class-name`,children:`dependencies`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token key property`,children:`formatjs_temporal`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),` `,(0,D.jsx)(t.span,{className:`token key property`,children:`version`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`"1"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token key property`,children:`features`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token string`,children:`"compiled_data"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
@@ -9316,7 +9307,7 @@ I/O. Compiled time-zone rules continue beyond 2100; update data when laws change
 uses its numeric calendar core without pulling in the DateTimeFormat formatter,
 locale data, or the application-level `,(0,D.jsx)(t.code,{children:`formatjs_intl`}),` runtime. `,(0,D.jsx)(t.code,{children:`serde_json`}),` is
 optional and used by `,(0,D.jsx)(t.code,{children:`ffi`}),`.`]}),`
-`,(0,D.jsxs)(t.h2,{id:`javascript-wasm-and-hermes`,children:[`JavaScript, WASM, and Hermes`,(0,D.jsx)(t.a,{className:`header-link`,href:`#javascript-wasm-and-hermes`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h2,{id:`javascript-and-hermes`,children:[`JavaScript and Hermes`,(0,D.jsx)(t.a,{className:`header-link`,href:`#javascript-and-hermes`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Rust owns typed values and normalized date/time operations. The JavaScript facade
 owns ECMAScript coercion, property access order, object allocation, and brands.
 Use `,(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`the TypeScript guide`}),` for the public Temporal API
@@ -9325,8 +9316,8 @@ or the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`Herme
 `,(0,D.jsx)(t.code,{children:`Now`}),` takes a clock and timezone provider from the embedding application.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`verification`,children:[`Verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#verification`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Rust tests compare calendar math, parsing, rounding, offsets, transitions, and
-relative arithmetic with independent ICU controls. WASM and Hermes adapters also
-run the pinned Temporal-feature Test262 corpus through the JavaScript facade.
+relative arithmetic with independent ICU controls. TypeScript and Hermes bindings
+run the pinned Temporal-feature Test262 corpus through their JavaScript APIs.
 Documented IANA/CLDR exclusions and calendar authority ranges are recorded in the
 `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015a-temporal-completion-audit.md`,children:`completion audit`}),`.`]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
