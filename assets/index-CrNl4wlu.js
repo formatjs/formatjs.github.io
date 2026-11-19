@@ -1641,6 +1641,13 @@ dependencies first, and verifies their
 versions on npm before publishing dependents. Existing versions are skipped, so
 maintainers can retry `,(0,D.jsx)(t.code,{children:`release.yml`}),` with the affected `,(0,D.jsx)(t.code,{children:`npm_paths`}),` after resolving a
 publication failure.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`rust-release-recovery`,children:[`Rust release recovery`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-release-recovery`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Crate release events publish missing local dependencies before their dependents.
+Published versions are skipped; each upload must appear in the crates.io index
+before publication continues. Registry errors stop the run.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Retry failed releases through `,(0,D.jsx)(t.code,{children:`crates-release.yml`}),` with the affected crate
+selected. Keep `,(0,D.jsx)(t.code,{children:`dry_run`}),` enabled to validate missing crates without uploading;
+disable it to publish. Generated data still comes from Bazel package assembly.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`rust-build-maintenance`,children:[`Rust BUILD maintenance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-build-maintenance`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`After changing Rust modules or imports, regenerate BUILD files with:`}),`
 `,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[`bazel run //:gazelle -- `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`-strict`}),`

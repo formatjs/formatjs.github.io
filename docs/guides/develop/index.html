@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-B8Stndrg.js"></script>
+    <script type="module" crossorigin src="/assets/index-CrNl4wlu.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -90,6 +90,13 @@ dependencies first, and verifies their
 versions on npm before publishing dependents. Existing versions are skipped, so
 maintainers can retry <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">release.yml</code> with the affected <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">npm_paths</code> after resolving a
 publication failure.</p>
+<h2 id="rust-release-recovery" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust release recovery<a href="#rust-release-recovery" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
+<p class="mb-4 leading-7 text-gray-300">Crate release events publish missing local dependencies before their dependents.
+Published versions are skipped; each upload must appear in the crates.io index
+before publication continues. Registry errors stop the run.</p>
+<p class="mb-4 leading-7 text-gray-300">Retry failed releases through <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">crates-release.yml</code> with the affected crate
+selected. Keep <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">dry_run</code> enabled to validate missing crates without uploading;
+disable it to publish. Generated data still comes from Bazel package assembly.</p>
 <h2 id="rust-build-maintenance" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust BUILD maintenance<a href="#rust-build-maintenance" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">After changing Rust modules or imports, regenerate BUILD files with:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">bazel run //:gazelle -- <span class="token parameter variable">-strict</span>
