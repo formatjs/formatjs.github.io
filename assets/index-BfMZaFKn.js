@@ -4873,6 +4873,8 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-durationformat`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DurationFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Host objects such as `,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for options and
+duration-like fields, including when formatting through `,(0,D.jsx)(t.code,{children:`Temporal.Duration.prototype.toLocaleString`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Temporal may be loaded before or after DurationFormat. After loading a compatible
 Temporal implementation, register its namespace to format branded durations and
 ISO duration strings:`}),`
@@ -6595,8 +6597,33 @@ native applications.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`choose-an-entry-point`,children:[`Choose an entry point`,(0,D.jsx)(t.a,{className:`header-link`,href:`#choose-an-entry-point`,children:`#`})]}),`
 `,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Entry`}),(0,D.jsx)(t.th,{children:`Use it for`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal`})}),(0,D.jsx)(t.td,{children:`An isolated namespace using installed Intl data`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill.js`})}),(0,D.jsx)(t.td,{children:`Conditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`})}),(0,D.jsx)(t.td,{children:`Unconditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/standalone.js`})}),(0,D.jsx)(t.td,{children:`An isolated namespace with bundled calendar and IANA data`})]})]})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The namespace exports `,(0,D.jsx)(t.code,{children:`Instant`}),`, `,(0,D.jsx)(t.code,{children:`Duration`}),`, `,(0,D.jsx)(t.code,{children:`PlainDate`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),`,
-`,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth`}),`, `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),`, and `,(0,D.jsx)(t.code,{children:`Now`}),`.`]}),`
+`,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth`}),`, `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),`, and `,(0,D.jsx)(t.code,{children:`Now`}),`.
+Temporal uses a captured `,(0,D.jsx)(t.code,{children:`Object.create`}),` for its own internal allocations.
+Its constructor prototype reads and formatter option reads use ordinary property
+access without consulting a replaced `,(0,D.jsx)(t.code,{children:`Reflect.get`}),`.
+Temporal and shared date/calendar helpers retain a captured `,(0,D.jsx)(t.code,{children:`Math.floor`}),` for
+internal floor arithmetic. Other internal math operations, numeric predicates and
+Number/BigInt conversions also retain captured bindings.
+Temporal validation and shared helpers retain their original Error, TypeError and
+RangeError constructors after global bindings change.
+Shared primitive coercion retains intrinsic helper bindings while preserving user
+conversion hooks and their standard hints. Browser host objects such as
+`,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for field bags, options, constructor
+prototypes and primitive conversion.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`calendars-and-time-zone-data`,children:[`Calendars and time-zone data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#calendars-and-time-zone-data`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Month codes must match Temporal's grammar exactly. Malformed codes such as
+`,(0,D.jsx)(t.code,{children:`M00`}),` or codes with trailing whitespace throw before later field getters run.
+A syntactically valid code can still be invalid for the chosen calendar.
+`,(0,D.jsx)(t.code,{children:`PlainDate.from`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime.from`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth.from`}),` and
+`,(0,D.jsx)(t.code,{children:`PlainMonthDay.from`}),` validate string syntax and calendar,
+then read `,(0,D.jsx)(t.code,{children:`overflow`}),`, then check representable bounds and normalize the date.
+Calendar strings passed to `,(0,D.jsx)(t.code,{children:`withCalendar`}),` or a field bag need valid ISO syntax;
+their date can lie outside Temporal’s representable range. Only the calendar
+annotation is used.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Duration operations accept a `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),` as `,(0,D.jsx)(t.code,{children:`relativeTo`}),`. They use its stored
+date and calendar, ignore its time, and do not read shadowed public field getters.
+Calendar-unit totals validate both interpolation endpoints. Near date limits,
+even an exact total or a zero zoned total can throw `,(0,D.jsx)(t.code,{children:`RangeError`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`The default entry captures the installed `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),` for named
 time-zone offsets and Umm al-Qura data. It works with native Intl or installed
 FormatJS polyfills. Load Intl polyfills and their data `,(0,D.jsx)(t.strong,{children:`before importing
@@ -9280,6 +9307,9 @@ script. Applications do not need Bazel or a separate data-generation step.`}),`
 `]})]})}),`
 `,(0,D.jsx)(t.p,{children:`Create a context once and reuse its validated registries. Values retain their
 calendar and timezone providers.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Calendar-unit `,(0,D.jsx)(t.code,{children:`total_duration`}),` calls validate both interpolation endpoints, even
+when the result is an integer. They can return an error near date limits. Zero
+zoned calendar totals also validate the positive window; plain zero totals return zero.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`choose-how-to-supply-data`,children:[`Choose how to supply data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#choose-how-to-supply-data`,children:`#`})]}),`
 `,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Feature`}),(0,D.jsx)(t.th,{children:`Included data`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Default features`}),(0,D.jsx)(t.td,{children:`Arithmetic calendars; UTC and fixed offsets need no tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_calendars`})}),(0,D.jsx)(t.td,{children:`Chinese, Dangi, and Umm al-Qura tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_time_zones`})}),(0,D.jsx)(t.td,{children:`Pinned IANA histories and recurring future rules`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_data`})}),(0,D.jsx)(t.td,{children:`Both calendar and timezone tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`ffi`})}),(0,D.jsxs)(t.td,{children:[`Optional JSON bridge used by JavaScript backends; enables `,(0,D.jsx)(t.code,{children:`serde_json`})]})]})]})]}),`
 `,(0,D.jsx)(t.p,{children:`Without compiled data, construct a context from the data you need:`}),`
