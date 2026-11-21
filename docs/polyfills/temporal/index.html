@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BfMZaFKn.js"></script>
+    <script type="module" crossorigin src="/assets/index-B-tov73j.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -53,7 +53,10 @@ internal floor arithmetic. Other internal math operations, numeric predicates an
 Number/BigInt conversions also retain captured bindings.
 Temporal validation and shared helpers retain their original Error, TypeError and
 RangeError constructors after global bindings change.
-Shared primitive coercion retains intrinsic helper bindings while preserving user
+Temporal and shared formatter private-list predicates retain captured
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Array.prototype.every</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Array.prototype.some</code> operations and their invocation
+helper.</p>
+<p class="mb-4 leading-7 text-gray-300">Shared primitive coercion retains intrinsic helper bindings while preserving user
 conversion hooks and their standard hints. Browser host objects such as
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">document.all</code> retain object semantics for field bags, options, constructor
 prototypes and primitive conversion.</p>

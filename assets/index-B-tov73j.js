@@ -6606,7 +6606,10 @@ internal floor arithmetic. Other internal math operations, numeric predicates an
 Number/BigInt conversions also retain captured bindings.
 Temporal validation and shared helpers retain their original Error, TypeError and
 RangeError constructors after global bindings change.
-Shared primitive coercion retains intrinsic helper bindings while preserving user
+Temporal and shared formatter private-list predicates retain captured
+`,(0,D.jsx)(t.code,{children:`Array.prototype.every`}),` and `,(0,D.jsx)(t.code,{children:`Array.prototype.some`}),` operations and their invocation
+helper.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Shared primitive coercion retains intrinsic helper bindings while preserving user
 conversion hooks and their standard hints. Browser host objects such as
 `,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for field bags, options, constructor
 prototypes and primitive conversion.`]}),`
