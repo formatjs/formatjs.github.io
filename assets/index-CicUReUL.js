@@ -6677,6 +6677,9 @@ no WebAssembly runtime, so use TypeScript or the native SDK there.`]}),`
 values, calendar providers, IANA timezone registries and optional compiled data.
 The native Hermes SDK binds that Rust engine. Temporal WASM entry points and
 assets have been removed; use TypeScript in JavaScript hosts or native Rust.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Private defaults ignore inherited prototype fields. Public field bags still read
+inherited getters. `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),` constructors check epoch range before validating
+timezone and calendar arguments.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`conformance-and-verification`,children:[`Conformance and verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#conformance-and-verification`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`The pinned Temporal-feature Test262 corpus passes on Node.js and Hermes
 source/bytecode, including Intl integration. Exclusions cover documented
