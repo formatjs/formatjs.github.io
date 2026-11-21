@@ -6613,6 +6613,9 @@ helper.`]}),`
 conversion hooks and their standard hints. Browser host objects such as
 `,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for field bags, options, constructor
 prototypes and primitive conversion.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`ZonedDateTime string conversion validates syntax and identifiers, then reads
+`,(0,D.jsx)(t.code,{children:`disambiguation`}),`, `,(0,D.jsx)(t.code,{children:`offset`}),` and `,(0,D.jsx)(t.code,{children:`overflow`}),` before checking representable range.
+This order also applies when native parsing is enabled.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`calendars-and-time-zone-data`,children:[`Calendars and time-zone data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#calendars-and-time-zone-data`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Month codes must match Temporal's grammar exactly. Malformed codes such as
 `,(0,D.jsx)(t.code,{children:`M00`}),` or codes with trailing whitespace throw before later field getters run.
