@@ -6707,6 +6707,10 @@ indexed setters; private host Intl options ignore inherited formatting fields.`]
 properties and use internal time conversion even when `,(0,D.jsx)(t.code,{children:`PlainTime.from`}),` changes.
 Direct branded timezone inputs skip unused `,(0,D.jsx)(t.code,{children:`plainTime`}),` getters. ISO year padding
 remains independent of later changes to `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Non-ISO `,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),` strings validate their original date range before
+selecting a reference year. Short-date parsing and `,(0,D.jsx)(t.code,{children:`toPlainDate`}),` keep private
+fields separate from inherited properties; Chinese/Dangi leap-code handling
+remains independent of replaced string methods.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Without Intl, default `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` timezone offsets remain independent of
 later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
