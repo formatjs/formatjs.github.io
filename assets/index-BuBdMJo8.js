@@ -5080,6 +5080,9 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `]})})})}),(0,D.jsx)(n,{value:`pnpm`,children:(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`pnpm`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`add`}),` @formatjs/intl-getcanonicallocales
 `]})})})})]}),`
 `,(0,D.jsxs)(t.h2,{id:`usage`,children:[`Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Array-like locale lists read and coerce `,(0,D.jsx)(t.code,{children:`length`}),` once. Non-Locale object entries use
+the string coercion hint, including `,(0,D.jsx)(t.code,{children:`document.all`}),`-style host objects. BigInt or
+Symbol lengths throw `,(0,D.jsx)(t.code,{children:`TypeError`}),`; NaN and negative lengths produce an empty list.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`via-polyfill-fastlyio`,children:[`Via polyfill-fastly.io`,(0,D.jsx)(t.a,{className:`header-link`,href:`#via-polyfill-fastlyio`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`You can use `,(0,D.jsx)(t.a,{href:`https://polyfill-fastly.io/`,children:`polyfill-fastly.io URL Builder`}),` to create a polyfill script tag for `,(0,D.jsx)(t.code,{children:`Intl.GetCanonicalLocales`}),`. For example:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-html`,children:(0,D.jsxs)(t.code,{className:`language-html code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`<!-- Polyfill Intl.GetCanonicalLocales & its dependencies -->`}),`
@@ -6681,7 +6684,8 @@ assets have been removed; use TypeScript in JavaScript hosts or native Rust.`]})
 inherited getters. PlainTime's private clock lists also ignore replaced array
 mapping, iteration and species hooks; public field getters retain their order.
 `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),` constructors check epoch range before validating timezone and
-calendar arguments.`]}),`
+calendar arguments.
+Calendar/unit array `,(0,D.jsx)(t.code,{children:`includes`}),`/`,(0,D.jsx)(t.code,{children:`indexOf`}),` lookups retain original intrinsics.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`conformance-and-verification`,children:[`Conformance and verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#conformance-and-verification`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`The pinned Temporal-feature Test262 corpus passes on Node.js and Hermes
 source/bytecode, including Intl integration. Exclusions cover documented
