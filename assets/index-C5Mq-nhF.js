@@ -6807,6 +6807,10 @@ ISO representation. Fractional Duration formatting retains exact decimal arithme
 including nanoseconds and large integral seconds; precision regressions cover
 positive and negative values. See `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-datetimeformat`,children:`DateTimeFormat`}),` and
 `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-durationformat`,children:`DurationFormat`}),` for data loading.`]}),`
+`,(0,D.jsx)(t.p,{children:`FormatJS formatters retain selected Intl methods for private formatting work.
+New DurationFormat instances and cold DateTimeFormat numeric profiles can adopt
+later installed NumberFormat providers; initialized instances/profiles retain
+their selected providers. Fractional Duration scaling uses exact bigint divisors.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Global installation registers Temporal with FormatJS formatters and adapts legacy
 host formatters. Create formatters after installation. For an isolated namespace,
 register explicitly with `,(0,D.jsx)(t.code,{children:`DateTimeFormat.__addTemporalNamespace(Temporal)`}),` when

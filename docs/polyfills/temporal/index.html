@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BOc5XXbv.js"></script>
+    <script type="module" crossorigin src="/assets/index-C5Mq-nhF.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DfA9Qnht.css">
   </head>
   <body>
@@ -201,6 +201,10 @@ ISO representation. Fractional Duration formatting retains exact decimal arithme
 including nanoseconds and large integral seconds; precision regressions cover
 positive and negative values. See <a href="/docs/polyfills/intl-datetimeformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">DateTimeFormat</a> and
 <a href="/docs/polyfills/intl-durationformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">DurationFormat</a> for data loading.</p>
+<p class="mb-4 leading-7 text-gray-300">FormatJS formatters retain selected Intl methods for private formatting work.
+New DurationFormat instances and cold DateTimeFormat numeric profiles can adopt
+later installed NumberFormat providers; initialized instances/profiles retain
+their selected providers. Fractional Duration scaling uses exact bigint divisors.</p>
 <p class="mb-4 leading-7 text-gray-300">Global installation registers Temporal with FormatJS formatters and adapts legacy
 host formatters. Create formatters after installation. For an isolated namespace,
 register explicitly with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">DateTimeFormat.__addTemporalNamespace(Temporal)</code> when
