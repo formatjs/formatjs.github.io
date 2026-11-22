@@ -6609,7 +6609,10 @@ native applications.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`The namespace exports `,(0,D.jsx)(t.code,{children:`Instant`}),`, `,(0,D.jsx)(t.code,{children:`Duration`}),`, `,(0,D.jsx)(t.code,{children:`PlainDate`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),`,
 `,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth`}),`, `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),`, and `,(0,D.jsx)(t.code,{children:`Now`}),`.
 Temporal uses a captured `,(0,D.jsx)(t.code,{children:`Object.create`}),` for its own internal allocations.
-String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
+Singular and plural unit names use exact private matching. Replacing
+`,(0,D.jsx)(t.code,{children:`String.prototype.endsWith`}),` or `,(0,D.jsx)(t.code,{children:`slice`}),` does not intercept that matching;
+public option getters and string coercion hooks still run normally.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
 creates private options directly, without reading a replaced `,(0,D.jsx)(t.code,{children:`Object.assign`}),`
 or inherited option getters/setters. Object-form options retain inherited
 property reads.
