@@ -6715,6 +6715,10 @@ remains independent of replaced string methods.`]}),`
 PlainDateTime bounds before rounding. Exact adjacent values and zero-duration
 shortcuts remain supported. PlainDateTime time replacement and serialization
 remain independent of later changes to PlainTime.from and String.prototype.slice.`}),`
+`,(0,D.jsx)(t.p,{children:`Duration comparison validates required calendar and zoned additions even when
+date components match. Plain fixed-day/time comparisons do not require a final
+destination date within Temporal bounds. Complete equal durations retain their
+specified shortcut.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Without Intl, default `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` timezone offsets remain independent of
 later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
