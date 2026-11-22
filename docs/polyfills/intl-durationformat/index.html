@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BuQEGnJl.js"></script>
+    <script type="module" crossorigin src="/assets/index-DCUf9C8w.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DfA9Qnht.css">
   </head>
   <body>
@@ -140,6 +140,9 @@ For TypeScript projects, we recommend using ES module imports instead.</p><p cla
 <li class="mb-2 text-gray-300"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.ListFormat</code></a> or <a href="intl-listformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">polyfill</a></li>
 <li class="mb-2 text-gray-300"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code></a> or <a href="intl-numberformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">polyfill</a>.</li>
 </ul>
+<p class="mb-4 leading-7 text-gray-300">Load required NumberFormat/ListFormat polyfills before creating DurationFormat
+instances. Each instance keeps its selected providers and formatting methods;
+installing a replacement provider affects subsequently created instances.</p>
 <h2 id="usage" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Usage<a href="#usage" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <h3 id="simple" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Simple<a href="#simple" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-durationformat/polyfill.js&#x27;</span>
@@ -181,9 +184,10 @@ remain displayed by default; smaller fractional units use <code class="px-2 py-1
 units cannot request <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">always</code> display or be followed by a textual unit style.</p>
 <p class="mb-4 leading-7 text-gray-300">Zero minutes remain between displayed numeric hours and seconds, even with
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">minutesDisplay: &quot;auto&quot;</code>. For example, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{hours: 1, seconds: 1}</code> formats as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;1:00:01&quot;</code>.</p>
-<p class="mb-4 leading-7 text-gray-300">Numbering-system resolution includes systems supported by the active
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code> dependency, keeping the locale default first. Support is
-checked lazily and refreshed when that constructor is replaced. Time-separator
+<p class="mb-4 leading-7 text-gray-300">Numbering-system resolution includes systems supported by the selected
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code> dependency, keeping the locale default first. Support is checked
+lazily per constructor. Installing a replacement provider updates new
+DurationFormat instances; existing instances retain their provider. Time-separator
 data includes every numbering-system symbol record supplied by CLDR.</p>
 <h3 id="temporal-integration" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Temporal integration<a href="#temporal-integration" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">When a Temporal implementation is available before this package is loaded,
