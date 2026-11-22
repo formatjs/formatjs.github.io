@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BTn2AJKW.js"></script>
+    <script type="module" crossorigin src="/assets/index-D53I_dFe.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DfA9Qnht.css">
   </head>
   <body>
@@ -101,6 +101,10 @@ month-code regex/string hooks. Private destination records ignore inherited
 Host calendar caches retain original Map/iterator operations. Compact and
 approximate year construction avoids replaced array methods and inherited
 indexed setters; private host Intl options ignore inherited formatting fields.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">PlainDate</code> conversions keep private calendar fields separate from inherited
+properties and use internal time conversion even when <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">PlainTime.from</code> changes.
+Direct branded timezone inputs skip unused <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">plainTime</code> getters. ISO year padding
+remains independent of later changes to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String.prototype.padStart</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Without Intl, default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.Now</code> timezone offsets remain independent of
 later replacements of <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String.prototype.padStart</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">String shorthand such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">time.round(&#x27;minute&#x27;)</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">duration.total(&#x27;hour&#x27;)</code>

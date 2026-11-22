@@ -6703,6 +6703,10 @@ month-code regex/string hooks. Private destination records ignore inherited
 Host calendar caches retain original Map/iterator operations. Compact and
 approximate year construction avoids replaced array methods and inherited
 indexed setters; private host Intl options ignore inherited formatting fields.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`PlainDate`}),` conversions keep private calendar fields separate from inherited
+properties and use internal time conversion even when `,(0,D.jsx)(t.code,{children:`PlainTime.from`}),` changes.
+Direct branded timezone inputs skip unused `,(0,D.jsx)(t.code,{children:`plainTime`}),` getters. ISO year padding
+remains independent of later changes to `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Without Intl, default `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` timezone offsets remain independent of
 later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
