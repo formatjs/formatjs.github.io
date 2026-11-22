@@ -6780,7 +6780,8 @@ Temporal`}),`. UTC and numeric offsets work without Intl.`]}),`
 `]})]})}),`
 `,(0,D.jsx)(t.p,{children:`Standalone includes calendar tables and IANA transitions with future rules;
 its time-zone data does not stop at 2100. Update the package when timezone laws
-change. The default entry instead follows the installed Intl data version.`}),`
+change. Equivalent timezone aliases compare through bundled primary-zone
+data; private lookup ignores inherited object properties. The default entry instead follows the installed Intl data version.`}),`
 `,(0,D.jsx)(t.p,{children:`Default transition queries search host offsets. Intl has no transition
 enumeration API, so closely spaced changes can escape that search. Use standalone
 when transition histories must be determined by the bundled data.`}),`
