@@ -6813,7 +6813,8 @@ later installed NumberFormat providers; initialized instances/profiles retain
 their selected providers. Fractional Duration scaling uses exact bigint divisors.
 Cold Temporal kind selection also retains private matching and interval methods.
 Fresh Duration locale snapshots retain Set order and invalidation without
-observing replaced Set iteration methods; normal locale/option reads stay ordered.`}),`
+observing replaced Set iteration methods. Prefix lookup and Unicode extension
+handling retain the original locale and option read order.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Global installation registers Temporal with FormatJS formatters and adapts legacy
 host formatters. Create formatters after installation. For an isolated namespace,
 register explicitly with `,(0,D.jsx)(t.code,{children:`DateTimeFormat.__addTemporalNamespace(Temporal)`}),` when
