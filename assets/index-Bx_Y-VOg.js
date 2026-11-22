@@ -4341,7 +4341,22 @@ calendar.`})}),`
 IANA TZif files. DST continues beyond 2100 using the pinned release's rules;
 later legal changes require updated timezone data.`}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Private slot, locale and pattern caches capture their WeakMap methods when
+modules load.`}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Pattern rendering preserves unrecognized fields as `,(0,D.jsx)(t.code,{children:`unknown`}),` parts. Two-digit
+fields retain their final two Unicode code points, including supplementary digits.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Nonpositive calendar display years follow
+`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-formatdatetimepattern`,children:`ECMA-402 §11.5.4 step 15.f.iv`}),`:
+the displayed year is `,(0,D.jsx)(t.code,{children:`1 - year`}),`. For example, Buddhist year 0 displays as 1;
+native ICU currently displays 0. Calendar arithmetic keeps its original year.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Internal locale-pattern parsing follows `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-partitionpattern`,children:`ECMA-402 §9.2.15`}),`
+using captured string operations. Complete formatter conformance remains tracked
+in the report above.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`formatToParts`}),` result allocation follows
+`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma262/#sec-arraycreate`,children:`ECMA-262 §10.4.2.2 ArrayCreate`}),`.
+Each returned part has own writable, enumerable and configurable `,(0,D.jsx)(t.code,{children:`type`}),` and
+`,(0,D.jsx)(t.code,{children:`value`}),` data properties.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`TypeScript and Rust also run independent ICU4J 79.1 snapshot comparisons in
 Bazel CI: 12,808 cases covering 17 locales, calendars, numbering systems, DST,
 styles, fractional seconds, and range parts. Snapshots retain raw ICU4J and ICU4C evidence, including differences required
@@ -4463,6 +4478,7 @@ requested numbering system.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`The polyfill also replaces `,(0,D.jsx)(t.code,{children:`Date.prototype.toLocaleString`}),`,
 `,(0,D.jsx)(t.code,{children:`toLocaleDateString`}),`, and `,(0,D.jsx)(t.code,{children:`toLocaleTimeString`}),` with their ECMA-402 behavior,
 including the standard date and time defaults when only `,(0,D.jsx)(t.code,{children:`timeZone`}),` is set.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Replacing `,(0,D.jsx)(t.code,{children:`Object.prototype.isPrototypeOf`}),` does not affect formatter construction.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`temporal-namespaces`,children:[`Temporal namespaces`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-namespaces`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`DateTimeFormat recognizes Temporal intrinsic brands, including separately bundled
 namespaces. When loading an isolated namespace, register it once before formatting:`}),`
@@ -4611,7 +4627,9 @@ separate from language-specific patterns, regardless of registration order.`]}),
 `,(0,D.jsxs)(t.h2,{id:`fractional-timestamps`,children:[`Fractional timestamps`,(0,D.jsx)(t.a,{className:`header-link`,href:`#fractional-timestamps`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Formatting truncates fractional millisecond timestamps toward zero before
 calendar conversion. For example, `,(0,D.jsx)(t.code,{children:`-0.9`}),` formats as the Unix epoch, matching `,(0,D.jsx)(t.code,{children:`0`}),`.
-The same rule applies to both range endpoints.`]}),`
+The same rule applies to both range endpoints. Numeric arguments use standard
+`,(0,D.jsx)(t.code,{children:`ToNumber`}),` conversion once; BigInt and Symbol values throw `,(0,D.jsx)(t.code,{children:`TypeError`}),`. Omitting
+the date in `,(0,D.jsx)(t.code,{children:`format()`}),` or `,(0,D.jsx)(t.code,{children:`formatToParts()`}),` uses the current time.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`built-in-methods`,children:[`Built-in methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#built-in-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`DateTimeFormat methods cannot be constructed with `,(0,D.jsx)(t.code,{children:`new`}),` and have no own
 `,(0,D.jsx)(t.code,{children:`prototype`}),` property. The constructor's `,(0,D.jsx)(t.code,{children:`length`}),` is `,(0,D.jsx)(t.code,{children:`0`}),`; `,(0,D.jsx)(t.code,{children:`supportedLocalesOf.length`}),`
@@ -4873,6 +4891,8 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-durationformat`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.DurationFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Duration-like fields undergo Number conversion once. Fractional or nonfinite
+results throw `,(0,D.jsx)(t.code,{children:`RangeError`}),`; BigInt and Symbol values throw `,(0,D.jsx)(t.code,{children:`TypeError`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Host objects such as `,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for options and
 duration-like fields, including when formatting through `,(0,D.jsx)(t.code,{children:`Temporal.Duration.prototype.toLocaleString`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Temporal may be loaded before or after DurationFormat. After loading a compatible
@@ -5156,6 +5176,9 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-listformat`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.ListFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Internal locale-pattern parsing follows `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-partitionpattern`,children:`ECMA-402 §9.2.15`}),`
+using captured string operations. Complete formatter conformance remains tracked
+in the report above.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`-implemented-features`,children:[`✅ Implemented Features`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-implemented-features`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`core-methods`,children:[`Core Methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#core-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
@@ -5293,6 +5316,8 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-locale`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.Locale`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`-u-kn-false`}),` sets `,(0,D.jsx)(t.code,{children:`numeric`}),` to `,(0,D.jsx)(t.code,{children:`false`}),`; extension comparison follows
+`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma262/#sec-samevalue`,children:`ECMA-262 §7.2.9 SameValue`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`-implemented-features`,children:[`✅ Implemented Features`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-implemented-features`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`core-properties`,children:[`Core Properties`,(0,D.jsx)(t.a,{className:`header-link`,href:`#core-properties`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
@@ -5544,7 +5569,11 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.a,{href:`https://www.npmjs.org/package/@formatjs/intl-numberformat`,children:(0,D.jsx)(t.img,{src:`https://img.shields.io/npm/v/@formatjs/intl-numberformat.svg?style=flat-square`,alt:`npm Version`})}),`
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-numberformat`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Private slot access and standard number-pattern caches use WeakMap operations
+captured when modules load.`}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.NumberFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Single-value `,(0,D.jsx)(t.code,{children:`formatToParts`}),` results contain fresh objects with own writable,
+enumerable and configurable `,(0,D.jsx)(t.code,{children:`type`}),` and `,(0,D.jsx)(t.code,{children:`value`}),` data properties.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`-all-features-implemented`,children:[`✅ All Features Implemented`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-all-features-implemented`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`core-methods`,children:[`Core Methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#core-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
@@ -5949,6 +5978,7 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.a,{href:`https://www.npmjs.org/package/@formatjs/intl-pluralrules`,children:(0,D.jsx)(t.img,{src:`https://img.shields.io/npm/v/@formatjs/intl-pluralrules.svg?style=flat-square`,alt:`npm Version`})}),`
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-pluralrules`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Private slot access uses WeakMap methods captured when the module loads.`}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.PluralRules`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`-implemented-features`,children:[`✅ Implemented Features`,(0,D.jsx)(t.a,{className:`header-link`,href:`#-implemented-features`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`core-methods`,children:[`Core Methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#core-methods`,children:`#`})]}),`
@@ -6089,6 +6119,9 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-relativetimeformat`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This package implements `,(0,D.jsx)(t.code,{children:`Intl.RelativeTimeFormat`}),`. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),` for tested coverage and known limitations.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Internal locale-pattern parsing follows `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-partitionpattern`,children:`ECMA-402 §9.2.15`}),`
+using captured string operations. Complete formatter conformance remains tracked
+in the report above.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`specification-details`,children:[`Specification Details`,(0,D.jsx)(t.a,{className:`header-link`,href:`#specification-details`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:`TC39 Proposal`}),`: `,(0,D.jsx)(t.a,{href:`https://tc39.es/proposal-intl-relative-time/`,children:`Intl.RelativeTimeFormat`})]}),`
@@ -6628,6 +6661,10 @@ RangeError constructors after global bindings change.
 Temporal and shared formatter private-list predicates retain captured
 `,(0,D.jsx)(t.code,{children:`Array.prototype.every`}),` and `,(0,D.jsx)(t.code,{children:`Array.prototype.some`}),` operations and their invocation
 helper.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`When installation adapts native `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),` for Temporal inputs,
+private formatter state and projection caches retain captured WeakMap/Map
+operations. Replacing those methods, global `,(0,D.jsx)(t.code,{children:`Map`}),`, or `,(0,D.jsx)(t.code,{children:`Reflect.apply`}),` and
+`,(0,D.jsx)(t.code,{children:`Reflect.construct`}),` after import does not intercept these bridge operations.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Shared primitive coercion retains intrinsic helper bindings while preserving user
 conversion hooks and their standard hints. Browser host objects such as
 `,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for field bags, options, constructor
@@ -6636,6 +6673,9 @@ prototypes and primitive conversion.`]}),`
 `,(0,D.jsx)(t.code,{children:`disambiguation`}),`, `,(0,D.jsx)(t.code,{children:`offset`}),` and `,(0,D.jsx)(t.code,{children:`overflow`}),` before checking representable range.
 This order also applies when native parsing is enabled.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`calendars-and-time-zone-data`,children:[`Calendars and time-zone data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#calendars-and-time-zone-data`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Date formatting normalizes nonpositive calendar display years to `,(0,D.jsx)(t.code,{children:`1 - year`}),`,
+including the native Intl bridge. For example, Buddhist calendar year 0 displays
+as year 1. Temporal's stored calendar year stays 0.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Month codes must match Temporal's grammar exactly. Malformed codes such as
 `,(0,D.jsx)(t.code,{children:`M00`}),` or codes with trailing whitespace throw before later field getters run.
 A syntactically valid code can still be invalid for the chosen calendar.
