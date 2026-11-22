@@ -6719,6 +6719,10 @@ remain independent of later changes to PlainTime.from and String.prototype.slice
 date components match. Plain fixed-day/time comparisons do not require a final
 destination date within Temporal bounds. Complete equal durations retain their
 specified shortcut.`}),`
+`,(0,D.jsx)(t.p,{children:`PlainYearMonth.toPlainDate keeps inherited era properties out of private calendar
+fields while preserving inherited public day fields. Locale formatting reports
+invalid date/time styles before a conflicting calendar. DurationFormat parts
+always expose their own unit properties.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Without Intl, default `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` timezone offsets remain independent of
 later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
