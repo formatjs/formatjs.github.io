@@ -5117,7 +5117,10 @@ can still call `,(0,D.jsx)(t.code,{children:`formatjs::installCanonicalLocales(r
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`getCanonicalLocales`}),` rejects `,(0,D.jsx)(t.code,{children:`null`}),`, coerces array-like lengths once with
 `,(0,D.jsx)(t.code,{children:`ToLength`}),`, and accepts string-coercible object entries. Native Locale values
 and values from the installed Locale polyfill use their intrinsic locale tag,
-ignoring overridden instance properties. Objects that merely expose `,(0,D.jsx)(t.code,{children:`language`}),`
+ignoring overridden instance properties. Brand readers are connected during
+package initialization, including across separately bundled FormatJS copies.
+Replacing `,(0,D.jsx)(t.code,{children:`Intl.Locale`}),` or its prototype methods afterward does not change
+these brand checks. Objects that merely expose `,(0,D.jsx)(t.code,{children:`language`}),`
 and `,(0,D.jsx)(t.code,{children:`baseName`}),` are treated as ordinary array-like inputs.`]}),`
 `,(0,D.jsx)(t.p,{children:`Locale identifier casing is normalized before CLDR alias lookup, including
 language, script, region, and variant subtags.`}),`
@@ -5388,14 +5391,18 @@ For TypeScript projects, we recommend using ES module imports instead.`}),(0,D.j
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token keyword`,children:`await`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-locale/polyfill-force.js'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`When this package installs `,(0,D.jsx)(t.code,{children:`Intl.Locale`}),`, it also connects Locale values to
+`,(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`}),`. If the installed canonicalizer cannot recognize
+FormatJS's private Locale slots, installation replaces it with the imported
+FormatJS canonicalizer. Native Locale values created before replacement remain
+recognized. Importing the `,(0,D.jsx)(t.code,{children:`Locale`}),` ponyfill alone preserves native global APIs.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`tests`,children:[`Tests`,(0,D.jsx)(t.a,{className:`header-link`,href:`#tests`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The Bazel `,(0,D.jsx)(t.code,{children:`:test262`}),` target runs the upstream suite against a reviewed failure baseline. A green baseline check does not mean every test passed. See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/014-test262-conformance.md`,children:`conformance report`}),`; run `,(0,D.jsx)(t.code,{children:`bazel test //packages/intl-locale:test262-strict`}),` to require zero failures.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Locale Info coverage includes collation ordering, formatter defaults, script
-direction metadata, and Unicode extension aliases. The isolated suite retains
-native prerequisites, including `,(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`}),`.
+direction metadata, and Unicode extension aliases. The isolated suite exercises
+Locale installation, including its canonicalizer connection.
 `,(0,D.jsx)(t.code,{children:`bazel test //tools/test262:combined-locale`}),` installs all FormatJS polyfills to
-check their behavior together. If native canonicalization mishandles `,(0,D.jsx)(t.code,{children:`yes`}),`
-values, load the `,(0,D.jsx)(t.code,{children:`Intl.getCanonicalLocales`}),` polyfill before `,(0,D.jsx)(t.code,{children:`Intl.Locale`}),`.`]}),`
+check their behavior together.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`weekday-and-numeric-options`,children:[`Weekday and numeric options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#weekday-and-numeric-options`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`firstDayOfWeek`}),` accepts Unicode type identifiers such as `,(0,D.jsx)(t.code,{children:`mon`}),`. Numeric strings
 `,(0,D.jsx)(t.code,{children:`0`}),` and `,(0,D.jsx)(t.code,{children:`7`}),` both become `,(0,D.jsx)(t.code,{children:`sun`}),`; `,(0,D.jsx)(t.code,{children:`1`}),` through `,(0,D.jsx)(t.code,{children:`6`}),` become `,(0,D.jsx)(t.code,{children:`mon`}),` through `,(0,D.jsx)(t.code,{children:`sat`}),`.
@@ -6602,6 +6609,12 @@ native applications.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`The namespace exports `,(0,D.jsx)(t.code,{children:`Instant`}),`, `,(0,D.jsx)(t.code,{children:`Duration`}),`, `,(0,D.jsx)(t.code,{children:`PlainDate`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),`,
 `,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth`}),`, `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),`, and `,(0,D.jsx)(t.code,{children:`Now`}),`.
 Temporal uses a captured `,(0,D.jsx)(t.code,{children:`Object.create`}),` for its own internal allocations.
+String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
+creates private options directly, without reading a replaced `,(0,D.jsx)(t.code,{children:`Object.assign`}),`
+or inherited option getters/setters. Object-form options retain inherited
+property reads.
+Host timezone and owned DateTimeFormat adapters also create private copied
+records without consulting `,(0,D.jsx)(t.code,{children:`Object.assign`}),` or invoking inherited slot setters.
 Its constructor prototype reads and formatter option reads use ordinary property
 access without consulting a replaced `,(0,D.jsx)(t.code,{children:`Reflect.get`}),`.
 Temporal and shared date/calendar helpers retain a captured `,(0,D.jsx)(t.code,{children:`Math.floor`}),` for

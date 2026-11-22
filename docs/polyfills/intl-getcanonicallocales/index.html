@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BuBdMJo8.js"></script>
+    <script type="module" crossorigin src="/assets/index-DPFDIrHx.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -57,7 +57,10 @@ can still call <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-30
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">getCanonicalLocales</code> rejects <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">null</code>, coerces array-like lengths once with
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ToLength</code>, and accepts string-coercible object entries. Native Locale values
 and values from the installed Locale polyfill use their intrinsic locale tag,
-ignoring overridden instance properties. Objects that merely expose <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">language</code>
+ignoring overridden instance properties. Brand readers are connected during
+package initialization, including across separately bundled FormatJS copies.
+Replacing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Locale</code> or its prototype methods afterward does not change
+these brand checks. Objects that merely expose <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">language</code>
 and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">baseName</code> are treated as ordinary array-like inputs.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale identifier casing is normalized before CLDR alias lookup, including
 language, script, region, and variant subtags.</p>
