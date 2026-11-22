@@ -6798,7 +6798,9 @@ independently verified calendar authority ranges.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.p,{children:[`Date/time locale methods use the installed DateTimeFormat; Duration uses
 DurationFormat. Without the corresponding formatter, locale methods return an
-ISO representation. See `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-datetimeformat`,children:`DateTimeFormat`}),` and
+ISO representation. Fractional Duration formatting retains exact decimal arithmetic,
+including nanoseconds and large integral seconds; precision regressions cover
+positive and negative values. See `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-datetimeformat`,children:`DateTimeFormat`}),` and
 `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-durationformat`,children:`DurationFormat`}),` for data loading.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Global installation registers Temporal with FormatJS formatters and adapts legacy
 host formatters. Create formatters after installation. For an isolated namespace,
