@@ -4337,6 +4337,7 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(n,{type:`caution`,children:(0,D.jsx)(t.p,{children:`Gregorian and ISO 8601 are built in. Other calendars require optional modules
 and locale patterns; unloaded calendar requests fall back to a loaded
 calendar.`})}),`
+`,(0,D.jsxs)(t.p,{children:[`Offset `,(0,D.jsx)(t.code,{children:`timeZone`}),` strings use hour/minute forms such as `,(0,D.jsx)(t.code,{children:`+05:30`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Timezone packs retain historical transitions and recurring future rules from
 IANA TZif files. DST continues beyond 2100 using the pinned release's rules;
 later legal changes require updated timezone data.`}),`
@@ -4349,7 +4350,10 @@ fields retain their final two Unicode code points, including supplementary digit
 `,(0,D.jsxs)(t.p,{children:[`Nonpositive calendar display years follow
 `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-formatdatetimepattern`,children:`ECMA-402 §11.5.4 step 15.f.iv`}),`:
 the displayed year is `,(0,D.jsx)(t.code,{children:`1 - year`}),`. For example, Buddhist year 0 displays as 1;
-native ICU currently displays 0. Calendar arithmetic keeps its original year.`]}),`
+native ICU currently displays 0. Calendar arithmetic keeps its original year.
+Gregorian/ISO local-time records retain signed astronomical years under
+`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-datetimeformat-tolocaltime-records`,children:`§11.5.12 Table 17`}),`;
+formatting converts year 0 to 1 BC and year −1 to 2 BC.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Internal locale-pattern parsing follows `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-partitionpattern`,children:`ECMA-402 §9.2.15`}),`
 using captured string operations. Complete formatter conformance remains tracked
 in the report above.`]}),`
@@ -4630,6 +4634,8 @@ calendar conversion. For example, `,(0,D.jsx)(t.code,{children:`-0.9`}),` format
 The same rule applies to both range endpoints. Numeric arguments use standard
 `,(0,D.jsx)(t.code,{children:`ToNumber`}),` conversion once; BigInt and Symbol values throw `,(0,D.jsx)(t.code,{children:`TypeError`}),`. Omitting
 the date in `,(0,D.jsx)(t.code,{children:`format()`}),` or `,(0,D.jsx)(t.code,{children:`formatToParts()`}),` uses the current time.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Temporal Instant formatting preserves nanosecond flooring even when global
+`,(0,D.jsx)(t.code,{children:`Number`}),` or `,(0,D.jsx)(t.code,{children:`Number.isSafeInteger`}),` is replaced after initialization.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`built-in-methods`,children:[`Built-in methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#built-in-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`DateTimeFormat methods cannot be constructed with `,(0,D.jsx)(t.code,{children:`new`}),` and have no own
 `,(0,D.jsx)(t.code,{children:`prototype`}),` property. The constructor's `,(0,D.jsx)(t.code,{children:`length`}),` is `,(0,D.jsx)(t.code,{children:`0`}),`; `,(0,D.jsx)(t.code,{children:`supportedLocalesOf.length`}),`
@@ -6645,6 +6651,58 @@ Temporal uses a captured `,(0,D.jsx)(t.code,{children:`Object.create`}),` for it
 Singular and plural unit names use exact private matching. Replacing
 `,(0,D.jsx)(t.code,{children:`String.prototype.endsWith`}),` or `,(0,D.jsx)(t.code,{children:`slice`}),` does not intercept that matching;
 public option getters and string coercion hooks still run normally.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Difference options read `,(0,D.jsx)(t.code,{children:`largestUnit`}),`, `,(0,D.jsx)(t.code,{children:`roundingIncrement`}),`, `,(0,D.jsx)(t.code,{children:`roundingMode`}),`, then
+`,(0,D.jsx)(t.code,{children:`smallestUnit`}),`. An unrecognized largest-unit spelling throws before later option
+getters run. Recognized units are checked against the method's allowed units
+after those reads.`]}),`
+`,(0,D.jsx)(t.p,{children:`PlainDateTime differences prepare private unit names without mutable array
+iteration. PlainYearMonth differences isolate private reference-date fields from
+inherited era getters; inherited fields on public input bags remain observable.`}),`
+`,(0,D.jsx)(t.p,{children:`Shared ISO string parsing also avoids mutable RegExp/String methods and legacy
+RegExp match-state changes. Clock fractions retain all nine digits. Calendar and
+timezone preparation outside the parser retains its separate validation.
+Calendar identifier preparation retains its original lowercase operation; zoned
+conversion classifies date-only input and offset precision without mutable
+String/RegExp methods.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Duration strings parse without calling mutable RegExp or String methods or
+changing legacy RegExp match state. Fractions preserve all nine digits, including
+fractional hours and minutes.
+Duration totals and fixed-precision strings also avoid replaced BigInt string
+conversion and array search methods during private calculations.
+PlainDateTime and ZonedDateTime differences with hour or smaller largest units
+round the exact integer span before converting final Duration fields to Numbers.
+Calendar-relative difference rounding compares validated mode names directly,
+without calling a replaced `,(0,D.jsx)(t.code,{children:`String.prototype.startsWith`}),`.
+Zoned `,(0,D.jsx)(t.code,{children:`relativeTo`}),` preparation for Duration rounding/totals keeps omitted private
+fields isolated from inherited getters. ZonedDateTime rounding rejects invalid
+units/increments before computing local time. Clock rounding keeps timezone
+offsets as exact bigint values, avoiding private string formatting and reparsing.
+Private timezone caches retain their original Map constructor and access methods.
+Timezone name preparation retains original case/key methods. Default compact-zone
+transition preparation avoids replaced array methods and inherited row/metadata setters.
+Relative `,(0,D.jsx)(t.code,{children:`Duration`}),` options route strings without an extra RegExp test; full
+string validation still follows the existing parsers.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Zoned date-largest differences validate the following local-day window when
+rounding requires it, including zero Duration rounding and exact subday results.
+Public until/since with equal epochs still return zero after option validation.
+Clock rounding carries across a shorter local-day window even when its time
+quantity stays unchanged. Nanosecond rounding
+with increment 1 retains its identity path. Duration totals and rounds use the
+original local clock when a timezone gap shifts an intermediate date.
+Duration rounding to weeks with a year/month largest unit also validates the
+following week endpoint for exact results. Nanosecond identity and plain-zero
+equality retain their shortcuts.
+Calendar-relative `,(0,D.jsx)(t.code,{children:`since`}),` and zoned intermediate additions keep private Duration
+field processing independent of a replaced `,(0,D.jsx)(t.code,{children:`Object.keys`}),`.
+PlainDate, PlainDateTime and PlainYearMonth add/subtract also keep private fields
+independent of replaced `,(0,D.jsx)(t.code,{children:`Object.keys`}),` and array iteration. YearMonth addition
+validates the added full date before constructing its YearMonth result.
+Calendar addition also avoids replaced array mapping/species and private
+month-code regex/string hooks. Private destination records ignore inherited
+`,(0,D.jsx)(t.code,{children:`monthCode`}),`; public field bags still read inherited month-code getters.
+Host calendar caches retain original Map/iterator operations. Compact and
+approximate year construction avoids replaced array methods and inherited
+indexed setters; private host Intl options ignore inherited formatting fields.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
 creates private options directly, without reading a replaced `,(0,D.jsx)(t.code,{children:`Object.assign`}),`
 or inherited option getters/setters. Object-form options retain inherited
@@ -6741,6 +6799,9 @@ inherited getters. PlainTime's private clock lists also ignore replaced array
 mapping, iteration and species hooks; public field getters retain their order.
 `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),` constructors check epoch range before validating timezone and
 calendar arguments.
+Rounding a ZonedDateTime to one nanosecond returns a fresh equivalent value,
+including minimum/maximum instants with outward timezone offsets.
+Rounding options are validated before that return.
 Calendar/unit array `,(0,D.jsx)(t.code,{children:`includes`}),`/`,(0,D.jsx)(t.code,{children:`indexOf`}),` lookups retain original intrinsics.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`conformance-and-verification`,children:[`Conformance and verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#conformance-and-verification`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`The pinned Temporal-feature Test262 corpus passes on Node.js and Hermes
