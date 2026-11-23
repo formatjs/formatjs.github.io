@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CjVNhRt8.js"></script>
+    <script type="module" crossorigin src="/assets/index-Ftq-OnHH.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -492,6 +492,13 @@ override their resource. Plurals require distinct supported quantities and
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">other</code>; target-only quantities compare against the source <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">other</code> item.
 Locale-specific category equality is not required. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">translatable=&quot;false&quot;</code>
 resources are excluded, and unrelated Android resource types are ignored.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--structural-equality</code> also requires plural items to use a quantity the
+locale&#x27;s CLDR cardinal rules select, so <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">one</code> in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values-ja</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">few</code> in
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">values-es</code> fails. Android never looks those items up, and lint reports them as
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UnusedQuantity</code>. Source and target locales are both checked. Lookup drops trailing subtags (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">b+sr+Latn</code> uses <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sr</code>);
+languages CLDR has no rules for are skipped. Data comes from the bundled
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">cldr-core</code>; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">vi</code> <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">one</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">gl</code> <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">many</code> are also rejected because current
+Android lint still uses CLDR 42, which lacks them.</p>
 <p class="mb-4 leading-7 text-gray-300">This is a string-resource verifier, not a replacement for AAPT2 resource linking.
 See <a href="https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">Android string resource rules</a>.</p>
 <h4 id="preserve-custom-entity-references" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Preserve custom entity references<a href="#preserve-custom-entity-references" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>

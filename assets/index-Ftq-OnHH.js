@@ -11037,6 +11037,13 @@ override their resource. Plurals require distinct supported quantities and
 `,(0,D.jsx)(t.code,{children:`other`}),`; target-only quantities compare against the source `,(0,D.jsx)(t.code,{children:`other`}),` item.
 Locale-specific category equality is not required. `,(0,D.jsx)(t.code,{children:`translatable="false"`}),`
 resources are excluded, and unrelated Android resource types are ignored.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`--structural-equality`}),` also requires plural items to use a quantity the
+locale's CLDR cardinal rules select, so `,(0,D.jsx)(t.code,{children:`one`}),` in `,(0,D.jsx)(t.code,{children:`values-ja`}),` or `,(0,D.jsx)(t.code,{children:`few`}),` in
+`,(0,D.jsx)(t.code,{children:`values-es`}),` fails. Android never looks those items up, and lint reports them as
+`,(0,D.jsx)(t.code,{children:`UnusedQuantity`}),`. Source and target locales are both checked. Lookup drops trailing subtags (`,(0,D.jsx)(t.code,{children:`b+sr+Latn`}),` uses `,(0,D.jsx)(t.code,{children:`sr`}),`);
+languages CLDR has no rules for are skipped. Data comes from the bundled
+`,(0,D.jsx)(t.code,{children:`cldr-core`}),`; `,(0,D.jsx)(t.code,{children:`vi`}),` `,(0,D.jsx)(t.code,{children:`one`}),` and `,(0,D.jsx)(t.code,{children:`gl`}),` `,(0,D.jsx)(t.code,{children:`many`}),` are also rejected because current
+Android lint still uses CLDR 42, which lacks them.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`This is a string-resource verifier, not a replacement for AAPT2 resource linking.
 See `,(0,D.jsx)(t.a,{href:`https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling`,children:`Android string resource rules`}),`.`]}),`
 `,(0,D.jsxs)(t.h4,{id:`preserve-custom-entity-references`,children:[`Preserve custom entity references`,(0,D.jsx)(t.a,{className:`header-link`,href:`#preserve-custom-entity-references`,children:`#`})]}),`
