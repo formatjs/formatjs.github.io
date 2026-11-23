@@ -10542,27 +10542,26 @@ supported by the standalone native binary.`]}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
-`,(0,D.jsxs)(t.h2,{id:`native-bindings-in-the-npm-cli`,children:[`Native bindings in the npm CLI`,(0,D.jsx)(t.a,{className:`header-link`,href:`#native-bindings-in-the-npm-cli`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`@formatjs/cli`}),` and `,(0,D.jsx)(t.code,{children:`@formatjs/cli-lib`}),` are Node.js packages. Message
-extraction runs in Node.js, but `,(0,D.jsx)(t.code,{children:`formatjs compile`}),`, `,(0,D.jsx)(t.code,{children:`formatjs compile-folder`}),`,
-and the `,(0,D.jsx)(t.code,{children:`compile`}),` API from `,(0,D.jsx)(t.code,{children:`@formatjs/cli-lib`}),` use native Rust bindings.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`There is no JavaScript compiler fallback and no flag to force non-native
-compilation. If a native binding is unavailable for the current OS/CPU, or if
-your package manager omits optional dependencies, compilation fails with
-`,(0,D.jsx)(t.code,{children:`Native @formatjs/cli-lib binding is unavailable`}),`.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`rust-bindings-in-the-npm-cli`,children:[`Rust bindings in the npm CLI`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-bindings-in-the-npm-cli`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`@formatjs/cli`}),` and `,(0,D.jsx)(t.code,{children:`@formatjs/cli-lib`}),` use Rust bindings for message
+extraction, compilation, and resource verification. Both packages prefer the
+optional native binding for the current OS and CPU and fall back to the
+bundled WASI binding if it cannot load. WASI requires Node.js 20.19, 22.12, or
+later supported releases. Set `,(0,D.jsx)(t.code,{children:`FORMATJS_FORCE_WASI=1`}),` to test the fallback
+on a platform with a native binding. On Windows, WASI compilation reads
+files from the drive or UNC share where the binding is first loaded.`]}),`
 `,(0,D.jsx)(t.p,{children:`The npm packages currently ship native bindings for:`}),`
-`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Platform`}),(0,D.jsx)(t.th,{children:`Package`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`macOS Apple Silicon`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-darwin-arm64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`macOS Intel`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-darwin-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux arm64 (glibc)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-arm64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux arm64 (musl)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-arm64-musl`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux x64 (glibc)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux x64 (musl)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-x64-musl`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Windows x64`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-win32-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Windows arm64`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-win32-arm64`})})]})]})]}),`
+`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Platform`}),(0,D.jsx)(t.th,{children:`Package`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`macOS Apple Silicon`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-darwin-arm64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`macOS Intel`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-darwin-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux arm64 (glibc)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-arm64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux arm64 (musl)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-arm64-musl`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux x64 (glibc)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Linux x64 (musl)`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-linux-x64-musl`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`FreeBSD x64`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-freebsd-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Windows x64`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-win32-x64`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Windows arm64`}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/cli-native-win32-arm64`})})]})]})]}),`
 `,(0,D.jsx)(t.p,{children:`The Vite plugin also uses these bindings to evaluate non-literal message
-fields. Keep optional dependencies enabled so the matching OS/CPU package is
-installed.`}),`
+fields. On platforms without an Oxc native binding, install Oxc's matching
+WASI binding separately.`}),`
 `,(0,D.jsxs)(t.h2,{id:`native-cli-rust`,children:[`Native CLI (Rust)`,(0,D.jsx)(t.a,{className:`header-link`,href:`#native-cli-rust`,children:`#`})]}),`
 `,(0,D.jsxs)(n,{type:`tip`,title:`20x Faster Extraction`,children:[(0,D.jsxs)(t.p,{children:[`We provide a high-performance native Rust CLI that's `,(0,D.jsx)(t.strong,{children:`20.90x faster`}),` than the Node.js version in the checked-in extraction benchmark. It is useful for CI/CD pipelines and large JavaScript/TypeScript codebases that do not need Node.js-specific CLI features.`]}),(0,D.jsxs)(t.p,{children:[`Install it from Cargo with `,(0,D.jsx)(t.code,{children:`cargo install formatjs_cli`}),`, or download a pre-built binary from `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/releases`,children:`GitHub Releases`}),`. Building from source requires Rust 1.97 or newer.`]})]}),`
 `,(0,D.jsx)(n,{type:`caution`,children:(0,D.jsxs)(t.p,{children:[`The native CLI is not a full drop-in replacement for every `,(0,D.jsx)(t.code,{children:`@formatjs/cli`}),`
 feature. It currently focuses on `,(0,D.jsx)(t.strong,{children:`JavaScript/TypeScript with JSX/TSX`}),`,
 supports built-in formatters only, and does not load custom JavaScript
 formatter files. If you need Vue, Svelte, Glimmer, Handlebars, GTS/GJS, or
-custom formatter support, use the npm CLI above. Its compilation commands
-still require one of the npm native bindings listed above.`]})}),`
+custom formatter support, use the npm CLI above.`]})}),`
 `,(0,D.jsxs)(t.h3,{id:`installation-1`,children:[`Installation`,(0,D.jsx)(t.a,{className:`header-link`,href:`#installation-1`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Install from Cargo:`}),`
 `,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsxs)(t.code,{className:`language-sh code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`cargo`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`install`}),` formatjs_cli
