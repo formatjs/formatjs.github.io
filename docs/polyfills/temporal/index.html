@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DcRYWwL_.js"></script>
+    <script type="module" crossorigin src="/assets/index-DPsYwGAE.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DfA9Qnht.css">
   </head>
   <body>
@@ -122,7 +122,10 @@ fields while preserving inherited public day fields. Locale formatting reports
 invalid date/time styles before a conflicting calendar. DurationFormat parts
 always expose their own unit properties.</p>
 <p class="mb-4 leading-7 text-gray-300">Without Intl, default <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.Now</code> timezone offsets remain independent of
-later replacements of <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String.prototype.padStart</code>.</p>
+later replacements of <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">String.prototype.padStart</code>.
+If the host system timezone lookup fails or returns an unusable identifier,
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.Now</code> uses UTC for calls that omit the timezone.
+If a configured clock fails, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Temporal.Now</code> uses the runtime wall clock.</p>
 <p class="mb-4 leading-7 text-gray-300">String shorthand such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">time.round(&#x27;minute&#x27;)</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">duration.total(&#x27;hour&#x27;)</code>
 creates private options directly, without reading a replaced <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Object.assign</code>
 or inherited option getters/setters. Object-form options retain inherited

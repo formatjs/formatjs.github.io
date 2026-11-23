@@ -6728,7 +6728,10 @@ fields while preserving inherited public day fields. Locale formatting reports
 invalid date/time styles before a conflicting calendar. DurationFormat parts
 always expose their own unit properties.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Without Intl, default `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` timezone offsets remain independent of
-later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
+later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.
+If the host system timezone lookup fails or returns an unusable identifier,
+`,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` uses UTC for calls that omit the timezone.
+If a configured clock fails, `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` uses the runtime wall clock.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
 creates private options directly, without reading a replaced `,(0,D.jsx)(t.code,{children:`Object.assign`}),`
 or inherited option getters/setters. Object-form options retain inherited
