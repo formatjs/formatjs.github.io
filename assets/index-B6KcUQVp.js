@@ -6850,8 +6850,10 @@ IANA/CLDR data-version differences; no implementation failures are excluded.
 Independent ICU controls verify calendar arithmetic, offsets, transitions,
 rounding, and locale output. These checks do not establish astronomical accuracy
 beyond the documented calendar authority ranges.`}),`
-`,(0,D.jsxs)(t.p,{children:[`See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015a-temporal-completion-audit.md`,children:`coverage and exclusion audit`}),`
-for exact profiles, counts, data policies, and limitations.`]})]})}function Vn(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Bn,{...e})}):Bn(e)}var Hn=c({default:()=>Wn});function Un(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,p:`p`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.p,{children:[`One of our goals is to provide developers with access to newest ECMA-402 Intl APIs. Therefore, FormatJS suite also provide multiple high quality polyfills that are fully tested using the `,(0,D.jsx)(t.a,{href:`https://github.com/tc39/test262`,children:`Official ECMAScript Conformance Test Suite`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/packages/temporal/BUILD.bazel`,children:`Bazel targets`}),`
+define the test profiles and reference their count and exclusion manifests.
+The `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015-temporal.md#default-installed-intl-timezone-provider`,children:`host Intl implementation notes`}),`
+describe the time-zone transition search limits.`]})]})}function Vn(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Bn,{...e})}):Bn(e)}var Hn=c({default:()=>Wn});function Un(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,p:`p`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.p,{children:[`One of our goals is to provide developers with access to newest ECMA-402 Intl APIs. Therefore, FormatJS suite also provide multiple high quality polyfills that are fully tested using the `,(0,D.jsx)(t.a,{href:`https://github.com/tc39/test262`,children:`Official ECMAScript Conformance Test Suite`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Our current list of polyfills includes:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`Temporal`}),` for dates, times, calendars, and time zones`]}),`
@@ -9520,8 +9522,10 @@ or the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`Herme
 `,(0,D.jsxs)(t.p,{children:[`Rust tests compare calendar math, parsing, rounding, offsets, transitions, and
 relative arithmetic with independent ICU controls. TypeScript and Hermes bindings
 run the pinned Temporal-feature Test262 corpus through their JavaScript APIs.
-Documented IANA/CLDR exclusions and calendar authority ranges are recorded in the
-`,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015a-temporal-completion-audit.md`,children:`completion audit`}),`.`]}),`
+See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/packages/temporal/tests/intl-compat-test262-count.json`,children:`Intl Test262 manifest`}),`
+for IANA and CLDR exclusions and the
+`,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015-temporal.md`,children:`Temporal implementation notes`}),`
+for calendar authority ranges.`]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:(0,D.jsx)(t.a,{href:`https://docs.rs/formatjs_temporal`,children:`API reference`})}),`
 `,(0,D.jsx)(t.li,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_temporal`,children:`crates.io package`})}),`
