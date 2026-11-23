@@ -6620,11 +6620,8 @@ Rust core timings exclude Hermes/JSI and JS boundary work; inputs are prepared
 Rust strings/UTF-16. Data and API-boundary differences prevent direct speedup
 claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/benchmarks/polyfills#rust-core-suite`,children:`Workload details and raw results`}),`.`]})]})}function Ln(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(In,{...e})}):In(e)}function Rn(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}var zn=c({default:()=>Vn});function Bn(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.h1,{id:`temporal`,children:[`Temporal`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`@formatjs/temporal`}),` brings Temporal dates, times, calendars, and time zones to TypeScript, Node.js, and Hermes.`]}),`
-`,(0,D.jsx)(t.p,{children:`Use all eight Temporal value types and all 16 calendars. TypeScript runs in
-JavaScript hosts; native Rust powers the Hermes SDK.`}),`
-`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`/docs/rust/temporal`,children:`Rust crate`}),` provides the same date/time primitives for
-native applications.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`@formatjs/temporal`}),` provides Temporal's eight value types, `,(0,D.jsx)(t.code,{children:`Now`}),`, and 16
+calendars in JavaScript.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`installation`,children:[`Installation`,(0,D.jsx)(t.a,{className:`header-link`,href:`#installation`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`npm`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`install`}),` @formatjs/temporal
 `]})})}),`
@@ -6634,168 +6631,33 @@ native applications.`]}),`
 `}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` meeting `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` Temporal`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),`ZonedDateTime`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`from`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token string`,children:`'2020-03-07T12:00-05:00[America/New_York]'`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
-`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
-`}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`meeting`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`add`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`days`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token number`,children:`1`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`toString`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`meeting`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`add`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`days`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token number`,children:`1`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`toString`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`// '2020-03-08T12:00:00-04:00[America/New_York]'`}),`
 `]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`meeting`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`add`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`hours`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token number`,children:`24`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`toString`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`// '2020-03-08T13:00:00-04:00[America/New_York]'`}),`
 `]})]})}),`
-`,(0,D.jsx)(t.p,{children:`A calendar day can differ from 24 hours when the time-zone offset changes.`}),`
-`,(0,D.jsxs)(t.p,{children:[`To install `,(0,D.jsx)(t.code,{children:`globalThis.Temporal`}),` and `,(0,D.jsx)(t.code,{children:`Date.prototype.toTemporalInstant`}),`, import:`]}),`
-`,(0,D.jsx)(t.pre,{className:`language-ts`,children:(0,D.jsx)(t.code,{className:`language-ts code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/temporal/polyfill.js'`}),`
-`]})})}),`
-`,(0,D.jsxs)(t.p,{children:[`This preserves an existing Temporal implementation. Use
-`,(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`}),` to replace it unconditionally.`]}),`
+`,(0,D.jsx)(t.p,{children:`A calendar day can differ from 24 hours when the offset changes.`}),`
 `,(0,D.jsxs)(t.h2,{id:`choose-an-entry-point`,children:[`Choose an entry point`,(0,D.jsx)(t.a,{className:`header-link`,href:`#choose-an-entry-point`,children:`#`})]}),`
-`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Entry`}),(0,D.jsx)(t.th,{children:`Use it for`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal`})}),(0,D.jsx)(t.td,{children:`An isolated namespace using installed Intl data`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill.js`})}),(0,D.jsx)(t.td,{children:`Conditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`})}),(0,D.jsx)(t.td,{children:`Unconditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/standalone.js`})}),(0,D.jsx)(t.td,{children:`An isolated namespace with bundled calendar and IANA data`})]})]})]}),`
-`,(0,D.jsxs)(t.p,{children:[`The namespace exports `,(0,D.jsx)(t.code,{children:`Instant`}),`, `,(0,D.jsx)(t.code,{children:`Duration`}),`, `,(0,D.jsx)(t.code,{children:`PlainDate`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),`,
-`,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),`, `,(0,D.jsx)(t.code,{children:`PlainTime`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth`}),`, `,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),`, and `,(0,D.jsx)(t.code,{children:`Now`}),`.
-Temporal uses a captured `,(0,D.jsx)(t.code,{children:`Object.create`}),` for its own internal allocations.
-Singular and plural unit names use exact private matching. Replacing
-`,(0,D.jsx)(t.code,{children:`String.prototype.endsWith`}),` or `,(0,D.jsx)(t.code,{children:`slice`}),` does not intercept that matching;
-public option getters and string coercion hooks still run normally.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Difference options read `,(0,D.jsx)(t.code,{children:`largestUnit`}),`, `,(0,D.jsx)(t.code,{children:`roundingIncrement`}),`, `,(0,D.jsx)(t.code,{children:`roundingMode`}),`, then
-`,(0,D.jsx)(t.code,{children:`smallestUnit`}),`. An unrecognized largest-unit spelling throws before later option
-getters run. Recognized units are checked against the method's allowed units
-after those reads.`]}),`
-`,(0,D.jsx)(t.p,{children:`PlainDateTime differences prepare private unit names without mutable array
-iteration. PlainYearMonth differences isolate private reference-date fields from
-inherited era getters; inherited fields on public input bags remain observable.`}),`
-`,(0,D.jsx)(t.p,{children:`Shared ISO string parsing also avoids mutable RegExp/String methods and legacy
-RegExp match-state changes. Clock fractions retain all nine digits. Calendar and
-timezone preparation outside the parser retains its separate validation.
-Calendar identifier preparation retains its original lowercase operation; zoned
-conversion classifies date-only input and offset precision without mutable
-String/RegExp methods.`}),`
-`,(0,D.jsxs)(t.p,{children:[`Duration strings parse without calling mutable RegExp or String methods or
-changing legacy RegExp match state. Fractions preserve all nine digits, including
-fractional hours and minutes.
-Duration totals and fixed-precision strings also avoid replaced BigInt string
-conversion and array search methods during private calculations.
-PlainDateTime and ZonedDateTime differences with hour or smaller largest units
-round the exact integer span before converting final Duration fields to Numbers.
-Calendar-relative difference rounding compares validated mode names directly,
-without calling a replaced `,(0,D.jsx)(t.code,{children:`String.prototype.startsWith`}),`.
-Zoned `,(0,D.jsx)(t.code,{children:`relativeTo`}),` preparation for Duration rounding/totals keeps omitted private
-fields isolated from inherited getters. ZonedDateTime rounding rejects invalid
-units/increments before computing local time. Clock rounding keeps timezone
-offsets as exact bigint values, avoiding private string formatting and reparsing.
-Private timezone caches retain their original Map constructor and access methods.
-Timezone name preparation retains original case/key methods. Default compact-zone
-transition preparation avoids replaced array methods and inherited row/metadata setters.
-Relative `,(0,D.jsx)(t.code,{children:`Duration`}),` options route strings without an extra RegExp test; full
-string validation still follows the existing parsers.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Zoned date-largest differences validate the following local-day window when
-rounding requires it, including zero Duration rounding and exact subday results.
-Public until/since with equal epochs still return zero after option validation.
-Clock rounding carries across a shorter local-day window even when its time
-quantity stays unchanged. Nanosecond rounding
-with increment 1 retains its identity path. Duration totals and rounds use the
-original local clock when a timezone gap shifts an intermediate date.
-Duration rounding to weeks with a year/month largest unit also validates the
-following week endpoint for exact results. Nanosecond identity and plain-zero
-equality retain their shortcuts.
-Calendar-relative `,(0,D.jsx)(t.code,{children:`since`}),` and zoned intermediate additions keep private Duration
-field processing independent of a replaced `,(0,D.jsx)(t.code,{children:`Object.keys`}),`.
-PlainDate, PlainDateTime and PlainYearMonth add/subtract also keep private fields
-independent of replaced `,(0,D.jsx)(t.code,{children:`Object.keys`}),` and array iteration. YearMonth addition
-validates the added full date before constructing its YearMonth result.
-Calendar addition also avoids replaced array mapping/species and private
-month-code regex/string hooks. Private destination records ignore inherited
-`,(0,D.jsx)(t.code,{children:`monthCode`}),`; public field bags still read inherited month-code getters.
-Host calendar caches retain original Map/iterator operations. Compact and
-approximate year construction avoids replaced array methods and inherited
-indexed setters; private host Intl options ignore inherited formatting fields.`]}),`
-`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`PlainDate`}),` conversions keep private calendar fields separate from inherited
-properties and use internal time conversion even when `,(0,D.jsx)(t.code,{children:`PlainTime.from`}),` changes.
-Direct branded timezone inputs skip unused `,(0,D.jsx)(t.code,{children:`plainTime`}),` getters. ISO year padding
-remains independent of later changes to `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Non-ISO `,(0,D.jsx)(t.code,{children:`PlainMonthDay`}),` strings validate their original date range before
-selecting a reference year. Short-date parsing and `,(0,D.jsx)(t.code,{children:`toPlainDate`}),` keep private
-fields separate from inherited properties; Chinese/Dangi leap-code handling
-remains independent of replaced string methods.`]}),`
-`,(0,D.jsx)(t.p,{children:`Plain relative Duration totals and rounds reject destinations outside
-PlainDateTime bounds before rounding. Exact adjacent values and zero-duration
-shortcuts remain supported. PlainDateTime time replacement and serialization
-remain independent of later changes to PlainTime.from and String.prototype.slice.`}),`
-`,(0,D.jsx)(t.p,{children:`Duration comparison validates required calendar and zoned additions even when
-date components match. Plain fixed-day/time comparisons do not require a final
-destination date within Temporal bounds. Complete equal durations retain their
-specified shortcut.`}),`
-`,(0,D.jsx)(t.p,{children:`PlainYearMonth.toPlainDate keeps inherited era properties out of private calendar
-fields while preserving inherited public day fields. Locale formatting reports
-invalid date/time styles before a conflicting calendar. DurationFormat parts
-always expose their own unit properties.`}),`
-`,(0,D.jsxs)(t.p,{children:[`Without Intl, default `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` timezone offsets remain independent of
-later replacements of `,(0,D.jsx)(t.code,{children:`String`}),` or `,(0,D.jsx)(t.code,{children:`String.prototype.padStart`}),`.
-If the host system timezone lookup fails or returns an unusable identifier,
-`,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` uses UTC for calls that omit the timezone.
-If a configured clock fails, `,(0,D.jsx)(t.code,{children:`Temporal.Now`}),` uses the runtime wall clock.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`String shorthand such as `,(0,D.jsx)(t.code,{children:`time.round('minute')`}),` or `,(0,D.jsx)(t.code,{children:`duration.total('hour')`}),`
-creates private options directly, without reading a replaced `,(0,D.jsx)(t.code,{children:`Object.assign`}),`
-or inherited option getters/setters. Object-form options retain inherited
-property reads.
-Host timezone and owned DateTimeFormat adapters also create private copied
-records without consulting `,(0,D.jsx)(t.code,{children:`Object.assign`}),` or invoking inherited slot setters.
-Its constructor prototype reads and formatter option reads use ordinary property
-access without consulting a replaced `,(0,D.jsx)(t.code,{children:`Reflect.get`}),`.
-Temporal and shared date/calendar helpers retain a captured `,(0,D.jsx)(t.code,{children:`Math.floor`}),` for
-internal floor arithmetic. Other internal math operations, numeric predicates and
-Number/BigInt conversions also retain captured bindings.
-Temporal validation and shared helpers retain their original Error, TypeError and
-RangeError constructors after global bindings change.
-Temporal and shared formatter private-list predicates retain captured
-`,(0,D.jsx)(t.code,{children:`Array.prototype.every`}),` and `,(0,D.jsx)(t.code,{children:`Array.prototype.some`}),` operations and their invocation
-helper.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`When installation adapts native `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),` for Temporal inputs,
-private formatter state and projection caches retain captured WeakMap/Map
-operations. Replacing those methods, global `,(0,D.jsx)(t.code,{children:`Map`}),`, or `,(0,D.jsx)(t.code,{children:`Reflect.apply`}),` and
-`,(0,D.jsx)(t.code,{children:`Reflect.construct`}),` after import does not intercept these bridge operations.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Shared primitive coercion retains intrinsic helper bindings while preserving user
-conversion hooks and their standard hints. Browser host objects such as
-`,(0,D.jsx)(t.code,{children:`document.all`}),` retain object semantics for field bags, options, constructor
-prototypes and primitive conversion.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`ZonedDateTime string conversion validates syntax and identifiers, then reads
-`,(0,D.jsx)(t.code,{children:`disambiguation`}),`, `,(0,D.jsx)(t.code,{children:`offset`}),` and `,(0,D.jsx)(t.code,{children:`overflow`}),` before checking representable range.
-This order also applies when native parsing is enabled.`]}),`
+`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Entry`}),(0,D.jsx)(t.th,{children:`Use it for`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal`})}),(0,D.jsx)(t.td,{children:`Isolated namespace using installed Intl data`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill.js`})}),(0,D.jsx)(t.td,{children:`Global installation when the host Temporal API is missing or incomplete`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/polyfill-force.js`})}),(0,D.jsx)(t.td,{children:`Unconditional global installation`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`@formatjs/temporal/standalone.js`})}),(0,D.jsx)(t.td,{children:`Isolated namespace with bundled calendar and time-zone data`})]})]})]}),`
+`,(0,D.jsxs)(t.p,{children:[`The installation entries also provide `,(0,D.jsx)(t.code,{children:`Date.prototype.toTemporalInstant`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`calendars-and-time-zone-data`,children:[`Calendars and time-zone data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#calendars-and-time-zone-data`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`Date formatting normalizes nonpositive calendar display years to `,(0,D.jsx)(t.code,{children:`1 - year`}),`,
-including the native Intl bridge. For example, Buddhist calendar year 0 displays
-as year 1. Temporal's stored calendar year stays 0.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Month codes must match Temporal's grammar exactly. Malformed codes such as
-`,(0,D.jsx)(t.code,{children:`M00`}),` or codes with trailing whitespace throw before later field getters run.
-A syntactically valid code can still be invalid for the chosen calendar.
-`,(0,D.jsx)(t.code,{children:`PlainDate.from`}),`, `,(0,D.jsx)(t.code,{children:`PlainDateTime.from`}),`, `,(0,D.jsx)(t.code,{children:`PlainYearMonth.from`}),` and
-`,(0,D.jsx)(t.code,{children:`PlainMonthDay.from`}),` validate string syntax and calendar,
-then read `,(0,D.jsx)(t.code,{children:`overflow`}),`, then check representable bounds and normalize the date.
-Calendar strings passed to `,(0,D.jsx)(t.code,{children:`withCalendar`}),` or a field bag need valid ISO syntax;
-their date can lie outside Temporal’s representable range. Only the calendar
-annotation is used.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Duration operations accept a `,(0,D.jsx)(t.code,{children:`PlainDateTime`}),` as `,(0,D.jsx)(t.code,{children:`relativeTo`}),`. They use its stored
-date and calendar, ignore its time, and do not read shadowed public field getters.
-Calendar-unit totals validate both interpolation endpoints. Near date limits,
-even an exact total or a zero zoned total can throw `,(0,D.jsx)(t.code,{children:`RangeError`}),`.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`The default entry captures the installed `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),` for named
-time-zone offsets and Umm al-Qura data. It works with native Intl or installed
-FormatJS polyfills. Load Intl polyfills and their data `,(0,D.jsx)(t.strong,{children:`before importing
-Temporal`}),`. UTC and numeric offsets work without Intl.`]}),`
-`,(0,D.jsx)(t.p,{children:`For owned time-zone histories and recurring future rules, use:`}),`
-`,(0,D.jsx)(t.pre,{className:`language-ts`,children:(0,D.jsxs)(t.code,{className:`language-ts code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`Temporal`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`from`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/temporal/standalone.js'`}),`
-`]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
-`}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`Temporal`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),`ZonedDateTime`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`from`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'2150-07-01T12:00[America/New_York]'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
-`]})]})}),`
-`,(0,D.jsx)(t.p,{children:`Standalone includes calendar tables and IANA transitions with future rules;
-its time-zone data does not stop at 2100. Update the package when timezone laws
-change. Equivalent timezone aliases compare through bundled primary-zone
-data; private lookup ignores inherited object properties. The default entry instead follows the installed Intl data version.`}),`
-`,(0,D.jsx)(t.p,{children:`Default transition queries search host offsets. Intl has no transition
-enumeration API, so closely spaced changes can escape that search. Use standalone
-when transition histories must be determined by the bundled data.`}),`
-`,(0,D.jsx)(t.p,{children:`Chinese and Dangi use compact ICU4X data with an arithmetic approximation outside
-1900–2102 in the default entry. Default Umm al-Qura uses host data for AH 1300–1600,
-then a civil-calendar fallback. These data policies are distinct from
-independently verified calendar authority ranges.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Load any Intl polyfills and their data `,(0,D.jsx)(t.strong,{children:`before importing Temporal`}),`. The
+default entry captures installed DateTimeFormat for named time zones and
+Umm al-Qura data. UTC and numeric offsets work without Intl.`]}),`
+`,(0,D.jsx)(t.p,{children:`Native Intl supplies offsets, so the default entry samples them to find
+transitions. Closely spaced changes can escape detection if the offsets at both
+ends of a sample interval match. Use standalone for bundled IANA history and
+recurring rules beyond 2100. Update the package when those rules change.`}),`
+`,(0,D.jsx)(t.p,{children:`Chinese and Dangi use compact ICU4X data for 1900–2102 and an arithmetic
+approximation outside that range. The default entry uses host Umm al-Qura data
+for AH 1300–1600, with civil arithmetic outside that range.`}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`Temporal.Now`}),` uses the system time zone. Without DateTimeFormat it uses
+the current offset from `,(0,D.jsx)(t.code,{children:`Date`}),`. A failed lookup or unusable identifier falls
+back to UTC. If a configured clock throws, Now uses the runtime wall clock.
+Explicit invalid zone arguments still throw.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Calendar-unit Duration totals validate both interpolation endpoints. Near date
+limits, an exact result or a zero zoned total can still throw `,(0,D.jsx)(t.code,{children:`RangeError`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`locale-formatting`,children:[`Locale formatting`,(0,D.jsx)(t.a,{className:`header-link`,href:`#locale-formatting`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-ts`,children:(0,D.jsxs)(t.code,{className:`language-ts code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/temporal/polyfill.js'`}),`
 `]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
@@ -6804,56 +6666,23 @@ independently verified calendar authority ranges.`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token comment`,children:`// 'November 17, 2026'`}),`
 `]})]})}),`
-`,(0,D.jsxs)(t.p,{children:[`Date/time locale methods use the installed DateTimeFormat; Duration uses
-DurationFormat. Without the corresponding formatter, locale methods return an
-ISO representation. Fractional Duration formatting retains exact decimal arithmetic,
-including nanoseconds and large integral seconds; precision regressions cover
-positive and negative values. See `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-datetimeformat`,children:`DateTimeFormat`}),` and
-`,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-durationformat`,children:`DurationFormat`}),` for data loading.`]}),`
-`,(0,D.jsx)(t.p,{children:`FormatJS formatters retain selected Intl methods for private formatting work.
-New DurationFormat instances and cold DateTimeFormat numeric profiles can adopt
-later installed NumberFormat providers; initialized instances/profiles retain
-their selected providers. Fractional Duration scaling uses exact bigint divisors.
-Cold Temporal kind selection also retains private matching and interval methods.
-Fresh Duration locale snapshots retain Set order and invalidation without
-observing replaced Set iteration methods. Prefix lookup and Unicode extension
-handling retain the original locale and option read order.`}),`
-`,(0,D.jsxs)(t.p,{children:[`Global installation registers Temporal with FormatJS formatters and adapts legacy
-host formatters. Create formatters after installation. For an isolated namespace,
-register explicitly with `,(0,D.jsx)(t.code,{children:`DateTimeFormat.__addTemporalNamespace(Temporal)`}),` when
-using the FormatJS DateTimeFormat class.`]}),`
-`,(0,D.jsxs)(t.h2,{id:`hermes`,children:[`Hermes`,(0,D.jsx)(t.a,{className:`header-link`,href:`#hermes`,children:`#`})]}),`
-`,(0,D.jsx)(t.p,{children:`The TypeScript implementation runs on Hermes as source and optimized bytecode.
-Install the required Intl APIs and data first, or use the standalone namespace
-for calendar and named-timezone operations without host Intl data.`}),`
-`,(0,D.jsxs)(t.p,{children:[`For Rust-backed Temporal, use the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`native Hermes SDK`}),`.
-Native integration requires rebuilding your app. The tested Hermes runtime has
-no WebAssembly runtime, so use TypeScript or the native SDK there.`]}),`
-`,(0,D.jsxs)(t.h2,{id:`rust`,children:[`Rust`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_temporal`,children:`Rust crate`}),` provides typed Temporal
-values, calendar providers, IANA timezone registries and optional compiled data.
-The native Hermes SDK binds that Rust engine. Temporal WASM entry points and
-assets have been removed; use TypeScript in JavaScript hosts or native Rust.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Private defaults ignore inherited prototype fields. Public field bags still read
-inherited getters. PlainTime's private clock lists also ignore replaced array
-mapping, iteration and species hooks; public field getters retain their order.
-`,(0,D.jsx)(t.code,{children:`ZonedDateTime`}),` constructors check epoch range before validating timezone and
-calendar arguments.
-Rounding a ZonedDateTime to one nanosecond returns a fresh equivalent value,
-including minimum/maximum instants with outward timezone offsets.
-Rounding options are validated before that return.
-Calendar/unit array `,(0,D.jsx)(t.code,{children:`includes`}),`/`,(0,D.jsx)(t.code,{children:`indexOf`}),` lookups retain original intrinsics.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Date and time values use `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-datetimeformat`,children:`DateTimeFormat`}),`.
+Duration uses `,(0,D.jsx)(t.a,{href:`/docs/polyfills/intl-durationformat`,children:`DurationFormat`}),`. If the
+formatter is unavailable, `,(0,D.jsx)(t.code,{children:`toLocaleString()`}),` returns an ISO representation.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Create formatters after global Temporal installation. To use an isolated
+namespace with FormatJS formatters, register it with
+`,(0,D.jsx)(t.code,{children:`DateTimeFormat.__addTemporalNamespace(Temporal)`}),` or
+`,(0,D.jsx)(t.code,{children:`DurationFormat.__addTemporalNamespace(Temporal)`}),` on the FormatJS class in use.`]}),`
+`,(0,D.jsxs)(t.h2,{id:`hermes-and-rust`,children:[`Hermes and Rust`,(0,D.jsx)(t.a,{className:`header-link`,href:`#hermes-and-rust`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Use TypeScript on Hermes or rebuild your app with the
+`,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`native Hermes SDK`}),` for Rust-backed Temporal.
+For native Rust applications, see `,(0,D.jsx)(t.a,{href:`/docs/rust/temporal`,children:`Temporal for Rust`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`conformance-and-verification`,children:[`Conformance and verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#conformance-and-verification`,children:`#`})]}),`
-`,(0,D.jsx)(t.p,{children:`The pinned Temporal-feature Test262 corpus passes on Node.js and Hermes
-source/bytecode, including Intl integration. Exclusions cover documented
-IANA/CLDR data-version differences; no implementation failures are excluded.
-Independent ICU controls verify calendar arithmetic, offsets, transitions,
-rounding, and locale output. These checks do not establish astronomical accuracy
-beyond the documented calendar authority ranges.`}),`
-`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/packages/temporal/BUILD.bazel`,children:`Bazel targets`}),`
-define the test profiles and reference their count and exclusion manifests.
-The `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015-temporal.md#default-installed-intl-timezone-provider`,children:`host Intl implementation notes`}),`
-describe the time-zone transition search limits.`]})]})}function Vn(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Bn,{...e})}):Bn(e)}var Hn=c({default:()=>Wn});function Un(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,p:`p`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.p,{children:[`One of our goals is to provide developers with access to newest ECMA-402 Intl APIs. Therefore, FormatJS suite also provide multiple high quality polyfills that are fully tested using the `,(0,D.jsx)(t.a,{href:`https://github.com/tc39/test262`,children:`Official ECMAScript Conformance Test Suite`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Test262 covers JavaScript behavior on Node.js and Hermes. Independent ICU
+fixtures cover calendar arithmetic, offsets, transitions, rounding, and
+formatting. Calendar fixtures verify specific authority ranges.
+The `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015-temporal.md`,children:`implementation guide`}),`
+links to test profiles, documented data-version exclusions, and provider limits.`]})]})}function Vn(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Bn,{...e})}):Bn(e)}var Hn=c({default:()=>Wn});function Un(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,img:`img`,li:`li`,p:`p`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.p,{children:[`One of our goals is to provide developers with access to newest ECMA-402 Intl APIs. Therefore, FormatJS suite also provide multiple high quality polyfills that are fully tested using the `,(0,D.jsx)(t.a,{href:`https://github.com/tc39/test262`,children:`Official ECMAScript Conformance Test Suite`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Our current list of polyfills includes:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`Temporal`}),` for dates, times, calendars, and time zones`]}),`
@@ -9452,18 +9281,14 @@ check requires.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Without `,(0,D.jsx)(t.code,{children:`compiled_data`}),`, use `,(0,D.jsx)(t.code,{children:`Intl::try_new_with_context`}),`, and
 `,(0,D.jsx)(t.code,{children:`IntlContext::negotiate_locale`}),` in place of the standalone `,(0,D.jsx)(t.code,{children:`negotiate_locale`}),`;
 default caches are unavailable. Disable defaults on direct
-`,(0,D.jsx)(t.code,{children:`formatjs_icu_messageformat`}),` dependencies too: Cargo unifies dependency features.`]})]})}function Wr(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Ur,{...e})}):Ur(e)}var Gr=c({default:()=>qr});function Kr(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,li:`li`,p:`p`,pre:`pre`,span:`span`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.h1,{id:`temporal-for-rust`,children:[`Temporal for Rust`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-for-rust`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`An allocation-free `,(0,D.jsx)(t.code,{children:`no_std`}),` Temporal core for Rust, with calendar arithmetic and IANA time zones.`]}),`
-`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`formatjs_temporal`}),` supplies eight typed date/time values, calendar/timezone
-providers, and `,(0,D.jsx)(t.code,{children:`Now`}),`.
-The `,(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`TypeScript package`}),` supplies the JavaScript API;
-the native Hermes SDK binds the Rust engine.`]}),`
+`,(0,D.jsx)(t.code,{children:`formatjs_icu_messageformat`}),` dependencies too: Cargo unifies dependency features.`]})]})}function Wr(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Ur,{...e})}):Ur(e)}var Gr=c({default:()=>qr});function Kr(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,p:`p`,pre:`pre`,span:`span`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsxs)(t.h1,{id:`temporal-for-rust`,children:[`Temporal for Rust`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-for-rust`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`formatjs_temporal`}),` is an allocation-free `,(0,D.jsx)(t.code,{children:`no_std`}),` Temporal core. It provides
+typed dates, times, durations, calendars, time zones, and `,(0,D.jsx)(t.code,{children:`Now`}),`.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`installation`,children:[`Installation`,(0,D.jsx)(t.a,{className:`header-link`,href:`#installation`,children:`#`})]}),`
-`,(0,D.jsx)(t.pre,{className:`language-toml`,children:(0,D.jsxs)(t.code,{className:`language-toml code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token table class-name`,children:`dependencies`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),`
-`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token key property`,children:`formatjs_temporal`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),` `,(0,D.jsx)(t.span,{className:`token key property`,children:`version`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`"1"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token key property`,children:`features`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token string`,children:`"compiled_data"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
-`]})]})}),`
-`,(0,D.jsx)(t.p,{children:`The published crate includes generated calendar/time-zone data and a Cargo build
-script. Applications do not need Bazel or a separate data-generation step.`}),`
+`,(0,D.jsx)(t.pre,{className:`language-sh`,children:(0,D.jsx)(t.code,{className:`language-sh code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`cargo`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`add`}),` formatjs_temporal `,(0,D.jsx)(t.span,{className:`token parameter variable`,children:`--features`}),` compiled_data
+`]})})}),`
+`,(0,D.jsx)(t.p,{children:`The published crate includes generated calendar and time-zone data and a
+Cargo build script.`}),`
 `,(0,D.jsxs)(t.h2,{id:`parse-a-zoned-date-and-time`,children:[`Parse a zoned date and time`,(0,D.jsx)(t.a,{className:`header-link`,href:`#parse-a-zoned-date-and-time`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-rust`,children:(0,D.jsxs)(t.code,{className:`language-rust code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`use`}),` `,(0,D.jsxs)(t.span,{className:`token namespace`,children:[`formatjs_temporal`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`::`})]}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token class-name`,children:`TemporalContext`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token class-name`,children:`ZonedParseOptions`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
 `]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
@@ -9479,14 +9304,12 @@ script. Applications do not need Bazel or a separate data-generation step.`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token class-name`,children:`Ok`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
 `]})]})}),`
-`,(0,D.jsx)(t.p,{children:`Create a context once and reuse its validated registries. Values retain their
-calendar and timezone providers.`}),`
-`,(0,D.jsxs)(t.p,{children:[`Calendar-unit `,(0,D.jsx)(t.code,{children:`total_duration`}),` calls validate both interpolation endpoints, even
-when the result is an integer. They can return an error near date limits. Zero
-zoned calendar totals also validate the positive window; plain zero totals return zero.`]}),`
+`,(0,D.jsx)(t.p,{children:`Reuse the context across calls. Parsed values keep their calendar and
+time-zone providers.`}),`
 `,(0,D.jsxs)(t.h2,{id:`choose-how-to-supply-data`,children:[`Choose how to supply data`,(0,D.jsx)(t.a,{className:`header-link`,href:`#choose-how-to-supply-data`,children:`#`})]}),`
-`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Feature`}),(0,D.jsx)(t.th,{children:`Included data`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Default features`}),(0,D.jsx)(t.td,{children:`Arithmetic calendars; UTC and fixed offsets need no tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_calendars`})}),(0,D.jsx)(t.td,{children:`Chinese, Dangi, and Umm al-Qura tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_time_zones`})}),(0,D.jsx)(t.td,{children:`Pinned IANA histories and recurring future rules`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_data`})}),(0,D.jsx)(t.td,{children:`Both calendar and timezone tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`ffi`})}),(0,D.jsxs)(t.td,{children:[`Optional JSON bridge used by JavaScript backends; enables `,(0,D.jsx)(t.code,{children:`serde_json`})]})]})]})]}),`
-`,(0,D.jsx)(t.p,{children:`Without compiled data, construct a context from the data you need:`}),`
+`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Feature`}),(0,D.jsx)(t.th,{children:`Included data or integration`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:`Default`}),(0,D.jsx)(t.td,{children:`Arithmetic calendars, UTC, and fixed offsets`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_calendars`})}),(0,D.jsx)(t.td,{children:`Chinese, Dangi, and Umm al-Qura tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_time_zones`})}),(0,D.jsx)(t.td,{children:`IANA history and recurring future rules`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`compiled_data`})}),(0,D.jsx)(t.td,{children:`Both sets of tables`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`ffi`})}),(0,D.jsx)(t.td,{children:`Optional JSON bridge for JavaScript backends`})]})]})]}),`
+`,(0,D.jsx)(t.p,{children:`For arithmetic calendars and UTC or fixed offsets, start with empty data
+registries:`}),`
 `,(0,D.jsx)(t.pre,{className:`language-rust`,children:(0,D.jsxs)(t.code,{className:`language-rust code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`use`}),` `,(0,D.jsxs)(t.span,{className:`token namespace`,children:[`formatjs_temporal`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`::`})]}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token class-name`,children:`CalendarRegistry`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token class-name`,children:`TemporalContext`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token class-name`,children:`TimeZoneRegistry`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
 `]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`let`}),` context `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token class-name`,children:`TemporalContext`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`::`}),(0,D.jsx)(t.span,{className:`token function`,children:`new`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`
@@ -9495,42 +9318,27 @@ zoned calendar totals also validate the positive window; plain zero totals retur
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`let`}),` date `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` context`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token function`,children:`parse_date`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`"2026-11-17"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token operator`,children:`?`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
 `]})]})}),`
-`,(0,D.jsxs)(t.p,{children:[`For runtime-loaded data, decode it into caller-owned typed records, then use
-`,(0,D.jsx)(t.code,{children:`CalendarRegistry::new(&tables)`}),` and `,(0,D.jsx)(t.code,{children:`TimeZoneRegistry::new(&records)`}),`.
-`,(0,D.jsx)(t.code,{children:`TableCalendar`}),` validates lunisolar and Umm al-Qura tables; `,(0,D.jsx)(t.code,{children:`TransitionZone`}),`
-accepts explicit transitions and optional future rules. Registries borrow this
-storage, which must outlive the context and values using it. Time-zone records
-must be sorted by primary identifier, without duplicates.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Missing data returns `,(0,D.jsx)(t.code,{children:`MissingCalendarData`}),` or `,(0,D.jsx)(t.code,{children:`MissingTimeZoneData`}),`; an unknown
-zone does not silently become UTC. There is no built-in JSON/filesystem loader
-or shared `,(0,D.jsx)(t.code,{children:`formatjs_intl_data`}),` loader integration. Applications own decoding and
-I/O. Compiled time-zone rules continue beyond 2100; update data when laws change.`]}),`
-`,(0,D.jsxs)(t.h2,{id:`dependencies`,children:[`Dependencies`,(0,D.jsx)(t.a,{className:`header-link`,href:`#dependencies`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`The only direct FormatJS dependency is
-`,(0,D.jsx)(t.code,{children:`formatjs_intl_datetimeformat_calendars`}),`, with default features disabled. Temporal
-uses its numeric calendar core without pulling in the DateTimeFormat formatter,
-locale data, or the application-level `,(0,D.jsx)(t.code,{children:`formatjs_intl`}),` runtime. `,(0,D.jsx)(t.code,{children:`serde_json`}),` is
-optional and used by `,(0,D.jsx)(t.code,{children:`ffi`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`To use your own data, pass a `,(0,D.jsx)(t.code,{children:`CalendarRegistry`}),` and `,(0,D.jsx)(t.code,{children:`TimeZoneRegistry`}),` to
+`,(0,D.jsx)(t.code,{children:`TemporalContext::new`}),`. The registries borrow the underlying tables and
+transition records. Keep that storage alive for as long as values use it.
+Time-zone records must be sorted by primary identifier, without duplicates.
+Callers own data loading and decoding.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Missing tables return `,(0,D.jsx)(t.code,{children:`MissingCalendarData`}),` or `,(0,D.jsx)(t.code,{children:`MissingTimeZoneData`}),`.
+Unknown zones return an error. For host-default lookup,
+`,(0,D.jsx)(t.code,{children:`TimeZoneRegistry::system`}),` falls back to UTC when the name is missing or
+unresolvable. Rust's `,(0,D.jsx)(t.code,{children:`Now`}),` takes a clock and time-zone provider from the
+embedding application.`]}),`
+`,(0,D.jsx)(t.p,{children:`Calendar-unit totals validate both interpolation endpoints. Exact results
+and zero zoned totals can fail near date limits. Plain zero totals return zero.`}),`
 `,(0,D.jsxs)(t.h2,{id:`javascript-and-hermes`,children:[`JavaScript and Hermes`,(0,D.jsx)(t.a,{className:`header-link`,href:`#javascript-and-hermes`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`Rust owns typed values and normalized date/time operations. The JavaScript facade
-owns ECMAScript coercion, property access order, object allocation, and brands.
-Use `,(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`the TypeScript guide`}),` for the public Temporal API
-or the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`Hermes SDK`}),` for native embedding.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`Rust APIs are idiomatic typed APIs rather than a JavaScript object runtime.
-`,(0,D.jsx)(t.code,{children:`Now`}),` takes a clock and timezone provider from the embedding application.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`/docs/polyfills/temporal`,children:`TypeScript polyfill`}),` exposes JavaScript Temporal.
+The `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl#temporal`,children:`native Hermes SDK`}),` delegates typed
+operations to Rust while JavaScript handles coercion, option order, and brands.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`verification`,children:[`Verification`,(0,D.jsx)(t.a,{className:`header-link`,href:`#verification`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`Rust tests compare calendar math, parsing, rounding, offsets, transitions, and
-relative arithmetic with independent ICU controls. TypeScript and Hermes bindings
-run the pinned Temporal-feature Test262 corpus through their JavaScript APIs.
-See the `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/packages/temporal/tests/intl-compat-test262-count.json`,children:`Intl Test262 manifest`}),`
-for IANA and CLDR exclusions and the
-`,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015-temporal.md`,children:`Temporal implementation notes`}),`
-for calendar authority ranges.`]}),`
-`,(0,D.jsxs)(t.ul,{children:[`
-`,(0,D.jsx)(t.li,{children:(0,D.jsx)(t.a,{href:`https://docs.rs/formatjs_temporal`,children:`API reference`})}),`
-`,(0,D.jsx)(t.li,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_temporal`,children:`crates.io package`})}),`
-`,(0,D.jsx)(t.li,{children:(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/tree/main/benchmarks/temporal`,children:`Benchmarks and measurement scope`})}),`
-`]})]})}function qr(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Kr,{...e})}):Kr(e)}var Jr=c({default:()=>Xr});function Yr(e){let t={a:`a`,code:`code`,h2:`h2`,li:`li`,p:`p`,pre:`pre`,span:`span`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`FormatJS provides Rust crates for message formatting, locale negotiation,
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`https://github.com/formatjs/formatjs/blob/main/knowledge-base/015-temporal.md`,children:`implementation guide`}),`
+links to current conformance tests and calendar authority ranges.
+See the `,(0,D.jsx)(t.a,{href:`https://docs.rs/formatjs_temporal`,children:`Rust API reference`}),` for types and
+methods.`]})]})}function qr(e={}){let{wrapper:t}={...A(),...e.components};return t?(0,D.jsx)(t,{...e,children:(0,D.jsx)(Kr,{...e})}):Kr(e)}var Jr=c({default:()=>Xr});function Yr(e){let t={a:`a`,code:`code`,h2:`h2`,li:`li`,p:`p`,pre:`pre`,span:`span`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...A(),...e.components};return(0,D.jsxs)(D.Fragment,{children:[(0,D.jsx)(t.p,{children:`FormatJS provides Rust crates for message formatting, locale negotiation,
 message extraction, ICU parsers, Java Formatter parsing, and Temporal date/time operations.`}),`
 `,(0,D.jsxs)(t.h2,{id:`choose-a-crate`,children:[`Choose a crate`,(0,D.jsx)(t.a,{className:`header-link`,href:`#choose-a-crate`,children:`#`})]}),`
 `,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Crate`}),(0,D.jsx)(t.th,{children:`Use it for`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`/docs/rust/temporal`,children:(0,D.jsx)(t.code,{children:`formatjs_temporal`})})}),(0,D.jsxs)(t.td,{children:[`Typed Temporal values, calendar arithmetic, and IANA time zones with an allocation-free `,(0,D.jsx)(t.code,{children:`no_std`}),` core`]})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_intl`,children:(0,D.jsx)(t.code,{children:`formatjs_intl`})})}),(0,D.jsx)(t.td,{children:`Application-level descriptors, translation catalogs, locale negotiation, and shared message caching`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_icu_messageformat`,children:(0,D.jsx)(t.code,{children:`formatjs_icu_messageformat`})})}),(0,D.jsx)(t.td,{children:`Low-level ICU MessageFormat formatting with a locale supplied for each call`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_intl_macros`,children:(0,D.jsx)(t.code,{children:`formatjs_intl_macros`})})}),(0,D.jsxs)(t.td,{children:[`Procedural macro used by `,(0,D.jsx)(t.code,{children:`formatjs_intl::message_descriptor!`}),`; applications normally depend on `,(0,D.jsx)(t.code,{children:`formatjs_intl`}),` instead`]})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_icu_messageformat_parser`,children:(0,D.jsx)(t.code,{children:`formatjs_icu_messageformat_parser`})})}),(0,D.jsx)(t.td,{children:`Parsing ICU MessageFormat into a strongly typed AST`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_icu_skeleton_parser`,children:(0,D.jsx)(t.code,{children:`formatjs_icu_skeleton_parser`})})}),(0,D.jsx)(t.td,{children:`Parsing ICU number and date/time skeletons`})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.a,{href:`https://crates.io/crates/formatjs_cli`,children:(0,D.jsx)(t.code,{children:`formatjs_cli`})})}),(0,D.jsxs)(t.td,{children:[`Extracting, compiling, and verifying messages from the `,(0,D.jsx)(t.code,{children:`formatjs`}),` command`]})]})]})]}),`
