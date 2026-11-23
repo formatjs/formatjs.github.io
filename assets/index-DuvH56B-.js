@@ -12996,6 +12996,7 @@ end-user.`]})}),`
 `,(0,D.jsxs)(t.h2,{id:`migrating-from-babel-plugin-formatjs`,children:[`Migrating from babel-plugin-formatjs`,(0,D.jsx)(t.a,{className:`header-link`,href:`#migrating-from-babel-plugin-formatjs`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Replace your Babel plugin configuration with the appropriate bundler import from `,(0,D.jsx)(t.code,{children:`@formatjs/unplugin`}),`. The options are the same.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`static-message-values`,children:[`Static message values`,(0,D.jsx)(t.a,{className:`header-link`,href:`#static-message-values`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`On FreeBSD x64, static evaluation uses the optional `,(0,D.jsx)(t.code,{children:`@formatjs/cli-native-freebsd-x64`}),` package.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Message fields can reference local `,(0,D.jsx)(t.code,{children:`const`}),` strings, including aliases, templates,
 string concatenations, and constant conditionals. OXC performs native scope analysis and static evaluation through
 `,(0,D.jsx)(t.code,{children:`@formatjs/cli-lib`}),`. Constants must be initialized before the reference. Lexical scope
