@@ -4684,7 +4684,8 @@ preserves named identifiers with IANA casing: `,(0,D.jsx)(t.code,{children:`asia
 `,(0,D.jsx)(t.code,{children:`Asia/Calcutta`}),`, and `,(0,D.jsx)(t.code,{children:`Etc/GMT`}),` stays `,(0,D.jsx)(t.code,{children:`Etc/GMT`}),`. Formatting uses the linked zone's
 transition data and localized names. `,(0,D.jsx)(t.code,{children:`__setDefaultTimeZone`}),` preserves names too.
 `,(0,D.jsx)(t.code,{children:`shouldPolyfill()`}),` detects native implementations that replace these identifiers
-or lack callable locale, range, or parts methods.`]}),`
+or lack callable locale, range, or parts methods. A throwing capability probe
+also selects the polyfill.`]}),`
 `,(0,D.jsx)(t.p,{children:`Constructor options are read once in specification order. Default date fields
 are applied to internal records without writing to caller options.`}),`
 `,(0,D.jsx)(t.p,{children:`Legacy locale packs without an “at time” connector use their standard
