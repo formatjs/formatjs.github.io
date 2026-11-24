@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-D5CMZPya.js"></script>
+    <script type="module" crossorigin src="/assets/index-CpcLCVDs.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -28,8 +28,8 @@
 <h2 id="usage" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Usage<a href="#usage" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">Timezone enumeration uses pinned IANA/CLDR primary IDs, including country-specific
 IDs such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Africa/Accra</code>. It omits aliases such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">America/Yellowknife</code>.
-With FormatJS DateTimeFormat, the list reflects the loaded time-zone pack,
-including UTC and fixed IANA zones built into the polyfill. Time-zone enumeration
+The list always includes <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>. With FormatJS DateTimeFormat, it also reflects
+the loaded time-zone pack and built-in fixed IANA zones. Time-zone enumeration
 works before locale data loads. Older hosts may resolve a primary ID to an older
 spelling.</p>
 <h3 id="simple" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Simple<a href="#simple" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
@@ -54,8 +54,8 @@ not a Rust compiler. See the <a href="/docs/guides/hermes-intl" class="text-purp
 and Android packages and installation of all twelve APIs.</p>
 <p class="mb-4 leading-7 text-gray-300">Install trusted <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.DateTimeFormat</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.NumberFormat</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.Collator</code>
 implementations first. Rust filters CLDR/IANA candidates against those
-formatters&#x27; actual capabilities. Missing formatters produce empty categories;
-the installer does not supply the formatters themselves.</p>
+formatters&#x27; actual capabilities. The installer provides <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">iso8601</code>,
+and the required units and numbering systems without formatter dependencies.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;formatjs/hermes/supported_values.h&gt;</span></span>
 </span><span class="code-line">
 </span><span class="code-line">formatjs<span class="token double-colon punctuation">::</span><span class="token function">installSupportedValuesOf</span><span class="token punctuation">(</span><span class="token operator">*</span>runtime<span class="token punctuation">)</span><span class="token punctuation">;</span>

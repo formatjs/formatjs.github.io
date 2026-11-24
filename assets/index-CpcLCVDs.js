@@ -6584,8 +6584,8 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.h2,{id:`usage`,children:[`Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Timezone enumeration uses pinned IANA/CLDR primary IDs, including country-specific
 IDs such as `,(0,D.jsx)(t.code,{children:`Africa/Accra`}),`. It omits aliases such as `,(0,D.jsx)(t.code,{children:`America/Yellowknife`}),`.
-With FormatJS DateTimeFormat, the list reflects the loaded time-zone pack,
-including UTC and fixed IANA zones built into the polyfill. Time-zone enumeration
+The list always includes `,(0,D.jsx)(t.code,{children:`UTC`}),`. With FormatJS DateTimeFormat, it also reflects
+the loaded time-zone pack and built-in fixed IANA zones. Time-zone enumeration
 works before locale data loads. Older hosts may resolve a primary ID to an older
 spelling.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`simple`,children:[`Simple`,(0,D.jsx)(t.a,{className:`header-link`,href:`#simple`,children:`#`})]}),`
@@ -6610,8 +6610,8 @@ not a Rust compiler. See the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl`,ch
 and Android packages and installation of all twelve APIs.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Install trusted `,(0,D.jsx)(t.code,{children:`Intl.DateTimeFormat`}),`, `,(0,D.jsx)(t.code,{children:`Intl.NumberFormat`}),` and `,(0,D.jsx)(t.code,{children:`Intl.Collator`}),`
 implementations first. Rust filters CLDR/IANA candidates against those
-formatters' actual capabilities. Missing formatters produce empty categories;
-the installer does not supply the formatters themselves.`]}),`
+formatters' actual capabilities. The installer provides `,(0,D.jsx)(t.code,{children:`UTC`}),`, `,(0,D.jsx)(t.code,{children:`iso8601`}),`,
+and the required units and numbering systems without formatter dependencies.`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-cpp`,children:(0,D.jsxs)(t.code,{className:`language-cpp code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsxs)(t.span,{className:`token macro property`,children:[(0,D.jsx)(t.span,{className:`token directive-hash`,children:`#`}),(0,D.jsx)(t.span,{className:`token directive keyword`,children:`include`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`<formatjs/hermes/supported_values.h>`})]}),`
 `]}),(0,D.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`formatjs`,(0,D.jsx)(t.span,{className:`token double-colon punctuation`,children:`::`}),(0,D.jsx)(t.span,{className:`token function`,children:`installSupportedValuesOf`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token operator`,children:`*`}),`runtime`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
