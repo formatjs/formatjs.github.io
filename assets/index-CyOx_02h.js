@@ -5048,9 +5048,10 @@ For TypeScript projects, we recommend using ES module imports instead.`}),(0,D.j
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat`,children:(0,D.jsx)(t.code,{children:`Intl.ListFormat`})}),` or `,(0,D.jsx)(t.a,{href:`intl-listformat`,children:`polyfill`})]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.a,{href:`https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat`,children:(0,D.jsx)(t.code,{children:`Intl.NumberFormat`})}),` or `,(0,D.jsx)(t.a,{href:`intl-numberformat`,children:`polyfill`}),`.`]}),`
 `]}),`
-`,(0,D.jsx)(t.p,{children:`Load required NumberFormat/ListFormat polyfills before creating DurationFormat
-instances. Each instance keeps its selected providers and formatting methods;
-installing a replacement provider affects subsequently created instances.`}),`
+`,(0,D.jsxs)(t.p,{children:[`Load any required NumberFormat or ListFormat polyfill before creating
+DurationFormat instances. Use the package's `,(0,D.jsx)(t.code,{children:`polyfill`}),` or `,(0,D.jsx)(t.code,{children:`polyfill-force`}),` entry
+point so new instances pick up the installed formatter. Each instance keeps
+the formatters it selected at construction.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`usage`,children:[`Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
 `,(0,D.jsxs)(t.h3,{id:`simple`,children:[`Simple`,(0,D.jsx)(t.a,{className:`header-link`,href:`#simple`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsx)(t.code,{className:`language-tsx code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-durationformat/polyfill.js'`}),`
@@ -5094,10 +5095,9 @@ units cannot request `,(0,D.jsx)(t.code,{children:`always`}),` display or be fol
 `,(0,D.jsxs)(t.p,{children:[`Zero minutes remain between displayed numeric hours and seconds, even with
 `,(0,D.jsx)(t.code,{children:`minutesDisplay: "auto"`}),`. For example, `,(0,D.jsx)(t.code,{children:`{hours: 1, seconds: 1}`}),` formats as `,(0,D.jsx)(t.code,{children:`"1:00:01"`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Numbering-system resolution includes systems supported by the selected
-`,(0,D.jsx)(t.code,{children:`Intl.NumberFormat`}),` dependency, keeping the locale default first. Support is checked
-lazily per constructor. Installing a replacement provider updates new
-DurationFormat instances; existing instances retain their provider. Time-separator
-data includes every numbering-system symbol record supplied by CLDR.`]}),`
+`,(0,D.jsx)(t.code,{children:`Intl.NumberFormat`}),` dependency, keeping the locale default first. Support is
+checked lazily per constructor. Time-separator data includes every
+numbering-system symbol record supplied by CLDR.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`temporal-integration`,children:[`Temporal integration`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-integration`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`When a Temporal implementation is available before this package is loaded,
 `,(0,D.jsx)(t.code,{children:`format`}),` and `,(0,D.jsx)(t.code,{children:`formatToParts`}),` accept ISO duration strings through `,(0,D.jsx)(t.code,{children:`Temporal.Duration.from`}),`.
