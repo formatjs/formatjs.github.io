@@ -11504,6 +11504,39 @@ Choose one rule per file to avoid duplicate diagnostics.`]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[`one is a category for any number that behaves like 1. So in some languages, for example Ukrainian, Russian and Serbian, one → numbers that end in 1 (like 1, 21, 151) but that don’t end in 11 (like 11, 111, 10311). `,(0,D.jsx)(t.a,{href:`https://formatjs.github.io/docs/core-concepts/icu-syntax/#plural-format`,children:`More info`})]}),`
 `]}),`
+`,(0,D.jsxs)(t.h3,{id:`no-count-without-plural`,children:[(0,D.jsx)(t.code,{children:`no-count-without-plural`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-count-without-plural`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`A count argument followed by a noun must use an ICU plural. In strict config.`}),`
+`,(0,D.jsxs)(t.h4,{id:`why-6`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-6`,children:`#`})]}),`
+`,(0,D.jsxs)(t.ul,{children:[`
+`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`{count, number} files`}),` only localizes the digits. Other locales inflect the noun, and nearby words, for up to 6 plural categories.`]}),`
+`,(0,D.jsxs)(t.li,{children:[`A noun passed as its own placeholder (`,(0,D.jsx)(t.code,{children:`{count, number} {label}`}),`) can't agree with the count in any locale.`]}),`
+`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Counts are matched by argument name. The default pattern is `,(0,D.jsx)(t.code,{children:`^(?:count|n|num|total|quantity|qty|\\w+Count|\\w+Total)$`}),`, which skips `,(0,D.jsx)(t.code,{children:`{amount}`}),` (usually money) and `,(0,D.jsx)(t.code,{children:`{number}`}),` (usually an identifier). Counts already inside a plural branch are skipped.`]}),`
+`,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` messages `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`defineMessages`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token comment`,children:`// WORKS`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  foo`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'{count, plural, one {# file} other {# files}}'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token comment`,children:`// FAILS`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  bar`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'{count} files'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token comment`,children:`// FAILS`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  baz`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'{count, number} {label}'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]})]})}),`
+`,(0,D.jsxs)(t.h4,{id:`options-3`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-3`,children:`#`})]}),`
+`,(0,D.jsx)(t.pre,{className:`language-json`,children:(0,D.jsxs)(t.code,{className:`language-json code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token property`,children:`"rules"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token property`,children:`"formatjs/no-count-without-plural"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`      `,(0,D.jsx)(t.span,{className:`token string`,children:`"error"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`      `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token property`,children:`"countPattern"`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`"^(?:count|\\\\w+Count)$"`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),`
+`]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-emoji`,children:[(0,D.jsx)(t.code,{children:`no-emoji`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-emoji`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Emoji detection supports the ESM data files shipped by `,(0,D.jsx)(t.code,{children:`@unicode/unicode-17.0.0`}),` 2.x.`]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents usage of emojis (or above a certain Unicode version) in message`}),`
@@ -11528,7 +11561,7 @@ Choose one rule per file to avoid duplicate diagnostics.`]}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),`
 `]})]})}),`
-`,(0,D.jsxs)(t.h4,{id:`why-6`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-6`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-7`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-7`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:`Certain translation vendors cannot handle emojis.`}),`
 `,(0,D.jsx)(t.li,{children:`Cross-platform encoding for emojis are faulty.`}),`
@@ -11552,9 +11585,35 @@ Choose one rule per file to avoid duplicate diagnostics.`]}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]})]})}),`
+`,(0,D.jsxs)(t.h3,{id:`no-literal-number-symbol`,children:[(0,D.jsx)(t.code,{children:`no-literal-number-symbol`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-literal-number-symbol`,children:`#`})]}),`
+`,(0,D.jsx)(t.p,{children:`Don't write a percent, per mille, plus/minus, currency or degree symbol next to a number argument. Format the number with the matching ICU skeleton so the locale renders the symbol. In strict config.`}),`
+`,(0,D.jsxs)(t.table,{children:[(0,D.jsx)(t.thead,{children:(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.th,{children:`Literal`}),(0,D.jsx)(t.th,{children:`Use`})]})}),(0,D.jsxs)(t.tbody,{children:[(0,D.jsxs)(t.tr,{children:[(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`{x}%`}),`, `,(0,D.jsx)(t.code,{children:`%{x}`}),`, `,(0,D.jsx)(t.code,{children:`{x} %`})]}),(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`{x, number, ::percent}`}),` with a ratio`]})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`{x}‰`})}),(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`{x, number, ::permille}`}),` with a ratio`]})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`+{x}`}),`, `,(0,D.jsx)(t.code,{children:`-{x}`}),`, `,(0,D.jsx)(t.code,{children:`−{x}`})]}),(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`{x, number, ::sign-always}`}),` or `,(0,D.jsx)(t.code,{children:`sign-except-zero`})]})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:"${x}"}),`, `,(0,D.jsx)(t.code,{children:`{x} €`})]}),(0,D.jsx)(t.td,{children:(0,D.jsx)(t.code,{children:`{x, number, ::currency/USD}`})})]}),(0,D.jsxs)(t.tr,{children:[(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`{x}°C`}),`, `,(0,D.jsx)(t.code,{children:`{x}°`})]}),(0,D.jsxs)(t.td,{children:[(0,D.jsx)(t.code,{children:`{x, number, ::unit/celsius}`}),`, `,(0,D.jsx)(t.code,{children:`::unit/degree`})]})]})]})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-8`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-8`,children:`#`})]}),`
+`,(0,D.jsxs)(t.ul,{children:[`
+`,(0,D.jsxs)(t.li,{children:[`Locales differ on the symbol, spacing and position: `,(0,D.jsx)(t.code,{children:`50 %`}),` in French, `,(0,D.jsx)(t.code,{children:`%50`}),` in Turkish, `,(0,D.jsx)(t.code,{children:`٪٥٠`}),` in Arabic, `,(0,D.jsx)(t.code,{children:`10 €`}),` vs `,(0,D.jsx)(t.code,{children:`€10`}),`.`]}),`
+`,(0,D.jsx)(t.li,{children:`A literal sign also pins the glyph and its position, and a pre-signed string can't be pluralized or formatted.`}),`
+`,(0,D.jsxs)(t.li,{children:[`A skeleton that doesn't render the symbol, like `,(0,D.jsx)(t.code,{children:`{x, number, ::compact-short}%`}),`, still fails.`]}),`
+`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Ranges (`,(0,D.jsx)(t.code,{children:`{start}-{end}`}),`), arithmetic (`,(0,D.jsx)(t.code,{children:`{a} + {b}`}),`) and "or more" (`,(0,D.jsx)(t.code,{children:`{count}+`}),`) are not treated as signs.`]}),`
+`,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` messages `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`defineMessages`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token comment`,children:`// WORKS`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  foo`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`      `,(0,D.jsx)(t.span,{className:`token string`,children:`'{amount, number, ::currency/USD sign-always} bonus credits, {ratio, number, ::percent} off'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token comment`,children:`// FAILS`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  bar`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'+{amount} bonus credits'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token comment`,children:`// FAILS`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  baz`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    defaultMessage`,(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'{ratio}% off'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
+`]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
+`]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-literal-string-in-jsx`,children:[(0,D.jsx)(t.code,{children:`no-literal-string-in-jsx`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-literal-string-in-jsx`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents untranslated strings in JSX.`}),`
-`,(0,D.jsxs)(t.h4,{id:`why-7`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-7`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-9`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-9`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:`It is easy to forget wrapping JSX text in translation functions or components.`}),`
 `,(0,D.jsxs)(t.li,{children:[`It is easy to forget wrapping certain accessibility attributes (e.g. `,(0,D.jsx)(t.code,{children:`aria-label`}),`) in translation functions.`]}),`
@@ -11638,7 +11697,7 @@ attributes that you can customize.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-literal-string-in-object`,children:[(0,D.jsx)(t.code,{children:`no-literal-string-in-object`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-literal-string-in-object`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents untranslated strings in chosen object properties.`}),`
-`,(0,D.jsxs)(t.h4,{id:`why-8`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-8`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-10`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-10`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[`It is easy to forget wrapping literal strings in translation functions, when they are defined in an object field like `,(0,D.jsx)(t.code,{children:`{label: "Untranslated label"}`}),`.`]}),`
 `]}),`
@@ -11697,7 +11756,7 @@ attributes that you can customize.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-multiple-whitespaces`,children:[(0,D.jsx)(t.code,{children:`no-multiple-whitespaces`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-multiple-whitespaces`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents usage of multiple consecutive whitespaces in message.`}),`
-`,(0,D.jsxs)(t.h4,{id:`why-9`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-9`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-11`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-11`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:`Consecutive whitespaces are handled differently in different locales.`}),`
 `,(0,D.jsxs)(t.li,{children:[`Prevents `,(0,D.jsx)(t.code,{children:`\\`}),` linebreaks in JS string which results in awkward whitespaces.`]}),`
@@ -11721,7 +11780,7 @@ attributes that you can customize.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-multiple-plurals`,children:[(0,D.jsx)(t.code,{children:`no-multiple-plurals`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-multiple-plurals`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents specifying multiple plurals in your message.`}),`
-`,(0,D.jsxs)(t.h4,{id:`why-10`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-10`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-12`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-12`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:`Nested plurals are hard to translate across languages so some translation vendors don't allow it.`}),`
 `]}),`
@@ -11743,7 +11802,7 @@ attributes that you can customize.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-offset`,children:[(0,D.jsx)(t.code,{children:`no-offset`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-offset`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This prevents specifying offset in plural rules in your message.`}),`
-`,(0,D.jsxs)(t.h4,{id:`why-11`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-11`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-13`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-13`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:`Offset has complicated logic implication so some translation vendors don't allow it.`}),`
 `]}),`
@@ -11760,7 +11819,7 @@ attributes that you can customize.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`enforce-id`,children:[(0,D.jsx)(t.code,{children:`enforce-id`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#enforce-id`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This enforces generated ID to be set in `,(0,D.jsx)(t.code,{children:`MessageDescriptor`}),`.`]}),`
-`,(0,D.jsxs)(t.h4,{id:`why-12`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-12`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-14`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-14`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Pipelines can enforce automatic/manual ID generation at the linter level (autofix to insert autogen ID) so this guarantees that.`}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsx)(t.span,{className:`code-line`,children:`
 `}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` messages `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token function`,children:`defineMessages`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
@@ -11780,7 +11839,7 @@ attributes that you can customize.`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`}`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`;`}),`
 `]})]})}),`
-`,(0,D.jsxs)(t.h4,{id:`options-3`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-3`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`options-4`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-4`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword module`,children:`export`}),` `,(0,D.jsx)(t.span,{className:`token keyword module`,children:`default`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token literal-property property`,children:`plugins`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
@@ -11803,7 +11862,7 @@ attributes that you can customize.`}),`
 `]}),`
 `,(0,D.jsxs)(t.h3,{id:`no-invalid-icu`,children:[(0,D.jsx)(t.code,{children:`no-invalid-icu`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-invalid-icu`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This bans strings inside `,(0,D.jsx)(t.code,{children:`defaultMessage`}),`\xA0that are syntactically invalid.`]}),`
-`,(0,D.jsxs)(t.h4,{id:`why-13`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-13`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-15`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-15`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`It's easy to miss strings that look correct to you as a developer but which are actually syntactically invalid ICU strings. For instance, the following would cause an eslint error:`}),`
 `,(0,D.jsx)(t.pre,{className:`language-typescript`,children:(0,D.jsxs)(t.code,{className:`language-typescript code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`formatMessage`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
@@ -11816,7 +11875,7 @@ attributes that you can customize.`}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-id`,children:[(0,D.jsx)(t.code,{children:`no-id`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-id`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`This bans explicit ID in `,(0,D.jsx)(t.code,{children:`MessageDescriptor`}),`.`]}),`
-`,(0,D.jsxs)(t.h4,{id:`why-14`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-14`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-16`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-16`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`We generally encourage automatic ID generation due to `,(0,D.jsx)(t.a,{href:`https://formatjs.github.io/docs/getting-started/message-declaration`,children:`these reasons`}),`. This makes sure no explicit IDs are set.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`no-complex-selectors`,children:[(0,D.jsx)(t.code,{children:`no-complex-selectors`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-complex-selectors`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Make sure a sentence is not too complex.
@@ -11825,7 +11884,7 @@ Complexity is determined by how many strings are produced when we try to flatten
 `})})}),`
 `,(0,D.jsxs)(t.p,{children:[`has the complexity of 2 because flattening the plural selector results in 2 sentences: `,(0,D.jsx)(t.code,{children:`I have a dog`}),` & `,(0,D.jsx)(t.code,{children:`I have many dogs`}),`.
 Default complexity limit is 20 (using `,(0,D.jsx)(t.a,{href:`https://help.smartling.com/hc/en-us/articles/360008030994-ICU-MessageFormat`,children:`Smartling as a reference`}),`)`]}),`
-`,(0,D.jsxs)(t.h4,{id:`options-4`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-4`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`options-5`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-5`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword module`,children:`export`}),` `,(0,D.jsx)(t.span,{className:`token keyword module`,children:`default`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`  `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`    `,(0,D.jsx)(t.span,{className:`token literal-property property`,children:`plugins`}),(0,D.jsx)(t.span,{className:`token operator`,children:`:`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`{`}),`
@@ -11844,7 +11903,7 @@ Default complexity limit is 20 (using `,(0,D.jsx)(t.a,{href:`https://help.smartl
 `]})]})}),`
 `,(0,D.jsxs)(t.h3,{id:`no-useless-message`,children:[(0,D.jsx)(t.code,{children:`no-useless-message`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#no-useless-message`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`This bans messages that do not require translation.`}),`
-`,(0,D.jsxs)(t.h4,{id:`why-15`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-15`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-17`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-17`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Messages like `,(0,D.jsx)(t.code,{children:`{test}`}),` is not actionable by translators. The code should just directly reference `,(0,D.jsx)(t.code,{children:`test`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`prefer-formatted-message`,children:[(0,D.jsx)(t.code,{children:`prefer-formatted-message`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#prefer-formatted-message`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Use `,(0,D.jsx)(t.code,{children:`<FormattedMessage>`}),` instead of the imperative `,(0,D.jsx)(t.code,{children:`intl.formatMessage(...)`}),` if applicable.`]}),`
@@ -11858,14 +11917,14 @@ Default complexity limit is 20 (using `,(0,D.jsx)(t.a,{href:`https://help.smartl
 `})]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token plain-text`,children:`  `}),(0,D.jsxs)(t.span,{className:`token tag`,children:[(0,D.jsxs)(t.span,{className:`token tag`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`<`}),(0,D.jsx)(t.span,{className:`token class-name`,children:`FormattedMessage`})]}),` `,(0,D.jsx)(t.span,{className:`token attr-name`,children:`defaultMessage`}),(0,D.jsxs)(t.span,{className:`token attr-value`,children:[(0,D.jsx)(t.span,{className:`token punctuation attr-equals`,children:`=`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`"`}),`hello`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`"`})]}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`/>`})]}),(0,D.jsx)(t.span,{className:`token plain-text`,children:`
 `})]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token plain-text`}),(0,D.jsxs)(t.span,{className:`token tag`,children:[(0,D.jsxs)(t.span,{className:`token tag`,children:[(0,D.jsx)(t.span,{className:`token punctuation`,children:`</`}),`p`]}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`>`})]}),`
 `]})]})}),`
-`,(0,D.jsxs)(t.h4,{id:`why-16`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-16`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-18`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-18`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Consistent coding style in JSX and less syntax clutter.`}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`--fix`}),` converts direct JSX children from `,(0,D.jsx)(t.code,{children:`useIntl()`}),` bindings and manages
 `,(0,D.jsx)(t.code,{children:`FormattedMessage`}),` imports. Only plain inline descriptors are fixed; unsafe
 cases remain report-only. Hook calls are retained.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`prefer-full-sentence`,children:[(0,D.jsx)(t.code,{children:`prefer-full-sentence`}),(0,D.jsx)(t.a,{className:`header-link`,href:`#prefer-full-sentence`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Messages should be self-contained, full sentences. Leading or trailing whitespace in a message suggests it is a fragment being concatenated with other strings, which is an anti-pattern for localization. Placeholders joined directly to words, such as `,(0,D.jsx)(t.code,{children:`{count}day`}),`, also fail because units and spacing vary by locale.`]}),`
-`,(0,D.jsxs)(t.h4,{id:`why-17`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-17`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-19`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-19`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsx)(t.li,{children:`String concatenation breaks translation because different languages have different word orders, grammar rules, and sentence structures.`}),`
 `,(0,D.jsx)(t.li,{children:`Translators need the full sentence to produce an accurate translation.`}),`
@@ -11951,7 +12010,7 @@ cases remain report-only. Hook calls are retained.`]}),`
 `]})})})}),(0,D.jsx)(t.span,{className:`code-line`,children:(0,D.jsx)(t.span,{className:`token argument`,children:(0,D.jsxs)(t.span,{className:`token content`,children:[(0,D.jsxs)(t.span,{className:`token plural-style`,children:[`    `,(0,D.jsx)(t.span,{className:`token selector`,children:(0,D.jsx)(t.span,{className:`token keyword`,children:`other`})}),` `,(0,D.jsxs)(t.span,{className:`token nested-message`,children:[(0,D.jsx)(t.span,{className:`token message-delimiter punctuation`,children:`{`}),(0,D.jsx)(t.span,{className:`token message`,children:`#th`}),(0,D.jsx)(t.span,{className:`token message-delimiter punctuation`,children:`}`})]})]}),`
 `]})})}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsxs)(t.span,{className:`token argument`,children:[(0,D.jsx)(t.span,{className:`token content`}),(0,D.jsx)(t.span,{className:`token argument-delimiter operator`,children:`}`})]}),` place.
 `]})]})}),`
-`,(0,D.jsxs)(t.h4,{id:`why-18`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-18`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h4,{id:`why-20`,children:[`Why`,(0,D.jsx)(t.a,{className:`header-link`,href:`#why-20`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ol,{children:[`
 `,(0,D.jsx)(t.li,{children:`More concise message.`}),`
 `,(0,D.jsx)(t.li,{children:`Ensures that the count are correctly formatted as numbers.`}),`
@@ -12018,7 +12077,7 @@ Mixed catalogs and inline calls that need an explicit empty contract use
 `,(0,D.jsx)(t.p,{children:`Types include arguments from every ICU branch. Incompatible uses of the same
 argument produce a diagnostic instead of a fix. Generated properties are readonly;
 this does not freeze objects at runtime.`}),`
-`,(0,D.jsxs)(t.h3,{id:`options-5`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-5`,children:`#`})]}),`
+`,(0,D.jsxs)(t.h3,{id:`options-6`,children:[`Options`,(0,D.jsx)(t.a,{className:`header-link`,href:`#options-6`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`generateTypes`})}),` (default `,(0,D.jsx)(t.code,{children:`false`}),`): add types to untyped TypeScript messages.
 Existing typed messages are checked and refreshed even when this is off.`]}),`
