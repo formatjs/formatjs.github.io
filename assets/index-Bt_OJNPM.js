@@ -4686,6 +4686,8 @@ transition data and localized names. `,(0,D.jsx)(t.code,{children:`__setDefaultT
 or lack callable locale, range, or parts methods.`]}),`
 `,(0,D.jsx)(t.p,{children:`Constructor options are read once in specification order. Default date fields
 are applied to internal records without writing to caller options.`}),`
+`,(0,D.jsx)(t.p,{children:`Legacy locale packs without an “at time” connector use their standard
+date/time connector.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Every locale supports explicit `,(0,D.jsx)(t.code,{children:`h11`}),`, `,(0,D.jsx)(t.code,{children:`h12`}),`, `,(0,D.jsx)(t.code,{children:`h23`}),`, and `,(0,D.jsx)(t.code,{children:`h24`}),` hour cycles through
 options and Unicode extensions. Locale preferences still select the default.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.code,{children:`hour12`}),` option selects the locale’s separate 12-hour or 24-hour preference.
