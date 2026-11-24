@@ -4516,7 +4516,8 @@ calendar and timezone data.`}),`
 `,(0,D.jsxs)(t.h3,{id:`optional-calendars`,children:[`Optional calendars`,(0,D.jsx)(t.a,{className:`header-link`,href:`#optional-calendars`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The base polyfill and `,(0,D.jsx)(t.code,{children:`locale-data/<locale>.js`}),` include Gregorian and ISO 8601.
 ISO 8601 uses its own CLDR patterns, including year-first numeric dates such as
-`,(0,D.jsx)(t.code,{children:`2024-01-15`}),`; Gregorian formatting follows the locale's date order.
+`,(0,D.jsx)(t.code,{children:`2024-01-15`}),`. Gregorian formatting follows the locale's date order.
+Legacy packs without ISO patterns use their Gregorian patterns.
 Other calendars require both their arithmetic module and their localized names
 and patterns. Load them before constructing a formatter:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword control-flow`,children:`await`}),` `,(0,D.jsx)(t.span,{className:`token keyword module`,children:`import`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/polyfill-force.js'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
