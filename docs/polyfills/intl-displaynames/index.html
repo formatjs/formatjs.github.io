@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-CBsiHeBq.js"></script>
+    <script type="module" crossorigin src="/assets/index-CnWZCIj-.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -154,6 +154,7 @@ For TypeScript projects, we recommend using ES module imports instead.</p><p cla
 </span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-displaynames/locale-data/en.js&#x27;</span> <span class="token comment">// locale-data for en</span>
 </span></code></pre>
 <h3 id="dynamic-import--capability-detection" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Dynamic import + capability detection<a href="#dynamic-import--capability-detection" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shouldPolyfill()</code> returns a locale pack to load when a host probe throws.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">polyfill</span><span class="token punctuation">(</span>locale<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line">  <span class="token keyword">const</span> unsupportedLocale <span class="token operator">=</span> <span class="token function">shouldPolyfill</span><span class="token punctuation">(</span>locale<span class="token punctuation">)</span>
 </span><span class="code-line">  <span class="token comment">// This locale is supported</span>
@@ -162,7 +163,8 @@ For TypeScript projects, we recommend using ES module imports instead.</p><p cla
 </span><span class="code-line">  <span class="token punctuation">}</span>
 </span><span class="code-line">  <span class="token comment">// Load the polyfill 1st BEFORE loading data</span>
 </span><span class="code-line">  <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&#x27;@formatjs/intl-displaynames/polyfill-force.js&#x27;</span><span class="token punctuation">)</span>
-</span><span class="code-line">  <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">@formatjs/intl-displaynames/locale-data/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>locale<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+</span><span class="code-line">  <span class="token keyword">const</span> dataLocale <span class="token operator">=</span> unsupportedLocale <span class="token operator">===</span> <span class="token boolean">true</span> <span class="token operator">?</span> <span class="token string">&#x27;en&#x27;</span> <span class="token operator">:</span> unsupportedLocale
+</span><span class="code-line">  <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">@formatjs/intl-displaynames/locale-data/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dataLocale<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.js</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
 </span><span class="code-line"><span class="token punctuation">}</span>
 </span></code></pre>
 <h2 id="code-validation-and-fallback" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Code validation and fallback<a href="#code-validation-and-fallback" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
