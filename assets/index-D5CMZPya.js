@@ -6422,6 +6422,7 @@ suppression can differ between the implementations.`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:`Iterable`}),` - Can be used with `,(0,D.jsx)(t.code,{children:`for...of`}),` loops`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`containing(index)`})}),` - Finds the segment containing a UTF-16 code-unit index`]}),`
 `]}),`
+`,(0,D.jsx)(t.p,{children:`Segment records preserve the original UTF-16 text, including lone surrogates.`}),`
 `,(0,D.jsxs)(t.h4,{id:`segment-object-properties`,children:[`Segment Object Properties`,(0,D.jsx)(t.a,{className:`header-link`,href:`#segment-object-properties`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`Each segment has:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
