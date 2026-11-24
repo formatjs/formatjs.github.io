@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-B6Qas0IX.js"></script>
+    <script type="module" crossorigin src="/assets/index-rWe6RrEj.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -261,6 +261,7 @@ symbols, and locale patterns, including supplementary-plane digits such as Adlam
 </span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-numberformat/locale-data/en.js&#x27;</span> <span class="token comment">// locale-data for en</span>
 </span></code></pre>
 <h3 id="dynamic-import--capability-detection" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Dynamic import + capability detection<a href="#dynamic-import--capability-detection" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shouldPolyfill()</code> checks native support for range and parts formatting.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">polyfill</span><span class="token punctuation">(</span>locale<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line">  <span class="token keyword">const</span> unsupportedLocale <span class="token operator">=</span> <span class="token function">shouldPolyfill</span><span class="token punctuation">(</span>locale<span class="token punctuation">)</span>
 </span><span class="code-line">  <span class="token comment">// This locale is supported</span>
