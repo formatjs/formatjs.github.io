@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BbSpY_YP.js"></script>
+    <script type="module" crossorigin src="/assets/index-DZj_Bqe5.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -36,6 +36,9 @@ requested tags in their original order, preserving region subtags and Unicode
 extensions even when matching falls back to a parent locale.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token function">LookupSupportedLocales</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&#x27;de&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&#x27;de-AT-u-co-phonebk&#x27;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// [&#x27;de-AT-u-co-phonebk&#x27;]</span>
 </span></code></pre>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FilterLocales(availableLocales, requestedLocales, matcher)</code> takes canonical
+locale tags and accepts <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&#x27;lookup&#x27;</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&#x27;best fit&#x27;</code>. It returns matching requested
+tags in order. Formatter <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">supportedLocalesOf</code> uses best fit by default.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale resolution uses an internal record isolated from inherited extension-key
 setters on <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Object.prototype</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale matching extracts only the Unicode <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">u</code> extension. Private-use subtags

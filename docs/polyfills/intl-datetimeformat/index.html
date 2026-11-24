@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BbSpY_YP.js"></script>
+    <script type="module" crossorigin src="/assets/index-DZj_Bqe5.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -161,7 +161,8 @@ requested numbering system.</p>
 </span></code></pre>
 <p class="mb-4 leading-7 text-gray-300">The polyfill also replaces <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Date.prototype.toLocaleString</code>,
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">toLocaleDateString</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">toLocaleTimeString</code> with their ECMA-402 behavior,
-including the standard date and time defaults when only <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZone</code> is set.</p>
+including the standard date and time defaults when only <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZone</code> is set. Invalid dates return
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;Invalid Date&quot;</code>. Invalid locales and options throw for valid dates.</p>
 <p class="mb-4 leading-7 text-gray-300">Replacing <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Object.prototype.isPrototypeOf</code> does not affect formatter construction.</p>
 <h3 id="temporal-namespaces" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Temporal namespaces<a href="#temporal-namespaces" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">DateTimeFormat recognizes Temporal intrinsic brands, including separately bundled
@@ -247,18 +248,19 @@ before the calendar can be selected. This provider API is a FormatJS extension.<
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/polyfill.js&#x27;</span>
 </span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/add-golden-tz.js&#x27;</span>
 </span></code></pre>
+<p class="mb-4 leading-7 text-gray-300">Use date fields with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZoneName</code> to get a label such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Jan 15, 2026, EST</code>.
+Explicit named zones with transitions require the matching data pack. An
+unavailable name or alias throws <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p>
 <h3 id="utc-offset-timezones" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">UTC Offset Timezones<a href="#utc-offset-timezones" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
-<p class="mb-4 leading-7 text-gray-300">This polyfill supports UTC offset timezone identifiers as specified in <a href="https://tc39.es/ecma402/" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ECMA-402</a> (ES2026). You can use offset-based timezone strings in addition to IANA timezone names.</p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZone</code> option accepts IANA names and minute-precision UTC offsets. <a href="https://tc39.es/ecma402/#sec-createdatetimeformat" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ECMA-402 §11.1.2</a></p>
 <h4 id="supported-formats" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Supported Formats<a href="#supported-formats" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">The following UTC offset formats are supported:</p>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01:00&quot;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-05:00&quot;</code> (recommended format)</li>
 <li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HHMM</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+0100&quot;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-0500&quot;</code></li>
 <li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01&quot;</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;-05&quot;</code></li>
-<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM:SS</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01:30:45&quot;</code> (with seconds)</li>
-<li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM:SS.sss</code> - e.g., <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&quot;+01:30:45.123&quot;</code> (with fractional seconds)</li>
 </ul>
-<p class="mb-4 leading-7 text-gray-300">All offset formats are automatically canonicalized to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM</code> format (with seconds/fractional seconds preserved if non-zero).</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions().timeZone</code> normalizes offsets to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">±HH:MM</code>. Offsets containing seconds throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">RangeError</code>.</p>
 <h4 id="usage-example" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Usage Example<a href="#usage-example" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/polyfill.js&#x27;</span>
 </span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/locale-data/en.js&#x27;</span>
@@ -285,13 +287,18 @@ before the calendar can be selected. This provider API is a FormatJS extension.<
 </span></code></pre>
 <h4 id="compatibility" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Compatibility<a href="#compatibility" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
-<li class="mb-2 text-gray-300">UTC offset timezones work without loading any timezone data (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add-all-tz.js</code> or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">add-golden-tz.js</code>)</li>
+<li class="mb-2 text-gray-300">UTC offsets and IANA <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/GMT±N</code> zones work without loading timezone data.</li>
 <li class="mb-2 text-gray-300">Compatible with libraries like <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">@date-fns/tz</code> in React Native/Hermes environments</li>
 <li class="mb-2 text-gray-300">Follows the same behavior as Chrome and Node.js 22+ native implementations</li>
 </ul>
 <h3 id="default-timezone" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Default Timezone<a href="#default-timezone" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
-<p class="mb-4 leading-7 text-gray-300">Since JS Engines do not expose default timezone, there&#x27;s currently no way for us to detect local timezone that a browser is in. Therefore, the default timezone in this polyfill is <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>.</p>
-<p class="mb-4 leading-7 text-gray-300">You can change this by either calling <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__setDefaultTimeZone</code> or always explicitly pass in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZone</code> option for accurate date time calculation.</p>
+<p class="mb-4 leading-7 text-gray-300">The polyfill prefers the primary name for the host Intl time zone. If the pack
+only has the host alias, it uses that alias. If neither is available, it uses
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>.</p>
+<p class="mb-4 leading-7 text-gray-300">Pass <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">timeZone</code> to choose a zone per formatter, or call
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__setDefaultTimeZone</code> to set an override. If a replacement pack drops the
+override&#x27;s zone, new formatters use the host zone or UTC until the zone is
+available again.</p>
 <p class="mb-4 leading-7 text-gray-300">Since <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__setDefaultTimeZone</code> is not in the spec, you should make sure to check for its existence before calling it &amp; after tz data has been loaded, e.g:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/polyfill.js&#x27;</span>
 </span><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-datetimeformat/add-all-tz.js&#x27;</span>
@@ -354,10 +361,9 @@ variable periods such as “in the evening”. Names follow the requested width.
 non-breaking spaces where specified.</p>
 <p class="mb-4 leading-7 text-gray-300">Locale data registers CLDR default-content variants, such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">en-US</code> for English.
 Loading regional data preserves explicitly loaded language data.</p>
-<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatRangeToParts</code> marks unique fields and separators as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shared</code>. Repeated
-fields belong to their endpoint; punctuation between repeated fields stays with
-that endpoint. Shared month names retain the complete date pattern for
-grammatical context.</p>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">formatRangeToParts</code> labels each part <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">startRange</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">endRange</code>, or <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shared</code>.
+When no interval pattern is available, each endpoint keeps its literals
+and the separator is shared.</p>
 <p class="mb-4 leading-7 text-gray-300">An explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hourCycle: &quot;h24&quot;</code> formats midnight as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">24</code> for both single dates
 and ranges. Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h23</code> for midnight <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">00</code>; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">hour12: false</code> selects <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">h23</code>.</p>
 <p class="mb-4 leading-7 text-gray-300">Range formatting ignores hidden AM/PM and flexible day-period boundaries.

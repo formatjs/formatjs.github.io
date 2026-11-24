@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BbSpY_YP.js"></script>
+    <script type="module" crossorigin src="/assets/index-DZj_Bqe5.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -50,6 +50,9 @@ runtime comparison.</p>
 <li class="mb-2 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">numeric</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">caseFirst</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sensitivity</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">usage</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignorePunctuation</code></li>
 <li class="mb-2 text-gray-300">Root CLDR collation data plus generated locale collation metadata and
 tailorings</li>
+<li class="mb-2 text-gray-300">Canadian French accent ordering for <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">fr-CA</code></li>
+<li class="mb-2 text-gray-300">CLDR script ordering, including Greek, Cyrillic, and Arabic before Latin in
+their respective locales</li>
 </ul>
 <h2 id="data-model" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Data Model<a href="#data-model" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">The package consumes generated CLDR collation data from
@@ -67,6 +70,7 @@ requires zero failures.</p>
 fall back during locale negotiation. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">compare</code> converts arguments to strings in
 left-to-right order and rejects Symbols with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>.</p>
 <h3 id="built-in-descriptors" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Built-in descriptors<a href="#built-in-descriptors" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Collator()</code> creates a fresh instance when called with or without <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new</code>.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">supportedLocalesOf</code> are writable, configurable methods,
 but cannot be constructed with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">new</code>. The constructor&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prototype</code> property
 is non-writable; the compare getter and bound function expose the standard names.</p>
@@ -88,17 +92,32 @@ and CJK cases with native <code class="px-2 py-1 rounded-md bg-purple-900/30 tex
 formatter construction and module initialization are excluded.</p>
 <h2 id="comparison-consistency" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Comparison consistency<a href="#comparison-consistency" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">numeric: true</code> keeps unmatched digit runs significant (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">x &lt; x1 &lt; x2</code>).
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">caseFirst</code> affects case-sensitive comparisons; <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">base</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">accent</code> still ignore
-case. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignorePunctuation</code> preserves letters and digits. Canonically equivalent
-strings share case-order keys, including precomposed
-and decomposed accented letters. Sensitivity selects UCA levels after locale
-tailoring, preserving primary letters such as Swedish ä.</p>
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">sensitivity: &#x27;case&#x27;</code> uses primary and case weights, so width and ligature
+variants with the same case compare equal.
+At variant sensitivity, explicit <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">caseFirst</code> orders case before other tertiary
+differences, such as circled forms. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ignorePunctuation</code> preserves letters and
+digits and ignores accents attached to ignored punctuation. Canonically
+equivalent strings compare equal, including precomposed and decomposed accented
+letters. A combining mark can leave a contraction intact while contributing its
+own accent weight. Sensitivity selects UCA levels after locale
+tailoring. In Swedish, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ä</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">æ</code> share a primary weight and differ at
+accent sensitivity.</p>
 <h2 id="rust-hermes-extension" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Rust Hermes extension<a href="#rust-hermes-extension" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">crates/intl_collator</code> ports the CLDR sort/search comparison profile to Rust.
-ICU4X supplies normalization and locale-sensitive casing. Generated data stays
-static, matching this package. The comparison profile retains compact implicit
-weights and CLDR variable-element filtering; it does not claim full ICU Collator
-ordering parity.</p>
+ICU4X supplies normalization. Generated data stays
+static, matching this package. Both implementations use CLDR radical-stroke
+order for Han and sort unassigned code points before trailing characters.
+Japanese standard collation orders Latin, Kana, then Han.
+Japanese long-vowel marks compare using the preceding Kana.
+Breton sorts <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">ch</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">c’h</code>, then <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">d</code>.
+Search collation uses CLDR search rules, including logical-order matching for
+Thai and Lao vowels.
+Danish and Maltese sort uppercase first by default. Thai ignores punctuation by
+default for sort and keeps it significant for search. Explicit options override
+these defaults.
+When a host locale falls back to bundled parent data, comparison uses that
+parent’s collation and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">resolvedOptions().locale</code> keeps the host locale.
+ICU results can vary with Unicode versions and locale tailoring.</p>
 <p class="mb-4 leading-7 text-gray-300">Follow the <a href="/docs/guides/hermes-intl" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">native SDK guide</a>: link
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">:collator</code>, install after canonicalization, or register <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">js/37-IntlCollator.js</code>
 and call the precompiled installer. The SDK ships public headers, C++ adapter

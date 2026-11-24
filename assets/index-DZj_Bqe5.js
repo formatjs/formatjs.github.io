@@ -4260,6 +4260,9 @@ runtime comparison.`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`numeric`}),`, `,(0,D.jsx)(t.code,{children:`caseFirst`}),`, `,(0,D.jsx)(t.code,{children:`sensitivity`}),`, `,(0,D.jsx)(t.code,{children:`usage`}),`, and `,(0,D.jsx)(t.code,{children:`ignorePunctuation`})]}),`
 `,(0,D.jsx)(t.li,{children:`Root CLDR collation data plus generated locale collation metadata and
 tailorings`}),`
+`,(0,D.jsxs)(t.li,{children:[`Canadian French accent ordering for `,(0,D.jsx)(t.code,{children:`fr-CA`})]}),`
+`,(0,D.jsx)(t.li,{children:`CLDR script ordering, including Greek, Cyrillic, and Arabic before Latin in
+their respective locales`}),`
 `]}),`
 `,(0,D.jsxs)(t.h2,{id:`data-model`,children:[`Data Model`,(0,D.jsx)(t.a,{className:`header-link`,href:`#data-model`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The package consumes generated CLDR collation data from
@@ -4277,6 +4280,7 @@ requires zero failures.`]}),`
 fall back during locale negotiation. `,(0,D.jsx)(t.code,{children:`compare`}),` converts arguments to strings in
 left-to-right order and rejects Symbols with `,(0,D.jsx)(t.code,{children:`TypeError`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`built-in-descriptors`,children:[`Built-in descriptors`,(0,D.jsx)(t.a,{className:`header-link`,href:`#built-in-descriptors`,children:`#`})]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`Collator()`}),` creates a fresh instance when called with or without `,(0,D.jsx)(t.code,{children:`new`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`resolvedOptions`}),` and `,(0,D.jsx)(t.code,{children:`supportedLocalesOf`}),` are writable, configurable methods,
 but cannot be constructed with `,(0,D.jsx)(t.code,{children:`new`}),`. The constructor's `,(0,D.jsx)(t.code,{children:`prototype`}),` property
 is non-writable; the compare getter and bound function expose the standard names.`]}),`
@@ -4298,17 +4302,32 @@ and CJK cases with native `,(0,D.jsx)(t.code,{children:`Intl.Collator`}),`. Each
 formatter construction and module initialization are excluded.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`comparison-consistency`,children:[`Comparison consistency`,(0,D.jsx)(t.a,{className:`header-link`,href:`#comparison-consistency`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`numeric: true`}),` keeps unmatched digit runs significant (`,(0,D.jsx)(t.code,{children:`x < x1 < x2`}),`).
-`,(0,D.jsx)(t.code,{children:`caseFirst`}),` affects case-sensitive comparisons; `,(0,D.jsx)(t.code,{children:`base`}),` and `,(0,D.jsx)(t.code,{children:`accent`}),` still ignore
-case. `,(0,D.jsx)(t.code,{children:`ignorePunctuation`}),` preserves letters and digits. Canonically equivalent
-strings share case-order keys, including precomposed
-and decomposed accented letters. Sensitivity selects UCA levels after locale
-tailoring, preserving primary letters such as Swedish ä.`]}),`
+`,(0,D.jsx)(t.code,{children:`sensitivity: 'case'`}),` uses primary and case weights, so width and ligature
+variants with the same case compare equal.
+At variant sensitivity, explicit `,(0,D.jsx)(t.code,{children:`caseFirst`}),` orders case before other tertiary
+differences, such as circled forms. `,(0,D.jsx)(t.code,{children:`ignorePunctuation`}),` preserves letters and
+digits and ignores accents attached to ignored punctuation. Canonically
+equivalent strings compare equal, including precomposed and decomposed accented
+letters. A combining mark can leave a contraction intact while contributing its
+own accent weight. Sensitivity selects UCA levels after locale
+tailoring. In Swedish, `,(0,D.jsx)(t.code,{children:`ä`}),` and `,(0,D.jsx)(t.code,{children:`æ`}),` share a primary weight and differ at
+accent sensitivity.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`rust-hermes-extension`,children:[`Rust Hermes extension`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-hermes-extension`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`crates/intl_collator`}),` ports the CLDR sort/search comparison profile to Rust.
-ICU4X supplies normalization and locale-sensitive casing. Generated data stays
-static, matching this package. The comparison profile retains compact implicit
-weights and CLDR variable-element filtering; it does not claim full ICU Collator
-ordering parity.`]}),`
+ICU4X supplies normalization. Generated data stays
+static, matching this package. Both implementations use CLDR radical-stroke
+order for Han and sort unassigned code points before trailing characters.
+Japanese standard collation orders Latin, Kana, then Han.
+Japanese long-vowel marks compare using the preceding Kana.
+Breton sorts `,(0,D.jsx)(t.code,{children:`ch`}),`, `,(0,D.jsx)(t.code,{children:`c’h`}),`, then `,(0,D.jsx)(t.code,{children:`d`}),`.
+Search collation uses CLDR search rules, including logical-order matching for
+Thai and Lao vowels.
+Danish and Maltese sort uppercase first by default. Thai ignores punctuation by
+default for sort and keeps it significant for search. Explicit options override
+these defaults.
+When a host locale falls back to bundled parent data, comparison uses that
+parent’s collation and `,(0,D.jsx)(t.code,{children:`resolvedOptions().locale`}),` keeps the host locale.
+ICU results can vary with Unicode versions and locale tailoring.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Follow the `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl`,children:`native SDK guide`}),`: link
 `,(0,D.jsx)(t.code,{children:`:collator`}),`, install after canonicalization, or register `,(0,D.jsx)(t.code,{children:`js/37-IntlCollator.js`}),`
 and call the precompiled installer. The SDK ships public headers, C++ adapter
@@ -4481,7 +4500,8 @@ requested numbering system.`]}),`
 `]})]})}),`
 `,(0,D.jsxs)(t.p,{children:[`The polyfill also replaces `,(0,D.jsx)(t.code,{children:`Date.prototype.toLocaleString`}),`,
 `,(0,D.jsx)(t.code,{children:`toLocaleDateString`}),`, and `,(0,D.jsx)(t.code,{children:`toLocaleTimeString`}),` with their ECMA-402 behavior,
-including the standard date and time defaults when only `,(0,D.jsx)(t.code,{children:`timeZone`}),` is set.`]}),`
+including the standard date and time defaults when only `,(0,D.jsx)(t.code,{children:`timeZone`}),` is set. Invalid dates return
+`,(0,D.jsx)(t.code,{children:`"Invalid Date"`}),`. Invalid locales and options throw for valid dates.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Replacing `,(0,D.jsx)(t.code,{children:`Object.prototype.isPrototypeOf`}),` does not affect formatter construction.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`temporal-namespaces`,children:[`Temporal namespaces`,(0,D.jsx)(t.a,{className:`header-link`,href:`#temporal-namespaces`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`DateTimeFormat recognizes Temporal intrinsic brands, including separately bundled
@@ -4567,18 +4587,19 @@ before the calendar can be selected. This provider API is a FormatJS extension.`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/polyfill.js'`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/add-golden-tz.js'`}),`
 `]})]})}),`
+`,(0,D.jsxs)(t.p,{children:[`Use date fields with `,(0,D.jsx)(t.code,{children:`timeZoneName`}),` to get a label such as `,(0,D.jsx)(t.code,{children:`Jan 15, 2026, EST`}),`.
+Explicit named zones with transitions require the matching data pack. An
+unavailable name or alias throws `,(0,D.jsx)(t.code,{children:`RangeError`}),`.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`utc-offset-timezones`,children:[`UTC Offset Timezones`,(0,D.jsx)(t.a,{className:`header-link`,href:`#utc-offset-timezones`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`This polyfill supports UTC offset timezone identifiers as specified in `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/`,children:`ECMA-402`}),` (ES2026). You can use offset-based timezone strings in addition to IANA timezone names.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.code,{children:`timeZone`}),` option accepts IANA names and minute-precision UTC offsets. `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-createdatetimeformat`,children:`ECMA-402 §11.1.2`})]}),`
 `,(0,D.jsxs)(t.h4,{id:`supported-formats`,children:[`Supported Formats`,(0,D.jsx)(t.a,{className:`header-link`,href:`#supported-formats`,children:`#`})]}),`
 `,(0,D.jsx)(t.p,{children:`The following UTC offset formats are supported:`}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`±HH:MM`}),` - e.g., `,(0,D.jsx)(t.code,{children:`"+01:00"`}),`, `,(0,D.jsx)(t.code,{children:`"-05:00"`}),` (recommended format)`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`±HHMM`}),` - e.g., `,(0,D.jsx)(t.code,{children:`"+0100"`}),`, `,(0,D.jsx)(t.code,{children:`"-0500"`})]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`±HH`}),` - e.g., `,(0,D.jsx)(t.code,{children:`"+01"`}),`, `,(0,D.jsx)(t.code,{children:`"-05"`})]}),`
-`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`±HH:MM:SS`}),` - e.g., `,(0,D.jsx)(t.code,{children:`"+01:30:45"`}),` (with seconds)`]}),`
-`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.code,{children:`±HH:MM:SS.sss`}),` - e.g., `,(0,D.jsx)(t.code,{children:`"+01:30:45.123"`}),` (with fractional seconds)`]}),`
 `]}),`
-`,(0,D.jsxs)(t.p,{children:[`All offset formats are automatically canonicalized to `,(0,D.jsx)(t.code,{children:`±HH:MM`}),` format (with seconds/fractional seconds preserved if non-zero).`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`resolvedOptions().timeZone`}),` normalizes offsets to `,(0,D.jsx)(t.code,{children:`±HH:MM`}),`. Offsets containing seconds throw `,(0,D.jsx)(t.code,{children:`RangeError`}),`.`]}),`
 `,(0,D.jsxs)(t.h4,{id:`usage-example`,children:[`Usage Example`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage-example`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/polyfill.js'`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/locale-data/en.js'`}),`
@@ -4605,13 +4626,18 @@ before the calendar can be selected. This provider API is a FormatJS extension.`
 `]})]})}),`
 `,(0,D.jsxs)(t.h4,{id:`compatibility`,children:[`Compatibility`,(0,D.jsx)(t.a,{className:`header-link`,href:`#compatibility`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
-`,(0,D.jsxs)(t.li,{children:[`UTC offset timezones work without loading any timezone data (`,(0,D.jsx)(t.code,{children:`add-all-tz.js`}),` or `,(0,D.jsx)(t.code,{children:`add-golden-tz.js`}),`)`]}),`
+`,(0,D.jsxs)(t.li,{children:[`UTC offsets and IANA `,(0,D.jsx)(t.code,{children:`Etc/GMT±N`}),` zones work without loading timezone data.`]}),`
 `,(0,D.jsxs)(t.li,{children:[`Compatible with libraries like `,(0,D.jsx)(t.code,{children:`@date-fns/tz`}),` in React Native/Hermes environments`]}),`
 `,(0,D.jsx)(t.li,{children:`Follows the same behavior as Chrome and Node.js 22+ native implementations`}),`
 `]}),`
 `,(0,D.jsxs)(t.h3,{id:`default-timezone`,children:[`Default Timezone`,(0,D.jsx)(t.a,{className:`header-link`,href:`#default-timezone`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`Since JS Engines do not expose default timezone, there's currently no way for us to detect local timezone that a browser is in. Therefore, the default timezone in this polyfill is `,(0,D.jsx)(t.code,{children:`UTC`}),`.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`You can change this by either calling `,(0,D.jsx)(t.code,{children:`__setDefaultTimeZone`}),` or always explicitly pass in `,(0,D.jsx)(t.code,{children:`timeZone`}),` option for accurate date time calculation.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`The polyfill prefers the primary name for the host Intl time zone. If the pack
+only has the host alias, it uses that alias. If neither is available, it uses
+`,(0,D.jsx)(t.code,{children:`UTC`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Pass `,(0,D.jsx)(t.code,{children:`timeZone`}),` to choose a zone per formatter, or call
+`,(0,D.jsx)(t.code,{children:`__setDefaultTimeZone`}),` to set an override. If a replacement pack drops the
+override's zone, new formatters use the host zone or UTC until the zone is
+available again.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Since `,(0,D.jsx)(t.code,{children:`__setDefaultTimeZone`}),` is not in the spec, you should make sure to check for its existence before calling it & after tz data has been loaded, e.g:`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsxs)(t.code,{className:`language-tsx code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/polyfill.js'`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-datetimeformat/add-all-tz.js'`}),`
@@ -4674,10 +4700,9 @@ variable periods such as “in the evening”. Names follow the requested width.
 non-breaking spaces where specified.`}),`
 `,(0,D.jsxs)(t.p,{children:[`Locale data registers CLDR default-content variants, such as `,(0,D.jsx)(t.code,{children:`en-US`}),` for English.
 Loading regional data preserves explicitly loaded language data.`]}),`
-`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`formatRangeToParts`}),` marks unique fields and separators as `,(0,D.jsx)(t.code,{children:`shared`}),`. Repeated
-fields belong to their endpoint; punctuation between repeated fields stays with
-that endpoint. Shared month names retain the complete date pattern for
-grammatical context.`]}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`formatRangeToParts`}),` labels each part `,(0,D.jsx)(t.code,{children:`startRange`}),`, `,(0,D.jsx)(t.code,{children:`endRange`}),`, or `,(0,D.jsx)(t.code,{children:`shared`}),`.
+When no interval pattern is available, each endpoint keeps its literals
+and the separator is shared.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`An explicit `,(0,D.jsx)(t.code,{children:`hourCycle: "h24"`}),` formats midnight as `,(0,D.jsx)(t.code,{children:`24`}),` for both single dates
 and ranges. Use `,(0,D.jsx)(t.code,{children:`h23`}),` for midnight `,(0,D.jsx)(t.code,{children:`00`}),`; `,(0,D.jsx)(t.code,{children:`hour12: false`}),` selects `,(0,D.jsx)(t.code,{children:`h23`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Range formatting ignores hidden AM/PM and flexible day-period boundaries.
@@ -4711,10 +4736,10 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.a,{href:`https://www.npmjs.org/package/@formatjs/intl-displaynames`,children:(0,D.jsx)(t.img,{src:`https://img.shields.io/npm/v/@formatjs/intl-displaynames.svg?style=flat-square`,alt:`npm Version`})}),`
 `,(0,D.jsx)(t.img,{src:`https://badgen.net/bundlephobia/minzip/@formatjs/intl-displaynames`,alt:`size`})]}),`
 `,(0,D.jsxs)(t.h2,{id:`language-subtags`,children:[`Language subtags`,(0,D.jsx)(t.a,{className:`header-link`,href:`#language-subtags`,children:`#`})]}),`
-`,(0,D.jsxs)(t.p,{children:[`Language names include script and region subtags, such as `,(0,D.jsx)(t.code,{children:`sr-Latn`}),`,
-`,(0,D.jsx)(t.code,{children:`sr-Latn-RS`}),`, and `,(0,D.jsx)(t.code,{children:`zh-Hant-TW`}),`. Names follow CLDR dialect/standard lookup and
-locale-specific composition patterns. With `,(0,D.jsx)(t.code,{children:`fallback: 'none'`}),`, missing names
-return `,(0,D.jsx)(t.code,{children:`undefined`}),`.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Language names include script, region, and variant subtags. For example,
+`,(0,D.jsx)(t.code,{children:`de-1901`}),` in English is “German (Traditional German orthography)”. Names follow
+CLDR dialect and standard lookup with locale-specific composition. With
+`,(0,D.jsx)(t.code,{children:`fallback: 'none'`}),`, missing names return `,(0,D.jsx)(t.code,{children:`undefined`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Custom locale data can supply `,(0,D.jsx)(t.code,{children:`patterns.separator`}),` to join qualifiers. Older
 locale data defaults to `,(0,D.jsx)(t.code,{children:`{0}, {1}`}),`. Exact names can vary by locale-data version.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`ecma-402-spec-compliance`,children:[`ECMA-402 Spec Compliance`,(0,D.jsx)(t.a,{className:`header-link`,href:`#ecma-402-spec-compliance`,children:`#`})]}),`
@@ -4728,7 +4753,7 @@ locale data defaults to `,(0,D.jsx)(t.code,{children:`{0}, {1}`}),`. Exact names
 `,(0,D.jsxs)(t.h4,{id:`core-methods`,children:[`Core Methods`,(0,D.jsx)(t.a,{className:`header-link`,href:`#core-methods`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`of(code)`})}),` - Returns the localized display name for a code`]}),`
-`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`resolvedOptions()`})}),` - Returns resolved formatting options`]}),`
+`,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`resolvedOptions()`})}),` - Returns resolved options. Includes `,(0,D.jsx)(t.code,{children:`languageDisplay`}),` only for language names.`]}),`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`supportedLocalesOf(locales)`})}),` - Returns supported locales`]}),`
 `]}),`
 `,(0,D.jsxs)(t.h4,{id:`display-name-types`,children:[`Display Name Types`,(0,D.jsx)(t.a,{className:`header-link`,href:`#display-name-types`,children:`#`})]}),`
@@ -4864,13 +4889,15 @@ For TypeScript projects, we recommend using ES module imports instead.`}),(0,D.j
 `,(0,D.jsxs)(t.h2,{id:`code-validation-and-fallback`,children:[`Code validation and fallback`,(0,D.jsx)(t.a,{className:`header-link`,href:`#code-validation-and-fallback`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Calendar codes use hyphen-separated Unicode type identifiers; underscore forms
 throw `,(0,D.jsx)(t.code,{children:`RangeError`}),`. When `,(0,D.jsx)(t.code,{children:`fallback: 'code'`}),` applies, `,(0,D.jsx)(t.code,{children:`of`}),` returns the canonical
-code, such as `,(0,D.jsx)(t.code,{children:`ZZZ`}),` for an unknown currency supplied as `,(0,D.jsx)(t.code,{children:`zzz`}),`.`]}),`
+code, such as `,(0,D.jsx)(t.code,{children:`ZZZ`}),` for an unknown currency supplied as `,(0,D.jsx)(t.code,{children:`zzz`}),`.
+Missing currency names use the configured fallback. The `,(0,D.jsx)(t.code,{children:`dayPeriod`}),` field
+returns the locale’s label, such as `,(0,D.jsx)(t.code,{children:`AM/PM`}),` in English.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Loading `,(0,D.jsx)(t.code,{children:`und`}),` locale data preserves existing English data. Root patterns remain
 separate from language-specific patterns, regardless of registration order.`]}),`
 `,(0,D.jsx)(t.p,{children:`Language display-name codes accept Unicode language subtags of two, three, or
 five to eight ASCII letters, with optional script, region, and variant subtags.`}),`
-`,(0,D.jsxs)(t.p,{children:[`Calendar display-name data uses BCP 47 identifiers, including `,(0,D.jsx)(t.code,{children:`gregory`}),` and
-`,(0,D.jsx)(t.code,{children:`ethioaa`}),`, rather than CLDR legacy keys.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`Calendar display names use codes such as `,(0,D.jsx)(t.code,{children:`gregory`}),` and `,(0,D.jsx)(t.code,{children:`ethioaa`}),`. The CLDR alias
+`,(0,D.jsx)(t.code,{children:`ethiopic-amete-alem`}),` also resolves to the localized calendar name.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Locale data registers CLDR default-content variants, such as `,(0,D.jsx)(t.code,{children:`en-US`}),` for English.
 Loading regional data preserves explicitly loaded language data.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`rust-on-hermes`,children:[`Rust on Hermes`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-on-hermes`,children:`#`})]}),`
@@ -5058,6 +5085,7 @@ when no explicit value was set.`]}),`
 a leading zero: digital formatting of `,(0,D.jsx)(t.code,{children:`{seconds: -1}`}),` produces `,(0,D.jsx)(t.code,{children:`"-0:00:01"`}),` in English.
 Later units omit their signs in both `,(0,D.jsx)(t.code,{children:`format()`}),` and `,(0,D.jsx)(t.code,{children:`formatToParts()`}),`.`]}),`
 `,(0,D.jsx)(t.p,{children:`Numeric duration fields omit grouping separators, even for large values.
+Clock separators follow the locale resolved when the formatter is constructed.
 Textual styles retain locale grouping. Fractional arithmetic preserves each
 input Number's exact integer value, including values beyond the safe-integer range.`}),`
 `,(0,D.jsxs)(t.p,{children:[`A numeric time style propagates through smaller units. Minutes and seconds
@@ -5301,7 +5329,8 @@ non-string elements throw `,(0,D.jsx)(t.code,{children:`TypeError`}),`; an inval
 separate from language-specific patterns, regardless of registration order.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Loading a locale also registers its CLDR default-content variants. For example,
 English data supports `,(0,D.jsx)(t.code,{children:`en-US`}),`. Explicitly loaded regional data remains distinct
-from its language's data, regardless of load order.`]}),`
+from its language's data, regardless of load order.
+Reloading a pack updates its inferred aliases and parents for new formatters.`]}),`
 `,(0,D.jsxs)(t.h2,{id:`rust-on-hermes`,children:[`Rust on Hermes`,(0,D.jsx)(t.a,{className:`header-link`,href:`#rust-on-hermes`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.a,{href:`/docs/guides/hermes-intl`,children:`Hermes Intl SDK`}),` includes Rust ListFormat and
 source/bytecode installers. Locale data is compiled into the archive; use the
@@ -5544,6 +5573,9 @@ requested tags in their original order, preserving region subtags and Unicode
 extensions even when matching falls back to a parent locale.`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsx)(t.code,{className:`language-tsx code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token function`,children:`LookupSupportedLocales`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token string`,children:`'de'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`,`}),` `,(0,D.jsx)(t.span,{className:`token punctuation`,children:`[`}),(0,D.jsx)(t.span,{className:`token string`,children:`'de-AT-u-co-phonebk'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`]`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),` `,(0,D.jsx)(t.span,{className:`token comment`,children:`// ['de-AT-u-co-phonebk']`}),`
 `]})})}),`
+`,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`FilterLocales(availableLocales, requestedLocales, matcher)`}),` takes canonical
+locale tags and accepts `,(0,D.jsx)(t.code,{children:`'lookup'`}),` or `,(0,D.jsx)(t.code,{children:`'best fit'`}),`. It returns matching requested
+tags in order. Formatter `,(0,D.jsx)(t.code,{children:`supportedLocalesOf`}),` uses best fit by default.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Locale resolution uses an internal record isolated from inherited extension-key
 setters on `,(0,D.jsx)(t.code,{children:`Object.prototype`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Locale matching extracts only the Unicode `,(0,D.jsx)(t.code,{children:`u`}),` extension. Private-use subtags
@@ -5600,6 +5632,8 @@ Its `,(0,D.jsx)(t.code,{children:`format`}),` and `,(0,D.jsx)(t.code,{children:`
 `,(0,D.jsx)(t.code,{children:`formatToParts`}),`, `,(0,D.jsx)(t.code,{children:`formatRange`}),`, and `,(0,D.jsx)(t.code,{children:`formatRangeToParts`}),` require an initialized
 formatter and throw on these wrappers. Repeated legacy initialization throws.
 Calling an already initialized formatter preserves its original options.`]}),`
+`,(0,D.jsx)(t.p,{children:`The installed Number and BigInt locale methods accept primitives and boxed
+values of their own type. Invalid receivers throw before options are read.`}),`
 `,(0,D.jsxs)(t.h4,{id:`formatting-styles`,children:[`Formatting Styles`,(0,D.jsx)(t.a,{className:`header-link`,href:`#formatting-styles`,children:`#`})]}),`
 `,(0,D.jsxs)(t.ul,{children:[`
 `,(0,D.jsxs)(t.li,{children:[(0,D.jsx)(t.strong,{children:(0,D.jsx)(t.code,{children:`'decimal'`})}),` - Plain number format (default)`]}),`
@@ -5650,6 +5684,7 @@ Calling an already initialized formatter preserves its original options.`]}),`
 `,(0,D.jsxs)(t.h4,{id:`keep-trailing-zeros-stage-3`,children:[`Keep trailing zeros (Stage 3)`,(0,D.jsx)(t.a,{className:`header-link`,href:`#keep-trailing-zeros-stage-3`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Implements the `,(0,D.jsx)(t.a,{href:`https://tc39.es/proposal-intl-keep-trailing-zeros/`,children:`Keep trailing zeros draft`}),`.
 Numeric strings retain their precision within the configured digit limits.
+Scientific and engineering notation use the exact decimal value to select the exponent.
 Number and BigInt inputs keep their existing behavior.`]}),`
 `,(0,D.jsx)(t.pre,{className:`language-js`,children:(0,D.jsxs)(t.code,{className:`language-js code-highlight`,children:[(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`const`}),` nf `,(0,D.jsx)(t.span,{className:`token operator`,children:`=`}),` `,(0,D.jsx)(t.span,{className:`token keyword`,children:`new`}),` `,(0,D.jsxs)(t.span,{className:`token class-name`,children:[`Intl`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),`NumberFormat`]}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'en'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),`
 `]}),(0,D.jsxs)(t.span,{className:`code-line`,children:[`nf`,(0,D.jsx)(t.span,{className:`token punctuation`,children:`.`}),(0,D.jsx)(t.span,{className:`token method function property-access`,children:`format`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`(`}),(0,D.jsx)(t.span,{className:`token string`,children:`'1.00'`}),(0,D.jsx)(t.span,{className:`token punctuation`,children:`)`}),` `,(0,D.jsx)(t.span,{className:`token comment`,children:`// "1.00"`}),`
@@ -6548,8 +6583,10 @@ claims against TS/native JS. † marks round max/min > 1.5.
 `,(0,D.jsxs)(t.h2,{id:`usage`,children:[`Usage`,(0,D.jsx)(t.a,{className:`header-link`,href:`#usage`,children:`#`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Timezone enumeration uses pinned IANA/CLDR primary IDs, including country-specific
 IDs such as `,(0,D.jsx)(t.code,{children:`Africa/Accra`}),`. It omits aliases such as `,(0,D.jsx)(t.code,{children:`America/Yellowknife`}),`.
-The installed DateTimeFormat must accept each returned ID; its resolved spelling
-may differ on older hosts.`]}),`
+With FormatJS DateTimeFormat, the list reflects the loaded time-zone pack,
+including UTC and fixed IANA zones built into the polyfill. Time-zone enumeration
+works before locale data loads. Older hosts may resolve a primary ID to an older
+spelling.`]}),`
 `,(0,D.jsxs)(t.h3,{id:`simple`,children:[`Simple`,(0,D.jsx)(t.a,{className:`header-link`,href:`#simple`,children:`#`})]}),`
 `,(0,D.jsx)(t.pre,{className:`language-tsx`,children:(0,D.jsx)(t.code,{className:`language-tsx code-highlight`,children:(0,D.jsxs)(t.span,{className:`code-line`,children:[(0,D.jsx)(t.span,{className:`token keyword`,children:`import`}),` `,(0,D.jsx)(t.span,{className:`token string`,children:`'@formatjs/intl-supportedvaluesof/polyfill.js'`}),`
 `]})})}),`
@@ -6599,6 +6636,19 @@ downloaded executable and bytecode.`]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`Intl.supportedValuesOf`}),` converts its key to a string before validating the
 category. String wrapper objects are accepted; Symbols throw `,(0,D.jsx)(t.code,{children:`TypeError`}),`.`]}),`
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`Intl.supportedValuesOf`}),` is callable but cannot be used as a constructor.`]}),`
+`,(0,D.jsx)(t.p,{children:`With FormatJS DateTimeFormat, calendar results reflect the calendar data loaded
+across all locales and use canonical identifiers.`}),`
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.code,{children:`unit`}),` category returns all sanctioned units independently of formatter
+support. `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-availablecanonicalunits`,children:`ECMA-402 §6.6.3`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`The `,(0,D.jsx)(t.code,{children:`numberingSystem`}),` category includes every system in Table 30. Additional
+systems require support in NumberFormat, DateTimeFormat, and RelativeTimeFormat.
+The polyfill checks English and the locales associated with the system in CLDR.
+`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-availablecanonicalnumberingsystems`,children:`ECMA-402 §6.7.1`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`Currency codes are checked against NumberFormat and, where installed,
+DisplayNames. The polyfill probes other CLDR locales when CLDR lacks an English
+name. FormatJS also supplies the registered English name for `,(0,D.jsx)(t.code,{children:`XAD`}),`.
+`,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-availablecanonicalcurrencies`,children:`ECMA-402 §6.4`}),`
+`,(0,D.jsx)(t.a,{href:`https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/dl-currency-iso-amendment-179.pdf`,children:`ISO 4217 amendment 179`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Time-zone candidates include the pinned IANA `,(0,D.jsx)(t.code,{children:`etcetera`}),` Zone records and `,(0,D.jsx)(t.code,{children:`UTC`}),`,
 in addition to continental transition zones. Runtime filtering retains primary
 identifiers and omits aliases such as `,(0,D.jsx)(t.code,{children:`Etc/UTC`}),`.`]}),`

@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-BbSpY_YP.js"></script>
+    <script type="module" crossorigin src="/assets/index-DZj_Bqe5.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -28,8 +28,10 @@
 <h2 id="usage" class="text-3xl font-bold mt-10 mb-4 text-white hover:[&amp;_.header-link]:visible border-b border-purple-500/20 pb-3">Usage<a href="#usage" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h2>
 <p class="mb-4 leading-7 text-gray-300">Timezone enumeration uses pinned IANA/CLDR primary IDs, including country-specific
 IDs such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Africa/Accra</code>. It omits aliases such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">America/Yellowknife</code>.
-The installed DateTimeFormat must accept each returned ID; its resolved spelling
-may differ on older hosts.</p>
+With FormatJS DateTimeFormat, the list reflects the loaded time-zone pack,
+including UTC and fixed IANA zones built into the polyfill. Time-zone enumeration
+works before locale data loads. Older hosts may resolve a primary ID to an older
+spelling.</p>
 <h3 id="simple" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible">Simple<a href="#simple" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">import</span> <span class="token string">&#x27;@formatjs/intl-supportedvaluesof/polyfill.js&#x27;</span>
 </span></code></pre>
@@ -79,6 +81,19 @@ downloaded executable and bytecode.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.supportedValuesOf</code> converts its key to a string before validating the
 category. String wrapper objects are accepted; Symbols throw <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">TypeError</code>.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Intl.supportedValuesOf</code> is callable but cannot be used as a constructor.</p>
+<p class="mb-4 leading-7 text-gray-300">With FormatJS DateTimeFormat, calendar results reflect the calendar data loaded
+across all locales and use canonical identifiers.</p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">unit</code> category returns all sanctioned units independently of formatter
+support. <a href="https://tc39.es/ecma402/#sec-availablecanonicalunits" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ECMA-402 §6.6.3</a></p>
+<p class="mb-4 leading-7 text-gray-300">The <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">numberingSystem</code> category includes every system in Table 30. Additional
+systems require support in NumberFormat, DateTimeFormat, and RelativeTimeFormat.
+The polyfill checks English and the locales associated with the system in CLDR.
+<a href="https://tc39.es/ecma402/#sec-availablecanonicalnumberingsystems" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ECMA-402 §6.7.1</a></p>
+<p class="mb-4 leading-7 text-gray-300">Currency codes are checked against NumberFormat and, where installed,
+DisplayNames. The polyfill probes other CLDR locales when CLDR lacks an English
+name. FormatJS also supplies the registered English name for <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">XAD</code>.
+<a href="https://tc39.es/ecma402/#sec-availablecanonicalcurrencies" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ECMA-402 §6.4</a>
+<a href="https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/dl-currency-iso-amendment-179.pdf" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">ISO 4217 amendment 179</a></p>
 <p class="mb-4 leading-7 text-gray-300">Time-zone candidates include the pinned IANA <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">etcetera</code> Zone records and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>,
 in addition to continental transition zones. Runtime filtering retains primary
 identifiers and omits aliases such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/UTC</code>.</p>
