@@ -4285,8 +4285,9 @@ left-to-right order and rejects Symbols with `,(0,D.jsx)(t.code,{children:`TypeE
 `,(0,D.jsxs)(t.p,{children:[(0,D.jsx)(t.code,{children:`resolvedOptions`}),` and `,(0,D.jsx)(t.code,{children:`supportedLocalesOf`}),` are writable, configurable methods,
 but cannot be constructed with `,(0,D.jsx)(t.code,{children:`new`}),`. The constructor's `,(0,D.jsx)(t.code,{children:`prototype`}),` property
 is non-writable; the compare getter and bound function expose the standard names.`]}),`
-`,(0,D.jsxs)(t.p,{children:[`The default `,(0,D.jsx)(t.code,{children:`ignorePunctuation`}),` value follows the locale’s CLDR collation
-settings. Thai defaults to `,(0,D.jsx)(t.code,{children:`true`}),`; an explicit `,(0,D.jsx)(t.code,{children:`false`}),` preserves punctuation.`]}),`
+`,(0,D.jsxs)(t.p,{children:[`The resolved locale and `,(0,D.jsx)(t.code,{children:`usage`}),` supply the defaults for `,(0,D.jsx)(t.code,{children:`caseFirst`}),` and
+`,(0,D.jsx)(t.code,{children:`ignorePunctuation`}),`. Thai defaults to ignoring punctuation. Set
+`,(0,D.jsx)(t.code,{children:`ignorePunctuation: false`}),` to preserve it.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`CLDR `,(0,D.jsx)(t.code,{children:`root`}),` data remains available for collation inheritance, but is excluded
 from available locale identifiers used during negotiation.`]}),`
 `,(0,D.jsxs)(t.p,{children:[`Collation metadata and tailoring keys use canonical BCP 47 types from CLDR,
