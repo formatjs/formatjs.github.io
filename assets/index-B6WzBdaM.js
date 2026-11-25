@@ -6663,6 +6663,9 @@ DisplayNames. The polyfill probes other CLDR locales when CLDR lacks an English
 name. FormatJS also supplies the registered English name for `,(0,D.jsx)(t.code,{children:`XAD`}),`.
 `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-availablecanonicalcurrencies`,children:`ECMA-402 §6.4`}),`
 `,(0,D.jsx)(t.a,{href:`https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/dl-currency-iso-amendment-179.pdf`,children:`ISO 4217 amendment 179`})]}),`
+`,(0,D.jsxs)(t.p,{children:[`FormatJS DateTimeFormat supplies its loaded calendar list directly. For other
+formatters, calendar probes try English and locales associated with each
+calendar in CLDR. `,(0,D.jsx)(t.a,{href:`https://tc39.es/ecma402/#sec-availablecalendars`,children:`ECMA-402 §6.9.1`})]}),`
 `,(0,D.jsxs)(t.p,{children:[`Time-zone candidates include the pinned IANA `,(0,D.jsx)(t.code,{children:`etcetera`}),` Zone records and `,(0,D.jsx)(t.code,{children:`UTC`}),`,
 in addition to continental transition zones. Runtime filtering retains primary
 identifiers and omits aliases such as `,(0,D.jsx)(t.code,{children:`Etc/UTC`}),`.`]}),`
