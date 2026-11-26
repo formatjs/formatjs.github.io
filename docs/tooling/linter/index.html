@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-DIGXCCUn.js"></script>
+    <script type="module" crossorigin src="/assets/index-BZCw_03M.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -647,9 +647,34 @@ attributes that you can customize.</p>
 </span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
 </span></code></pre>
+<h3 id="no-literal-template-placeholder" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-literal-template-placeholder</code><a href="#no-literal-template-placeholder" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
+<p class="mb-4 leading-7 text-gray-300">Don&#x27;t put another template syntax&#x27;s placeholders in message text: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{{name}}</code> (Mustache, Handlebars, i18next) or printf&#x27;s <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">%s</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">%d</code>, <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">%1$s</code> and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">%(name)s</code>. In strict config.</p>
+<p class="mb-4 leading-7 text-gray-300">Printf placeholders are detected next to other text, including CJK characters.
+Escaped percent pairs (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">%%</code>) stay literal.</p>
+<h4 id="why-12" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-12" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
+<li class="mb-2 text-gray-300">ICU only parses these as literal text, usually quoted (<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&#x27;{{name}}&#x27;</code>), so translators see them as words to keep or translate.</li>
+<li class="mb-2 text-gray-300">Code that fills them in after translation with <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">.replace()</code> breaks once a translator reorders the sentence or translates the words around the token.</li>
+<li class="mb-2 text-gray-300">An ICU argument lets the value be formatted for the locale, like <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{price, number, ::currency/USD}</code>.</li>
+</ul>
+<pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token keyword">const</span> messages <span class="token operator">=</span> <span class="token function">defineMessages</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token comment">// WORKS</span>
+</span><span class="code-line">  foo<span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;Its recent {direction} to {price, number, ::currency/USD}&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token comment">// FAILS</span>
+</span><span class="code-line">  bar<span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&quot;Its recent &#x27;{{direction}}&#x27; to &#x27;{{event_value}}&#x27;&quot;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token comment">// FAILS</span>
+</span><span class="code-line">  baz<span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">    defaultMessage<span class="token operator">:</span> <span class="token string">&#x27;Uploaded %s files&#x27;</span><span class="token punctuation">,</span>
+</span><span class="code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></code></pre>
 <h3 id="no-multiple-plurals" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-multiple-plurals</code><a href="#no-multiple-plurals" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This prevents specifying multiple plurals in your message.</p>
-<h4 id="why-12" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-12" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-13" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-13" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300">Nested plurals are hard to translate across languages so some translation vendors don&#x27;t allow it.</li>
 </ul>
@@ -671,7 +696,7 @@ attributes that you can customize.</p>
 </span></code></pre>
 <h3 id="no-offset" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-offset</code><a href="#no-offset" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This prevents specifying offset in plural rules in your message.</p>
-<h4 id="why-13" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-13" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-14" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-14" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300">Offset has complicated logic implication so some translation vendors don&#x27;t allow it.</li>
 </ul>
@@ -688,7 +713,7 @@ attributes that you can customize.</p>
 </span></code></pre>
 <h3 id="enforce-id" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">enforce-id</code><a href="#enforce-id" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This enforces generated ID to be set in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code>.</p>
-<h4 id="why-14" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-14" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-15" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-15" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">Pipelines can enforce automatic/manual ID generation at the linter level (autofix to insert autogen ID) so this guarantees that.</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line">
 </span><span class="code-line"><span class="token keyword">const</span> messages <span class="token operator">=</span> <span class="token function">defineMessages</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -731,7 +756,7 @@ attributes that you can customize.</p>
 </ul>
 <h3 id="no-invalid-icu" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-invalid-icu</code><a href="#no-invalid-icu" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This bans strings inside <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">defaultMessage</code> that are syntactically invalid.</p>
-<h4 id="why-15" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-15" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-16" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-16" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">It&#x27;s easy to miss strings that look correct to you as a developer but which are actually syntactically invalid ICU strings. For instance, the following would cause an eslint error:</p>
 <pre class="relative group p-5 mb-6 overflow-auto bg-gradient-to-br from-gray-900 to-gray-950 text-gray-200 rounded-lg border border-purple-500/20 shadow-xl hover:border-purple-500/40 transition-colors"><code class="font-mono text-sm"><span class="code-line"><span class="token function">formatMessage</span><span class="token punctuation">(</span>
 </span><span class="code-line">  <span class="token punctuation">{</span>
@@ -744,7 +769,7 @@ attributes that you can customize.</p>
 </span></code></pre>
 <h3 id="no-id" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-id</code><a href="#no-id" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This bans explicit ID in <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">MessageDescriptor</code>.</p>
-<h4 id="why-16" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-16" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-17" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-17" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">We generally encourage automatic ID generation due to <a href="https://formatjs.github.io/docs/getting-started/message-declaration" class="text-purple-400 hover:text-purple-300 underline decoration-purple-500/50 hover:decoration-purple-400 transition-colors">these reasons</a>. This makes sure no explicit IDs are set.</p>
 <h3 id="no-complex-selectors" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-complex-selectors</code><a href="#no-complex-selectors" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Make sure a sentence is not too complex.
@@ -772,7 +797,7 @@ Default complexity limit is 20 (using <a href="https://help.smartling.com/hc/en-
 </span></code></pre>
 <h3 id="no-useless-message" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">no-useless-message</code><a href="#no-useless-message" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">This bans messages that do not require translation.</p>
-<h4 id="why-17" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-17" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-18" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-18" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">Messages like <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{test}</code> is not actionable by translators. The code should just directly reference <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">test</code>.</p>
 <h3 id="prefer-formatted-message" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prefer-formatted-message</code><a href="#prefer-formatted-message" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Use <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">&lt;FormattedMessage&gt;</code> instead of the imperative <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">intl.formatMessage(...)</code> if applicable.</p>
@@ -786,14 +811,14 @@ Default complexity limit is 20 (using <a href="https://help.smartling.com/hc/en-
 </span></span><span class="code-line"><span class="token plain-text">  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FormattedMessage</span></span> <span class="token attr-name">defaultMessage</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>hello<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
 </span></span><span class="code-line"><span class="token plain-text"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
 </span></code></pre>
-<h4 id="why-18" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-18" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-19" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-19" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <p class="mb-4 leading-7 text-gray-300">Consistent coding style in JSX and less syntax clutter.</p>
 <p class="mb-4 leading-7 text-gray-300"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">--fix</code> converts direct JSX children from <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">useIntl()</code> bindings and manages
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">FormattedMessage</code> imports. Only plain inline descriptors are fixed; unsafe
 cases remain report-only. Hook calls are retained.</p>
 <h3 id="prefer-full-sentence" class="text-2xl font-semibold mt-8 mb-3 text-purple-300 hover:[&amp;_.header-link]:visible"><code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">prefer-full-sentence</code><a href="#prefer-full-sentence" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h3>
 <p class="mb-4 leading-7 text-gray-300">Messages should be self-contained, full sentences. Leading or trailing whitespace in a message suggests it is a fragment being concatenated with other strings, which is an anti-pattern for localization. Placeholders joined directly to words, such as <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">{count}day</code>, also fail because units and spacing vary by locale.</p>
-<h4 id="why-19" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-19" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-20" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-20" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <ul class="pl-6 mb-4 list-disc marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300">String concatenation breaks translation because different languages have different word orders, grammar rules, and sentence structures.</li>
 <li class="mb-2 text-gray-300">Translators need the full sentence to produce an accurate translation.</li>
@@ -879,7 +904,7 @@ cases remain report-only. Hook calls are retained.</p>
 </span></span></span></span><span class="code-line"><span class="token argument"><span class="token content"><span class="token plural-style">    <span class="token selector"><span class="token keyword">other</span></span> <span class="token nested-message"><span class="token message-delimiter punctuation">{</span><span class="token message">#th</span><span class="token message-delimiter punctuation">}</span></span></span>
 </span></span></span><span class="code-line"><span class="token argument"><span class="token content"></span><span class="token argument-delimiter operator">}</span></span> place.
 </span></code></pre>
-<h4 id="why-20" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-20" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
+<h4 id="why-21" class="text-xl font-semibold mt-6 mb-2 text-purple-200 hover:[&amp;_.header-link]:visible">Why<a href="#why-21" class="header-link invisible ml-2 text-purple-400 no-underline text-sm hover:text-purple-300 transition-colors">#</a></h4>
 <ol class="pl-6 mb-4 list-decimal marker:text-purple-400 space-y-2">
 <li class="mb-2 text-gray-300">More concise message.</li>
 <li class="mb-2 text-gray-300">Ensures that the count are correctly formatted as numbers.</li>
