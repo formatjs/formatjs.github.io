@@ -9,7 +9,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4H6ZM973P2');
           </script>
-    <script type="module" crossorigin src="/assets/index-B6WzBdaM.js"></script>
+    <script type="module" crossorigin src="/assets/index-CKN1iOok.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc90bTuE.css">
   </head>
   <body>
@@ -343,9 +343,11 @@ letter case only; non-ASCII lookalikes are rejected.</p>
 preserves named identifiers with IANA casing: <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">asia/calcutta</code> becomes
 <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Asia/Calcutta</code>, and <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/GMT</code> stays <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/GMT</code>. Formatting uses the linked zone&#x27;s
 transition data and localized names. <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">__setDefaultTimeZone</code> preserves names too.
-<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shouldPolyfill()</code> checks named-zone preservation, numeric offsets, and callable
-locale, range, and parts methods. A throwing capability probe also selects the
-polyfill.</p>
+<code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">shouldPolyfill()</code> accepts native alias canonicalization, including <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">Etc/UTC</code>
+to <code class="px-2 py-1 rounded-md bg-purple-900/30 text-purple-300 font-mono text-sm border border-purple-500/20">UTC</code>. It checks numeric offsets and callable locale, range, and parts methods.
+A throwing capability probe also selects the polyfill.
+This detector does not certify Temporal integration conformance, including
+Temporal inputs and identifier preservation.</p>
 <p class="mb-4 leading-7 text-gray-300">Constructor options are read once in specification order. Default date fields
 are applied to internal records without writing to caller options.</p>
 <p class="mb-4 leading-7 text-gray-300">Legacy locale packs without an “at time” connector use their standard
